@@ -8,6 +8,7 @@ import com.koreaIT.demo.util.Util;
 import com.koreaIT.demo.vo.Member;
 import com.koreaIT.demo.vo.ResultData;
 
+
 @Service
 public class MemberService {
 	

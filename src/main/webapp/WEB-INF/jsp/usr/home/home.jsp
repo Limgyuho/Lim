@@ -1,0 +1,34 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:set var="pageTitle" value="Home" />
+<%@ include file="../common/head.jsp"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+
+	<form action="doLogin" method="POST">
+		<div class="center">
+			<div class="login-form">
+				<h1 class="text-2xl">대한민국 공공기관</h1>
+				<hr />
+				<hr />
+				<div class="mt-5">
+					<input type="text" name="username" placeholder="아이디" required>
+				</div>
+				<div class="input-field">
+					<input type="password" name="password" placeholder="비밀번호" required>
+				</div>
+				<div class="button-row">
+					<button class="btn btn-outline btn-success type="submit">로그인</button>
+					<a class="btn-text-link btn btn-active mr-2" href="/register">회원가입</a>
+				</div>
+			</div>
+		</div>
+	</form>
+	<p id="statusMessage"></p>
+</body>
+</html>
