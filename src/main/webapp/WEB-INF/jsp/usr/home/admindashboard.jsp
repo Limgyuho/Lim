@@ -14,30 +14,47 @@
 
 <table>
     <tr>
+        <th>ID</th>
         <th>이름</th>
         <th>아이디</th>
         <th>이메일</th>
         <th>전화번호</th>
-        <th>승인</th>
+        <th>승인 상태</th>
+        <th>작업</th>
     </tr>
     <c:forEach items="${registrationRequests}" var="request">
         <tr>
-            <td>${rq.name}</td>
-            <td>${rq.username}</td>
-            <td>${rq.email}</td>
-            <td>${rq.phone}</td>
+            <td>${request.id}</td>
+            <td>${request.name}</td>
+            <td>${request.username}</td>
+            <td>${request.email}</td>
+            <td>${request.phone}</td>
+            <td>대기중</td>
             <td>
-                <form action="/admin/approve" method="post">
-                    <input type="hidden" name="requestId" value="${rq.id}">
-                    <button class="btn btn-outline btn-success"  type="submit">승인</button>
+                <form id="approveForm${request.id}" action="/admin/approve" method="post">
+                    <input type="hidden" name="requestId" value="${request.id}">
+                    <button type="submit" onclick="showProcessingMessage(${request.id})">승인</button>
                 </form>
-                <form action="/admin/reject" method="post">
-                    <input type="hidden" name="requestId" value="${rq.id}">
+                <form id="rejectForm${request.id}" action="/admin/reject" method="post">
+                    <input type="hidden" name="requestId" value="${request.id}">
+                    <button type="submit" onclick="showProcessingMessage(${request.id})">거부</button>
                 </form>
-                    <button class="btn btn-outline btn-success" type="submit">거절</button>
             </td>
         </tr>
     </c:forEach>
 </table>
-</body>
-</html>
+
+<script>
+    function showProcessingMessage(requestId) {
+        var messageElement = document.getElementById("statusMessage");
+        messageElement.innerText = "승인 처리중입니다...";
+        var approveForm = document.getElementById("approveForm" + requestId);
+        var rejectForm = document.getElementById("rejectForm" + requestId);
+        approveForm.addEventListener("submit", function() {
+            messageElement.innerText = "회원가입이 승인되었습니다.";
+        });
+        rejectForm.addEventListener("submit", function() {
+            messageElement.innerText = "회원가입이 거절되었습니다.";
+        });
+    }
+</script>

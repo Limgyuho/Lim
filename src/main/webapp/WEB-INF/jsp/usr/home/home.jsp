@@ -9,8 +9,7 @@
 <meta charset="UTF-8">
 </head>
 <body>
-
-	<form action="doLogin" method="POST">
+	<form action="/usr/home/main" method="post">
 		<div class="center">
 			<div class="login-form">
 				<h1 class="text-2xl">대한민국 공공기관</h1>
@@ -24,11 +23,14 @@
 				</div>
 				<div class="button-row">
 					<button class="btn btn-outline btn-success type="submit">로그인</button>
-					<a class="btn-text-link btn btn-active mr-2" href="/register">회원가입</a>
-				</div>
-			</div>
-		</div>
 	</form>
+	<a class="btn-text-link btn btn-active mr-2 " href="/usr/member/join">회원가입</a>
+	</div>
+	</div>
+	</div>
+
+
+
 	<p id="statusMessage"></p>
 </body>
 </html>

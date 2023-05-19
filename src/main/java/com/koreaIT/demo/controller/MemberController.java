@@ -100,7 +100,7 @@ public class MemberController {
 		return "usr/member/join";
 	}
 	
-	@RequestMapping("/usr/member/doJoin")
+	@RequestMapping("/usr/member/dojoin")
 	@ResponseBody
 	public String doJoin(String loginId, String loginPw, String name, String nickname, String cellphoneNum, String email) {
 
@@ -130,5 +130,24 @@ public class MemberController {
 		}
 		
 		return Util.jsReplace(doJoinRd.getMsg(), "/");
+	}
+	
+	
+	
+	@RequestMapping("/usr/member/loginIdDupCheck")
+	@ResponseBody
+	public ResultData loginIdDupCheck(String loginId) {
+		
+		if (Util.empty(loginId)) {
+			return ResultData.from("F-1", "아이디를 입력해주세요");
+		}
+		
+		Member member = memberService.getMemberByLoginId(loginId);
+		
+		if (member != null) {
+			return ResultData.from("F-2", "이미 사용중인 아이디입니다", "loginId", loginId);
+		}
+		
+		return ResultData.from("S-1", "사용 가능한 아이디입니다", "loginId", loginId);
 	}
 }

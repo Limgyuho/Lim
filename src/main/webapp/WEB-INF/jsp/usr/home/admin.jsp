@@ -19,10 +19,10 @@
 	        <hr />
 	        <hr />
 	        <div class="mt-5">
-	            <input type="text" name="username" placeholder="아이디" required>
+	            <input type="text" name="loginId" placeholder="아이디" >
 	        </div>
 	        <div class="input-field">
-	            <input type="password" name="password" placeholder="비밀번호" required>
+	            <input type="text" name="loginPw" placeholder="비밀번호" >
 	        </div>
 	        <div class="button-row">
 	            <button onclick="location.href='admindashboard'" class="btn btn-outline btn-success" type="submit">로그인</button>
