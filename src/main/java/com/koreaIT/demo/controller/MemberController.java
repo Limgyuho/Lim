@@ -33,44 +33,9 @@ public class MemberController {
 		this.rq = rq;
 	}
 	
-	@RequestMapping("/usr/admin/login")
-	public String adminlogin() {
-		return "usr/admin/login";
-	}
 	
-	@RequestMapping("/usr/admin/doLogin")
-	@ResponseBody
-	public String admindoLogin(String loginId, String loginPw) {
-		
-		
-		if (Util.empty(loginId)) {
-			return Util.jsHistoryBack("아이디를 입력해주세요");
-		}
-		if (Util.empty(loginPw)) {
-			return Util.jsHistoryBack("비밀번호를 입력해주세요");
-		}
-		
-		Member member = memberService.getMemberByLoginId(loginId);
-		
-		if (member == null) {
-			return Util.jsHistoryBack(Util.f("%s은(는) 존재하지 않는 아이디입니다", loginId));
-		}
-		
-		if (member.getLoginPw().equals(loginPw) == false) {
-			return Util.jsHistoryBack("비밀번호가 일치하지 않습니다");
-		}
 
-		rq.login(member);
-		
-		return Util.jsReplace(Util.f("%s 회원님 환영합니다~!", member.getName()), "/");
-	}
-
-	@RequestMapping("/usr/member/login")
-	public String login() {
-		return "usr/member/login";
-	}
-	
-	@RequestMapping("/usr/member/doLogin")
+	@RequestMapping("/usr/home/doLogin")
 	@ResponseBody
 	public String doLogin(String loginId, String loginPw) {
 			
@@ -93,7 +58,7 @@ public class MemberController {
 
 		rq.login(member);
 		
-		return Util.jsReplace(Util.f("%s 회원님 환영합니다~!", member.getName()), "/");
+		return Util.jsReplace(Util.f("%s 회원님 환영합니다~!", member.getName()), "/usr/home/main");
 	}
 	
 	

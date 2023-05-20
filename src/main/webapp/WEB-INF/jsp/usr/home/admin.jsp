@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
+<c:set var="pageTitle" value="Login" />
 <%@ include file="../common/head.jsp" %>
 <!DOCTYPE html>
 <html>
@@ -12,7 +12,7 @@
 <body>
 
 
-<form action="/usr/member/doLogin" method="post">
+<form action="admindashboard"post">
 	<div class="center">
 	    <div class="login-form">
 	        <h1 class="text-2xl">어드민 페이지</h1>
@@ -25,7 +25,7 @@
 	            <input type="text" name="loginPw" placeholder="비밀번호" >
 	        </div>
 	        <div class="button-row">
-	            <button onclick="location.href='admindashboard'" class="btn btn-outline btn-success" type="submit">로그인</button>
+	            <button class="btn btn-outline btn-success" type="submit">로그인</button>
 	            
 	        </div>
 	

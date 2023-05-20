@@ -9,10 +9,10 @@ public class HomeContoller {
 	public String showMain() {
 		return "usr/home/home";
 	}
-	@RequestMapping("/")
-	public String showRoot() {
-		return "redirect:/usr/home/home";
-	}	
+//	@RequestMapping("/")
+//	public String showRoot() {
+//		return "redirect:/usr/home/main";
+//	}	
 	
 	@RequestMapping("/usr/home/admin")
 	public String showadmin() {
