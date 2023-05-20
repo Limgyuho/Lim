@@ -12,7 +12,7 @@
 <body>
 
 
-
+<form action="/usr/member/doLogin" method="post">
 	<div class="center">
 	    <div class="login-form">
 	        <h1 class="text-2xl">어드민 페이지</h1>
@@ -32,6 +32,6 @@
 	        <p id="statusMessage"></p>
 	    </div>
 	</div>
-
+</form>
 </body>
 </html>

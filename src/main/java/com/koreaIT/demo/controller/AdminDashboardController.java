@@ -9,10 +9,8 @@
 //import com.koreaIT.demo.repository.JoinRequestRepository;
 //import com.koreaIT.demo.vo.JoinRequest;
 //
-//// ...
 //
 //public class AdminDashboardController {
-//
 //
 //	@GetMapping("/admin/dashboard")
 //	public String adminDashboard(HttpServletRequest request) {

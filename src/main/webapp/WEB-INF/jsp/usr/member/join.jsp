@@ -52,12 +52,7 @@
 			return;
 		}
 		
-		form.nickname.value = form.nickname.value.trim();
-		if (form.nickname.value.length == 0) {
-			alert('닉네임을 입력해주세요');
-			form.nickname.focus();
-			return;
-		}
+		
 		
 		form.cellphoneNum.value = form.cellphoneNum.value.trim();
 		if (form.cellphoneNum.value.length == 0) {
@@ -139,10 +134,6 @@
 							<tr>
 								<th>이름</th>
 								<td><input type="text" name="name" placeholder="이름을 입력해주세요"/></td>
-							</tr>
-							<tr>
-								<th>닉네임</th>
-								<td><input  type="text" name="nickname" placeholder="닉네임을 입력해주세요"/></td>
 							</tr>
 							<tr>
 								<th>전화번호</th>

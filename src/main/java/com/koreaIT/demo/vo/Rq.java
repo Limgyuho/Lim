@@ -80,5 +80,11 @@ public class Rq {
 	public void initRq() {
 		
 	}
+
+	public void login(Admin member) {
+		httpSession.setAttribute("loginedMemberId", member.getId());
+		
+	}
+	
 	
 }

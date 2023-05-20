@@ -62,7 +62,7 @@ public class MemberController {
 
 		rq.login(member);
 		
-		return Util.jsReplace(Util.f("%s 회원님 환영합니다~!", member.getNickname()), "/");
+		return Util.jsReplace(Util.f("%s 회원님 환영합니다~!", member.getName()), "/");
 	}
 
 	@RequestMapping("/usr/member/login")
@@ -73,11 +73,7 @@ public class MemberController {
 	@RequestMapping("/usr/member/doLogin")
 	@ResponseBody
 	public String doLogin(String loginId, String loginPw) {
-		
-		if (rq.getLoginedMemberId() != 0) {
-			return Util.jsHistoryBack("로그아웃 후 이용해주세요");
-		}
-		
+			
 		if (Util.empty(loginId)) {
 			return Util.jsHistoryBack("아이디를 입력해주세요");
 		}
@@ -97,7 +93,7 @@ public class MemberController {
 
 		rq.login(member);
 		
-		return Util.jsReplace(Util.f("%s 회원님 환영합니다~!", member.getNickname()), "/");
+		return Util.jsReplace(Util.f("%s 회원님 환영합니다~!", member.getName()), "/");
 	}
 	
 	
@@ -109,7 +105,7 @@ public class MemberController {
 	
 	@RequestMapping("/usr/member/dojoin")
 	@ResponseBody
-	public String doJoin(String loginId, String loginPw, String name, String nickname, String cellphoneNum, String email) {
+	public String doJoin(String loginId, String loginPw, String name, String cellphoneNum, String email) {
 
 		if (Util.empty(loginId)) {
 			return Util.jsHistoryBack("아이디를 입력해주세요");
@@ -120,9 +116,7 @@ public class MemberController {
 		if (Util.empty(name)) {
 			return Util.jsHistoryBack("이름을 입력해주세요");
 		}
-		if (Util.empty(nickname)) {
-			return Util.jsHistoryBack("닉네임을 입력해주세요");
-		}
+		
 		if (Util.empty(cellphoneNum)) {
 			return Util.jsHistoryBack("전화번호를 입력해주세요");
 		}
@@ -130,7 +124,7 @@ public class MemberController {
 			return Util.jsHistoryBack("이메일을 입력해주세요");
 		}
 		
-		ResultData<Integer> doJoinRd = memberService.doJoin(loginId, loginPw, name, nickname, cellphoneNum, email);
+		ResultData<Integer> doJoinRd = memberService.doJoin(loginId, loginPw, name, cellphoneNum, email);
 		
 		if (doJoinRd.isFail()) {
 			return Util.jsHistoryBack(doJoinRd.getMsg());

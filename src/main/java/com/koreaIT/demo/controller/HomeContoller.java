@@ -19,6 +19,11 @@ public class HomeContoller {
 		return "usr/home/admin";
 	}
 	
+	@RequestMapping("/usr/home/admindashboard")
+	public String showadmindashboard() {
+		return "usr/home/admindashboard";
+	}
+	
 	
 
 	@RequestMapping("/usr/home/main")
