@@ -23,10 +23,7 @@ public interface JoinRequestRepository {
 			""")
 	public void doJoin(String loginId, String loginPw, String name, String nickname, String cellphoneNum, String email);
 
-	public static List<JoinRequest> findAll() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	public List<JoinRequest> findAll() ;
 
 	
 

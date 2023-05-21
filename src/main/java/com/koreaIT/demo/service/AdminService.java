@@ -10,10 +10,5 @@ import com.koreaIT.demo.vo.ResultData;
 public class AdminService {
 
 	private AdminRepository adminRepository;
-
-	public Admin getAdminByLoginId(String loginId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 	
 }
