@@ -14,15 +14,12 @@ public class HomeContoller {
 //		return "redirect:/usr/home/main";
 //	}	
 	
-	@RequestMapping("/usr/home/admin")
+	@RequestMapping("/usr/admin/admin")
 	public String showadmin() {
-		return "usr/home/admin";
+		return "usr/admin/admin";
 	}
 	
-	@RequestMapping("/usr/home/admindashboard")
-	public String showadmindashboard() {
-		return "usr/home/admindashboard";
-	}
+	
 	
 	
 

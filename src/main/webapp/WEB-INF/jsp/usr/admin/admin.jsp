@@ -12,7 +12,7 @@
 <body>
 
 
-<form action="admindashboard"post">
+<form action="admindashboard" method="POST"">
 	<div class="center">
 	    <div class="login-form">
 	        <h1 class="text-2xl">어드민 페이지</h1>

@@ -1,5 +1,7 @@
 package com.koreaIT.demo.repository;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
@@ -10,6 +12,13 @@ import com.koreaIT.demo.vo.Member;
 @Mapper
 public interface MemberRepository {
 	
+	
+	
+	
+	List<Member> showMemberinfo = null;
+
+
+
 	@Insert("""
 			INSERT INTO `member`
 				SET regDate = NOW(),
@@ -66,5 +75,9 @@ public interface MemberRepository {
 				WHERE id = #{loginedMemberId}
 			""")
 	public void doPasswordModify(int loginedMemberId, String loginPw);
+
+
+
+	public void showMemberinfo();
 
 }

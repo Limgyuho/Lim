@@ -39,7 +39,7 @@ public interface AdminRepository {
 	
 	@Select("""
 			SELECT *
-				FROM join_requests
+				FROM `admin`
 				WHERE loginId = #{loginId}
 			""")
 	public Admin getAdminByLoginId(String loginId);

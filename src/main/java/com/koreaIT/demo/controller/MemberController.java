@@ -34,6 +34,8 @@ public class MemberController {
 	}
 	
 	
+	
+	
 
 	@RequestMapping("/usr/home/doLogin")
 	@ResponseBody

@@ -22,7 +22,7 @@
 					<input type="text" name="loginPw" placeholder="비밀번호" required>
 				</div>
 				<div class="button-row">
-					<button class="btn btn-outline btn-success type="submit">로그인</button>
+					<button class="btn btn-outline "S>로그인</button>
 	</form>
 	<a class="btn-text-link btn btn-active mr-2 " href="/usr/member/join">회원가입</a>
 	</div>

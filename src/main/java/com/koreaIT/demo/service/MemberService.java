@@ -1,10 +1,14 @@
 package com.koreaIT.demo.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.koreaIT.demo.repository.JoinRequestRepository;
 import com.koreaIT.demo.repository.MemberRepository;
 import com.koreaIT.demo.util.Util;
+import com.koreaIT.demo.vo.JoinRequest;
 import com.koreaIT.demo.vo.Member;
 import com.koreaIT.demo.vo.ResultData;
 
@@ -57,5 +61,14 @@ public class MemberService {
 	public void doPasswordModify(int loginedMemberId, String loginPw) {
 		memberRepository.doPasswordModify(loginedMemberId, loginPw);
 	}
+
+	public List<Member> getAllApprovedMembers() {
+		return memberRepository.showMemberinfo;
+	}
+
+
+
+
+
 	
 }
