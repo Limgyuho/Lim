@@ -12,6 +12,7 @@ import com.koreaIT.demo.vo.JoinRequest;
 import com.koreaIT.demo.vo.Member;
 import com.koreaIT.demo.vo.ResultData;
 
+//
 @Service
 public class MemberService {
 	
@@ -21,26 +22,11 @@ public class MemberService {
 	public MemberService(MemberRepository memberRepository) {
 		this.memberRepository = memberRepository;
 	}
+	@Autowired
+	 public List<Member> getAllApprovedMembers() {
+	        return memberRepository.findByLoginStatus(true);
+	    }
 	
-	public ResultData<Integer> doJoin(String loginId, String loginPw, String name, String cellphoneNum, String email) {
-
-		Member existsMember = getMemberByLoginId(loginId);
-		
-		if (existsMember != null) {
-			return ResultData.from("F-7", Util.f("이미 사용중인 아이디(%s) 입니다", loginId));
-		}
-		
-		
-		existsMember = getMemberByNameAndEmail(name, email);
-		
-		if (existsMember != null) {
-			return ResultData.from("F-9", Util.f("이미 사용중인 이름(%s)과 이메일(%s) 입니다", name, email));
-		}
-		
-		memberRepository.doJoin(loginId, loginPw, name, cellphoneNum, email);
-		
-		return ResultData.from("S-1", Util.f("%s님, 가입승인 요청을 보냈습니다", loginId), "id", memberRepository.getLastInsertId());
-	}
 	
 	private Member getMemberByNameAndEmail(String name, String email) {
 		return memberRepository.getMemberByNameAndEmail(name, email);
@@ -62,13 +48,6 @@ public class MemberService {
 		memberRepository.doPasswordModify(loginedMemberId, loginPw);
 	}
 
-	public List<Member> getAllApprovedMembers() {
-		return memberRepository.showMemberinfo;
-	}
-
-
-
-
-
+	
 	
 }

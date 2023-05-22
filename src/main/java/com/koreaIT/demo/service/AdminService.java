@@ -10,5 +10,9 @@ import com.koreaIT.demo.vo.ResultData;
 public class AdminService {
 
 	private AdminRepository adminRepository;
+
+	public Admin getAdminByLoginId(String loginId) {
+		return adminRepository.getMemberByLoginId(loginId);
+	}
 	
 }

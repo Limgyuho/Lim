@@ -13,24 +13,6 @@ import com.koreaIT.demo.vo.Member;
 public interface MemberRepository {
 	
 	
-	
-	
-	List<Member> showMemberinfo = null;
-
-
-
-	@Insert("""
-			INSERT INTO `member`
-				SET regDate = NOW(),
-					updateDate = NOW(),
-					loginId = #{loginId},
-					loginPw = #{loginPw},
-					`name` = #{name},
-					cellphoneNum = #{cellphoneNum},
-					email = #{email}
-			""")
-	public void doJoin(String loginId, String loginPw, String name,  String cellphoneNum, String email);
-	
 	@Select("SELECT LAST_INSERT_ID()")
 	public int getLastInsertId();
 
@@ -77,7 +59,7 @@ public interface MemberRepository {
 	public void doPasswordModify(int loginedMemberId, String loginPw);
 
 
+	public List<Member> findByLoginStatus(boolean b);
 
-	public void showMemberinfo();
 
 }

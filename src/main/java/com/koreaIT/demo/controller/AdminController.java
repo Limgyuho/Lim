@@ -21,54 +21,78 @@ import com.koreaIT.demo.vo.JoinRequest;
 import com.koreaIT.demo.vo.Member;
 import com.koreaIT.demo.vo.Rq;
 
-
 @Controller
 public class AdminController {
 
 	private AdminService adminService;
-
+	private JoinRequestService joinRequestService;
 	private MemberService memberService;
 	private Rq rq;
 
 	@Autowired
-	public AdminController(AdminService adminService, MemberService memberService, Rq rq) {
+	public AdminController(AdminService adminService, MemberService memberService, Rq rq, JoinRequestService joinRequestService) {
 		this.adminService = adminService;
 		this.memberService = memberService;
+		this.joinRequestService = joinRequestService;
 		this.rq = rq;
+	}
+	
+	
+	@RequestMapping("/usr/admin/admin")
+	public String showadmin() {
+		return "usr/admin/admin";
+	}
+	
+	
+	private int id;
+	private String regDate;
+	private String updateDate;
+	private String loginId;
+	private String loginPw;
+	private int authLevel;
+	private String name;
+	private String nickname;
+	private String cellphoneNum;
+	private String email;
+	private int delStatus;
+	private String delDate;
+	
+
+	//어드민 대시보드에서 가입요청자의 정보 가입 완료된 멤버정보 보기
+	//각각의 정보회 탭에서의 페이지 처리와 키워드 검색
+	@GetMapping
+	@RequestMapping("/usr/admin/admindashboard")
+	public String showadmindashboard(Model model,@RequestParam(defaultValue = "1") int boardId,
+			@RequestParam(defaultValue = "1") int page, 
+			@RequestParam(defaultValue = "title") String searchKeywordType,
+			@RequestParam(defaultValue = "") String searchKeyword) {
+		//가입 요청자 정보 조회
+		List<JoinRequest> joinRequests = JoinRequestService.getAllJoinRequestsInfo();
+		model.addAttribute("joinRequests", joinRequests);
+
+		// 가입 완료된 멤버 정보 조회
+		List<Member> approvedMembers = memberService.getAllApprovedMembers();
+		model.addAttribute("approvedMembers", approvedMembers);
+
+		return "usr/admin/admindashboard";
 	}
 
 	
 	
-	@GetMapping
-	@RequestMapping("/usr/admin/admindashboard")
-	 public String showadmindashboard(Model model) {
-	        // 가입 요청자 정보 조회
-	        List<JoinRequest> joinRequests = JoinRequestService.getAllJoinRequests();
-	        model.addAttribute("joinRequests", joinRequests);
+	
+	@PostMapping("/approve")
+	public String approveJoinRequest(@RequestParam("memberId") Long memberId) {
+		// 가입 요청 승인 처리
+		JoinRequestService.approveJoinRequest(memberId);
+		return "redirect:/admin/dashboard";
+	}
 
-	        // 가입 완료된 멤버 정보 조회
-	        List<Member> approvedMembers = memberService.getAllApprovedMembers();
-	        model.addAttribute("approvedMembers", approvedMembers);
-
-	        return "usr/admin/admindashboard";
-	    }
-	
-	
-	 @PostMapping("/approve")
-	    public String approveJoinRequest(@RequestParam("memberId") Long memberId) {
-	        // 가입 요청 승인 처리
-	        JoinRequestService.approveJoinRequest(memberId);
-	        return "redirect:/admin/dashboard";
-	    }
-	 
-	 
-	 @PostMapping("/reject")
-	    public String rejectJoinRequest(@RequestParam("memberId") Long memberId) {
-	        // 가입 요청 거부 처리
-	        JoinRequestService.rejectJoinRequest(memberId);
-	        return "redirect:/admin/dashboard";
-	    }
-	
+	@PostMapping("/reject")
+	public String rejectJoinRequest(@RequestParam("memberId") Long memberId) {
+		// 가입 요청 거부 처리
+		JoinRequestService.rejectJoinRequest(memberId);
+		return "redirect:/admin/dashboard";
+	}
 
 	@RequestMapping("/usr/admin/doLogin")
 	@ResponseBody

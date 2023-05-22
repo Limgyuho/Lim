@@ -14,13 +14,6 @@ public class HomeContoller {
 //		return "redirect:/usr/home/main";
 //	}	
 	
-	@RequestMapping("/usr/admin/admin")
-	public String showadmin() {
-		return "usr/admin/admin";
-	}
-	
-	
-	
 	
 
 	@RequestMapping("/usr/home/main")

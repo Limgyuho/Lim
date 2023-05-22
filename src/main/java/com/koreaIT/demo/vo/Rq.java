@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Component;
 
+import com.koreaIT.demo.service.JoinRequestService;
 import com.koreaIT.demo.service.MemberService;
 import com.koreaIT.demo.util.Util;
 
@@ -27,7 +28,7 @@ public class Rq {
 	private HttpServletResponse resp;
 	private HttpSession httpSession;
 
-	public Rq(HttpServletRequest req, HttpServletResponse resp, MemberService memberService) {
+	public Rq(HttpServletRequest req, HttpServletResponse resp,JoinRequestService joinRequestService, MemberService memberService) {
 		
 		this.req = req;
 		this.resp = resp;
