@@ -55,20 +55,25 @@ public class JoinRequestService {
 		return joinRequestRepository.getMemberById(id);
 	}
 
+	
+	
+	
+	
 	public List<JoinRequest> getAllJoinRequestsInfo() {
 		
 		return joinRequestRepository.getAllJoinRequestsInfo();
 	}
 
-	public void approveJoinRequest(Long memberId) {
-		// TODO Auto-generated method stub
+	
+	
+	
+
+	//거부
+	public void rejectJoinRequest(int memberId) {
+		
 		
 	}
 
-	public void rejectJoinRequest(Long memberId) {
-		// TODO Auto-generated method stub
-		
-	}
 
 
 	

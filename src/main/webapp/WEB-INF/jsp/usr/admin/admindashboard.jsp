@@ -52,12 +52,12 @@
                         <td>${joinRequest.email}</td>
                         <td>${joinRequest.regDate}</td>
                         <td>
-                            <form action="/admin/approve" method="post">
-                                <input type="hidden" name="requestId" value="${joinRequest.id}" />
+                            <form action="/usr/admin/approve" method="post">
+                                <input type="hidden" name="id" value="${joinRequest.id}" />
                                 <button type="submit">Approve</button>
                             </form>
                             <form action="/admin/reject" method="post">
-                                <input type="hidden" name="requestId" value="${joinRequest.id}" />
+                                <input type="hidden" name="id" value="${joinRequest.id}" />
                                 <button type="submit">Reject</button>
                             </form>
                         </td>
@@ -73,21 +73,26 @@
         <table>
             <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>CellphoneNum</th>
-                    <th>Email</th>
-                    <th>Login Status</th>
+                    <th>회원번호</th>
+                    <th>가입날짜</th>
+                    <th>로그인 아이디</th>
+                    <th>로그인 패스워드</th>
+                    <th>이름</th>
+                    <th>전화번호</th>
+                    <th>이메일</th>
                 </tr>
             </thead>
             <tbody>
                 <%-- 가입 완료된 멤버 정보 반복문 --%>
-                <c:forEach var="member" items="${members }">
+                <c:forEach var="member" items="${approvedMembers }">
                     <tr>
+                        <td>${member.id}</td>
+                        <td>${member.regDate }</td>
                         <td>${member.loginId}</td>
-                        <td>${member.name }</td>
+                        <td>${member.loginPw}</td>
+                        <td>${member.name}</td>
                         <td>${member.cellphoneNum}</td>
-                        <td>${membe.email}</td>
+                        <td>${member.email}</td>
                         <td><%-- ${member.loginStatus} --%>asdasd</td>
                     </tr>
                 </c:forEach>

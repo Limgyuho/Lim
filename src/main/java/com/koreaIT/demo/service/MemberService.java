@@ -23,7 +23,6 @@ public class MemberService {
 		this.memberRepository = memberRepository;
 	}
 
-
 	private Member getMemberByNameAndEmail(String name, String email) {
 		return memberRepository.getMemberByNameAndEmail(name, email);
 	}
@@ -44,10 +43,17 @@ public class MemberService {
 		memberRepository.doPasswordModify(loginedMemberId, loginPw);
 	}
 
-
 	public List<Member> getAllApprovedMembers() {
 	
 		return memberRepository.getMemberList();
 	}
+
+	public void insertMember(List<JoinRequest> joinRequests) {
+		memberRepository.InsertMember();
+	}
+
+	
+
+	
 
 }

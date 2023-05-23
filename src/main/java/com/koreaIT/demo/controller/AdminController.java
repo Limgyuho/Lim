@@ -1,12 +1,12 @@
 package com.koreaIT.demo.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -68,17 +68,20 @@ public class AdminController {
 	
 	
 	
-	@PostMapping("/approve")
-	public String approveJoinRequest(@RequestParam("memberId") Long memberId) {
+	@PostMapping("/usr/admin/approve")
+	public String approveJoinRequest(@RequestParam("id") int id) {
 		// 가입 요청 승인 처리
-		joinRequestService.approveJoinRequest(memberId);
+//		joinRequestService.approveJoinRequest(memberId);
+		List<JoinRequest> joinRequests = joinRequestService.getAllJoinRequestsInfo();
+		memberService.insertMember(joinRequests);
+
 		return "redirect:/admin/dashboard";
 	}
 
 	@PostMapping("/reject")
-	public String rejectJoinRequest(@RequestParam("memberId") Long memberId) {
+	public String rejectJoinRequest(@RequestParam("id") int id) {
 		// 가입 요청 거부 처리
-		joinRequestService.rejectJoinRequest(memberId);
+		joinRequestService.rejectJoinRequest(id);
 		return "redirect:/admin/dashboard";
 	}
 

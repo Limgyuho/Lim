@@ -2,6 +2,7 @@ package com.koreaIT.demo.repository;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
@@ -61,5 +62,14 @@ public interface JoinRequestRepository {
 
 			""")
 	public List<JoinRequest> getAllJoinRequestsInfo();
+
+	
+	
+	@Delete("""
+			DELETE *
+				FROM members
+				WHERE id = {memberId};
+			""")
+	public void deleteArticle(Long id);
 	
 }

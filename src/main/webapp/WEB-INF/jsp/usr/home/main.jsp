@@ -16,7 +16,7 @@
     <div class="user-info">
         <img src="사용자 이미지 URL" alt="사용자 이미지" class="user-image">
         <span class="department">소속</span>
-        <span class="username">직급span>
+        <span class="username">직급<span>
         <span class="username">이름</span>
         <a href="/usr/home/home">로그아웃</a>
     </div>
