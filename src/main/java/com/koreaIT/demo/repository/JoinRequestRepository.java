@@ -3,6 +3,7 @@ package com.koreaIT.demo.repository;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 
@@ -10,7 +11,7 @@ import com.koreaIT.demo.vo.JoinRequest;
 import com.koreaIT.demo.vo.Member;
 
 //회원가입 요청자들의 대한....
-@Repository
+@Mapper
 public interface JoinRequestRepository {
 
 	

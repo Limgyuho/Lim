@@ -15,19 +15,15 @@ import com.koreaIT.demo.vo.ResultData;
 //
 @Service
 public class MemberService {
-	
+
 	private MemberRepository memberRepository;
-	
+
 	@Autowired
 	public MemberService(MemberRepository memberRepository) {
 		this.memberRepository = memberRepository;
 	}
-	@Autowired
-	 public List<Member> getAllApprovedMembers() {
-	        return memberRepository.findByLoginStatus(true);
-	    }
-	
-	
+
+
 	private Member getMemberByNameAndEmail(String name, String email) {
 		return memberRepository.getMemberByNameAndEmail(name, email);
 	}
@@ -48,6 +44,10 @@ public class MemberService {
 		memberRepository.doPasswordModify(loginedMemberId, loginPw);
 	}
 
+
+	public List<Member> getAllApprovedMembers() {
 	
-	
+		return memberRepository.getMemberList();
+	}
+
 }

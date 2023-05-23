@@ -3,6 +3,7 @@ package com.koreaIT.demo.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.koreaIT.demo.repository.JoinRequestRepository;
 import com.koreaIT.demo.repository.MemberRepository;
@@ -10,7 +11,7 @@ import com.koreaIT.demo.util.Util;
 import com.koreaIT.demo.vo.JoinRequest;
 import com.koreaIT.demo.vo.Member;
 import com.koreaIT.demo.vo.ResultData;
-
+@Service
 //회원가입 요청자들들의 대하 서비스
 public class JoinRequestService {
 
@@ -54,9 +55,19 @@ public class JoinRequestService {
 		return joinRequestRepository.getMemberById(id);
 	}
 
-	public static List<JoinRequest> getAllJoinRequestsInfo() {
+	public List<JoinRequest> getAllJoinRequestsInfo() {
 		
 		return joinRequestRepository.getAllJoinRequestsInfo();
+	}
+
+	public void approveJoinRequest(Long memberId) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void rejectJoinRequest(Long memberId) {
+		// TODO Auto-generated method stub
+		
 	}
 
 

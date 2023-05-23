@@ -17,7 +17,7 @@
         </noscript>
         <div class="upload-container">
             <div class="upload-header">
-                <h2>Spring Boot File Upload / Download</h2>
+                <h2>Spring Boot File Upload / Download 예제</h2>
                 <h3>Jimkwon</h3>
             </div>
             <div class="upload-content">

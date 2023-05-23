@@ -43,7 +43,6 @@ public interface MemberRepository {
 	@Update("""
 			UPDATE `member`
 				SET updateDate = NOW(),
-					nickname = #{nickname},
 					cellphoneNum = #{cellphoneNum},
 					email = #{email}
 				WHERE id = #{loginedMemberId}
@@ -58,8 +57,20 @@ public interface MemberRepository {
 			""")
 	public void doPasswordModify(int loginedMemberId, String loginPw);
 
+	
+	
+	
+	
+	@Select("""
+			SELECT *
+				FROM `member`
+			""")
+	public List<Member> getMemberList();
 
-	public List<Member> findByLoginStatus(boolean b);
+
+	
+	
+
 
 
 }

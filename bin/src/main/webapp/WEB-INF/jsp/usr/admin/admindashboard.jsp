@@ -30,13 +30,9 @@
         <table>
             <thead>
                 <tr>
-                    <th>요청번호</th>
                     <th>아이디</th>
                     <th>비민번호</th>
                     <th>이름</th>
-                    <th>전화번호</th>
-                    <th>이메일</th>
-                    <th>요청날짜</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -45,12 +41,8 @@
                 <c:forEach var="joinRequest" items="${joinRequests}">
                     <tr>
                         <td>${joinRequest.id}</td>
-                        <td>${joinRequest.loginId}</td>
-                        <td>${joinRequest.loginPw}</td>
+                        <td>${joinRequest.pw}</td>
                         <td>${joinRequest.name}</td>
-                        <td>${joinRequest.cellphoneNum}</td>
-                        <td>${joinRequest.email}</td>
-                        <td>${joinRequest.regDate}</td>
                         <td>
                             <form action="/admin/approve" method="post">
                                 <input type="hidden" name="requestId" value="${joinRequest.id}" />
@@ -87,8 +79,8 @@
                         <td>${member.loginId}</td>
                         <td>${member.name }</td>
                         <td>${member.cellphoneNum}</td>
-                        <td>${membe.email}</td>
-                        <td><%-- ${member.loginStatus} --%>asdasd</td>
+                        <td>${member.email}</td>
+                        <td>${member.loginStatus}</td>
                     </tr>
                 </c:forEach>
             </tbody>
