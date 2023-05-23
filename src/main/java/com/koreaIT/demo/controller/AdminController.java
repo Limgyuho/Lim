@@ -72,8 +72,8 @@ public class AdminController {
 	public String approveJoinRequest(@RequestParam("id") int id) {
 		// 가입 요청 승인 처리
 //		joinRequestService.approveJoinRequest(memberId);
-		List<JoinRequest> joinRequests = joinRequestService.getAllJoinRequestsInfo();
-		memberService.insertMember(joinRequests);
+		JoinRequest joinRequests = joinRequestService.getAllJoinRequestsInfo();
+		memberService.insertMember(joinRequests.);
 
 		return "redirect:/admin/dashboard";
 	}

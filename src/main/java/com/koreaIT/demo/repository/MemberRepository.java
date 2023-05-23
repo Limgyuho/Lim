@@ -7,7 +7,6 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
-import com.koreaIT.demo.vo.JoinRequest;
 import com.koreaIT.demo.vo.Member;
 
 @Mapper
@@ -68,18 +67,12 @@ public interface MemberRepository {
 			""")
 	public List<Member> getMemberList();
 
+	public void InsertMember();
+
+
+	
 	
 
-	@Insert("""
-			INSERT INTO `member`
-				SET regDate = NOW(),
-					updateDate = NOW(),
-					loginId = #{loginId},
-					loginPw = #{loginPw},
-					`name` = #{name},
-					cellphoneNum = #{cellphoneNum},
-					email = #{email}
-			""")
-	public void InsertMember();
-	
+
+
 }

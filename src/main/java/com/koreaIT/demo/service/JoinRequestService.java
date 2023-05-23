@@ -63,7 +63,6 @@ public class JoinRequestService {
 		
 		return joinRequestRepository.getAllJoinRequestsInfo();
 	}
-
 	
 	
 	

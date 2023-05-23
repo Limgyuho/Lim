@@ -52,6 +52,8 @@ public class MemberService {
 		memberRepository.InsertMember();
 	}
 
+
+
 	
 
 	

@@ -71,5 +71,9 @@ public interface JoinRequestRepository {
 				WHERE id = {memberId};
 			""")
 	public void deleteArticle(Long id);
+
+
+
+
 	
 }
