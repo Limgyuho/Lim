@@ -19,4 +19,5 @@ public class Member {
 	private String email;
 	private int delStatus;
 	private String delDate;
+	public int Permission;
 }

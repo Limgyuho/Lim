@@ -20,5 +20,9 @@ public class JoinRequest {
 	private int delStatus;
 	private int permission;
 	private String delDate;
+	public int getPermission(int i) {
+		// TODO Auto-generated method stub
+		return 1;
+	}
 	
 }

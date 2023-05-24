@@ -58,15 +58,10 @@ public class Member_join_requests_Controller {
 			return Util.jsHistoryBack("비밀번호가 일치하지 않습니다");
 		}
 		
-//		JoinRequest joinRequest = joinRequestService.getjoinRequestByLoginId(loginId);
-//		
-//		if(joinRequest.getPermission() == 1) {
-//			return Util.jsHistoryBack("가입이 거절 되었습니다 내선 번호로 문의 주세요");
-//		}
-//		
-//		
-//		
-
+		if(member.Permission != 1) {
+			return Util.jsHistoryBack("가입이 거절 되었습니다 내선 번호로 문의 주세요");
+		}
+		
 		rq.login(member);
 		
 		return Util.jsReplace(Util.f("%s 회원님 환영합니다~!", member.getName()), "/usr/home/main");

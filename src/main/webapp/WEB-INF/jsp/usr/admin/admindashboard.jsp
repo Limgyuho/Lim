@@ -58,7 +58,6 @@
                             </form>
                             <form action="reject" method="post">
                                 <input type="hidden" name="id" value="${joinRequest.id}" />
-                                <input type="hidden" name="permission" value="1" />
                                 <button type="submit">Reject</button>
                             </form>
                         </td>

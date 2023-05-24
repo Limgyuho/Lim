@@ -73,12 +73,11 @@ public class AdminController {
 		// 가입 요청 승인 처리
 //		joinRequestService.approveJoinRequest(memberId);
 		JoinRequest joinRequests = joinRequestService.getJoinRequestsInfo(id);
-		
-		
+
 		memberService.insertMembertable(joinRequests.getRegDate(),
 				joinRequests.getUpdateDate(),joinRequests.getLoginId(),
 				joinRequests.getLoginPw(),joinRequests.getName(),
-				joinRequests.getCellphoneNum(),joinRequests.getEmail(),joinRequests.getPermission());
+				joinRequests.getCellphoneNum(),joinRequests.getEmail(),joinRequests.getPermission(1));
 		
 		joinRequestService.deletejoinRequestsMember(joinRequests.getId());
 
