@@ -11,8 +11,10 @@ import com.koreaIT.demo.util.Util;
 import com.koreaIT.demo.vo.JoinRequest;
 import com.koreaIT.demo.vo.Member;
 import com.koreaIT.demo.vo.ResultData;
-@Service
+
 //회원가입 요청자들들의 대하 서비스
+@Service
+
 public class JoinRequestService {
 
 	private static JoinRequestRepository joinRequestRepository;
@@ -55,24 +57,24 @@ public class JoinRequestService {
 		return joinRequestRepository.getMemberById(id);
 	}
 
-	
-	
-	
-	
 	public List<JoinRequest> getAllJoinRequestsInfo() {
 		
 		return joinRequestRepository.getAllJoinRequestsInfo();
 	}
-	
-	
-	
 
-	//거부
-	public void rejectJoinRequest(int memberId) {
-		
-		
+	public JoinRequest getJoinRequestsInfo(int id) {
+
+		return joinRequestRepository.getJoinRequestsInfo(id);
 	}
 
+	public void deletejoinRequestsMember(int id) {
+		joinRequestRepository.deletejoinRequestsMember(id);
+	}
+
+
+	public JoinRequest getjoinRequestByLoginId(String loginId) {
+		return joinRequestRepository.getjoinRequestByLoginId(loginId);
+	}
 
 
 	

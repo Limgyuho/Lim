@@ -43,6 +43,7 @@ public interface AdminRepository {
 				WHERE loginId = #{loginId}
 			""")
 	public Admin getAdminByLoginId(String loginId);
+	
 	@Select("SELECT LAST_INSERT_ID()")
 	public int getLastInsertId();
 

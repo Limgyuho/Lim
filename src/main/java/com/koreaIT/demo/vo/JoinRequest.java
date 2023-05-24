@@ -18,5 +18,7 @@ public class JoinRequest {
 	private String cellphoneNum;
 	private String email;
 	private int delStatus;
+	private int permission;
 	private String delDate;
+	
 }

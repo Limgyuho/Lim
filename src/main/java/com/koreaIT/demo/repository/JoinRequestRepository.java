@@ -24,7 +24,9 @@ public interface JoinRequestRepository {
 					loginPw = #{loginPw},
 					`name` = #{name},
 					cellphoneNum = #{cellphoneNum},
-					email = #{email}
+					email = #{email},
+					permission =#{permission}
+					
 			""")
 	public void doJoin(String loginId, String loginPw, String name,  String cellphoneNum, String email);
 	
@@ -35,6 +37,7 @@ public interface JoinRequestRepository {
 			SELECT *
 				FROM join_requests
 				WHERE id = #{id}
+				
 			""")
 	public Member getMemberById(int id);
 
@@ -42,6 +45,8 @@ public interface JoinRequestRepository {
 			SELECT *
 				FROM join_requests
 				WHERE loginId = #{loginId}
+				permission = #{permission}
+				
 			""")
 	public Member getJoinRequestByLoginId(String loginId);
 
@@ -68,9 +73,31 @@ public interface JoinRequestRepository {
 	@Delete("""
 			DELETE *
 				FROM members
-				WHERE id = {memberId};
+				WHERE id = #{memberId};
 			""")
-	public void deleteArticle(Long id);
+	public void deleteArticle(int id);
+	
+	@Select("""
+			SELECT *
+				FROM join_requests
+				WHERE id = #{id};
+			""")
+	public JoinRequest getJoinRequestsInfo(int id);
+	
+	
+	@Delete("""
+			DELETE FROM join_requests
+				WHERE id = #{id}
+			""")
+	public void deletejoinRequestsMember(int id);
+	
+	
+	@Select("""
+			SELECT *
+				FROM join_requests
+				WHERE loginId = #{loginId}
+			""")
+	public JoinRequest getjoinRequestByLoginId(String loginId);
 
 
 

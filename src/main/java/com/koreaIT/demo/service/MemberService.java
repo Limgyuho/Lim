@@ -15,14 +15,21 @@ import com.koreaIT.demo.vo.ResultData;
 //
 @Service
 public class MemberService {
-
+	
 	private MemberRepository memberRepository;
-
+	
 	@Autowired
 	public MemberService(MemberRepository memberRepository) {
 		this.memberRepository = memberRepository;
 	}
-
+	
+	
+	@Autowired
+	 public List<Member> getAllApprovedMembers() {
+		return memberRepository.getMemberList();
+	 }
+	
+	
 	private Member getMemberByNameAndEmail(String name, String email) {
 		return memberRepository.getMemberByNameAndEmail(name, email);
 	}
@@ -42,20 +49,18 @@ public class MemberService {
 	public void doPasswordModify(int loginedMemberId, String loginPw) {
 		memberRepository.doPasswordModify(loginedMemberId, loginPw);
 	}
-
-	public List<Member> getAllApprovedMembers() {
 	
-		return memberRepository.getMemberList();
+	public void insertMembertable(String regDate, String updateDate, String loginId,
+			String loginPw, String name,
+			String cellphoneNum, String email, int Permission) {
+		memberRepository.insertMembertable(regDate,updateDate,loginId,loginPw,name,cellphoneNum,email,Permission);
+		
 	}
 
-	public void insertMember(List<JoinRequest> joinRequests) {
-		memberRepository.InsertMember();
+
+	public void deletejoinRequestsMember(int id) {
+		
+		memberRepository.deletejoinRequestsMember(id);
 	}
-
-
-
-	
-
-	
 
 }

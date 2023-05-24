@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.ibatis.annotations.Insert;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -65,24 +66,38 @@ public class AdminController {
 		return "usr/admin/admindashboard";
 	}
 
-	
-	
+
 	
 	@PostMapping("/usr/admin/approve")
 	public String approveJoinRequest(@RequestParam("id") int id) {
 		// 가입 요청 승인 처리
 //		joinRequestService.approveJoinRequest(memberId);
-		JoinRequest joinRequests = joinRequestService.getAllJoinRequestsInfo();
-		memberService.insertMember(joinRequests.);
+		JoinRequest joinRequests = joinRequestService.getJoinRequestsInfo(id);
+		
+		
+		memberService.insertMembertable(joinRequests.getRegDate(),
+				joinRequests.getUpdateDate(),joinRequests.getLoginId(),
+				joinRequests.getLoginPw(),joinRequests.getName(),
+				joinRequests.getCellphoneNum(),joinRequests.getEmail(),joinRequests.getPermission());
+		
+		joinRequestService.deletejoinRequestsMember(joinRequests.getId());
 
-		return "redirect:/admin/dashboard";
+		return "redirect:/usr/admin/admindashboard";
 	}
 
-	@PostMapping("/reject")
+	@PostMapping("/usr/admin/reject")
 	public String rejectJoinRequest(@RequestParam("id") int id) {
 		// 가입 요청 거부 처리
-		joinRequestService.rejectJoinRequest(id);
-		return "redirect:/admin/dashboard";
+
+		JoinRequest joinRequests = joinRequestService.getJoinRequestsInfo(id);
+		
+		memberService.insertMembertable(joinRequests.getRegDate(),
+				joinRequests.getUpdateDate(),joinRequests.getLoginId(),
+				joinRequests.getLoginPw(),joinRequests.getName(),
+				joinRequests.getCellphoneNum(),joinRequests.getEmail(),joinRequests.getPermission());
+		
+		
+		return "redirect:/usr/admin/admindashboard";
 	}
 
 	@RequestMapping("/usr/admin/doLogin")

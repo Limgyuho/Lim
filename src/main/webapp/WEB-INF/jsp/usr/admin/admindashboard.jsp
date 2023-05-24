@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <c:set var="pageTitle" value="Home" />
@@ -32,7 +32,7 @@
                 <tr>
                     <th>요청번호</th>
                     <th>아이디</th>
-                    <th>비민번호</th>
+                    <th>비밀번호</th>
                     <th>이름</th>
                     <th>전화번호</th>
                     <th>이메일</th>
@@ -52,12 +52,13 @@
                         <td>${joinRequest.email}</td>
                         <td>${joinRequest.regDate}</td>
                         <td>
-                            <form action="/usr/admin/approve" method="post">
+                            <form action="approve" method="post">
                                 <input type="hidden" name="id" value="${joinRequest.id}" />
                                 <button type="submit">Approve</button>
                             </form>
-                            <form action="/admin/reject" method="post">
+                            <form action="reject" method="post">
                                 <input type="hidden" name="id" value="${joinRequest.id}" />
+                                <input type="hidden" name="permission" value="1" />
                                 <button type="submit">Reject</button>
                             </form>
                         </td>
@@ -84,16 +85,15 @@
             </thead>
             <tbody>
                 <%-- 가입 완료된 멤버 정보 반복문 --%>
-                <c:forEach var="member" items="${approvedMembers }">
+                <c:forEach var="member" items="${approvedMembers}">
                     <tr>
                         <td>${member.id}</td>
-                        <td>${member.regDate }</td>
+                        <td>${member.regDate}</td>
                         <td>${member.loginId}</td>
                         <td>${member.loginPw}</td>
                         <td>${member.name}</td>
                         <td>${member.cellphoneNum}</td>
                         <td>${member.email}</td>
-                        <td><%-- ${member.loginStatus} --%>asdasd</td>
                     </tr>
                 </c:forEach>
             </tbody>

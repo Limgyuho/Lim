@@ -2,11 +2,13 @@ package com.koreaIT.demo.repository;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
+import com.koreaIT.demo.vo.JoinRequest;
 import com.koreaIT.demo.vo.Member;
 
 @Mapper
@@ -58,20 +60,39 @@ public interface MemberRepository {
 	public void doPasswordModify(int loginedMemberId, String loginPw);
 
 	
-	
-	
-	
 	@Select("""
 			SELECT *
 				FROM `member`
 			""")
 	public List<Member> getMemberList();
+	
+	@Insert("""
+			INSERT INTO `member`
+				SET regDate = NOW(),
+					updateDate = NOW(),
+					loginId = #{loginId},
+					loginPw = #{loginPw},
+					`name` = #{name},
+					cellphoneNum = #{cellphoneNum},
+					email = #{email},
+					permission =#{permission}
+			""")
 
-	public void InsertMember();
+	public void insertMembertable(String regDate, String updateDate, String loginId, String loginPw, String name,
+			String cellphoneNum, String email, int permission);
+
+	@Delete("""
+			DELETE FROM `member`
+				WHERE id = #{id}
+			""")
+
+	public void deletejoinRequestsMember(int id);
+
 
 
 	
-	
+
+
 
 
 

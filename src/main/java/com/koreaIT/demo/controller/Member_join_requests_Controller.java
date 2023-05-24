@@ -35,9 +35,6 @@ public class Member_join_requests_Controller {
 		this.rq = rq;
 	}
 	
-	
-	
-	
 
 	//회원가입승은을 받은 사람들....
 	@RequestMapping("/usr/home/doLogin")
@@ -60,6 +57,15 @@ public class Member_join_requests_Controller {
 		if (member.getLoginPw().equals(loginPw) == false) {
 			return Util.jsHistoryBack("비밀번호가 일치하지 않습니다");
 		}
+		
+//		JoinRequest joinRequest = joinRequestService.getjoinRequestByLoginId(loginId);
+//		
+//		if(joinRequest.getPermission() == 1) {
+//			return Util.jsHistoryBack("가입이 거절 되었습니다 내선 번호로 문의 주세요");
+//		}
+//		
+//		
+//		
 
 		rq.login(member);
 		
@@ -103,7 +109,7 @@ public class Member_join_requests_Controller {
 			return Util.jsHistoryBack(doJoinRd.getMsg());
 		}
 		
-		return Util.jsReplace(doJoinRd.getMsg(), "/");
+		return Util.jsReplace(doJoinRd.getMsg(), "/usr/home/home");
 	}
 	
 	
