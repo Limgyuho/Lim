@@ -10,6 +10,7 @@
 <body>
 
 <div class="w-52 h-20 bg-green-400">
+	<input type="hidden" name="id" value="${member.id }"/>
     <div class="logo">
         <img src="로고 이미지 URL" alt="로고">
     </div>
@@ -17,7 +18,8 @@
         <img src="사용자 이미지 URL" alt="사용자 이미지" class="user-image">
         <span class="department">소속</span>
         <span class="username">직급<span>
-        <span class="username">이름</span>
+         <td>${rq.loginedMember.name }</td>
+        <span class=Name>이름</span>
         <a href="/usr/home/home">로그아웃</a>
     </div>
 </div>

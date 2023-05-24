@@ -24,11 +24,10 @@ public interface JoinRequestRepository {
 					loginPw = #{loginPw},
 					`name` = #{name},
 					cellphoneNum = #{cellphoneNum},
-					email = #{email},
-					permission =#{permission}
-					
+					email = #{email}
+		
 			""")
-	public void doJoin(String loginId, String loginPw, String name,  String cellphoneNum, String email);
+	public void doJoin(String loginId, String loginPw, String name,  String cellphoneNum, String email );
 	
 	@Select("SELECT LAST_INSERT_ID()")
 	public int getLastInsertId();
@@ -40,15 +39,13 @@ public interface JoinRequestRepository {
 				
 			""")
 	public Member getMemberById(int id);
-
+		
 	@Select("""
 			SELECT *
 				FROM join_requests
 				WHERE loginId = #{loginId}
-				permission = #{permission}
-				
 			""")
-	public Member getJoinRequestByLoginId(String loginId);
+	public Member getjoinRequestByLoginId(String loginId);
 
 	
 
@@ -59,6 +56,10 @@ public interface JoinRequestRepository {
 				AND email = #{email}
 			""")
 	public Member getJoinRequestByNameAndEmail(String name, String email);
+	
+	
+	
+	
 	
 	
 	@Select("""
@@ -91,16 +92,6 @@ public interface JoinRequestRepository {
 			""")
 	public void deletejoinRequestsMember(int id);
 	
-	
-	@Select("""
-			SELECT *
-				FROM join_requests
-				WHERE loginId = #{loginId}
-			""")
-	public JoinRequest getjoinRequestByLoginId(String loginId);
-
-
-
 
 	
 }

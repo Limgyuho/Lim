@@ -96,6 +96,7 @@ public class Member_join_requests_Controller {
 		if (Util.empty(email)) {
 			return Util.jsHistoryBack("이메일을 입력해주세요");
 		}
+		
 		//회원가입 정보들을 joinRequest에 넣어두고 저장하여 멤버테이블에 넣기 위함
 		ResultData<Integer> doJoinRd = joinRequestService.doJoin(loginId, loginPw, name, cellphoneNum, email);
 		

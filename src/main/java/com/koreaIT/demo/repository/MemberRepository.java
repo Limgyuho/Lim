@@ -85,7 +85,6 @@ public interface MemberRepository {
 			DELETE FROM `member`
 				WHERE id = #{id}
 			""")
-
 	public void deletejoinRequestsMember(int id);
 
 
