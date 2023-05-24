@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set var="pageTitle" value="Login" />
 <%@ include file="../common/head.jsp" %>
+<<<<<<< HEAD
 <!-- <!DOCTYPE html> -->
 <!-- <html> -->
 <!-- <head> -->
@@ -10,6 +11,15 @@
 <!-- <title>Insert title here</title> -->
 <!-- </head> -->
 <!-- <body> -->
+=======
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+>>>>>>> master
 
 
 <form action="doLogin" method="POST">

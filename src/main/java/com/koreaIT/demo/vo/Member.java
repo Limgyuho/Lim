@@ -19,5 +19,8 @@ public class Member {
 	private String email;
 	private int delStatus;
 	private String delDate;
+<<<<<<< HEAD
 	public int Permission;
+=======
+>>>>>>> master
 }

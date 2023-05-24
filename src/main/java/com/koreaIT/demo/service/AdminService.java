@@ -26,4 +26,8 @@ public class AdminService {
 		return adminRepository.getMemberByLoginId(loginId);
 	}
 	
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> master

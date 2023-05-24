@@ -8,7 +8,10 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
+<<<<<<< HEAD
 import com.koreaIT.demo.vo.JoinRequest;
+=======
+>>>>>>> master
 import com.koreaIT.demo.vo.Member;
 
 @Mapper
@@ -74,6 +77,7 @@ public interface MemberRepository {
 					loginPw = #{loginPw},
 					`name` = #{name},
 					cellphoneNum = #{cellphoneNum},
+<<<<<<< HEAD
 					email = #{email},
 					permission =#{permission}
 			""")
@@ -86,6 +90,13 @@ public interface MemberRepository {
 				WHERE id = #{id}
 			""")
 	public void deletejoinRequestsMember(int id);
+=======
+					email = #{email}
+			""")
+
+	public void insertMembertable(String regDate, String updateDate, String loginId, String loginPw, String name,
+			String cellphoneNum, String email);
+>>>>>>> master
 
 
 

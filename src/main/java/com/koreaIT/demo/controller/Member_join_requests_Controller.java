@@ -35,6 +35,12 @@ public class Member_join_requests_Controller {
 		this.rq = rq;
 	}
 	
+<<<<<<< HEAD
+=======
+	
+	
+	
+>>>>>>> master
 
 	//회원가입승은을 받은 사람들....
 	@RequestMapping("/usr/home/doLogin")
@@ -57,11 +63,15 @@ public class Member_join_requests_Controller {
 		if (member.getLoginPw().equals(loginPw) == false) {
 			return Util.jsHistoryBack("비밀번호가 일치하지 않습니다");
 		}
+<<<<<<< HEAD
 		
 		if(member.Permission != 1) {
 			return Util.jsHistoryBack("가입이 거절 되었습니다 내선 번호로 문의 주세요");
 		}
 		
+=======
+
+>>>>>>> master
 		rq.login(member);
 		
 		return Util.jsReplace(Util.f("%s 회원님 환영합니다~!", member.getName()), "/usr/home/main");
@@ -96,7 +106,10 @@ public class Member_join_requests_Controller {
 		if (Util.empty(email)) {
 			return Util.jsHistoryBack("이메일을 입력해주세요");
 		}
+<<<<<<< HEAD
 		
+=======
+>>>>>>> master
 		//회원가입 정보들을 joinRequest에 넣어두고 저장하여 멤버테이블에 넣기 위함
 		ResultData<Integer> doJoinRd = joinRequestService.doJoin(loginId, loginPw, name, cellphoneNum, email);
 		
@@ -105,7 +118,11 @@ public class Member_join_requests_Controller {
 			return Util.jsHistoryBack(doJoinRd.getMsg());
 		}
 		
+<<<<<<< HEAD
 		return Util.jsReplace(doJoinRd.getMsg(), "/usr/home/home");
+=======
+		return Util.jsReplace(doJoinRd.getMsg(), "/");
+>>>>>>> master
 	}
 	
 	

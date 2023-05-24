@@ -73,6 +73,7 @@ public class AdminController {
 		// 가입 요청 승인 처리
 //		joinRequestService.approveJoinRequest(memberId);
 		JoinRequest joinRequests = joinRequestService.getJoinRequestsInfo(id);
+<<<<<<< HEAD
 
 		memberService.insertMembertable(joinRequests.getRegDate(),
 				joinRequests.getUpdateDate(),joinRequests.getLoginId(),
@@ -97,6 +98,23 @@ public class AdminController {
 		
 		
 		return "redirect:/usr/admin/admindashboard";
+=======
+		
+		
+		memberService.insertMembertable(joinRequests.getRegDate(),
+				joinRequests.getUpdateDate(),joinRequests.getLoginId(),
+				joinRequests.getLoginPw(),joinRequests.getName(),
+				joinRequests.getCellphoneNum(),joinRequests.getEmail());
+
+		return "usr/admin/admindashboard";
+	}
+
+	@PostMapping("/reject")
+	public String rejectJoinRequest(@RequestParam("id") int id) {
+		// 가입 요청 거부 처리
+//		joinRequestService.rejectJoinRequest(id);
+		return "redirect:/admin/dashboard";
+>>>>>>> master
 	}
 
 	@RequestMapping("/usr/admin/doLogin")

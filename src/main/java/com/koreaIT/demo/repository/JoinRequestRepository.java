@@ -25,9 +25,14 @@ public interface JoinRequestRepository {
 					`name` = #{name},
 					cellphoneNum = #{cellphoneNum},
 					email = #{email}
+<<<<<<< HEAD
 		
 			""")
 	public void doJoin(String loginId, String loginPw, String name,  String cellphoneNum, String email );
+=======
+			""")
+	public void doJoin(String loginId, String loginPw, String name,  String cellphoneNum, String email);
+>>>>>>> master
 	
 	@Select("SELECT LAST_INSERT_ID()")
 	public int getLastInsertId();
@@ -36,16 +41,26 @@ public interface JoinRequestRepository {
 			SELECT *
 				FROM join_requests
 				WHERE id = #{id}
+<<<<<<< HEAD
 				
 			""")
 	public Member getMemberById(int id);
 		
+=======
+			""")
+	public Member getMemberById(int id);
+
+>>>>>>> master
 	@Select("""
 			SELECT *
 				FROM join_requests
 				WHERE loginId = #{loginId}
 			""")
+<<<<<<< HEAD
 	public Member getjoinRequestByLoginId(String loginId);
+=======
+	public Member getJoinRequestByLoginId(String loginId);
+>>>>>>> master
 
 	
 
@@ -58,10 +73,13 @@ public interface JoinRequestRepository {
 	public Member getJoinRequestByNameAndEmail(String name, String email);
 	
 	
+<<<<<<< HEAD
 	
 	
 	
 	
+=======
+>>>>>>> master
 	@Select("""
 			SELECT *
 				FROM join_requests
@@ -84,6 +102,7 @@ public interface JoinRequestRepository {
 				WHERE id = #{id};
 			""")
 	public JoinRequest getJoinRequestsInfo(int id);
+<<<<<<< HEAD
 	
 	
 	@Delete("""
@@ -92,6 +111,11 @@ public interface JoinRequestRepository {
 			""")
 	public void deletejoinRequestsMember(int id);
 	
+=======
+
+
+
+>>>>>>> master
 
 	
 }

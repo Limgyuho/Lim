@@ -28,7 +28,11 @@ public class JoinRequestService {
 
 	// 회원가입요청을한 사람들...정보
 	public ResultData<Integer> doJoin(String loginId, String loginPw, String name, String cellphoneNum, String email) {
+<<<<<<< HEAD
 		Member existsMember = getjoinRequestByLoginId(loginId);
+=======
+		Member existsMember = getJoinRequestByLoginId(loginId);
+>>>>>>> master
 
 		if (existsMember != null) {
 			return ResultData.from("F-7", Util.f("이미 사용중인 아이디(%s) 입니다", loginId));
@@ -39,7 +43,11 @@ public class JoinRequestService {
 		if (existsMember != null) {
 			return ResultData.from("F-9", Util.f("이미 사용중인 이름(%s)과 이메일(%s) 입니다", name, email));
 		}
+<<<<<<< HEAD
 		
+=======
+
+>>>>>>> master
 		joinRequestRepository.doJoin(loginId, loginPw, name, cellphoneNum, email);
 
 		return ResultData.from("S-1", Util.f("%s님, 가입승인 요청을 보냈습니다", loginId), "id", joinRequestRepository.getLastInsertId());
@@ -49,6 +57,17 @@ public class JoinRequestService {
 		return joinRequestRepository.getJoinRequestByNameAndEmail(name, email);
 	}
 
+<<<<<<< HEAD
+=======
+	public Member getJoinRequestByLoginId(String loginId) {
+		return joinRequestRepository.getJoinRequestByLoginId(loginId);
+	}
+
+	public Member getMemberById(int id) {
+		return joinRequestRepository.getMemberById(id);
+	}
+
+>>>>>>> master
 	public List<JoinRequest> getAllJoinRequestsInfo() {
 		
 		return joinRequestRepository.getAllJoinRequestsInfo();
@@ -59,6 +78,7 @@ public class JoinRequestService {
 		return joinRequestRepository.getJoinRequestsInfo(id);
 	}
 
+<<<<<<< HEAD
 	public void deletejoinRequestsMember(int id) {
 		joinRequestRepository.deletejoinRequestsMember(id);
 	}
@@ -68,6 +88,8 @@ public class JoinRequestService {
 		return joinRequestRepository.getjoinRequestByLoginId(loginId);
 	}
 
+=======
+>>>>>>> master
 
 	
 	
