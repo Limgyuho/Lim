@@ -22,14 +22,14 @@ import com.koreaIT.demo.vo.Rq;
 
 
 @Controller
-public class Member_join_requests_Controller {
+public class MemberController {
 	
 	private MemberService memberService;
 	private JoinRequestService joinRequestService;
 	private Rq rq;
 	
 	@Autowired
-	public Member_join_requests_Controller(MemberService memberService, JoinRequestService joinRequestService,Rq rq) {
+	public MemberController(MemberService memberService, JoinRequestService joinRequestService,Rq rq) {
 		this.memberService = memberService;
 		this.joinRequestService = joinRequestService;
 		this.rq = rq;
@@ -126,4 +126,7 @@ public class Member_join_requests_Controller {
 		
 		return ResultData.from("S-1", "사용 가능한 아이디입니다", "loginId", loginId);
 	}
+	
+
+	
 }

@@ -96,6 +96,8 @@ public class AdminController {
 				joinRequests.getCellphoneNum(),joinRequests.getEmail(),joinRequests.getPermission());
 		
 		
+		
+		
 		return "redirect:/usr/admin/admindashboard";
 	}
 

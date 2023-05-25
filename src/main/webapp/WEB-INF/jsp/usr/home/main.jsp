@@ -18,8 +18,11 @@
         <img src="사용자 이미지 URL" alt="사용자 이미지" class="user-image">
         <span class="department">소속</span>
         <span class="username">직급<span>
-         <td>${rq.loginedMember.name }</td>
-        <span class=Name>이름</span>
+        <span class="username">직급<span>
+         <span>${rq.loginedMember.name }</span>
+       
+         	<button onclick= "location.href='/usr/chat/chat'">메신저</button>
+   
         <a href="/usr/home/home">로그아웃</a>
     </div>
 </div>
