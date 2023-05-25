@@ -54,6 +54,16 @@ public class AdminController {
 			@RequestParam(defaultValue = "1") int page, 
 			@RequestParam(defaultValue = "title") String searchKeywordType,
 			@RequestParam(defaultValue = "") String searchKeyword) {
+//		
+//		if (page <= 0) {
+//			return rq.jsReturnOnView("페이지번호가 올바르지 않습니다", true);
+//		}
+//
+//		int articlesCnt = articleService.getArticlesCnt(boardId, searchKeywordType, searchKeyword);
+//
+//		int itemsInAPage = 10;
+//
+//		int pagesCount = (int) Math.ceil((double) articlesCnt / itemsInAPage);
 		
 		//가입 요청자 정보 조회
 		List<JoinRequest> joinRequests = joinRequestService.getAllJoinRequestsInfo();
@@ -77,7 +87,8 @@ public class AdminController {
 		memberService.insertMembertable(joinRequests.getRegDate(),
 				joinRequests.getUpdateDate(),joinRequests.getLoginId(),
 				joinRequests.getLoginPw(),joinRequests.getName(),
-				joinRequests.getCellphoneNum(),joinRequests.getEmail(),joinRequests.getPermission(1));
+				joinRequests.getCellphoneNum(),joinRequests.getEmail(),joinRequests.getPermission(1),
+				joinRequests.getDepartment(),joinRequests.getPosition());
 		
 		joinRequestService.deletejoinRequestsMember(joinRequests.getId());
 
@@ -93,7 +104,7 @@ public class AdminController {
 		memberService.insertMembertable(joinRequests.getRegDate(),
 				joinRequests.getUpdateDate(),joinRequests.getLoginId(),
 				joinRequests.getLoginPw(),joinRequests.getName(),
-				joinRequests.getCellphoneNum(),joinRequests.getEmail(),joinRequests.getPermission());
+				joinRequests.getCellphoneNum(),joinRequests.getEmail(),joinRequests.getPermission(),joinRequests.getDepartment(),joinRequests.getPosition());
 		
 		
 		

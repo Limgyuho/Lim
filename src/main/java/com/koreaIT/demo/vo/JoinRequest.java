@@ -20,6 +20,8 @@ public class JoinRequest {
 	private int delStatus;
 	private int permission;
 	private String delDate;
+	public String department;
+	public String position;
 	public int getPermission(int i) {
 		return 1;
 	}

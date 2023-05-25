@@ -75,11 +75,13 @@ public interface MemberRepository {
 					`name` = #{name},
 					cellphoneNum = #{cellphoneNum},
 					email = #{email},
-					permission =#{permission}
+					permission =#{permission},
+					department =#{department},
+					position = #{position}
 			""")
 
 	public void insertMembertable(String regDate, String updateDate, String loginId, String loginPw, String name,
-			String cellphoneNum, String email, int permission);
+			String cellphoneNum, String email, int permission,String department,String position);
 
 	@Delete("""
 			DELETE FROM `member`

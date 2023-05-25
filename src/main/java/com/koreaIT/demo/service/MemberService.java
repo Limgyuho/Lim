@@ -52,8 +52,8 @@ public class MemberService {
 	
 	public void insertMembertable(String regDate, String updateDate, String loginId,
 			String loginPw, String name,
-			String cellphoneNum, String email, int Permission) {
-		memberRepository.insertMembertable(regDate,updateDate,loginId,loginPw,name,cellphoneNum,email,Permission);
+			String cellphoneNum, String email, int Permission,String department,String position) {
+		memberRepository.insertMembertable(regDate,updateDate,loginId,loginPw,name,cellphoneNum,email,Permission,  department, position);
 		
 	}
 

@@ -18,7 +18,7 @@ public interface AdminRepository {
 					loginPw = #{loginPw},
 					`name` = #{name},
 					cellphoneNum = #{cellphoneNum},
-					email = #{email}
+					email = #{email},
 			""")
 	public void doJoin(String loginId, String loginPw, String name,  String cellphoneNum, String email);
 	@Select("""

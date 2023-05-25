@@ -27,7 +27,7 @@ public class JoinRequestService {
 	}
 
 	// 회원가입요청을한 사람들...정보
-	public ResultData<Integer> doJoin(String loginId, String loginPw, String name, String cellphoneNum, String email) {
+	public ResultData<Integer> doJoin(String loginId, String loginPw, String name, String cellphoneNum, String email,String department,String position) {
 		Member existsMember = getjoinRequestByLoginId(loginId);
 
 		if (existsMember != null) {
@@ -40,7 +40,7 @@ public class JoinRequestService {
 			return ResultData.from("F-9", Util.f("이미 사용중인 이름(%s)과 이메일(%s) 입니다", name, email));
 		}
 		
-		joinRequestRepository.doJoin(loginId, loginPw, name, cellphoneNum, email);
+		joinRequestRepository.doJoin(loginId, loginPw, name, cellphoneNum, email,department,position);
 
 		return ResultData.from("S-1", Util.f("%s님, 가입승인 요청을 보냈습니다", loginId), "id", joinRequestRepository.getLastInsertId());
 	}

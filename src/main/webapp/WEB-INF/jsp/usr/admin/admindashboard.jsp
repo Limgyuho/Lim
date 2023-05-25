@@ -34,6 +34,8 @@
                     <th>요청번호</th>
                     <th>아이디</th>
                     <th>비밀번호</th>
+                    <th>부서</th>
+                    <th>직급</th>
                     <th>이름</th>
                     <th>전화번호</th>
                     <th>이메일</th>
@@ -45,23 +47,27 @@
                 <%-- 가입 요청자 정보 반복문 --%>
                 <c:forEach var="joinRequest" items="${joinRequests}">
                     <tr>
-                        <td>${joinRequest.id}</td>
-                        <td>${joinRequest.loginId}</td>
-                        <td>${joinRequest.loginPw}</td>
-                        <td>${joinRequest.name}</td>
-                        <td>${joinRequest.cellphoneNum}</td>
-                        <td>${joinRequest.email}</td>
-                        <td>${joinRequest.regDate}</td>
-                        <td>
-                            <form action="approve" method="post">
-                                <input type="hidden" name="id" value="${joinRequest.id}" />
-                                <button type="submit">Approve</button>
-                            </form>
-                            <form action="reject" method="post">
-                                <input type="hidden" name="id" value="${joinRequest.id}" />
-                                <button type="submit">Reject</button>
-                            </form>
-                        </td>
+                  
+	                        <td>${joinRequest.id}</td>
+	                        <td>${joinRequest.loginId}</td>
+	                        <td>${joinRequest.loginPw}</td>
+	                        <td>${joinRequest.department}</td>
+	                        <td>${joinRequest.position}</td>
+	                        <td>${joinRequest.name}</td>
+	                        <td>${joinRequest.cellphoneNum}</td>
+	                        <td>${joinRequest.email}</td>
+	                        <td>${joinRequest.regDate}</td>
+	                        <td>
+	                            <form action="approve" method="post">
+	                                <input type="hidden" name="id" value="${joinRequest.id}" />
+	                                <button type="submit">Approve</button>
+	                            </form>
+	                            <form action="reject" method="post">
+	                                <input type="hidden" name="id" value="${joinRequest.id}" />
+	                                <button type="submit">Reject</button>
+	                            </form>
+	                        </td>
+	                	</label>
                     </tr>
                 </c:forEach>
             </tbody>
@@ -71,13 +77,18 @@
     <!-- 가입 완료된 멤버 탭 -->
     <div id="approvedMembers" class="tab-content">
         <h2>가입된 멤버들</h2>
+        
         <table>
             <thead>
+        
                 <tr>
+                	<th></th>
                     <th>회원번호</th>
                     <th>가입날짜</th>
                     <th>로그인 아이디</th>
                     <th>로그인 패스워드</th>
+                    <th>부서</th>
+                    <th>직급</th>
                     <th>이름</th>
                     <th>전화번호</th>
                     <th>이메일</th>
@@ -86,19 +97,40 @@
             <tbody>
                 <%-- 가입 완료된 멤버 정보 반복문 --%>
                 <c:forEach var="member" items="${approvedMembers}">
-                    <tr>
-                        <td>${member.id}</td>
-                        <td>${member.regDate}</td>
-                        <td>${member.loginId}</td>
-                        <td>${member.loginPw}</td>
-                        <td>${member.name}</td>
-                        <td>${member.cellphoneNum}</td>
-                        <td>${member.email}</td>
+                     <tr >
+                    		<td>
+                    			<div class="form-control">
+					  				<label class="cursor-pointer label">
+					    			<input type="checkbox" checked="checked" class="checkbox checkbox-info" />
+  									</label>
+								</div>
+                    		</td>
+	                        <td>${member.id}</td>
+	                        <td>${member.regDate}</td>
+	                        <td>${member.loginId}</td>
+	                        <td>${member.loginPw}</td>
+	                        <td>${member.department}</td>
+	                        <td>${member.position}</td>
+	                        <td>${member.name}</td>
+	                        <td>${member.cellphoneNum}</td>
+	                        <td>${member.email}</td>                  
                     </tr>
                 </c:forEach>
             </tbody>
         </table>
-    </div>
+    </div> 
+    <form>
+		<input type="hidden" name="boardId" value="${board.id }"/>
+		<div>부서</div>
+		<select data-value="${departmentType }" class="select select-bordered select-sm w-50 max-w-xs" name="searchKeywordType">
+			<option value="title">운영지원과</option>
+			<option value="title">정보과</option>
+			<option value="title">기획재정담당관</option>
+			<option value="title">감사과</option>
+		</select>
+		<input class="input input-bordered input-sm w-full max-w-xs"  name="departmentType" placeholder="검색어를 입력해주세요" maxlength="20" value="${departmentType }"/>
+		<button class="ml-2 btn-text-link btn btn-sm btn btn-success">검색</button>
+	</form>
 
     <script>
         function showTab(tabName) {

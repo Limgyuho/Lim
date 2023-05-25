@@ -24,10 +24,12 @@ public interface JoinRequestRepository {
 					loginPw = #{loginPw},
 					`name` = #{name},
 					cellphoneNum = #{cellphoneNum},
-					email = #{email}
+					email = #{email},
+					department =#{department},
+					position = #{position}
 		
 			""")
-	public void doJoin(String loginId, String loginPw, String name,  String cellphoneNum, String email );
+	public void doJoin(String loginId, String loginPw, String name,  String cellphoneNum, String email ,String department,String position);
 	
 	@Select("SELECT LAST_INSERT_ID()")
 	public int getLastInsertId();
@@ -57,10 +59,7 @@ public interface JoinRequestRepository {
 			""")
 	public Member getJoinRequestByNameAndEmail(String name, String email);
 	
-	
-	
-	
-	
+
 	
 	@Select("""
 			SELECT *

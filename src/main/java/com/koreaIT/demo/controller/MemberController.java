@@ -78,7 +78,7 @@ public class MemberController {
 	//회원가입요청 폼....
 	@RequestMapping("/usr/member/dojoin")
 	@ResponseBody
-	public String doJoin(String loginId, String loginPw, String name, String cellphoneNum, String email) {
+	public String doJoin(String loginId, String loginPw, String name, String cellphoneNum, String email,String department,String position) {
 
 		if (Util.empty(loginId)) {
 			return Util.jsHistoryBack("아이디를 입력해주세요");
@@ -98,8 +98,8 @@ public class MemberController {
 		}
 		
 		//회원가입 정보들을 joinRequest에 넣어두고 저장하여 멤버테이블에 넣기 위함
-		ResultData<Integer> doJoinRd = joinRequestService.doJoin(loginId, loginPw, name, cellphoneNum, email);
-		
+		ResultData<Integer> doJoinRd = joinRequestService.doJoin(loginId, loginPw, name, cellphoneNum, email,department,position);
+
 		//메세지
 		if (doJoinRd.isFail()) {
 			return Util.jsHistoryBack(doJoinRd.getMsg());

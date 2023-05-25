@@ -20,4 +20,7 @@ public class Member {
 	private int delStatus;
 	private String delDate;
 	public int Permission;
+	public String department;
+	public String position;
+	
 }
