@@ -132,9 +132,28 @@
 								<td><input  type="text" name="loginPwChk" placeholder="비밀번호확인을 입력해주세요"/></td>
 							</tr>
 							<tr>
+
 								<th>이름</th>
 								<td><input type="text" name="name" placeholder="이름을 입력해주세요"/></td>
 							</tr>
+							<tr>
+							 <th><label for="department">부서</label></th>
+							  <td><select id="department" name="department">
+							    <option value="General Affairs Divison">운영지원과</option>
+							    <option value="junbo">정보과</option>
+							    <option value="Planning and Finance">기획재정담당관</option>
+							    <option value="inspector General">감사과</option></td>
+							  </select><br>
+							</tr>
+							<tr>
+							  <th><label for="position">직급</label></th>
+							  <td><select id="position" name="position">
+							  <option value="Manager">과장</option>
+							    <option value=" Head of Team">서기관</option>
+							    <option value="Deputy Director">사무관</option>
+							    <option value="officer">주무관</option></td>
+							  </select><br>
+							 </tr>
 							<tr>
 								<th>전화번호</th>
 								<td><input type="text" name="cellphoneNum" placeholder="전화번호를 입력해주세요"/></td>

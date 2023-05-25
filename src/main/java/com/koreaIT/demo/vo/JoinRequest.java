@@ -15,7 +15,6 @@ public class JoinRequest {
 	private String loginPw;
 	private int authLevel;
 	private String name;
-<<<<<<< HEAD
 	private String cellphoneNum;
 	private String email;
 	private int delStatus;
@@ -25,11 +24,4 @@ public class JoinRequest {
 		return 1;
 	}
 	
-=======
-	private String nickname;
-	private String cellphoneNum;
-	private String email;
-	private int delStatus;
-	private String delDate;
->>>>>>> master
 }

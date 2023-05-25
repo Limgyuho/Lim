@@ -52,26 +52,15 @@ public class MemberService {
 	
 	public void insertMembertable(String regDate, String updateDate, String loginId,
 			String loginPw, String name,
-<<<<<<< HEAD
 			String cellphoneNum, String email, int Permission) {
 		memberRepository.insertMembertable(regDate,updateDate,loginId,loginPw,name,cellphoneNum,email,Permission);
-=======
-			String cellphoneNum, String email) {
-		memberRepository.insertMembertable(regDate,updateDate,loginId,loginPw,name,cellphoneNum,email);
->>>>>>> master
 		
 	}
 
 
-<<<<<<< HEAD
 	public void deletejoinRequestsMember(int id) {
 		
 		memberRepository.deletejoinRequestsMember(id);
 	}
 
-=======
-
-	
-	
->>>>>>> master
 }

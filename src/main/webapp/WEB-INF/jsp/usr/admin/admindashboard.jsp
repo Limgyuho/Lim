@@ -1,10 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-<<<<<<< HEAD
     pageEncoding="UTF-8"%>
-=======
-	pageEncoding="UTF-8"%>
->>>>>>> master
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 
 <c:set var="pageTitle" value="Home" />
 <%@ include file="../common/head.jsp"%>
@@ -34,7 +31,6 @@
         <table>
             <thead>
                 <tr>
-<<<<<<< HEAD
                     <th>요청번호</th>
                     <th>아이디</th>
                     <th>비밀번호</th>
@@ -42,11 +38,6 @@
                     <th>전화번호</th>
                     <th>이메일</th>
                     <th>요청날짜</th>
-=======
-                    <th>아이디</th>
-                    <th>비민번호</th>
-                    <th>이름</th>
->>>>>>> master
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -55,7 +46,6 @@
                 <c:forEach var="joinRequest" items="${joinRequests}">
                     <tr>
                         <td>${joinRequest.id}</td>
-<<<<<<< HEAD
                         <td>${joinRequest.loginId}</td>
                         <td>${joinRequest.loginPw}</td>
                         <td>${joinRequest.name}</td>
@@ -68,16 +58,6 @@
                                 <button type="submit">Approve</button>
                             </form>
                             <form action="reject" method="post">
-=======
-                        <td>${joinRequest.loginPw}</td>
-                        <td>${joinRequest.name}</td>
-                        <td>
-                            <form action="/usr/admin/approve" method="post">
-                                <input type="hidden" name="id" value="${joinRequest.id}" />
-                                <button type="submit">Approve</button>
-                            </form>
-                            <form action="/admin/reject" method="post">
->>>>>>> master
                                 <input type="hidden" name="id" value="${joinRequest.id}" />
                                 <button type="submit">Reject</button>
                             </form>
@@ -105,21 +85,12 @@
             </thead>
             <tbody>
                 <%-- 가입 완료된 멤버 정보 반복문 --%>
-<<<<<<< HEAD
                 <c:forEach var="member" items="${approvedMembers}">
                     <tr>
                         <td>${member.id}</td>
                         <td>${member.regDate}</td>
                         <td>${member.loginId}</td>
                         <td>${member.loginPw}</td>
-=======
-               <c:forEach var="member" items="${approvedMembers }">
-                    <tr>
-                        <td>${member.id}</td>
-                        <td>${member.regDate }</td>
-                        <td>${member.loginId}</td>
-                         <td>${member.loginPw}</td>
->>>>>>> master
                         <td>${member.name}</td>
                         <td>${member.cellphoneNum}</td>
                         <td>${member.email}</td>
@@ -143,8 +114,4 @@
         }
     </script>
 </body>
-<<<<<<< HEAD
 </html>
-=======
-</html>
->>>>>>> master

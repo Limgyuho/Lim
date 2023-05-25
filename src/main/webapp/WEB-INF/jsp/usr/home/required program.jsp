@@ -8,7 +8,7 @@
 <head>
  
         <meta name="viewport" charset="utf-8" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-        <title>Spring Boot File Upload / Download Rest API Example</title>
+        <title>Spring Boot File Upload / Download Rest API</title>
         <link rel="stylesheet" href="/css/main.css" />
     </head>
     <body>
@@ -17,11 +17,7 @@
         </noscript>
         <div class="upload-container">
             <div class="upload-header">
-<<<<<<< HEAD
                 <h2>Spring Boot File Upload / Download</h2>
-=======
-                <h2>Spring Boot File Upload / Download 예제</h2>
->>>>>>> master
                 <h3>Jimkwon</h3>
             </div>
             <div class="upload-content">

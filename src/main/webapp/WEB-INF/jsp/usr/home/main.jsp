@@ -10,24 +10,19 @@
 <body>
 
 <div class="w-52 h-20 bg-green-400">
-<<<<<<< HEAD
 	<input type="hidden" name="id" value="${member.id }"/>
-=======
->>>>>>> master
     <div class="logo">
         <img src="로고 이미지 URL" alt="로고">
     </div>
     <div class="user-info">
         <img src="사용자 이미지 URL" alt="사용자 이미지" class="user-image">
         <span class="department">소속</span>
-<<<<<<< HEAD
         <span class="username">직급<span>
-         <td>${rq.loginedMember.name }</td>
-        <span class=Name>이름</span>
-=======
-        <span class="username">직급span>
-        <span class="username">이름</span>
->>>>>>> master
+        <span class="username">직급<span>
+         <span>${rq.loginedMember.name }</span>
+       
+         	<button onclick= "location.href='/usr/chat/chatmember'">메신저</button>
+   
         <a href="/usr/home/home">로그아웃</a>
     </div>
 </div>
