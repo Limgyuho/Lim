@@ -9,7 +9,7 @@
 <body>
 <!-- 가입 완료된 멤버 탭 -->
     <div id="approvedMembers" class="tab-content">
-        <h2>가입된 멤버들</h2>
+        <h2>직원</h2>
         <table>
             <thead>
                 <tr>
