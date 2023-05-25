@@ -21,7 +21,7 @@
         <span class="username">직급<span>
          <span>${rq.loginedMember.name }</span>
        
-         	<button onclick= "location.href='/usr/chat/chat'">메신저</button>
+         	<button onclick= "location.href='/usr/chat/chatmember'">메신저</button>
    
         <a href="/usr/home/home">로그아웃</a>
     </div>
