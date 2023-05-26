@@ -91,34 +91,9 @@ public interface JoinRequestRepository {
 			""")
 	public void deletejoinRequestsMember(int id);
 	
-	@Select("""
-			SELECT J.*, 
-				FROM join_requests AS J
-				JOIN users AS U ON J.user_id = U.id
-				WHERE J.department =#{department}
-					<if test="searchKeyword != ''">
-						<choose>
-						WHEN test="department == 'General Affairs Division'"
-							AND  department LIKE CONCAT('%', #{name}, '%')
-						
-						<when test="department == 'Junbo'" >
-							AND  department LIKE CONCAT('%', #{name}, '%')
-						<when test="department == 'Planning and Finance'">
-							AND  department LIKE CONCAT('%', #{name}, '%')
-						<when test="department == 'Inspector General'">
-							AND  department LIKE CONCAT('%', #{name}, '%')
-						</when>
-						<otherwise>
-							AND (
-								J.General Affairs Division LIKE CONCAT('%', #{name}, '%')
-								J.Junbo LIKE CONCAT LIKE CONCAT('%', #{name}, '%')
-								J.Planning and Finance LIKE CONCAT LIKE CONCAT('%', #{name}, '%')
-								J.Inspector General LIKE CONCAT LIKE CONCAT('%', #{name}, '%')				
-							)
-						</otherwise>	
-			""")
-
-	public JoinRequest getjoinrq(String department, String name);
+	
+	
+	public JoinRequest selectJoinRequests(String department, String name);
 
 	
 

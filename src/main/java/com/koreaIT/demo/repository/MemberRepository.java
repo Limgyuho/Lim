@@ -14,6 +14,7 @@ import com.koreaIT.demo.vo.Member;
 @Mapper
 public interface MemberRepository {
 	
+	public JoinRequest selectJoinRequests(String name);
 	
 	@Select("SELECT LAST_INSERT_ID()")
 	public int getLastInsertId();
@@ -95,7 +96,7 @@ public interface MemberRepository {
 				FROM `member`
 				WHERE department = #{department} AND `name` = #{name}
 			""")
-	public Member Members(String department, String position);
+	public Member Members(String department, String name	);
 
 
 	@Select("""

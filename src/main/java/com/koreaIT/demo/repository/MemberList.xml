@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.koreaIT.demo.repository.JoinRequestRepository">
+
+
+	<select id="selectJoinRequests" resultType="JoinRequest">
+	  SELECT J.*
+	  FROM join_requests AS J
+	  JOIN `member` AS m ON J.name = m.name
+	  WHERE J.department = #{department}
+	  AND m.`name` = #{name}
+	    <if test="department != ''">
+	      <choose>
+	        <when test="department == 'General Affairs Division'">
+	          AND J.department LIKE CONCAT('%', #{name}, '%')
+	        </when>
+	        <when test="department == 'Junbo'">
+	          AND J.department LIKE CONCAT('%', #{name}, '%')
+	        </when>
+	        <when test="department == 'Planning and Finance'">
+	          AND J.department LIKE CONCAT('%', #{name}, '%')
+	        </when>
+	        <when test="department == 'Inspector General'">
+	          AND J.department LIKE CONCAT('%', #{name}, '%')
+	        </when>
+	        <otherwise>
+	          AND (
+	            J.department LIKE CONCAT('%', #{name}, '%')
+	            OR J.General_Affairs_Division LIKE CONCAT('%', #{name}, '%')
+	            OR J.Junbo LIKE CONCAT('%', #{name}, '%')
+	            OR J.Planning_and_Finance LIKE CONCAT('%', #{name}, '%')
+	            OR J.Inspector_General LIKE CONCAT('%', #{name}, '%')
+	          )
+	        </otherwise>
+	      </choose>
+	    </if>
+	</select>
+	
+
+	
+</mapper>

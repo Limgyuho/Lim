@@ -12,3 +12,4 @@ spring:
     password:
 mybatis:
   type-aliases-package: com.koreaIT.demo.vo
+  mapper-locations: classpath:com/koreaIT/demo/repository/*.xml

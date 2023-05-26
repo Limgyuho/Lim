@@ -63,7 +63,7 @@ public class AdminController {
 		
 		
 		//가입 요청자 정보 조회
-		int memberCnt = memberService.getMembersCnt();
+	
 		List<JoinRequest> joinRequests = joinRequestService.getAllJoinRequestsInfo();
 		model.addAttribute("joinRequests", joinRequests);
 		model.addAttribute("department", department);
@@ -71,7 +71,6 @@ public class AdminController {
 
 		
 		// 가입 완료된 멤버 정보 조회
-		int JoinRequestsCnt = joinRequestService.getjoinrqCnt();
 		List<Member> approvedMembers = memberService.getAllApprovedMembers();
 		model.addAttribute("approvedMembers", approvedMembers);
 		model.addAttribute("department", department);

@@ -70,7 +70,7 @@ public class JoinRequestService {
 
 
 	public JoinRequest getjoinrq(String department, String name) {
-		return joinRequestRepository.getjoinrq(department, name);
+		return joinRequestRepository.selectJoinRequests(department, name);
 	}
 
 	public int getjoinrqCnt() {
