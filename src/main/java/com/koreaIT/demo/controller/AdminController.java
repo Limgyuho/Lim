@@ -43,8 +43,7 @@ public class AdminController {
 	public String showadmin() {
 		return "usr/admin/admin";
 	}
-	
-	
+		
 
 	//어드민 대시보드에서 가입요청자의 정보 가입 완료된 멤버정보 보기
 	//각각의 정보회 탭에서의 페이지 처리와 키워드 검색
@@ -52,26 +51,31 @@ public class AdminController {
 	@RequestMapping("/usr/admin/admindashboard")
 	public String showadmindashboard(Model model,@RequestParam(defaultValue = "1") int boardId,
 			@RequestParam(defaultValue = "1") int page, 
-			@RequestParam(defaultValue = "title") String searchKeywordType,
-			@RequestParam(defaultValue = "") String searchKeyword) {
-//		
-//		if (page <= 0) {
-//			return rq.jsReturnOnView("페이지번호가 올바르지 않습니다", true);
-//		}
-//
-//		int articlesCnt = articleService.getArticlesCnt(boardId, searchKeywordType, searchKeyword);
-//
-//		int itemsInAPage = 10;
-//
-//		int pagesCount = (int) Math.ceil((double) articlesCnt / itemsInAPage);
+			@RequestParam(defaultValue = "General Affairs Division") String department,
+			@RequestParam(defaultValue = "") String name) {
+		
+	
+		Member membersearch = memberService.getMembers(department, name);
+		
+		JoinRequest joinsearch = joinRequestService.getjoinrq(department, name);
+
+
+		
 		
 		//가입 요청자 정보 조회
+		int memberCnt = memberService.getMembersCnt();
 		List<JoinRequest> joinRequests = joinRequestService.getAllJoinRequestsInfo();
 		model.addAttribute("joinRequests", joinRequests);
+		model.addAttribute("department", department);
+		model.addAttribute("name", name);
 
+		
 		// 가입 완료된 멤버 정보 조회
+		int JoinRequestsCnt = joinRequestService.getjoinrqCnt();
 		List<Member> approvedMembers = memberService.getAllApprovedMembers();
 		model.addAttribute("approvedMembers", approvedMembers);
+		model.addAttribute("department", department);
+		model.addAttribute("name", name);
 
 		return "usr/admin/admindashboard";
 	}

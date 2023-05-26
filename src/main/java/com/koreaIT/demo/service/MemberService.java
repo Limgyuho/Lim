@@ -62,5 +62,14 @@ public class MemberService {
 		
 		memberRepository.deletejoinRequestsMember(id);
 	}
+	
+	public Member getMembers(String department, String name) {
+		return memberRepository.Members(department, name);
+	}
 
+
+	public int getMembersCnt() {
+
+		return memberRepository.getMemberCnt();
+	}
 }

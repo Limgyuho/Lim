@@ -89,11 +89,21 @@ public interface MemberRepository {
 			""")
 	public void deletejoinRequestsMember(int id);
 
-
-
 	
+	@Select("""
+			SELECT *
+				FROM `member`
+				WHERE department = #{department} AND `name` = #{name}
+			""")
+	public Member Members(String department, String position);
 
 
+	@Select("""
+			SELECT COUNT(*)
+				FROM `member`
+				
+			""")
+	public int getMemberCnt();
 
 
 

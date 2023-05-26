@@ -17,7 +17,7 @@ import com.koreaIT.demo.vo.ResultData;
 
 public class JoinRequestService {
 
-	private static JoinRequestRepository joinRequestRepository;
+	private JoinRequestRepository joinRequestRepository;
 
 
 	@Autowired
@@ -69,7 +69,15 @@ public class JoinRequestService {
 	}
 
 
-	
-	
+	public JoinRequest getjoinrq(String department, String name) {
+		return joinRequestRepository.getjoinrq(department, name);
+	}
+
+	public int getjoinrqCnt() {
+
+		return joinRequestRepository.getjoinRequestCnt();
+	}
+
+
 
 }	
