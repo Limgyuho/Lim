@@ -92,9 +92,10 @@ public interface JoinRequestRepository {
 	public void deletejoinRequestsMember(int id);
 	
 	@Select("""
-			SELECT *
+			SELECT J.*, 
 				FROM join_requests AS J
-				WHERE department =#{department}
+				JOIN users AS U ON J.user_id = U.id
+				WHERE J.department =#{department}
 					<if test="searchKeyword != ''">
 						<choose>
 						WHEN test="department == 'General Affairs Division'"
