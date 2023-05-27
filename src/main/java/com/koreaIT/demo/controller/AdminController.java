@@ -55,19 +55,20 @@ public class AdminController {
 			@RequestParam(defaultValue = "") String name) {
 		
 	
+		int memberCnt = memberService.getMemberCnt();
+		int joinRequestCnt = joinRequestService.joinRequestCnt();
+
 		Member membersearch = memberService.getMembers(department, name);
-		
 		JoinRequest joinsearch = joinRequestService.getjoinrq(department, name);
 
-
-		
-		
 		//가입 요청자 정보 조회
 	
 		List<JoinRequest> joinRequests = joinRequestService.getAllJoinRequestsInfo();
 		model.addAttribute("joinRequests", joinRequests);
 		model.addAttribute("department", department);
+		model.addAttribute("memberCnt", memberCnt);
 		model.addAttribute("name", name);
+		
 
 		
 		// 가입 완료된 멤버 정보 조회

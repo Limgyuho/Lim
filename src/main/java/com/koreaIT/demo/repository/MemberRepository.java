@@ -96,7 +96,7 @@ public interface MemberRepository {
 				FROM `member`
 				WHERE department = #{department} AND `name` = #{name}
 			""")
-	public Member Members(String department, String name	);
+	public Member Members(String department, String name);
 
 
 	@Select("""
@@ -105,6 +105,13 @@ public interface MemberRepository {
 				
 			""")
 	public int getMemberCnt();
+	
+	@Select("""
+		    SELECT `name`, `position`, cellphoneNum
+		    FROM `member`
+		    WHERE department = #{department}
+		    """)
+	public List<Member> getMembersByDepartment(String department);
 
 
 

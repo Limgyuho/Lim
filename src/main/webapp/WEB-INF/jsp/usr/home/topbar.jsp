@@ -17,11 +17,11 @@
 	        <nav class="menu-box-1 w-full">
 	            <ul class="flex justify-center height-100p  ">
 	                <li>
-	                    <a href="#" class="flex height-100p flex-ai-c">전체 게시판</a>
+	                    <a href="" class="flex height-100p flex-ai-c">전체 게시판</a>
 	                    <div class="con-min-width ">
 	                        <div class="">
 	                            <ul class="flex">
-	                                <li class="flex-grow-1"><a href="#" class="block">공지 사항</a></li>
+	                                <li class="flex-grow-1"><a href="/usr/article/Noticelist" class="block">공지 사항</a></li>
 	                                <li class="flex-grow-1"><a href="#" class="block">건의 사항</a></li>
 	                                <li class="flex-grow-1"><a href="#" class="block">인사 이동</a></li>
 	                            </ul>

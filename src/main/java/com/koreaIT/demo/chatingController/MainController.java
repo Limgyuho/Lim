@@ -1,6 +1,5 @@
 package com.koreaIT.demo.chatingController;
 
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +18,6 @@ import com.koreaIT.demo.vo.Rq;
 
 @Controller
 public class MainController {
-	
 
 	private MemberService memberService;
 	private Rq rq;
@@ -29,21 +27,28 @@ public class MainController {
 		this.memberService = memberService;
 		this.rq = rq;
 	}
-	
-	
-	 
+
 	@RequestMapping("/usr/chat/chat")
 	public String chat() {
-		
+
 		return "usr/chat/chat";
 	}
-	
-	@RequestMapping("/usr/chat/chatmember")
-	public String showachatmember(Model model) {	
-		// 가입 완료된 멤버 정보 조회
-		List<Member> approvedMembers = memberService.getAllApprovedMembers();
-		model.addAttribute("approvedMembers", approvedMembers);
 
-		return "usr/chat/chatmember";
+	// 부서들을 보여주는 화면
+	@RequestMapping("/usr/chat/department")
+	public String showdepartment(Model model) {
+		return "usr/chat/department";
+	}
+
+	// 각각의 부서를 클리시 오게 되는 컨트롤러
+	// 여러개를 만들어야 하는지
+	@RequestMapping("/usr/chat/members")
+	public String members(Model model, @RequestParam(defaultValue = "department") String department) {
+		
+		
+		List<Member> departmentMembers = memberService.getMembersByDepartment(department);
+		model.addAttribute("departmentMembers", departmentMembers);
+
+		return "usr/chat/members";
 	}
 }

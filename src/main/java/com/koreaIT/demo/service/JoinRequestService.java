@@ -73,8 +73,10 @@ public class JoinRequestService {
 		return joinRequestRepository.selectJoinRequests(department, name);
 	}
 
-	public int getjoinrqCnt() {
 
+
+	public int joinRequestCnt() {
+	
 		return joinRequestRepository.getjoinRequestCnt();
 	}
 

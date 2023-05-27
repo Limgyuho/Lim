@@ -68,8 +68,18 @@ public class MemberService {
 	}
 
 
-	public int getMembersCnt() {
+
+
+	public List<Member> getMembersByDepartment(String department) {
+	    return memberRepository.getMembersByDepartment(department);
+	}
+	
+	
+	public int getMemberCnt() {
 
 		return memberRepository.getMemberCnt();
 	}
+
+
+
 }

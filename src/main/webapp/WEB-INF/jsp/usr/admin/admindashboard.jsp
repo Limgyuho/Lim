@@ -1,7 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
 
 <c:set var="pageTitle" value="Home" />
 <%@ include file="../common/head.jsp"%>
@@ -71,7 +69,6 @@
 								<button type="submit">Reject</button>
 							</form>
 						</td>
-						</label>
 					</tr>
 				</c:forEach>
 			</tbody>
@@ -80,14 +77,13 @@
 
 	<!-- 가입 완료된 멤버 탭 -->
 	<div id="approvedMembers" class="tab-content">
-		<div class="flex">
+		<div class="flex">		
 			<h2 class="flex-grow-1">가입된 멤버들</h2>
 			<h2 class="flex-grow-1 justify-content-end">총 인원 : ${memberCnt }
 				명</h2>
 		</div>
 		<table>
 			<thead>
-
 				<tr>
 					<th></th>
 					<th>회원번호</th>
@@ -126,18 +122,18 @@
 			</tbody>
 		</table>
 	</div>
-	
-	<form>
+
+	<form method="GET" >
 		<select data-value="${department }" class="select select-bordered" name="department">
-			<option value="General Affairs Division">운영지원과</option>
-			<option value="Junbo">정보과</option>
-			<option value="Planning and Finance">기획재정담당관</option>
-			<option value="Inspector General">감사과</option>
-		</select> 
+			<option value="General Affairs Division" ${department == 'General Affairs Division' ? 'selected' : ''}>운영지원과</option>
+			<option value="Junbo" ${department == 'Junbo' ? 'selected' : ''}>정보과</option>
+			<option value="Planning and Finance" ${department == 'Planning and Finance' ? 'selected' : ''}>기획재정담당관</option>
+			<option value="Inspector General" ${department == 'Inspector General' ? 'selected' : ''}>감사과</option>
+		</select>
 		<input class="ml-2 w-80 input input-bordered" name="name" placeholder="검색어를 입력해주세요" maxlength="20" value="${name }"/>
-		<button class="ml-2 btn-text-link btn btn-active">검색</button>	
+		<button class="ml-2 btn-text-link btn btn-active" type="submit">검색</button>
 	</form>
-			
+
 	<script>
 		function showTab(tabName) {
 			// 모든 탭 컨텐츠 숨기기
@@ -150,6 +146,9 @@
 			var selectedTab = document.getElementById(tabName);
 			selectedTab.style.display = "block";
 		}
-	</script>
+		
+	</script>	
+
+	
 </body>
 </html>
