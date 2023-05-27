@@ -81,7 +81,6 @@ public class AdminController {
 	}
 
 
-	
 	@PostMapping("/usr/admin/approve")
 	public String approveJoinRequest(@RequestParam("id") int id) {
 		// 가입 요청 승인 처리
