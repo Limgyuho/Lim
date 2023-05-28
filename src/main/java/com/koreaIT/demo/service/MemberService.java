@@ -22,10 +22,8 @@ public class MemberService {
 		this.memberRepository = memberRepository;
 	}
 	
-	
-	@Autowired
-	 public List<Member> getAllApprovedMembers() {
-		return memberRepository.getMemberList();
+	 public List<Member> getAllApprovedMembers(String department, String name) {
+		return memberRepository.getMemberList(department, name);
 	 }
 	
 	

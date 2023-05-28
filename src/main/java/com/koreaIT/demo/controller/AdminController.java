@@ -72,7 +72,7 @@ public class AdminController {
 
 		
 		// 가입 완료된 멤버 정보 조회
-		List<Member> approvedMembers = memberService.getAllApprovedMembers();
+		List<Member> approvedMembers = memberService.getAllApprovedMembers(department, name);
 		model.addAttribute("approvedMembers", approvedMembers);
 		model.addAttribute("department", department);
 		model.addAttribute("name", name);

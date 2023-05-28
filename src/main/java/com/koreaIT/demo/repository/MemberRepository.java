@@ -62,10 +62,16 @@ public interface MemberRepository {
 
 	
 	@Select("""
+			<script>
 			SELECT *
 				FROM `member`
+				WHERE department = #{department}
+				<if test="name != ''">
+					AND name = #{name}
+				</if>
+			</script>
 			""")
-	public List<Member> getMemberList();
+	public List<Member> getMemberList(String department, String name);
 	
 	@Insert("""
 			INSERT INTO `member`

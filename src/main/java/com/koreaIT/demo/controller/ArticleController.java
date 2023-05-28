@@ -81,8 +81,8 @@ public class ArticleController {
 
 	
 		// 가입 완료된 멤버 정보 조회
-		List<Member> approvedMembers = memberService.getAllApprovedMembers();
-		model.addAttribute("approvedMembers", approvedMembers);
+//		List<Member> approvedMembers = memberService.getAllApprovedMembers();
+//		model.addAttribute("approvedMembers", approvedMembers);
 
 		return "usr/article/transfer";
 	}
