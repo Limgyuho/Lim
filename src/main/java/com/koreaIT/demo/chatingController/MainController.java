@@ -2,7 +2,9 @@ package com.koreaIT.demo.chatingController;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -44,8 +46,7 @@ public class MainController {
 	// 여러개를 만들어야 하는지
 	@RequestMapping("/usr/chat/members")
 	public String members(Model model, @RequestParam(defaultValue = "department") String department) {
-		
-		
+
 		List<Member> departmentMembers = memberService.getMembersByDepartment(department);
 		model.addAttribute("departmentMembers", departmentMembers);
 

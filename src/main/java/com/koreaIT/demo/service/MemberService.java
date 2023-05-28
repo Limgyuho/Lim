@@ -12,7 +12,6 @@ import com.koreaIT.demo.vo.JoinRequest;
 import com.koreaIT.demo.vo.Member;
 import com.koreaIT.demo.vo.ResultData;
 
-//
 @Service
 public class MemberService {
 	

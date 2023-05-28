@@ -7,7 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.beans.factory.annotation.Autowired;
 import com.koreaIT.demo.service.AdminService;
 import com.koreaIT.demo.service.ArticleService;
 import com.koreaIT.demo.service.BoardService;
@@ -30,7 +31,7 @@ public class ArticleController {
 	private Rq rq;
 
 	@Autowired
-	public ArticleController(ArticleService articleService,AdminService adminService, MemberService memberService, Rq rq, JoinRequestService joinRequestService) {
+	public ArticleController(ArticleService articleService,BoardService boardService,AdminService adminService, MemberService memberService, Rq rq, JoinRequestService joinRequestService) {
 		this.adminService = adminService;
 		this.memberService = memberService;
 		this.joinRequestService = joinRequestService;
