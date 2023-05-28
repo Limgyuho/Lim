@@ -83,8 +83,8 @@ public class AdminController {
 				joinRequests.getLoginId(), joinRequests.getLoginPw(), joinRequests.getName(),
 				joinRequests.getCellphoneNum(), joinRequests.getEmail(), joinRequests.getPermission(1),
 				joinRequests.getDepartment(), joinRequests.getPosition());
-
-		joinRequestService.deletejoinRequestsMember(joinRequests.getId());
+		
+		joinRequestService.deletejoinRequestsMember(id);
 
 		return "redirect:/usr/admin/admindashboard";
 	}
@@ -99,7 +99,8 @@ public class AdminController {
 				joinRequests.getLoginId(), joinRequests.getLoginPw(), joinRequests.getName(),
 				joinRequests.getCellphoneNum(), joinRequests.getEmail(), joinRequests.getPermission(),
 				joinRequests.getDepartment(), joinRequests.getPosition());
-
+		
+		joinRequestService.deletejoinRequestsMember(id);
 		return "redirect:/usr/admin/admindashboard";
 	}
 

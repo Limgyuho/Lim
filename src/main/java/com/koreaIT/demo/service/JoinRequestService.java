@@ -60,6 +60,7 @@ public class JoinRequestService {
 	}
 
 	public void deletejoinRequestsMember(int id) {
+
 		joinRequestRepository.deletejoinRequestsMember(id);
 	}
 
@@ -84,6 +85,7 @@ public class JoinRequestService {
 
 		return joinRequestRepository.getAllRequests(department,name);
 	}
+
 
 
 

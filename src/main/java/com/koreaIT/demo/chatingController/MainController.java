@@ -65,7 +65,7 @@ public class MainController {
 	//String department 뒤에 오는 변수는 Division과 동일 해야 하는데
 	//멤버 서비스에서 getMembersByDepartment(department)의 파라미터안에 Division이들어가서
 	//레파지토리의 쿼리문에서 Division 을 가지고 조회한다
-	public String members(Model model, @RequestParam(defaultValue = "department") String department) {
+	public String members(Model model, @RequestParam(defaultValue = "") String department) {
 		//List라는 것은 여러개의 요소를 정리 하기 위함이고 멤버객체에대한 정보를 저장하겠다
 		//조회후의 데이터를 departmentMembers라는 변수에 담아준다
 		List<Member> departmentMembers = memberService.getMembersByDepartment(department);
@@ -73,7 +73,7 @@ public class MainController {
 		//저장된 departmentMembers를 파라미터로 넘겨주어 감을 넣어주게 된다
 		model.addAttribute("departmentMembers", departmentMembers);
 
-		//그후 jsp로 넘어가 데이터들을 보여주게 된다
+		//그후 jsp로 넘어가 데이터들을 보여주게 된다	
 		return "usr/chat/members";
 	}
 }
