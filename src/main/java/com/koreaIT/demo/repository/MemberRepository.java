@@ -119,6 +119,13 @@ public interface MemberRepository {
 		    """)
 	public List<Member> getMembersByDepartment(String department);
 
+	@Select("""
+			SELECT *
+				FROM `member`
+			""")
+	
+	public List<JoinRequest> approvedMembers();
+
 
 
 }

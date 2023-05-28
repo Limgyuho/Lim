@@ -125,6 +125,7 @@
 
 	<form method="GET" >
 		<select data-value="${department }" class="select select-bordered" name="department">
+			<option value="" ${department == '' ? 'selected' : ''}>전체</option>
 			<option value="General Affairs Division" ${department == 'General Affairs Division' ? 'selected' : ''}>운영지원과</option>
 			<option value="Junbo" ${department == 'Junbo' ? 'selected' : ''}>정보과</option>
 			<option value="Planning and Finance" ${department == 'Planning and Finance' ? 'selected' : ''}>기획재정담당관</option>

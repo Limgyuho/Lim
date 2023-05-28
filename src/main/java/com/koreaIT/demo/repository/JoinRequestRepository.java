@@ -64,7 +64,6 @@ public interface JoinRequestRepository {
 	@Select("""
 			SELECT *
 				FROM join_requests
-
 			""")
 	public List<JoinRequest> getAllJoinRequestsInfo();
 
@@ -102,5 +101,18 @@ public interface JoinRequestRepository {
 				FROM join_requests			
 			""")
 	public int getjoinRequestCnt();
+
+	
+	@Select("""
+			<script>
+			SELECT *
+				FROM join_requests
+				WHERE department = #{department}
+				<if test="name != ''">
+					AND name = #{name}
+				</if>
+			</script>
+			""")
+	public List<JoinRequest> getAllRequests(String department, String name);
 
 }

@@ -80,6 +80,11 @@ public class JoinRequestService {
 		return joinRequestRepository.getjoinRequestCnt();
 	}
 
+	public List<JoinRequest> getAllRequests(String department, String name) {
+
+		return joinRequestRepository.getAllRequests(department,name);
+	}
+
 
 
 }	

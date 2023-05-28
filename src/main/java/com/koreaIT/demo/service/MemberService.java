@@ -22,9 +22,9 @@ public class MemberService {
 		this.memberRepository = memberRepository;
 	}
 	
-	 public List<Member> getAllApprovedMembers(String department, String name) {
-		return memberRepository.getMemberList(department, name);
-	 }
+//	 public List<Member> getAllApprovedMembers(String department, String name) {
+//		return memberRepository.getMemberList(department, name);
+//	 }
 	
 	
 	private Member getMemberByNameAndEmail(String name, String email) {
@@ -75,6 +75,16 @@ public class MemberService {
 	public int getMemberCnt() {
 
 		return memberRepository.getMemberCnt();
+	}
+
+	public List<Member> getAllApprovedMembers(String department, String name) {
+	
+		return memberRepository.getMemberList(department,name);
+	}
+
+	public List<JoinRequest> approvedMembers() {
+		
+		return memberRepository.approvedMembers();
 	}
 
 
