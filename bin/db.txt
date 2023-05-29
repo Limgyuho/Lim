@@ -1,0 +1,168 @@
+DROP DATABASE IF EXISTS LimProject;
+CREATE DATABASE LimProject;
+USE LimProject;
+
+
+CREATE TABLE `admin`(
+	id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	regDate DATETIME NOT NULL,
+	updateDate DATETIME NOT NULL,
+	loginId VARCHAR(20) NOT NULL UNIQUE,
+	loginPw VARCHAR(100) NOT NULL,
+	`authLevel` SMALLINT UNSIGNED NOT NULL DEFAULT 3 COMMENT '권한 레벨 (일반 = 3, 관리자 = 7)',
+	`name` VARCHAR(20) NOT NULL,
+	cellphoneNum VARCHAR(20) NOT NULL,
+	email VARCHAR(50) NOT NULL,
+	delStatus TINYINT UNSIGNED NOT NULL DEFAULT 0 COMMENT '탈퇴여부 (탈퇴 전 = 0, 탈퇴 후 = 1)',
+	delDate DATETIME COMMENT '탈퇴 날짜'
+);
+
+
+CREATE TABLE `member`(
+	id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	regDate DATETIME NOT NULL,
+	updateDate DATETIME NOT NULL,
+	loginId VARCHAR(20) NOT NULL UNIQUE,
+	loginPw VARCHAR(100) NOT NULL,
+	`authLevel` SMALLINT UNSIGNED NOT NULL DEFAULT 3 COMMENT '권한 레벨 (일반 = 3, 관리자 = 7)',
+	`name` VARCHAR(20) NOT NULL,
+	cellphoneNum VARCHAR(20) NOT NULL,
+	email VARCHAR(50) NOT NULL,
+	delStatus TINYINT UNSIGNED NOT NULL DEFAULT 0 COMMENT '탈퇴여부 (탈퇴 전 = 0, 탈퇴 후 = 1)',
+	delDate DATETIME COMMENT '탈퇴 날짜',
+	permission INT DEFAULT 1,
+	department ENUM('General Affairs Division', 'Junbo', 'Planning and Finance', 'Inspector General'),
+	`position` ENUM('Manager', 'Head of Team', 'Deputy Director', 'officer')
+	
+);
+
+
+CREATE TABLE join_requests(
+	id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	regDate DATETIME NOT NULL,
+	updateDate DATETIME NOT NULL,
+	loginId VARCHAR(20) NOT NULL UNIQUE,
+	loginPw VARCHAR(100) NOT NULL,
+	`authLevel` SMALLINT UNSIGNED NOT NULL DEFAULT 3 COMMENT '권한 레벨 (일반 = 3, 관리자 = 7)',
+	`name` VARCHAR(20) NOT NULL,
+	cellphoneNum VARCHAR(20) NOT NULL,
+	email VARCHAR(50) NOT NULL,
+	delStatus TINYINT UNSIGNED NOT NULL DEFAULT 0 COMMENT '탈퇴여부 (탈퇴 전 = 0, 탈퇴 후 = 1)',
+	delDate DATETIME COMMENT '탈퇴 날짜',
+	permission INT DEFAULT 0,
+	department ENUM('General Affairs Division', 'Junbo', 'Planning and Finance', 'Inspector General'),
+	`position` ENUM('Manager', 'Head of Team', 'Deputy Director', 'officer')
+	
+);
+
+
+INSERT INTO `member`
+SET regDate = NOW(),
+updateDate = NOW(),
+loginId = 'test1',
+loginPw = 'test1',
+`name` = '유저1',
+cellphoneNum = '010-1112-1112',
+email = 'test1@naver.com',
+permission = 1,
+department = 'General Affairs Division',
+`position` = 'Manager';
+
+
+INSERT INTO join_requests
+SET regDate = NOW(),
+updateDate = NOW(),
+loginId = 'join1',
+loginPw = 'join1',
+`name` = '조인1',
+cellphoneNum = '010-1112-1112',
+email = 'test1@naver.com',
+permission = 0,
+department = 'Junbo',
+`position` = 'Head of Team';
+
+
+INSERT INTO join_requests
+SET regDate = NOW(),
+updateDate = NOW(),
+loginId = 'join2',
+loginPw = 'join2',
+`name` = '조인1',
+cellphoneNum = '010-1j12-1112',
+email = 'test1@naver.com',
+permission = 0,
+department = 'Junbo',
+`position` = 'Deputy Director';
+
+
+INSERT INTO join_requests
+SET regDate = NOW(),
+updateDate = NOW(),
+loginId = 'join3',
+loginPw = 'join3',
+`name` = '조인1',
+cellphoneNum = '010-1j12-1112',
+email = 'test1@naver.com',
+permission = 0,
+department = 'Planning and Finance',
+`position` = 'Deputy Director';
+
+
+INSERT INTO join_requests
+SET regDate = NOW(),
+updateDate = NOW(),
+loginId = 'join4',
+loginPw = 'join4',
+`name` = '조인1',
+cellphoneNum = '010-1112-1112',
+email = 'test1@naver.com',
+permission = 0,
+department = 'Inspector General',
+`position` = 'officer';
+
+INSERT INTO `admin`
+SET regDate = NOW(),
+updateDate = NOW(),
+loginId = 'admin',
+loginPw = 'admin',
+`name` = 'admin',
+cellphoneNum = '010-1112-1112',
+email = 'test1@naver.com';
+
+
+
+SELECT *
+				FROM join_requests
+
+
+
+SELECT * FROM `admin`;
+SELECT * FROM `member`;
+SELECT * FROM join_requests;
+
+DELETE FROM `member` WHERE id IN (1,2,3,4);
+
+DELETE FROM join_requests
+				WHERE id = 4
+
+
+
+디비를 부서별, 직급별로 나눈다
+
+어드민 대시보드에서 가입된 멤버들 탭에서
+전제 직원들 보기(직원검색 이름으로가능)와 
+부서별로 보기(직원검색 이름으로가능) 
+
+회웝가입시 인사이동 페이제
+정보들을 자동으로 보여준다
+
+인사이동 탭을 따로 만든다
+인사이동 탭에는 부서와 직급에 대한 정보가 담겨져있는데
+운영지원과, 정보과..... 주무관 사무관 과장 국장....
+
+멤버들의 정보를 보여지게 되며
+버튼으로 과와 직급을 변경 가능하다 직급에는 권한 등급이 담겨있다
+변경된 내용들은 인사이동란, 페이지에 자동으로 게시된다.
+
+
+모듈화 아이프레임

@@ -90,11 +90,6 @@ public interface JoinRequestRepository {
 			""")
 	public void deletejoinRequestsMember(int id);
 	
-	
-	
-	public JoinRequest selectJoinRequests(String department, String name);
-
-	
 
 	@Select("""
 			SELECT COUNT(*)
@@ -103,16 +98,6 @@ public interface JoinRequestRepository {
 	public int getjoinRequestCnt();
 
 	
-	@Select("""
-			<script>
-			SELECT *
-				FROM join_requests
-				WHERE department = #{department}
-				<if test="name != ''">
-					AND name = #{name}
-				</if>
-			</script>
-			""")
 	public List<JoinRequest> getAllRequests(String department, String name);
 
 }

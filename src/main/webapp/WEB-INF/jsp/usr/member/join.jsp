@@ -139,10 +139,10 @@
 							<tr>
 							 <th><label for="department">부서</label></th>
 							  <td><select id="department" name="department">
-							    <option value="General Affairs Division">운영지원과</option>
-							    <option value="junbo">정보과</option>
-							    <option value="Planning and Finance">기획재정담당관</option>
-							    <option value="Inspector General">감사과</option></td>
+							    <option value="운영지원과">운영지원과</option>
+							    <option value="정보과">정보과</option>
+							    <option value="기획재정담당관">기획재정담당관</option>
+							    <option value="감사과">감사과</option></td>
 							  </select><br>
 							</tr>
 							<tr>

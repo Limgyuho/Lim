@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,8 +29,12 @@
 			height: 500px;
 			overflow: auto;
 		}
-		.chating p{
-			color: #fff;
+		.chating .me{
+			color: #F6F6F6;
+			text-align: right;
+		}
+		.chating .others{
+			color: #FFE400;
 			text-align: left;
 		}
 		input{
@@ -46,7 +49,6 @@
 
 <script type="text/javascript">
 	var ws;
-	var userName = "";  // 사용자 이름 변수 추가
 
 	function wsOpen(){
 		ws = new WebSocket("ws://" + location.host + "/chating");
@@ -88,29 +90,47 @@
 		});
 	}
 
-	function startChat() {
-		wsOpen();
-		$("#yourName").hide();
-		$("#yourMsg").show();
+	function chatName(){
+		var userName = $("#userName").val();
+		if(userName == null || userName.trim() == ""){
+			alert("사용자 이름을 입력해주세요.");
+			$("#userName").focus();
+		}else{
+			wsOpen();
+			$("#yourName").hide();
+			$("#yourMsg").show();
+		}
 	}
 
 	function send() {
-		var msg = $("#chatting").val();
-		ws.send(msg);
+		var option ={
+			type: "message",
+			sessionId : $("#sessionId").val(),
+			userName : $("#userName").val(),
+			msg : $("#chatting").val()
+		}
+		ws.send(JSON.stringify(option))
 		$('#chatting').val("");
 	}
 </script>
-
 <body>
 	<div id="container" class="container">
 		<h1>채팅</h1>
+		<input type="hidden" id="sessionId" value="">
+		
 		<div id="chating" class="chating">
 		</div>
 		
 		<div id="yourName">
-			<button onclick="startChat()" id="startBtn">채팅 시작하기</button>
+			<table class="inputTable">
+				<tr>
+					<th>사용자명</th>
+					<th><input type="text" name="userName" id="userName"></th>
+					<th><button onclick="chatName()" id="startBtn">이름 등록</button></th>
+				</tr>
+			</table>
 		</div>
-		<div id="yourMsg" style="display: none;">
+		<div id="yourMsg">
 			<table class="inputTable">
 				<tr>
 					<th>메시지</th>
@@ -121,5 +141,4 @@
 		</div>
 	</div>
 </body>
-
 </html>

@@ -69,13 +69,6 @@ public class JoinRequestService {
 		return joinRequestRepository.getjoinRequestByLoginId(loginId);
 	}
 
-
-	public JoinRequest getjoinrq(String department, String name) {
-		return joinRequestRepository.selectJoinRequests(department, name);
-	}
-
-
-
 	public int joinRequestCnt() {
 	
 		return joinRequestRepository.getjoinRequestCnt();

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.koreaIT.demo.service.AdminService;
+import com.koreaIT.demo.service.ArticleService;
 import com.koreaIT.demo.service.JoinRequestService;
 import com.koreaIT.demo.service.MemberService;
 import com.koreaIT.demo.util.Util;
@@ -31,7 +32,7 @@ public class AdminController {
 	private Rq rq;
 
 	@Autowired
-	public AdminController(AdminService adminService, MemberService memberService, Rq rq,
+	public AdminController(AdminService adminService ,MemberService memberService, Rq rq,
 			JoinRequestService joinRequestService) {
 		this.adminService = adminService;
 		this.memberService = memberService;
@@ -49,24 +50,19 @@ public class AdminController {
 
 	@RequestMapping("/usr/admin/admindashboard")
 	public String showadmindashboard(Model model, @RequestParam(defaultValue = "1") int boardId,
-			@RequestParam(defaultValue = "1") int page, @RequestParam(defaultValue = "") String department,
+			@RequestParam(defaultValue = "1") int page, @RequestParam(defaultValue = "전체") String department,
 			@RequestParam(defaultValue = "") String name) {
 
 		// 가입 요청자 정보 조회
 		int joinRequestCnt = joinRequestService.joinRequestCnt();
-
-		List<JoinRequest> joinRequests = joinRequestService.getAllJoinRequestsInfo();
 		List<JoinRequest> getAllRequests = joinRequestService.getAllRequests(department, name);
-		model.addAttribute("joinRequests", joinRequests);
 		model.addAttribute("getAllRequests", getAllRequests);
 		model.addAttribute("memberCnt", joinRequestCnt);
 
 
 		// 가입 완료된 멤버 정보 조회
 		int memberCnt = memberService.getMemberCnt();
-		List<JoinRequest> approvedMembers = memberService.approvedMembers();
 		List<Member> getAllApprovedMembers = memberService.getAllApprovedMembers(department, name);
-		model.addAttribute("approvedMembers", approvedMembers);
 		model.addAttribute("getAllApprovedMembers", getAllApprovedMembers);
 		model.addAttribute("memberCnt", memberCnt);
 
@@ -82,7 +78,7 @@ public class AdminController {
 		memberService.insertMembertable(joinRequests.getRegDate(), joinRequests.getUpdateDate(),
 				joinRequests.getLoginId(), joinRequests.getLoginPw(), joinRequests.getName(),
 				joinRequests.getCellphoneNum(), joinRequests.getEmail(), joinRequests.getPermission(1),
-				joinRequests.getDepartment(), joinRequests.getPosition());
+				joinRequests.getDepartment(), joinRequests.getPosition());	
 		
 		joinRequestService.deletejoinRequestsMember(id);
 
@@ -99,6 +95,9 @@ public class AdminController {
 				joinRequests.getLoginId(), joinRequests.getLoginPw(), joinRequests.getName(),
 				joinRequests.getCellphoneNum(), joinRequests.getEmail(), joinRequests.getPermission(),
 				joinRequests.getDepartment(), joinRequests.getPosition());
+		
+	
+		
 		
 		joinRequestService.deletejoinRequestsMember(id);
 		return "redirect:/usr/admin/admindashboard";

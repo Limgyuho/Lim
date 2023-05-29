@@ -8,10 +8,6 @@ import org.springframework.web.socket.config.annotation.WebSocketConfigurer;
 import org.springframework.web.socket.config.annotation.WebSocketHandlerRegistry;
 
 
-import 	com.koreaIT.demo.chatingController.SocketHandler;
-
-
-
 @Configuration
 @EnableWebSocket
 public class WebSocketConfig implements WebSocketConfigurer{

@@ -31,7 +31,7 @@ CREATE TABLE `member`(
 	delStatus TINYINT UNSIGNED NOT NULL DEFAULT 0 COMMENT '탈퇴여부 (탈퇴 전 = 0, 탈퇴 후 = 1)',
 	delDate DATETIME COMMENT '탈퇴 날짜',
 	permission INT DEFAULT 1,
-	department ENUM('General Affairs Division', 'Junbo', 'Planning and Finance', 'Inspector General'),
+	department ENUM('운영지원과', '정보과', '기획재정담당관', '감사과'),
 	`position` ENUM('Manager', 'Head of Team', 'Deputy Director', 'officer')
 	
 );
@@ -50,7 +50,7 @@ CREATE TABLE join_requests(
 	delStatus TINYINT UNSIGNED NOT NULL DEFAULT 0 COMMENT '탈퇴여부 (탈퇴 전 = 0, 탈퇴 후 = 1)',
 	delDate DATETIME COMMENT '탈퇴 날짜',
 	permission INT DEFAULT 0,
-	department ENUM('General Affairs Division', 'Junbo', 'Planning and Finance', 'Inspector General'),
+	department ENUM('운영지원과', '정보과', '기획재정담당관', '감사과'),
 	`position` ENUM('Manager', 'Head of Team', 'Deputy Director', 'officer')
 	
 );
@@ -65,7 +65,7 @@ loginPw = 'test1',
 cellphoneNum = '010-1112-1112',
 email = 'test1@naver.com',
 permission = 1,
-department = 'General Affairs Division',
+department = '운영지원과',
 `position` = 'Manager';
 
 
@@ -78,7 +78,7 @@ loginPw = 'join1',
 cellphoneNum = '010-1112-1112',
 email = 'test1@naver.com',
 permission = 0,
-department = 'Junbo',
+department = '정보과',
 `position` = 'Head of Team';
 
 
@@ -91,7 +91,7 @@ loginPw = 'join2',
 cellphoneNum = '010-1j12-1112',
 email = 'test1@naver.com',
 permission = 0,
-department = 'Junbo',
+department = '정보과',
 `position` = 'Deputy Director';
 
 
@@ -104,7 +104,7 @@ loginPw = 'join3',
 cellphoneNum = '010-1j12-1112',
 email = 'test1@naver.com',
 permission = 0,
-department = 'Planning and Finance',
+department = '기획재정담당관',
 `position` = 'Deputy Director';
 
 
@@ -117,7 +117,7 @@ loginPw = 'join4',
 cellphoneNum = '010-1112-1112',
 email = 'test1@naver.com',
 permission = 0,
-department = 'Inspector General',
+department = '감사과',
 `position` = 'officer';
 
 INSERT INTO `admin`

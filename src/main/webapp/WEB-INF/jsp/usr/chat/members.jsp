@@ -21,8 +21,6 @@
 			<thead>
 
 				<tr>
-					<th></th>
-					<th>부서</th>
 					<th>직급</th>
 					<th>이름</th>
 					<th>전화번호</th>
@@ -32,9 +30,8 @@
 				<%-- 가입 완료된 멤버 정보 반복문 --%>
 				<c:forEach var="member" items="${departmentMembers }">
 					<tr>
-						<td>${member.department }</td>
 						<td>${member.position }</td>
-						<td>${member.name }</td>
+						<td><button onclick="location.href='/usr/chat/chat'">${member.name }</button></td>
 						<td>${member.cellphoneNum }</td>
 					</tr>
 				</c:forEach>

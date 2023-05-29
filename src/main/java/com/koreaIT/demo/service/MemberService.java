@@ -79,10 +79,10 @@ public class MemberService {
 
 	public List<Member> getAllApprovedMembers(String department, String name) {
 	
-		return memberRepository.getMemberList(department,name);
+		return memberRepository.getAllApprovedMembers(department,name);
 	}
 
-	public List<JoinRequest> approvedMembers() {
+	public List<Member> approvedMembers() {
 		
 		return memberRepository.approvedMembers();
 	}
