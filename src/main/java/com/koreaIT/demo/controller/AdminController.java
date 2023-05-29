@@ -26,15 +26,17 @@ import com.koreaIT.demo.vo.Rq;
 @Controller
 public class AdminController {
 
+	private ArticleService articleService;
 	private AdminService adminService;
 	private JoinRequestService joinRequestService;
 	private MemberService memberService;
 	private Rq rq;
 
 	@Autowired
-	public AdminController(AdminService adminService ,MemberService memberService, Rq rq,
+	public AdminController(AdminService adminService ,MemberService memberService, ArticleService articleService,Rq rq,
 			JoinRequestService joinRequestService) {
 		this.adminService = adminService;
+		this.articleService = articleService;
 		this.memberService = memberService;
 		this.joinRequestService = joinRequestService;
 		this.rq = rq;
@@ -70,7 +72,7 @@ public class AdminController {
 	}
 
 	@PostMapping("/usr/admin/approve")
-	public String approveJoinRequest(@RequestParam("id") int id) {
+	public String approveJoinRequest(@RequestParam("id") int id ) {
 		// 가입 요청 승인 처리
 //		joinRequestService.approveJoinRequest(memberId);
 		JoinRequest joinRequests = joinRequestService.getJoinRequestsInfo(id);
@@ -80,7 +82,9 @@ public class AdminController {
 				joinRequests.getCellphoneNum(), joinRequests.getEmail(), joinRequests.getPermission(1),
 				joinRequests.getDepartment(), joinRequests.getPosition());	
 		
+		
 		joinRequestService.deletejoinRequestsMember(id);
+		
 
 		return "redirect:/usr/admin/admindashboard";
 	}

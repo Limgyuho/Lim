@@ -120,10 +120,10 @@ public interface MemberRepository {
 	public List<Member> getMembersByDepartment(String department);
 
 	@Select("""
-			SELECT *
-				FROM `member`
-			""")
-	
+		    SELECT *
+		    FROM `member`
+		    ORDER BY id DESC
+		""")
 	public List<Member> approvedMembers();
 
 

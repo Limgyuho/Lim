@@ -47,9 +47,6 @@ public class MainController {
 	@RequestMapping("/usr/chat/chat")
 	public String chat() {
 		
-		//메서드 실행시 jsp로 이동하는 역할을 한다
-		
-		List<Member> approvedMembers = memberService.approvedMembers();
 		
 		return "usr/chat/chat";
 	}

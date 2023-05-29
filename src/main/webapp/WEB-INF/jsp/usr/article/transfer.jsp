@@ -13,7 +13,6 @@
 		<div >
 			<div class="w-full ">
 				<form class="flex justify-end ">
-				<span class="al">총 : ${articlesCnt } 개</span>
 					<input type="hidden" name="boardId" value="${board.id }" /> <select
 						data-value="${searchKeywordType }" class="select select-bordered"
 						name="searchKeywordType">
@@ -39,47 +38,22 @@
 				<thead>
 					<tr>
 						<th>번호</th>
+						<th>인사이동 날짜</th>
+						<th>인사이동 대상자</th>
 						<th>부서</th>
-						<th>작성자</th>
-						<th>조회수</th>
-						<th>등록일</th>
-						<th>등록일</th>
-						<th>등록일</th>
-						<th>등록일</th>
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach items="${approvedMembers}"  var="member" >
+					<c:forEach var="member" items="${approvedMembers}" >
 					<tr>
-						<td>
-							<div class="form-control">
-								<label class="cursor-pointer label"> <input
-									type="checkbox" class="checkbox checkbox-info" />
-								</label>
-							</div>
-						</td>
 						<td>${member.id}</td>
 						<td>${member.regDate}</td>
-						<td>${member.loginId}</td>
-						<td>${member.loginPw}</td>
-						<td>${member.department}</td>
-						<td>${member.position}</td>
 						<td>${member.name}</td>
-						<td>${member.cellphoneNum}</td>
-						<td>${member.email}</td>
+						<td>${member.department}</td>
 					</tr>
 				</c:forEach>
 				</tbody>
 			</table>
-		</div>
-
-
-
-
-		<div class="mt-2 flex justify-end">
-			<c:if test="${rq.getLoginedMemberId() != 0  }">
-				<a class="btn-text-link btn btn-active" href="write">WRITE</a>
-			</c:if>
 		</div>
 		<div class="mt-5 flex justify-center">
 			<div class="btn-group">
