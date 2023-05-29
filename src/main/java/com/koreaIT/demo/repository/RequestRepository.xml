@@ -9,7 +9,7 @@
 		SELECT *
 		FROM join_requests
 		WHERE department = #{department}
-		<if test="name != null and name != ''">
+		<if test="name != ''">
 			AND name = #{name}
 		</if>
 	</select>

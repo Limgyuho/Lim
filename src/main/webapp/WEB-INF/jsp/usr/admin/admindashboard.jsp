@@ -29,7 +29,7 @@
 		<div class="flex">
 			<h2 class="flex-grow-1">요청자 목록</h2>
 			<h2 class="flex-grow-1 justify-content-end">총 인원 :
-				${JoinRequestsCnt } 명</h2>
+				${joinRequestsCnt  } 명</h2>
 		</div>
 
 		<table>

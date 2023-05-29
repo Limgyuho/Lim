@@ -4,13 +4,11 @@
 <mapper namespace="com.koreaIT.demo.repository.MemberRepository">
 
 	<select id="getAllApprovedMembers" resultType="Member">
-		SELECT id, regDate, loginId, loginPw, department, position, name,
-		cellphoneNum, email
+		SELECT *
 		FROM member
 		WHERE department = #{department}
-		<if test="name != null and name != ''">
+		<if test="name != ''">
 			AND name = #{name}
 		</if>
 	</select>
-
 </mapper>

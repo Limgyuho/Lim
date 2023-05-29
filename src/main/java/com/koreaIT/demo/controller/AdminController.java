@@ -26,17 +26,15 @@ import com.koreaIT.demo.vo.Rq;
 @Controller
 public class AdminController {
 
-	private ArticleService articleService;
 	private AdminService adminService;
 	private JoinRequestService joinRequestService;
 	private MemberService memberService;
 	private Rq rq;
 
 	@Autowired
-	public AdminController(AdminService adminService ,MemberService memberService, ArticleService articleService,Rq rq,
+	public AdminController(AdminService adminService ,MemberService memberService,Rq rq,
 			JoinRequestService joinRequestService) {
 		this.adminService = adminService;
-		this.articleService = articleService;
 		this.memberService = memberService;
 		this.joinRequestService = joinRequestService;
 		this.rq = rq;
@@ -52,7 +50,7 @@ public class AdminController {
 
 	@RequestMapping("/usr/admin/admindashboard")
 	public String showadmindashboard(Model model, @RequestParam(defaultValue = "1") int boardId,
-			@RequestParam(defaultValue = "1") int page, @RequestParam(defaultValue = "전체") String department,
+			@RequestParam(defaultValue = "1") int page, @RequestParam(defaultValue = "department") String department,
 			@RequestParam(defaultValue = "") String name) {
 
 		// 가입 요청자 정보 조회

@@ -5,10 +5,9 @@
 <%@ include file="../home/topbar.jsp"%>
 <section class="mt-8 text-xl">
 	<div class="inner flex justify-center">
-	
-			<strong class="h-box  ">공지사항</strong>
+			<strong class="h-box  ">안내 정보</strong>
 		<div class="txtwrap  rounded-xl  my-24 ">
-			<p class="rounded-xl border-2 m">세종특별자치시에서 알려드리는 최근소식과 정보입니다.</p>
+			<p class="rounded-xl border-2 m">우리 기관에서 알려드리는 안내정보입니다.</p>
 		</div>
 	</div>
 

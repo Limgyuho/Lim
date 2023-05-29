@@ -86,4 +86,11 @@ public class ArticleController {
 
 		return "usr/article/transfer";
 	}
+	
+	
+	@RequestMapping("/usr/article/suggestion")
+	public String showsuggestion(Model model) {
+
+		return "usr/article/suggestion";
+	}
 }
