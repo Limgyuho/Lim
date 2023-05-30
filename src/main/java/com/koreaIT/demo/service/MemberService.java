@@ -87,5 +87,10 @@ public class MemberService {
 		return memberRepository.approvedMembers();
 	}
 
+	public int updatePermission() {
+		return memberRepository.updatePermission();
+		
+	}
+
 
 }

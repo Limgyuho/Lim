@@ -110,8 +110,7 @@ public interface MemberRepository {
 
 	@Select("""
 			SELECT COUNT(*)
-				FROM `member`
-				
+				FROM `member`	
 			""")
 	public int getMemberCnt();
 	
@@ -128,6 +127,13 @@ public interface MemberRepository {
 		    ORDER BY id DESC
 		""")
 	public List<Member> approvedMembers();
+
+	@Update("""
+			UPDATE `member`
+			SET permission = 1
+			WHERE  permission = 0	
+			""")
+	public int updatePermission();
 
 	
 

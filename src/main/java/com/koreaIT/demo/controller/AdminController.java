@@ -69,8 +69,10 @@ public class AdminController {
 		return "usr/admin/admindashboard";
 	}
 
-	@PostMapping("/usr/admin/approve")
-	public String approveJoinRequest(@RequestParam("id") int id, int permission) {
+	//겟과 포트스방식 즉 쿼리 스트링으로 사용경우 @RequestMapping으로 사용해야 한다
+	//겟 메소드가 존재하디 않는다라는 메세지가 나올경우.....
+	@RequestMapping("/usr/admin/approve")
+	public String approveJoinRequest(int id, int permission) {
 		JoinRequest joinRequests = joinRequestService.getJoinRequestsInfo(id);
 
 		
@@ -85,8 +87,22 @@ public class AdminController {
 
 		return "redirect:/usr/admin/admindashboard";
 	}
+	
+	@RequestMapping("/usr/admin/Reapproval")
+	public String Reapproval() {
+		
+		memberService.updatePermission();	
+		
+		return "redirect:/usr/admin/admindashboard";
+	}
 
 
+
+	
+	
+	
+	
+	
 	@RequestMapping("/usr/admin/doLogin")
 	@ResponseBody
 	public String doLogin(String loginId, String loginPw) {

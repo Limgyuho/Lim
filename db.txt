@@ -92,7 +92,7 @@ CREATE TABLE `member`(
 	email VARCHAR(50) NOT NULL,
 	delStatus TINYINT UNSIGNED NOT NULL DEFAULT 0 COMMENT '탈퇴여부 (탈퇴 전 = 0, 탈퇴 후 = 1)',
 	delDate DATETIME COMMENT '탈퇴 날짜',
-	permission INT DEFAULT 1,
+	permission INT NOT NULL,
 	department VARCHAR(50),
 	`position` VARCHAR(50)
 	
@@ -111,7 +111,7 @@ CREATE TABLE join_requests(
 	email VARCHAR(50) NOT NULL,
 	delStatus TINYINT UNSIGNED NOT NULL DEFAULT 0 COMMENT '탈퇴여부 (탈퇴 전 = 0, 탈퇴 후 = 1)',
 	delDate DATETIME COMMENT '탈퇴 날짜',
-	permission INT DEFAULT 0,
+	permission INT NOT NULL,
 	department VARCHAR(50),
 	`position` VARCHAR(50)
 	
@@ -121,8 +121,8 @@ CREATE TABLE join_requests(
 INSERT INTO `member`
 SET regDate = NOW(),
 updateDate = NOW(),
-loginId = 'test1',
-loginPw = 'test1',
+loginId = 'test2',
+loginPw = 'test2',
 `name` = '유저1',
 cellphoneNum = '010-1112-1112',
 email = 'test1@naver.com',
@@ -195,7 +195,9 @@ DELETE FROM `member` WHERE id IN (1,2,3,4);
 
 DELETE FROM join_requests
 				WHERE id = 4
-
+UPDATE `member`
+SET permission = 1
+WHERE id = 
 
 
 디비를 부서별, 직급별로 나눈다
@@ -217,3 +219,12 @@ DELETE FROM join_requests
 
 
 모듈화 아이프레임
+
+SELECT *
+		FROM join_requests
+		WHERE department = '정보과'
+        -- AND name = #{name}
+
+SELECT *
+				FROM `member`
+				WHERE department = '전체'

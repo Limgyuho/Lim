@@ -61,8 +61,8 @@
 						<td>${joinRequest.email}</td>
 						<td>${joinRequest.regDate}</td>
 						<td>
-						<a href="/usr/admin/approve?permission=1&id=${joinRequest.id}">Approve</a>
-						<a href="/usr/admin/approve?permission=0&id=${joinRequest.id}">Reject</a>
+							<a href="approve?id=${joinRequest.id}&permission=1">Approve</a>
+							<a href="approve?id=${joinRequest.id}&permission=0">Reject</a>
 						</td>
 					</tr>
 				</c:forEach>
@@ -83,14 +83,14 @@
 					<th></th>
 					<th>회원번호</th>
 					<th>가입날짜</th>
-					<th>로그인 아이디</th>s
+					<th>로그인 아이디</th>
 					<th>로그인 패스워드</th>
 					<th>부서</th>
 					<th>직급</th>
 					<th>이름</th>
 					<th>전화번호</th>
 					<th>이메일</th>
-					<th>permission</th>
+					<th>승인 상태</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -104,6 +104,7 @@
 								</label>
 							</div>
 						</td>
+			
 						<td>${member.id}</td>
 						<td>${member.regDate}</td>
 						<td>${member.loginId}</td>
@@ -113,13 +114,27 @@
 						<td>${member.name}</td>
 						<td>${member.cellphoneNum}</td>
 						<td>${member.email}</td>
-						<td>${member.permission}</td>
+						<c:if test = "${member.permission == 1}">	
+							<td>허가 상태</td>	
+						</c:if>
+						<a href=""></a>
+						<c:if test = "${member.permission == 0}">
+							<td>거부 상태<button onclick="location.href='/usr/admin/Reapproval'"">재승인</button></td>
+<!-- 							//일단은 실제로 동작하는지 재승인 -->
+<!-- 							//경로를 설정하여 컨트롤러에서 -->
+<!-- 							//서비스에서 레파지토리에서 혹은xml 에서 -->
+<!-- 							//업데이트 쿼리문을 날려 -->
+<!-- 							//테이블에 있는 퍼미션이 0인 대상자들을 -->
+<!-- 							//1로 변경한다 -->
+						</c:if>
 					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
 	</div>
 
+
+	
 	<form method="GET">
 		<select data-value="${department }" class="select select-bordered"
 			name="department">
