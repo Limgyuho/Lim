@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -29,28 +30,37 @@
 							<col width="200" />
 						</colgroup>
 						<tbody>
-							<tr height="105">	
-								<th>사무용품 교체 및 요청</th>
+							<tr height="105">
+								<th>사무용품 교체,요청</th>
 								<td>
-									<ul>sadf
-										<li>asdf</li>
-										<li>sdf</li>
-										<li>sadf</li>
-									</ul>
+									<li>asdf</li>
+									<li>sdf</li>
+									<li>sadf</li>
+									<input type="text" placeholder ="사유적기"/>
+									<input type="text" placeholder ="목적지"/>
 								</td>
 							</tr>
 							<tr>
-								<th>비밀번호</th>
-								<td></td>
-							</tr>
-							<tr>
-								<th>비밀번호 확인</th>
-								<td></td>
-							</tr>
-							<tr>
+								<th>관용차 대여 요청</th>
+								<td>
+									<li>스타렉스</li>	
+									<li>스타리아</li>
+									<li>제네시스 G80</li>
+									<li>제네시스 G90</li>
+									<input type="text" placeholder ="사유적기"/>
+									<input type="text" placeholder ="목적지"/>
+								</td>
 
-								<th>이름</th>
+							</tr>
+							<tr>
+								<th>편의 시설 사용 신청</th>
 								<td></td>
+							</tr>
+							<tr>
+								<th>자리 배치 이동 요청</th>
+								<td>
+									<input type="text" placeholder ="사유적기"/>
+								</td>
 							</tr>
 							<tr>
 

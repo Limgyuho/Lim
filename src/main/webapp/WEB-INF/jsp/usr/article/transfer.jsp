@@ -6,11 +6,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>게시글 목록</title>
+<title>게시글 목록</title>
 </head>
 <body>
-   <div class="container mx-auto px-3  items-center">
-		<div >
+	<div class="container mx-auto px-3  items-center">
+		<div>
 			<div class="w-full ">
 				<form class="flex justify-end ">
 					<input type="hidden" name="boardId" value="${board.id }" /> <select
@@ -44,14 +44,14 @@
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach var="member" items="${approvedMembers}" >
-					<tr>
-						<td>${member.id}</td>
-						<td>${member.regDate}</td>
-						<td>${member.name}</td>
-						<td>${member.department}</td>
-					</tr>
-				</c:forEach>
+					<c:forEach var="member" items="${approvedMembers}">
+						<tr>		
+							<td>${member.id}</td>
+							<td>${member.regDate}</td>
+							<td><a href="/usr/article/transferdetail">${member.name}</a></td>
+							<td>${member.department}</td>
+						</tr>
+					</c:forEach>
 				</tbody>
 			</table>
 		</div>

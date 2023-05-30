@@ -77,7 +77,7 @@ public class ArticleController {
 	
 	
 	@RequestMapping("/usr/article/transfer")
-	public String showadmindashboard(Model model) {
+	public String showtransfer(Model model) {
 
 	
 		// 가입 완료된 멤버 정보 조회
@@ -85,6 +85,16 @@ public class ArticleController {
 		model.addAttribute("approvedMembers", approvedMembers);
 
 		return "usr/article/transfer";
+	}
+	@RequestMapping("/usr/article/transferdetail")
+	public String showatransferdetail(Model model) {
+
+	
+//		// 가입 완료된 멤버 정보 조회
+//		List<Member> approvedMembers = memberService.approvedMembers();
+//		model.addAttribute("approvedMembers", approvedMembers);
+
+		return "/usr/article/transferdetail";
 	}
 	
 	

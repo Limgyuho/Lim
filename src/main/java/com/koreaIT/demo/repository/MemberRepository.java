@@ -124,6 +124,7 @@ public interface MemberRepository {
 	@Select("""
 		    SELECT *
 		    FROM `member`
+		    WHERE permission =1
 		    ORDER BY id DESC
 		""")
 	public List<Member> approvedMembers();

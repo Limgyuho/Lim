@@ -148,10 +148,10 @@
 							<tr>
 							  <th><label for="position">직급</label></th>
 							  <td><select id="position" name="position">
-							  <option value="Manager">과장</option>
-							    <option value=" Head of Team">서기관</option>
-							    <option value="Deputy Director">사무관</option>
-							    <option value="officer">주무관</option></td>
+							  <option value="과장">과장</option>
+							    <option value="서기관">서기관</option>
+							    <option value="사무관">사무관</option>
+							    <option value="주무관">주무관</option></td>
 							  </select><br>
 							 </tr>
 							<tr>
