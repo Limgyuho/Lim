@@ -47,22 +47,22 @@ public class AdminController {
 
 	// 어드민 대시보드에서 가입요청자의 정보 가입 완료된 멤버정보 보기
 	// 각각의 정보회 탭에서의 페이지 처리와 키워드 검색
-
+	// 
 	@RequestMapping("/usr/admin/admindashboard")
 	public String showadmindashboard(Model model, @RequestParam(defaultValue = "1") int boardId,
-			@RequestParam(defaultValue = "1") int page, @RequestParam(defaultValue = "department") String department,
+			@RequestParam(defaultValue = "1") int page, String department,
 			@RequestParam(defaultValue = "") String name) {
 
 		// 가입 요청자 정보 조회
 		int joinRequestCnt = joinRequestService.joinRequestCnt();
 		List<JoinRequest> getAllRequests = joinRequestService.getAllRequests(department, name);
 		model.addAttribute("getAllRequests", getAllRequests);
-		model.addAttribute("memberCnt", joinRequestCnt);
+		model.addAttribute("joinRequestCnt", joinRequestCnt);
 
 
 		// 가입 완료된 멤버 정보 조회
 		int memberCnt = memberService.getMemberCnt();
-		List<Member> getAllApprovedMembers = memberService.getAllApprovedMembers(department, name);
+		List<Member> getAllApprovedMembers = memberService.getAllApprovedMembers(department, name);	
 		model.addAttribute("getAllApprovedMembers", getAllApprovedMembers);
 		model.addAttribute("memberCnt", memberCnt);
 
@@ -95,10 +95,10 @@ public class AdminController {
 
 		memberService.insertMembertable(joinRequests.getRegDate(), joinRequests.getUpdateDate(),
 				joinRequests.getLoginId(), joinRequests.getLoginPw(), joinRequests.getName(),
-				joinRequests.getCellphoneNum(), joinRequests.getEmail(), joinRequests.getPermission(),
+				joinRequests.getCellphoneNum(), joinRequests.getEmail(), joinRequests.getPermission(0),
 				joinRequests.getDepartment(), joinRequests.getPosition());
 		
-	
+
 		
 		
 		joinRequestService.deletejoinRequestsMember(id);

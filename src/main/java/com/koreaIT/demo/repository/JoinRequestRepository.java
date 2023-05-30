@@ -98,6 +98,20 @@ public interface JoinRequestRepository {
 	public int getjoinRequestCnt();
 
 	
+	
+	@Select("""
+			<script>
+			SELECT *
+				FROM join_requests
+				WHERE 1 = 1
+				<if test="department != '' and department != null and department != '전체'">
+					AND department = #{department}
+				</if>
+				<if test="name != ''">
+					AND name = #{name}
+				</if>
+			</script>
+			""")
 	public List<JoinRequest> getAllRequests(String department, String name);
 
 }

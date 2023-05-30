@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <c:set var="pageTitle" value="Home" />
@@ -28,7 +29,7 @@
 		<div class="flex">
 			<h2 class="flex-grow-1">요청자 목록</h2>
 			<h2 class="flex-grow-1 justify-content-end">총 인원 :
-				${JoinRequestsCnt } 명</h2>
+				${joinRequestsCnt  } 명</h2>
 		</div>
 
 		<table>
@@ -77,7 +78,7 @@
 
 	<!-- 가입 완료된 멤버 탭 -->
 	<div id="approvedMembers" class="tab-content">
-		<div class="flex">		
+		<div class="flex">
 			<h2 class="flex-grow-1">가입된 멤버들</h2>
 			<h2 class="flex-grow-1 justify-content-end">총 인원 : ${memberCnt }
 				명</h2>
@@ -123,15 +124,16 @@
 		</table>
 	</div>
 
-	<form method="GET" >
-		<select data-value="${department }" class="select select-bordered" name="department">
-			<option value="" ${department == '' ? 'selected' : ''}>전체</option>
-			<option value="General Affairs Division" ${department == 'General Affairs Division' ? 'selected' : ''}>운영지원과</option>
-			<option value="Junbo" ${department == 'Junbo' ? 'selected' : ''}>정보과</option>
-			<option value="Planning and Finance" ${department == 'Planning and Finance' ? 'selected' : ''}>기획재정담당관</option>
-			<option value="Inspector General" ${department == 'Inspector General' ? 'selected' : ''}>감사과</option>
-		</select>
-		<input class="ml-2 w-80 input input-bordered" name="name" placeholder="검색어를 입력해주세요" maxlength="20" value="${name }"/>
+	<form method="GET">
+		<select data-value="${department }" class="select select-bordered"
+			name="department">
+			<option value="전체" ${department == '' ? 'selected' : ''}>전체</option>
+			<option value="운영지원과" ${department == '운영지원과' ? 'selected' : ''}>운영지원과</option>
+			<option value="정보과" ${department == '정보과' ? 'selected' : ''}>정보과</option>
+			<option value="기획재정담당관" ${department == '기획재정담당관' ? 'selected' : ''}>기획재정담당관</option>
+			<option value="감사과" ${department == '감사과' ? 'selected' : ''}>감사과</option>
+		</select> <input class="ml-2 w-80 input input-bordered" name="name"
+			placeholder="검색어를 입력해주세요" maxlength="20" value="${name }" />
 		<button class="ml-2 btn-text-link btn btn-active" type="submit">검색</button>
 	</form>
 
@@ -147,9 +149,6 @@
 			var selectedTab = document.getElementById(tabName);
 			selectedTab.style.display = "block";
 		}
-		
-	</script>	
-
-	
+	</script>
 </body>
 </html>

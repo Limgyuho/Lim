@@ -23,7 +23,7 @@
 	                        <div class="">
 	                            <ul class="flex">
 	                                <li class="flex-grow-1"><a href="/usr/article/noticelist" class="block">공지 사항</a></li>
-	                                <li class="flex-grow-1"><a href="#" class="block">건의 사항</a></li>
+	                                <li class="flex-grow-1"><a href="/usr/article/suggestion" class="block">건의/요청 사항</a></li>
 	                                <li class="flex-grow-1"><a href="/usr/article/transfer" class="block">인사 이동</a></li>
 	                            </ul>
 	                        </div>

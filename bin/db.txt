@@ -2,6 +2,68 @@ DROP DATABASE IF EXISTS LimProject;
 CREATE DATABASE LimProject;
 USE LimProject;
 
+# board 테이블 생성
+CREATE TABLE board(
+	id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	regDate DATETIME NOT NULL,
+	updateDate DATETIME NOT NULL,
+	`code` VARCHAR(20) NOT NULL UNIQUE COMMENT '공지, 인사이동, ...',
+	`name` VARCHAR(20) NOT NULL UNIQUE COMMENT '게시판 이름',
+	delStatus TINYINT UNSIGNED NOT NULL DEFAULT 0 COMMENT '삭제여부 (삭제 전 = 0, 삭제 후 = 1)',
+	delDate DATETIME COMMENT '삭제 날짜'
+);
+
+# reactionPoint 테이블 생성	
+CREATE TABLE reactionPoint(
+	id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	regDate DATETIME NOT NULL,
+	updateDate DATETIME NOT NULL,
+    memberId INT UNSIGNED NOT NULL,
+    relTypeCode VARCHAR(20) NOT NULL COMMENT '관련 데이터 타입 코드',
+    relId INT UNSIGNED NOT NULL COMMENT '관련 데이터 번호',
+	`point` SMALLINT NOT NULL DEFAULT 0
+);
+
+# reply 테이블 생성
+CREATE TABLE reply(
+	id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	regDate DATETIME NOT NULL,
+	updateDate DATETIME NOT NULL,
+    memberId INT UNSIGNED NOT NULL,
+    relTypeCode VARCHAR(20) NOT NULL COMMENT '관련 데이터 타입 코드',
+    relId INT UNSIGNED NOT NULL COMMENT '관련 데이터 번호',
+	`body` TEXT NOT NULL
+);
+
+# article 테스트 데이터
+INSERT INTO article
+SET regDate = NOW(),
+updateDate = NOW(),
+memberId = 2,
+boardId = 2,
+title = '제목1',
+`body` = '내용1';
+
+INSERT INTO article
+(
+    regDate, updateDate, memberId, boardId, title, `body`
+)
+SELECT NOW(), NOW(), FLOOR(RAND() * 3) + 1, FLOOR(RAND() * 2) + 1, CONCAT('제목_', RAND()), CONCAT('내용_', RAND())
+FROM article;
+
+CREATE TABLE article(
+	id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	regDate DATETIME NOT NULL,
+	updateDate DATETIME NOT NULL,
+	title VARCHAR(100) NOT NULL,
+	`body` TEXT NOT NULL
+);
+
+ALTER TABLE article ADD COLUMN memberId INT UNSIGNED NOT NULL AFTER updateDate;
+ALTER TABLE article ADD COLUMN boardId INT UNSIGNED NOT NULL AFTER memberId;
+ALTER TABLE article ADD COLUMN hitCount INT UNSIGNED NOT NULL DEFAULT 0;
+
+
 
 CREATE TABLE `admin`(
 	id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -31,8 +93,8 @@ CREATE TABLE `member`(
 	delStatus TINYINT UNSIGNED NOT NULL DEFAULT 0 COMMENT '탈퇴여부 (탈퇴 전 = 0, 탈퇴 후 = 1)',
 	delDate DATETIME COMMENT '탈퇴 날짜',
 	permission INT DEFAULT 1,
-	department ENUM('General Affairs Division', 'Junbo', 'Planning and Finance', 'Inspector General'),
-	`position` ENUM('Manager', 'Head of Team', 'Deputy Director', 'officer')
+	department VARCHAR(50),
+	`position` VARCHAR(50)
 	
 );
 
@@ -50,8 +112,8 @@ CREATE TABLE join_requests(
 	delStatus TINYINT UNSIGNED NOT NULL DEFAULT 0 COMMENT '탈퇴여부 (탈퇴 전 = 0, 탈퇴 후 = 1)',
 	delDate DATETIME COMMENT '탈퇴 날짜',
 	permission INT DEFAULT 0,
-	department ENUM('General Affairs Division', 'Junbo', 'Planning and Finance', 'Inspector General'),
-	`position` ENUM('Manager', 'Head of Team', 'Deputy Director', 'officer')
+	department VARCHAR(50),
+	`position` VARCHAR(50)
 	
 );
 
@@ -65,8 +127,8 @@ loginPw = 'test1',
 cellphoneNum = '010-1112-1112',
 email = 'test1@naver.com',
 permission = 1,
-department = 'General Affairs Division',
-`position` = 'Manager';
+department = '감사과',
+`position` = '주무관';
 
 
 INSERT INTO join_requests
@@ -78,8 +140,8 @@ loginPw = 'join1',
 cellphoneNum = '010-1112-1112',
 email = 'test1@naver.com',
 permission = 0,
-department = 'Junbo',
-`position` = 'Head of Team';
+department = '정보과',
+`position` = '사무관';
 
 
 INSERT INTO join_requests
@@ -91,8 +153,8 @@ loginPw = 'join2',
 cellphoneNum = '010-1j12-1112',
 email = 'test1@naver.com',
 permission = 0,
-department = 'Junbo',
-`position` = 'Deputy Director';
+department = '기획재정담당관',
+`position` = '서기관';
 
 
 INSERT INTO join_requests
@@ -104,21 +166,10 @@ loginPw = 'join3',
 cellphoneNum = '010-1j12-1112',
 email = 'test1@naver.com',
 permission = 0,
-department = 'Planning and Finance',
-`position` = 'Deputy Director';
+department = '정보과',
+`position` = '과장';
 
 
-INSERT INTO join_requests
-SET regDate = NOW(),
-updateDate = NOW(),
-loginId = 'join4',
-loginPw = 'join4',
-`name` = '조인1',
-cellphoneNum = '010-1112-1112',
-email = 'test1@naver.com',
-permission = 0,
-department = 'Inspector General',
-`position` = 'officer';
 
 INSERT INTO `admin`
 SET regDate = NOW(),
@@ -135,7 +186,7 @@ SELECT *
 				FROM join_requests
 
 
-
+SELECT * FROM article;
 SELECT * FROM `admin`;
 SELECT * FROM `member`;
 SELECT * FROM join_requests;

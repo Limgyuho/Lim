@@ -29,7 +29,7 @@
 		<div class="flex">
 			<h2 class="flex-grow-1">요청자 목록</h2>
 			<h2 class="flex-grow-1 justify-content-end">총 인원 :
-				${joinRequestsCnt  } 명</h2>
+				${joinRequestCnt  } 명</h2>
 		</div>
 
 		<table>
@@ -49,7 +49,7 @@
 			</thead>
 			<tbody>
 				<%-- 가입 요청자 정보 반복문 --%>
-				<c:forEach var="joinRequest" items="${joinRequests}">
+				<c:forEach var="joinRequest" items="${getAllRequests}">
 					<tr>
 						<td>${joinRequest.id}</td>
 						<td>${joinRequest.loginId}</td>
@@ -96,11 +96,12 @@
 					<th>이름</th>
 					<th>전화번호</th>
 					<th>이메일</th>
+					<th>승인 상태</th>
 				</tr>
 			</thead>
 			<tbody>
 				<%-- 가입 완료된 멤버 정보 반복문 --%>
-				<c:forEach var="member" items="${approvedMembers}">
+				<c:forEach var="member" items="${getAllApprovedMembers}">
 					<tr>
 						<td>
 							<div class="form-control">
@@ -108,7 +109,7 @@
 									type="checkbox" class="checkbox checkbox-info" />
 								</label>
 							</div>
-						</td>
+						</td>	
 						<td>${member.id}</td>
 						<td>${member.regDate}</td>
 						<td>${member.loginId}</td>
@@ -118,6 +119,7 @@
 						<td>${member.name}</td>
 						<td>${member.cellphoneNum}</td>
 						<td>${member.email}</td>
+<%-- 						<td>${member.Permission}</td> --%>
 					</tr>
 				</c:forEach>
 			</tbody>

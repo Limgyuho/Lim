@@ -61,16 +61,19 @@ public interface MemberRepository {
 	public void doPasswordModify(int loginedMemberId, String loginPw);
 
 	
-//	@Select("""
-//			<script>
-//			SELECT *
-//				FROM `member`
-//				WHERE department = #{department}
-//				<if test="name != ''">
-//					AND name = #{name}
-//				</if>
-//			</script>
-//			""")
+	@Select("""
+			<script>
+			SELECT *
+				FROM `member`
+				WHERE 1 = 1
+				<if test="department != '' and department != null and department != '전체'">
+					AND department = #{department}
+				</if>
+				<if test="name != ''">
+					AND name = #{name}
+				</if>
+			</script>
+			""")
 	public List<Member> getAllApprovedMembers(String department, String name);
 	
 	@Insert("""
