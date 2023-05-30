@@ -60,10 +60,8 @@
 						<td>${joinRequest.cellphoneNum}</td>
 						<td>${joinRequest.email}</td>
 						<td>${joinRequest.regDate}</td>
-						<td>
-							<a href="approve?id=${joinRequest.id}&permission=1">Approve</a>
-							<a href="approve?id=${joinRequest.id}&permission=0">Reject</a>
-						</td>
+						<td><a href="approve?id=${joinRequest.id}&permission=1">Approve</a>
+							<a href="approve?id=${joinRequest.id}&permission=0">Reject</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>
@@ -104,7 +102,6 @@
 								</label>
 							</div>
 						</td>
-			
 						<td>${member.id}</td>
 						<td>${member.regDate}</td>
 						<td>${member.loginId}</td>
@@ -114,27 +111,26 @@
 						<td>${member.name}</td>
 						<td>${member.cellphoneNum}</td>
 						<td>${member.email}</td>
-						<c:if test = "${member.permission == 1}">	
-							<td>허가 상태</td>	
+						<c:if test="${member.permission == 1}">
+							<td>허가 상태</td>
 						</c:if>
 						<a href=""></a>
-						<c:if test = "${member.permission == 0}">
-							<td>거부 상태<button onclick="location.href='/usr/admin/Reapproval'"">재승인</button></td>
-<!-- 							//일단은 실제로 동작하는지 재승인 -->
-<!-- 							//경로를 설정하여 컨트롤러에서 -->
-<!-- 							//서비스에서 레파지토리에서 혹은xml 에서 -->
-<!-- 							//업데이트 쿼리문을 날려 -->
-<!-- 							//테이블에 있는 퍼미션이 0인 대상자들을 -->
-<!-- 							//1로 변경한다 -->
+						<c:if test="${member.permission == 0}">
+							<td>거부 상태
+								<button onclick="location.href='/usr/admin/Reapproval'"">재승인</button>
+							</td>
+							<!-- 							//일단은 실제로 동작하는지 재승인 -->
+							<!-- 							//경로를 설정하여 컨트롤러에서 -->
+							<!-- 							//서비스에서 레파지토리에서 혹은xml 에서 -->
+							<!-- 							//업데이트 쿼리문을 날려 -->
+							<!-- 							//테이블에 있는 퍼미션이 0인 대상자들을 -->
+							<!-- 							//1로 변경한다 -->
 						</c:if>
 					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
 	</div>
-
-
-	
 	<form method="GET">
 		<select data-value="${department }" class="select select-bordered"
 			name="department">
@@ -162,14 +158,6 @@
 			selectedTab.style.display = "block";
 		}
 	</script>
-
-
-
-
-
-
-
-
 
 </body>
 </html>

@@ -96,6 +96,13 @@ public class AdminController {
 		return "redirect:/usr/admin/admindashboard";
 	}
 	
+	
+	@RequestMapping("/usr/admin/transfer")
+	public String transfer() {
+			
+		return "/usr/admin/transfer";
+	}
+	
 
 
 	
