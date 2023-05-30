@@ -70,40 +70,22 @@ public class AdminController {
 	}
 
 	@PostMapping("/usr/admin/approve")
-	public String approveJoinRequest(@RequestParam("id") int id ) {
-		// 가입 요청 승인 처리
-//		joinRequestService.approveJoinRequest(memberId);
+	public String approveJoinRequest(@RequestParam("id") int id, int permission) {
 		JoinRequest joinRequests = joinRequestService.getJoinRequestsInfo(id);
 
+		
 		memberService.insertMembertable(joinRequests.getRegDate(), joinRequests.getUpdateDate(),
 				joinRequests.getLoginId(), joinRequests.getLoginPw(), joinRequests.getName(),
-				joinRequests.getCellphoneNum(), joinRequests.getEmail(), joinRequests.getPermission(1),
-				joinRequests.getDepartment(), joinRequests.getPosition());	
-		
-		
-		joinRequestService.deletejoinRequestsMember(id);
-		
-
-		return "redirect:/usr/admin/admindashboard";
-	}
-
-	@PostMapping("/usr/admin/reject")
-	public String rejectJoinRequest(@RequestParam("id") int id) {
-		// 가입 요청 거부 처리
-
-		JoinRequest joinRequests = joinRequestService.getJoinRequestsInfo(id);
-
-		memberService.insertMembertable(joinRequests.getRegDate(), joinRequests.getUpdateDate(),
-				joinRequests.getLoginId(), joinRequests.getLoginPw(), joinRequests.getName(),
-				joinRequests.getCellphoneNum(), joinRequests.getEmail(), joinRequests.getPermission(0),
+				joinRequests.getCellphoneNum(), joinRequests.getEmail(), permission,
 				joinRequests.getDepartment(), joinRequests.getPosition());
 		
-
-		
 		
 		joinRequestService.deletejoinRequestsMember(id);
+		
+
 		return "redirect:/usr/admin/admindashboard";
 	}
+
 
 	@RequestMapping("/usr/admin/doLogin")
 	@ResponseBody

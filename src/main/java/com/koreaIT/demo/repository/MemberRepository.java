@@ -129,6 +129,8 @@ public interface MemberRepository {
 		""")
 	public List<Member> approvedMembers();
 
+	
+
 
 
 

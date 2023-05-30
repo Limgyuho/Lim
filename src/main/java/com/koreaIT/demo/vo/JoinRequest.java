@@ -18,12 +18,9 @@ public class JoinRequest {
 	private String cellphoneNum;
 	private String email;
 	private int delStatus;
-	private int permission;
 	private String delDate;
 	public String department;
 	public String position;
-	public int getPermission(int i) {
-		return 1;
-	}
+	public int Permission;
 	
 }

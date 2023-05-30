@@ -61,14 +61,8 @@
 						<td>${joinRequest.email}</td>
 						<td>${joinRequest.regDate}</td>
 						<td>
-							<form action="approve" method="post">
-								<input type="hidden" name="id" value="${joinRequest.id}" />
-								<button type="submit">Approve</button>
-							</form>
-							<form action="reject" method="post">
-								<input type="hidden" name="id" value="${joinRequest.id}" />
-								<button type="submit">Reject</button>
-							</form>
+						<a href="/usr/admin/approve?permission=1&id=${joinRequest.id}">Approve</a>
+						<a href="/usr/admin/approve?permission=0&id=${joinRequest.id}">Reject</a>
 						</td>
 					</tr>
 				</c:forEach>
@@ -89,14 +83,14 @@
 					<th></th>
 					<th>회원번호</th>
 					<th>가입날짜</th>
-					<th>로그인 아이디</th>
+					<th>로그인 아이디</th>s
 					<th>로그인 패스워드</th>
 					<th>부서</th>
 					<th>직급</th>
 					<th>이름</th>
 					<th>전화번호</th>
 					<th>이메일</th>
-					<th>승인 상태</th>
+					<th>permission</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -109,7 +103,7 @@
 									type="checkbox" class="checkbox checkbox-info" />
 								</label>
 							</div>
-						</td>	
+						</td>
 						<td>${member.id}</td>
 						<td>${member.regDate}</td>
 						<td>${member.loginId}</td>
@@ -119,7 +113,7 @@
 						<td>${member.name}</td>
 						<td>${member.cellphoneNum}</td>
 						<td>${member.email}</td>
-<%-- 						<td>${member.Permission}</td> --%>
+						<td>${member.permission}</td>
 					</tr>
 				</c:forEach>
 			</tbody>
@@ -139,6 +133,7 @@
 		<button class="ml-2 btn-text-link btn btn-active" type="submit">검색</button>
 	</form>
 
+
 	<script>
 		function showTab(tabName) {
 			// 모든 탭 컨텐츠 숨기기
@@ -152,5 +147,14 @@
 			selectedTab.style.display = "block";
 		}
 	</script>
+
+
+
+
+
+
+
+
+
 </body>
 </html>

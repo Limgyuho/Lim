@@ -22,5 +22,4 @@ public class Member {
 	public int Permission;
 	public String department;
 	public String position;
-	
 }
