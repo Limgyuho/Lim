@@ -46,12 +46,12 @@ $('.department').click(function() {
 	window.open(openUrl, 'pop', popOption);
 });
 
-$('.transfer').click(function() {
-	var department = $(this).data('department');
-	let popOption = "width=650px, height=550px, top=100px, left=100px, scrollbars=yes";
-	let openUrl = '/usr/chat/members';
-	window.open(openUrl, 'pop', popOption);
-});
+//$('.transfer').click(function() {
+//	var member = $(this).data('member');
+//	let popOption = "width=650px, height=550px, top=100px, left=100px, scrollbars=yes";
+//	let openUrl = '/usr/chat/members';
+//	window.open(openUrl, 'pop', popOption);
+//});
 
 
 

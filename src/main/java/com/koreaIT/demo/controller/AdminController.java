@@ -97,15 +97,21 @@ public class AdminController {
 	}
 	
 	
-	@RequestMapping("/usr/admin/transfer")
-	public String transfer() {
+	@RequestMapping("/usr/admin/transferList")
+	public String transferList() {
 			
-		return "/usr/admin/transfer";
+		return "/usr/admin/transferList";
 	}
 	
 
-
+	@RequestMapping("/usr/admin/transfer")
+	public String transfe(@RequestParam("selectedMembers") String[] selectedMembers, Model model) {
 	
+		System.out.println(selectedMembers);
+		
+		
+		return "/usr/admin/transfer";
+	}
 	
 	
 	

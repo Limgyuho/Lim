@@ -98,7 +98,8 @@
 						<td>
 							<div class="form-control">
 								<label class="cursor-pointer label"> <input
-									type="checkbox" class="checkbox checkbox-info" />
+									type="checkbox" class="checkbox checkbox-info"
+									value="${member}" />
 								</label>
 							</div>
 						</td>
@@ -114,7 +115,6 @@
 						<c:if test="${member.permission == 1}">
 							<td>허가 상태</td>
 						</c:if>
-						<a href=""></a>
 						<c:if test="${member.permission == 0}">
 							<td>거부 상태
 								<button onclick="location.href='/usr/admin/Reapproval'"">재승인</button>
@@ -131,18 +131,30 @@
 			</tbody>
 		</table>
 	</div>
-	<form method="GET">
-		<select data-value="${department }" class="select select-bordered"
-			name="department">
-			<option value="전체" ${department == '' ? 'selected' : ''}>전체</option>
-			<option value="운영지원과" ${department == '운영지원과' ? 'selected' : ''}>운영지원과</option>
-			<option value="정보과" ${department == '정보과' ? 'selected' : ''}>정보과</option>
-			<option value="기획재정담당관" ${department == '기획재정담당관' ? 'selected' : ''}>기획재정담당관</option>
-			<option value="감사과" ${department == '감사과' ? 'selected' : ''}>감사과</option>
-		</select> <input class="ml-2 w-80 input input-bordered" name="name"
-			placeholder="검색어를 입력해주세요" maxlength="20" value="${name }" />
-		<button class="ml-2 btn-text-link btn btn-active" type="submit">검색</button>
-	</form>
+	<div class="flex">
+		<div>
+			<form method="GET">
+				<select data-value="${department }" class="select select-bordered"
+					name="department">
+					<option value="전체" ${department == '' ? 'selected' : ''}>전체</option>
+					<option value="운영지원과" ${department == '운영지원과' ? 'selected' : ''}>운영지원과</option>
+					<option value="정보과" ${department == '정보과' ? 'selected' : ''}>정보과</option>
+					<option value="기획재정담당관"
+						${department == '기획재정담당관' ? 'selected' : ''}>기획재정담당관</option>
+					<option value="감사과" ${department == '감사과' ? 'selected' : ''}>감사과</option>
+				</select> <input class="ml-2 w-80 input input-bordered" name="name"
+					placeholder="검색어를 입력해주세요" maxlength="20" value="${name }" />
+				<button class="ml-2 btn-text-link btn btn-active" type="submit">검색</button>
+			</form>
+		</div>
+		<div>
+			<form method="GET" action="/usr/admin/transfer">
+				<button class="ml-2 btn-text-link btn btn-active" type="submit">인사이동</button>
+			</form>
+		</div>
+	</div>
+
+
 
 
 	<script>
