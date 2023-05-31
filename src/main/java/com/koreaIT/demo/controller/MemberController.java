@@ -78,7 +78,7 @@ public class MemberController {
 	//회원가입요청 폼....
 	@RequestMapping("/usr/member/dojoin")
 	@ResponseBody
-	public String doJoin(String loginId, String loginPw, String name, String cellphoneNum, String email,String department,String position) {
+	public String doJoin(String loginId, String loginPw, String name, String cellphoneNum, String email,String department,String position ) {
 
 		if (Util.empty(loginId)) {
 			return Util.jsHistoryBack("아이디를 입력해주세요");

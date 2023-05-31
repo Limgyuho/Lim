@@ -22,11 +22,6 @@ public class MemberService {
 		this.memberRepository = memberRepository;
 	}
 	
-//	 public List<Member> getAllApprovedMembers(String department, String name) {
-//		return memberRepository.getMemberList(department, name);
-//	 }
-	
-	
 	private Member getMemberByNameAndEmail(String name, String email) {
 		return memberRepository.getMemberByNameAndEmail(name, email);
 	}
@@ -90,6 +85,17 @@ public class MemberService {
 	public int updatePermission() {
 		return memberRepository.updatePermission();
 		
+	}
+
+
+	public List<Member> searchMember(String loginId) {
+
+		return memberRepository.searchMember(loginId);
+	}
+
+	public void memberTransfer(String loginId, String department, String position) {
+
+		memberRepository.memberTransfer(loginId,department,position);
 	}
 
 

@@ -29,7 +29,7 @@ public interface JoinRequestRepository {
 					position = #{position}
 		
 			""")
-	public void doJoin(String loginId, String loginPw, String name,  String cellphoneNum, String email ,String department,String position);
+	public void doJoin(String loginId, String loginPw, String name,  String cellphoneNum, String email ,String department,String position );
 	
 	@Select("SELECT LAST_INSERT_ID()")
 	public int getLastInsertId();

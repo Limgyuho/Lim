@@ -1,5 +1,7 @@
 package com.koreaIT.demo.repository;
 
+
+
 import java.util.List;
 
 import org.apache.ibatis.annotations.Delete;
@@ -13,9 +15,9 @@ import com.koreaIT.demo.vo.Member;
 
 @Mapper
 public interface MemberRepository {
-	
+
 	public JoinRequest selectJoinRequests(String name);
-	
+
 	@Select("SELECT LAST_INSERT_ID()")
 	public int getLastInsertId();
 
@@ -32,8 +34,6 @@ public interface MemberRepository {
 				WHERE loginId = #{loginId}
 			""")
 	public Member getMemberByLoginId(String loginId);
-
-	
 
 	@Select("""
 			SELECT *
@@ -60,7 +60,6 @@ public interface MemberRepository {
 			""")
 	public void doPasswordModify(int loginedMemberId, String loginPw);
 
-	
 	@Select("""
 			<script>
 			SELECT *
@@ -75,7 +74,7 @@ public interface MemberRepository {
 			</script>
 			""")
 	public List<Member> getAllApprovedMembers(String department, String name);
-	
+
 	@Insert("""
 			INSERT INTO `member`
 				SET regDate = NOW(),
@@ -91,7 +90,7 @@ public interface MemberRepository {
 			""")
 
 	public void insertMembertable(String regDate, String updateDate, String loginId, String loginPw, String name,
-			String cellphoneNum, String email, int permission,String department,String position);
+			String cellphoneNum, String email, int permission, String department, String position);
 
 	@Delete("""
 			DELETE FROM `member`
@@ -99,7 +98,6 @@ public interface MemberRepository {
 			""")
 	public void deletejoinRequestsMember(int id);
 
-	
 	@Select("""
 			SELECT *
 				FROM `member`
@@ -107,39 +105,46 @@ public interface MemberRepository {
 			""")
 	public Member Members(String department, String name);
 
-
 	@Select("""
 			SELECT COUNT(*)
-				FROM `member`	
+				FROM `member`
 			""")
 	public int getMemberCnt();
-	
+
 	@Select("""
-		    SELECT `name`, `position`, cellphoneNum
-		    FROM `member`
-		    WHERE department = #{department}
-		    """)
+			SELECT `name`, `position`, cellphoneNum
+			FROM `member`
+			WHERE department = #{department}
+			""")
 	public List<Member> getMembersByDepartment(String department);
 
 	@Select("""
-		    SELECT *
-		    FROM `member`
-		    WHERE permission =1
-		    ORDER BY id DESC
-		""")
+			    SELECT *
+			    FROM `member`
+			    WHERE permission =1
+			    ORDER BY id DESC
+			""")
 	public List<Member> approvedMembers();
 
 	@Update("""
 			UPDATE `member`
 			SET permission = 1
-			WHERE  permission = 0	
+			WHERE  permission = 0
 			""")
 	public int updatePermission();
 
-	
+	@Update("""
+			    UPDATE `member`
+			    SET department = #{department}, position = #{position}
+			    WHERE loginId = #{loginId}
+			""")
+	public void memberTransfer(String loginId, String department, String position);
 
-
-
-
+	@Select("""
+			    SELECT *
+			    FROM `member`
+			    WHERE loginId = #{loginId}
+			""")
+	public List<Member> searchMember(String loginId);
 
 }

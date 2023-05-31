@@ -1,20 +1,16 @@
 package com.koreaIT.demo.controller;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
-import org.apache.ibatis.annotations.Insert;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.koreaIT.demo.service.AdminService;
-import com.koreaIT.demo.service.ArticleService;
 import com.koreaIT.demo.service.JoinRequestService;
 import com.koreaIT.demo.service.MemberService;
 import com.koreaIT.demo.util.Util;
@@ -96,18 +92,26 @@ public class AdminController {
 		return "redirect:/usr/admin/admindashboard";
 	}
 	
-	
-	@RequestMapping("/usr/admin/transfer")
-	public String transfer() {
+
+	@RequestMapping("/usr/admin/transferList")
+	public String transferList() {
 			
-		return "/usr/admin/transfer";
+		return "/usr/admin/transferList";
 	}
 	
 
+	@RequestMapping("/usr/admin/transfer")
+	public String transfe(Model model, String loginId ,String department, String position) {
+		
+		List<Member> searchMember = memberService.searchMember(loginId);
+		model.addAttribute("searchMember",searchMember);
 
-	
-	
-	
+		
+		memberService.memberTransfer(loginId,department,position);
+		model.addAttribute("memberTransfer");
+		
+		return "/usr/admin/transfer";
+	}
 	
 	
 	@RequestMapping("/usr/admin/doLogin")
