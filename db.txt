@@ -100,6 +100,7 @@ CREATE TABLE `member`(
 	
 );
 
+ALTER TABLE `member` ADD COLUMN memberId INT UNSIGNED NOT NULL
 
 CREATE TABLE join_requests(
 	id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -118,7 +119,7 @@ CREATE TABLE join_requests(
 	`position` VARCHAR(50)
 	
 );
-
+ALTER TABLE join_requests ADD COLUMN memberId INT UNSIGNED NOT NULL
 
 
 SELECT * FROM suggestion
@@ -130,7 +131,7 @@ CREATE TABLE suggestion(
     	monitor VARCHAR(50),
     	pc VARCHAR(50),
     	chair VARCHAR(50),
-    	desck VARCHAR(50),
+    	desk VARCHAR(50),
     	starex VARCHAR(50),
     	genesis VARCHAR(50),
     	potter VARCHAR(50),
@@ -139,6 +140,7 @@ CREATE TABLE suggestion(
     	destination VARCHAR(50)
     	
 )
+
 
 INSERT INTO `member`
 SET regDate = NOW(),
@@ -247,6 +249,49 @@ SELECT *
 			set department = '기획재정담당관',
 			    `POSITION` = '서기관'
 			WHERE loginId = 4
+			
+버튼과 내용을 입력한것이 어드민 대시보드에 보여야한다
+
+신청 테이블을 따로 만든다?
+테이블에 들어갈 것들
+모니터
+피시
+의자
+책상
+스타렉스
+제네시스
+포터
+요청마다 
+텍스트의 name을 다르게 준다
+
+버튼을 클릭시 액션의 경로 이동한
+이동한 경로의 어드민 컨트롤러에서 요청한것을
+인설트를 하고 어드민 대시보드에서 새로운 탭을 만들어
+신청자의 정보와 체크박스 내용과 사유를 확인한다
+
+체크박스는 체크박스를 한순간에 자동으로 데이터가 담긴다
+
+알큐로 겟으로 회원정보를 가져온다
+
+또한 신청자가 신청을하면 신청을 완료 하였습니다라는
+메세지가 나온후 자신이 신청한 내역이 목록으로 보인다
+또한 어드민이 대시보드에서 승인 버튼을 누르면
+신청자가 신청한 목록에서 신청이 승인,미승인 결과가 나온다
+
+컬럼을 하나 더 남들어라 
+업데이트 할때 이동한 부서만 남김
+
+
+
+
+
+
+작성과 조인과 비슷한?
+
+인설트
+
+버튼을 클릭시 
+
 			
 버튼과 내용을 입력한것이 어드민 대시보드에 보여야한다
 
