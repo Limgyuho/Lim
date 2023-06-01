@@ -33,9 +33,10 @@ public class AdminService {
 	}
 
 
-	public List<suggestion> suggestion(int getLoginedMemberId) {
+	public List<suggestion> suggestion(String monitor, String pc, String chair, String desk, String starex, 
+			String genesis,String potter, String reason1, String reason2, String destination) {
 		
-		return adminRepository.suggestion(getLoginedMemberId);
+		return adminRepository.suggestion(monitor,pc,chair,desk,starex,genesis,potter,reason1,reason2,destination);
 	}
 
 

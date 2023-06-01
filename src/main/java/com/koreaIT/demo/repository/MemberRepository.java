@@ -86,7 +86,6 @@ public interface MemberRepository {
 					department =#{department},
 					position = #{position}
 			""")
-
 	public void insertMembertable(String regDate, String updateDate, String loginId, String loginPw, String name,
 			String cellphoneNum, String email, int permission, String department, String position);
 

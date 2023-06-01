@@ -23,7 +23,7 @@ import com.koreaIT.demo.vo.suggestion;
 
 @Controller
 public class ArticleController {
-	
+
 	private AdminService adminService;
 	private JoinRequestService joinRequestService;
 	private MemberService memberService;
@@ -32,7 +32,8 @@ public class ArticleController {
 	private Rq rq;
 
 	@Autowired
-	public ArticleController(ArticleService articleService,BoardService boardService,AdminService adminService, MemberService memberService, Rq rq, JoinRequestService joinRequestService) {
+	public ArticleController(ArticleService articleService, BoardService boardService, AdminService adminService,
+			MemberService memberService, Rq rq, JoinRequestService joinRequestService) {
 		this.adminService = adminService;
 		this.memberService = memberService;
 		this.joinRequestService = joinRequestService;
@@ -40,13 +41,10 @@ public class ArticleController {
 		this.boardService = boardService;
 		this.rq = rq;
 	}
-	
 
-	
 	@RequestMapping("/usr/article/noticelist")
 	public String showList(Model model, @RequestParam(defaultValue = "1") int boardId,
-			@RequestParam(defaultValue = "1") int page, 
-			@RequestParam(defaultValue = "title") String searchKeywordType,
+			@RequestParam(defaultValue = "1") int page, @RequestParam(defaultValue = "title") String searchKeywordType,
 			@RequestParam(defaultValue = "") String searchKeyword) {
 
 		if (page <= 0) {
@@ -55,15 +53,14 @@ public class ArticleController {
 
 		Board board = boardService.getBoardById(boardId);
 
-	
-
 		int articlesCnt = articleService.getArticlesCnt(boardId, searchKeywordType, searchKeyword);
 
 		int itemsInAPage = 10;
 
 		int pagesCount = (int) Math.ceil((double) articlesCnt / itemsInAPage);
 
-		List<Article> articles = articleService.getArticles(boardId, searchKeywordType, searchKeyword, itemsInAPage, page);
+		List<Article> articles = articleService.getArticles(boardId, searchKeywordType, searchKeyword, itemsInAPage,
+				page);
 
 		model.addAttribute("pagesCount", pagesCount);
 		model.addAttribute("page", page);
@@ -75,22 +72,17 @@ public class ArticleController {
 
 		return "usr/article/noticelist";
 	}
-	
-	
-	
+
 	@RequestMapping("/usr/article/transferList")
 	public String showtransfer(Model model) {
 
-	
 		// 가입 완료된 멤버 정보 조회
 		List<Member> approvedMembers = memberService.approvedMembers();
 		model.addAttribute("approvedMembers", approvedMembers);
 
 		return "usr/article/transferList";
 	}
-	
 
-	
 	@RequestMapping("/usr/article/transferdetail")
 	public String showatransferdetail(Model model) {
 
@@ -99,13 +91,14 @@ public class ArticleController {
 		model.addAttribute("approvedMembers", approvedMembers);
 		return "/usr/article/transferdetail";
 	}
-	
-	
+
 	@RequestMapping("/usr/article/suggestion")
-	public String showsuggestion(Model model) {
-		
-		//suggestion테이블을에 값을 인설트 하는부분 만들기
-		List<suggestion> suggestion = adminService.suggestion(rq.getLoginedMemberId());
+	public String showsuggestion(Model model, String monitor, String pc, String chair, String desk, String starex,
+			String genesis, String potter, String reason1,String reason2, String destination) {
+
+		List<suggestion> suggestion = adminService.suggestion(monitor, pc, chair, desk, starex, genesis, potter,
+				reason1, reason2, destination);
+		model.addAttribute("suggestion", suggestion);
 		return "usr/article/suggestion";
 	}
 }

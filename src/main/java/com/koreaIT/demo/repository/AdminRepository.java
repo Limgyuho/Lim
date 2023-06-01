@@ -50,6 +50,22 @@ public interface AdminRepository {
 	@Select("SELECT LAST_INSERT_ID()")
 	public int getLastInsertId();
 	
+	
+
+	@Select("""
+			<script>
+			SELECT *
+				FROM `member`
+				WHERE 1 = 1
+				<if test="department != '' and department != null and department != '전체'">
+					AND department = #{department}
+				</if>
+				<if test="name != ''">
+					AND name = #{name}
+				</if>
+			</script>
+			""")
+	
 	@Insert("""
 			INSERT INTO suggestion
 				SET regDate = NOW(),	
@@ -63,8 +79,9 @@ public interface AdminRepository {
 					reason1 = #{reason1}
 					reason2 = #{reason2}
 					destination = #{destination}
+			
 			""")
-	
-	public List<suggestion> suggestion(getLoginedMemberId);
+	public List<suggestion> suggestion(String monitor, String pc, String chair, String desk, String starex, 
+			String genesis,String potter, String reason1, String reason2, String destination);
 
 }
