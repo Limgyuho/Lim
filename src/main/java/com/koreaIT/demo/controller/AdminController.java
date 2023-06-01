@@ -101,9 +101,9 @@ public class AdminController {
 	
 
 	@RequestMapping("/usr/admin/transfer")
-	public String transfer(Model model, String loginId) {
+	public String transfer(Model model, int id) {
 		
-		Member searchMember = memberService.searchMember(loginId);
+		Member searchMember = memberService.searchMember(id);
 		model.addAttribute("searchMember",searchMember);
 		
 		
@@ -111,6 +111,18 @@ public class AdminController {
 //		model.addAttribute("memberTransfer");
 		
 		return "/usr/admin/transfer";
+	}
+	@RequestMapping("/usr/admin/transferupdate")
+	public String transferUpdate(Model model, int id ,String department,String position) {
+	
+		memberService.memberTransfer(id,department,position);
+		
+		System.out.println(id);
+		System.out.println(department);
+		System.out.println(position);
+
+		
+		return "redirect:/usr/admin/admindashboard";
 	}
 	
 	

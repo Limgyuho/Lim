@@ -1,7 +1,5 @@
 package com.koreaIT.demo.repository;
 
-
-
 import java.util.List;
 
 import org.apache.ibatis.annotations.Delete;
@@ -133,18 +131,27 @@ public interface MemberRepository {
 			""")
 	public int updatePermission();
 
-	@Update("""
-			    UPDATE `member`
-			    SET department = #{department}, position = #{position}
-			    WHERE loginId = #{loginId}
-			""")
-	public void memberTransfer(String loginId, String department, String position);
+	@Select("""
+			<script>
+			UPDATE `member`
+			<set>
+			  <if test="department != null">
+			    department = #{department},
+			  </if>
+			  <if test="position != null">
+			    position = #{position},
+			  </if>
+			</set>
+			WHERE id = #{id}
+				</script>
+				""")
+	public void memberTransfer(int id, String department, String position);
 
 	@Select("""
 			    SELECT *
 			    FROM `member`
-			    WHERE loginId = #{loginId}
+			    WHERE id = #{id}
 			""")
-	public Member searchMember(String loginId);
+	public Member searchMember(int id);
 
 }

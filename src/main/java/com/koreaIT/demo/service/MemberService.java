@@ -88,14 +88,17 @@ public class MemberService {
 	}
 
 
-	public Member searchMember(String loginId) {
+	public Member searchMember(int id) {
 
-		return memberRepository.searchMember(loginId);
+		return memberRepository.searchMember(id);
 	}
 
-	public void memberTransfer(String loginId, String department, String position) {
+	
 
-		memberRepository.memberTransfer(loginId,department,position);
+
+	public void memberTransfer(int id ,String department,String position) {
+		memberRepository.memberTransfer(id,department,position);
+		
 	}
 
 
