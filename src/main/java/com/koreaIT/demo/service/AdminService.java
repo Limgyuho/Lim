@@ -1,5 +1,7 @@
 package com.koreaIT.demo.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,6 +11,7 @@ import com.koreaIT.demo.repository.MemberRepository;
 import com.koreaIT.demo.util.Util;
 import com.koreaIT.demo.vo.Admin;
 import com.koreaIT.demo.vo.ResultData;
+import com.koreaIT.demo.vo.suggestion;
 
 
 @Service
@@ -27,6 +30,12 @@ public class AdminService {
 
 	public Admin getAdminByLoginId(String loginId) {
 		return adminRepository.getMemberByLoginId(loginId);
+	}
+
+
+	public List<suggestion> suggestion(int getLoginedMemberId) {
+		
+		return adminRepository.suggestion(getLoginedMemberId);
 	}
 
 

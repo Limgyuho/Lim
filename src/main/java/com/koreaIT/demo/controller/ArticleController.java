@@ -19,6 +19,7 @@ import com.koreaIT.demo.vo.Board;
 import com.koreaIT.demo.vo.JoinRequest;
 import com.koreaIT.demo.vo.Member;
 import com.koreaIT.demo.vo.Rq;
+import com.koreaIT.demo.vo.suggestion;
 
 @Controller
 public class ArticleController {
@@ -102,9 +103,9 @@ public class ArticleController {
 	
 	@RequestMapping("/usr/article/suggestion")
 	public String showsuggestion(Model model) {
-
-		//현재 로그인한 사람의 정보가 있어야 한다
-		//
+		
+		//suggestion테이블을에 값을 인설트 하는부분 만들기
+		List<suggestion> suggestion = adminService.suggestion(rq.getLoginedMemberId());
 		return "usr/article/suggestion";
 	}
 }

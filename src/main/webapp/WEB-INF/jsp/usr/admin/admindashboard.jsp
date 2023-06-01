@@ -146,6 +146,57 @@
 			</form>
 		</div>
 	</div>
+	<!-- 가입 완료된 멤버 탭 -->
+	<div id="suggestion" class="tab-content">
+		<div class="flex">
+			<h2 class="flex-grow-1">요청사항들</h2>
+			<h2 class="flex-grow-1 justify-content-end">총 인원 : ${memberCnt }
+				명</h2>
+		</div>
+		<table>
+			<thead>
+				<tr>
+					<th></th>
+					<th>회원번호</th>
+					<th>요청날짜</th>
+					<th>부서</th>
+					<th>직급</th>
+					<th>이름</th>
+					<th>전화번호</th>
+					<th>신청 항목</th>
+					<th>신청 사유</th>
+					<th>목적지</th>
+					<th>전화번호</th>
+					<th>이메일</th>
+					<th>승인 상태</th>
+				</tr>
+			</thead>
+			<tbody>
+				<%-- 가입 완료된 멤버 정보 반복문 --%>
+				<c:forEach var="member" items="${getAllApprovedMembers}">
+					<tr>	
+						<td>
+						</td>
+						<td>${member.id}</td>
+						<td>${member.regDate}</td>
+						<td>${member.department}</td>
+						<td>${member.position}</td>
+						<td>${member.name}</td>
+						<td>${member.cellphoneNum}</td>
+						<c:if test="${member.permission == 1}">
+							<td>허가 상태</td>
+						</c:if>
+						<a href=""></a>
+						<c:if test="${member.permission == 0}">
+							<td>거부 상태
+								<button onclick="location.href='/usr/admin/Reapproval'"">재승인</button>
+							</td>
+						</c:if>
+					</tr>
+				</c:forEach>
+			</tbody>
+		</table>
+	</div>
 	<script>
 		function showTab(tabName) {
 			// 모든 탭 컨텐츠 숨기기

@@ -11,6 +11,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<div>${rq.getLoginedMember().getId()}</div>
 	<div class="flex justify-center">요청 및 건의 사항</div>
 	<section class="mt-8 text-xl">
 		<div class="container mx-auto px-3">
@@ -26,37 +27,31 @@
 								<th>사무용품 교체,요청</th>
 								<td>
 									<div>
-										모니터 교체 신청<input type="checkbox" checked="checked"
-											class="checkbox checkbox-accent" value="${.monitor}" />
+										모니터 교체 신청<input name="monitor" type="checkbox" checked="checked"class="checkbox checkbox-accent"  />
 									</div>
-										pc 교체 신청 <input type="checkbox" checked="checked"
-											class="checkbox checkbox-accent" value="${.pc}"/>
+										pc 교체 신청 <input name="pc"  type="checkbox" checked="checked"class="checkbox checkbox-accent" />
 										<div>
-											의자 교체 신청 <input type="checkbox" checked="checked"
-												class="checkbox checkbox-accent" value="${.chair}"/>
+											의자 교체 신청 <input name="chair"  type="checkbox" checked="checked"class="checkbox checkbox-accent"/>
 										</div>
 										<div>
-											책상 교체 신청 <input type="checkbox" checked="checked"
-												class="checkbox checkbox-accent""${.desk}"/>
+											책상 교체 신청 <input name="desk"  type="checkbox" checked="checked"class="checkbox checkbox-accent"/>
 										</div>
-										<input name	 ="body" type="text" placeholder="사유적기" />
+										<input name	 ="reason1" type="text" placeholder="사유적기" />
 								</td>
 							</tr>
+							<div>${rq.getLoginedMember().getIdName</div>
 							<tr>
 								<th>관용차 대여 요청</th>
 								<td>
 									<div>
-										스타렉스 <input type="checkbox" checked="checked"
-											class="checkbox checkbox-accent" />
+										스타렉스 <input name ="starex"type="checkbox" checked="checked"class="checkbox checkbox-accent" />
 									</div>
 									<div>
-										제네시스 G90 <input type="checkbox" checked="checked"
-											class="checkbox checkbox-accent" />
+										제네시스 <input name="genesis"type="checkbox" checked="checked"class="checkbox checkbox-accent" />
 									</div>
-									<div>포터 <input type="checkbox" checked="checked"
-									class="checkbox checkbox-accent" /><div>
-									<input type="text" placeholder="목적지" />
-									<input type="text" placeholder="사유적기" />
+									<div>포터 <input name="potter" type="checkbox" checked="checked"class="checkbox checkbox-accent" /><div>
+									<input name= "destination" type="text" placeholder="목적지" />
+									<input name ="reason2" type="text" placeholder="사유적기" />
 								</td>
 							</tr>
 							<tr>
