@@ -88,7 +88,7 @@ public class MemberService {
 	}
 
 
-	public List<Member> searchMember(String loginId) {
+	public Member searchMember(String loginId) {
 
 		return memberRepository.searchMember(loginId);
 	}

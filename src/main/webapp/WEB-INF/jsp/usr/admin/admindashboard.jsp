@@ -98,12 +98,9 @@
 						<td>
 							<form method="GET" action="/usr/admin/transfer">
 								<div class="form-control">
-									<label class="cursor-pointer label"> <input
-										type="checkbox" name="loginId" class="checkbox checkbox-info"
-										value="${member.loginId}" />
-										<button class=" ml-2 btn-text-link btn btn-active"
-											type="submit" >인사이동</button>
-										
+									<label class="cursor-pointer label">
+										<input type="checkbox" name="loginId" class="checkbox checkbox-info" value="${member.loginId}" />
+										<button class=" ml-2 btn-text-link btn btn-active" type="submit" >인사이동</button>
 									</label>
 								</div>
 							</form>

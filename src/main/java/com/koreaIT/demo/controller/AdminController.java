@@ -101,14 +101,14 @@ public class AdminController {
 	
 
 	@RequestMapping("/usr/admin/transfer")
-	public String transfe(Model model, String loginId ,String department, String position) {
+	public String transfer(Model model, String loginId) {
 		
-		List<Member> searchMember = memberService.searchMember(loginId);
+		Member searchMember = memberService.searchMember(loginId);
 		model.addAttribute("searchMember",searchMember);
-
 		
-		memberService.memberTransfer(loginId,department,position);
-		model.addAttribute("memberTransfer");
+		
+//		memberService.memberTransfer(loginId,department,position);
+//		model.addAttribute("memberTransfer");
 		
 		return "/usr/admin/transfer";
 	}

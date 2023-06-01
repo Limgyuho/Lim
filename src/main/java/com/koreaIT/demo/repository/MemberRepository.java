@@ -145,6 +145,6 @@ public interface MemberRepository {
 			    FROM `member`
 			    WHERE loginId = #{loginId}
 			""")
-	public List<Member> searchMember(String loginId);
+	public Member searchMember(String loginId);
 
 }
