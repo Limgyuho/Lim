@@ -22,6 +22,7 @@
 	<div>
 		<button onclick="showTab('joinRequests')">Join Requests</button>
 		<button onclick="showTab('approvedMembers')">Approved Members</button>
+		<button onclick="showTab('suggestion')">suggestion page</button>
 	</div>
 
 	<!-- 가입 요청자 탭 -->
@@ -122,12 +123,6 @@
 							<td>거부 상태
 								<button onclick="location.href='/usr/admin/Reapproval'"">재승인</button>
 							</td>
-							<!-- 							//일단은 실제로 동작하는지 재승인 -->
-							<!-- 							//경로를 설정하여 컨트롤러에서 -->
-							<!-- 							//서비스에서 레파지토리에서 혹은xml 에서 -->
-							<!-- 							//업데이트 쿼리문을 날려 -->
-							<!-- 							//테이블에 있는 퍼미션이 0인 대상자들을 -->
-							<!-- 							//1로 변경한다 -->
 						</c:if>
 					</tr>
 				</c:forEach>

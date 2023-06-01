@@ -51,6 +51,7 @@ INSERT INTO article
 SELECT NOW(), NOW(), FLOOR(RAND() * 3) + 1, FLOOR(RAND() * 2) + 1, CONCAT('제목_', RAND()), CONCAT('내용_', RAND())
 FROM article;
 
+
 CREATE TABLE article(
 	id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
 	regDate DATETIME NOT NULL,
@@ -64,6 +65,7 @@ ALTER TABLE article ADD COLUMN boardId INT UNSIGNED NOT NULL AFTER memberId;
 ALTER TABLE article ADD COLUMN hitCount INT UNSIGNED NOT NULL DEFAULT 0;
 
 
+DROP TABLE article
 
 CREATE TABLE `admin`(
 	id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -111,18 +113,38 @@ CREATE TABLE join_requests(
 	email VARCHAR(50) NOT NULL,
 	delStatus TINYINT UNSIGNED NOT NULL DEFAULT 0 COMMENT '탈퇴여부 (탈퇴 전 = 0, 탈퇴 후 = 1)',
 	delDate DATETIME COMMENT '탈퇴 날짜',
-	permission INT NOT NULL,
+	permission INT DEFAULT 0,
 	department VARCHAR(50),
 	`position` VARCHAR(50)
 	
 );
 
 
+
+SELECT * FROM suggestion
+
+
+CREATE TABLE suggestion(
+    id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    	regDate DATETIME NOT NULL,
+    	monitor VARCHAR(50),
+    	pc VARCHAR(50),
+    	chair VARCHAR(50),
+    	desck VARCHAR(50),
+    	starex VARCHAR(50),
+    	genesis VARCHAR(50),
+    	potter VARCHAR(50),
+    	reason1 VARCHAR(50),
+    	reason2 VARCHAR(50),
+    	destination VARCHAR(50)
+    	
+)
+
 INSERT INTO `member`
 SET regDate = NOW(),
 updateDate = NOW(),
-loginId = 'test2',
-loginPw = 'test2',
+loginId = 'test1',
+loginPw = 'test1',
 `name` = '유저1',
 cellphoneNum = '010-1112-1112',
 email = 'test1@naver.com',
@@ -131,17 +153,8 @@ department = '감사과',
 `position` = '주무관';
 
 
-INSERT INTO join_requests
-SET regDate = NOW(),
-updateDate = NOW(),
-loginId = 'join1',
-loginPw = 'join1',
-`name` = '조인1',
-cellphoneNum = '010-1112-1112',
-email = 'test1@naver.com',
-permission = 0,
-department = '정보과',
-`position` = '사무관';
+
+DROP TABLE `member`;
 
 
 INSERT INTO join_requests
@@ -156,27 +169,26 @@ permission = 0,
 department = '기획재정담당관',
 `position` = '서기관';
 
-
+`   
 INSERT INTO join_requests
 SET regDate = NOW(),
 updateDate = NOW(),
-loginId = 'join3',
-loginPw = 'join3',
-`name` = '조인1',
+loginId = 'join8',
+loginPw = 'join8',
+`NAME` = '조인5',
 cellphoneNum = '010-1j12-1112',
 email = 'test1@naver.com',
 permission = 0,
 department = '정보과',
-`position` = '과장';
+`POSITION` = '서기관';
 
 
-
-INSERT INTO `admin`
+INSERT INTO `ADMIN`
 SET regDate = NOW(),
 updateDate = NOW(),
 loginId = 'admin',
 loginPw = 'admin',
-`name` = 'admin',
+`NAME` = 'admin',
 cellphoneNum = '010-1112-1112',
 email = 'test1@naver.com';
 
@@ -187,15 +199,15 @@ SELECT *
 
 
 SELECT * FROM article;
-SELECT * FROM `admin`;
-SELECT * FROM `member`;
+SELECT * FROM `ADMIN`;
+SELECT * FROM `MEMBER`;
 SELECT * FROM join_requests;
 
-DELETE FROM `member` WHERE id IN (1,2,3,4);
+DELETE FROM `MEMBER` WHERE id IN (1,2,3,4);
 
 DELETE FROM join_requests
 				WHERE id = 4
-UPDATE `member`
+UPDATE `MEMBER`
 SET permission = 1
 WHERE id = 
 
@@ -226,5 +238,55 @@ SELECT *
         -- AND name = #{name}
 
 SELECT *
-				FROM `member`
+				FROM `MEMBER`
 				WHERE department = '전체'
+				
+				
+
+			UPDATE `MEMBER`
+			set department = '기획재정담당관',
+			    `POSITION` = '서기관'
+			WHERE loginId = 4
+			
+버튼과 내용을 입력한것이 어드민 대시보드에 보여야한다
+
+신청 테이블을 따로 만든다?
+테이블에 들어갈 것들
+모니터
+피시
+의자
+책상
+스타렉스
+제네시스
+포터
+요청마다 
+텍스트의 name을 다르게 준다
+
+버튼을 클릭시 액션의 경로 이동한
+이동한 경로의 어드민 컨트롤러에서 요청한것을
+인설트를 하고 어드민 대시보드에서 새로운 탭을 만들어
+신청자의 정보와 체크박스 내용과 사유를 확인한다
+
+체크박스는 체크박스를 한순간에 자동으로 데이터가 담긴다
+
+알큐로 겟으로 회원정보를 가져온다
+
+또한 신청자가 신청을하면 신청을 완료 하였습니다라는
+메세지가 나온후 자신이 신청한 내역이 목록으로 보인다
+또한 어드민이 대시보드에서 승인 버튼을 누르면
+신청자가 신청한 목록에서 신청이 승인,미승인 결과가 나온다
+
+컬럼을 하나 더 남들어라 
+업데이트 할때 이동한 부서만 남김
+
+
+
+
+
+
+작성과 조인과 비슷한?
+
+인설트
+
+버튼을 클릭시 
+

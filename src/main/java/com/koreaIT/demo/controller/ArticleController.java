@@ -103,6 +103,8 @@ public class ArticleController {
 	@RequestMapping("/usr/article/suggestion")
 	public String showsuggestion(Model model) {
 
+		//현재 로그인한 사람의 정보가 있어야 한다
+		//
 		return "usr/article/suggestion";
 	}
 }

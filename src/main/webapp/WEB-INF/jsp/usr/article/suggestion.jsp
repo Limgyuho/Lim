@@ -11,7 +11,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
 	<div class="flex justify-center">요청 및 건의 사항</div>
 	<section class="mt-8 text-xl">
 		<div class="container mx-auto px-3">
@@ -27,20 +26,20 @@
 								<th>사무용품 교체,요청</th>
 								<td>
 									<div>
-										모니터 교체 신청<input vlaue ="type=""checkbox" checked="checked"
-											class="checkbox checkbox-accent" />
+										모니터 교체 신청<input type="checkbox" checked="checked"
+											class="checkbox checkbox-accent" value="${.monitor}" />
 									</div>
 										pc 교체 신청 <input type="checkbox" checked="checked"
-											class="checkbox checkbox-accent" />
+											class="checkbox checkbox-accent" value="${.pc}"/>
 										<div>
 											의자 교체 신청 <input type="checkbox" checked="checked"
-												class="checkbox checkbox-accent" />
+												class="checkbox checkbox-accent" value="${.chair}"/>
 										</div>
 										<div>
 											책상 교체 신청 <input type="checkbox" checked="checked"
-												class="checkbox checkbox-accent" />
+												class="checkbox checkbox-accent""${.desk}"/>
 										</div>
-										<input type="text" placeholder="사유적기" />
+										<input name	 ="body" type="text" placeholder="사유적기" />
 								</td>
 							</tr>
 							<tr>
@@ -68,12 +67,7 @@
 								<th>자리 배치 이동 요청</th>
 								<td><input type="text" placeholder="사유적기" /></td>
 							</tr>
-							<tr>
-
-							</tr>
-							<tr>
-
-							</tr>
+							<button class=" ml-2 btn-text-link btn btn-active" type="submit" >신청</button>
 							<tr>
 						</tbody>
 					</table>
