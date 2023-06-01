@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ include file="../home/topbar.jsp" %>
 <%@ include file="../common/head.jsp" %>
+
 <title></title>
 </head>
 <body>
@@ -19,8 +20,9 @@
         <span class="username">직급<span>
          <span>${rq.loginedMember.name }</span>
        <span class="Messenger" >메신저</span>
-
-   
         <a href="/usr/home/home">로그아웃</a>
+        
+        <div class="w-80 h-60 border-black"></div>
+        <div class="w-80 h-60 border-black"></div>
     </div>
 </div>

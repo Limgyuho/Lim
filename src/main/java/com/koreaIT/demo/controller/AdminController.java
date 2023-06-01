@@ -93,13 +93,11 @@ public class AdminController {
 	}
 	
 
-	@RequestMapping("/usr/admin/transferList")
-	public String transferList() {
-			
-		return "/usr/admin/transferList";
-	}
 	
 
+	//로그인드 아이디가 아니라 id를 사용하는 이유는
+	//프라이머리 키이기 때문에 로그인드 아이디가 유니크라고해도
+	//유니크보다 pk가 효율이 좋다 비교는 무조건 pk 로 한다
 	@RequestMapping("/usr/admin/transfer")
 	public String transfer(Model model, int id) {
 		

@@ -76,7 +76,8 @@ public class ArticleController {
 	}
 	
 	
-	@RequestMapping("/usr/article/transfer")
+	
+	@RequestMapping("/usr/article/transferList")
 	public String showtransfer(Model model) {
 
 	
@@ -84,16 +85,17 @@ public class ArticleController {
 		List<Member> approvedMembers = memberService.approvedMembers();
 		model.addAttribute("approvedMembers", approvedMembers);
 
-		return "usr/article/transfer";
+		return "usr/article/transferList";
 	}
+	
+
+	
 	@RequestMapping("/usr/article/transferdetail")
 	public String showatransferdetail(Model model) {
 
-	
-//		// 가입 완료된 멤버 정보 조회
-//		List<Member> approvedMembers = memberService.approvedMembers();
-//		model.addAttribute("approvedMembers", approvedMembers);
-
+		// 가입 완료된 멤버 정보 조회
+		List<Member> approvedMembers = memberService.approvedMembers();
+		model.addAttribute("approvedMembers", approvedMembers);
 		return "/usr/article/transferdetail";
 	}
 	

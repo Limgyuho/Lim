@@ -13,16 +13,9 @@
 <body>
 
 	<div class="flex justify-center">요청 및 건의 사항</div>
-
-	<div class="form-control">
-		<label class="cursor-pointer label"> <span class="label-text">Remember
-				me</span> <input type="checkbox" checked="checked"
-			class="checkbox checkbox-accent" />
-		</label>
-	</div>
 	<section class="mt-8 text-xl">
 		<div class="container mx-auto px-3">
-			<form action="/usr/member/dojoin" method="POST"
+			<form action="" method="POST"
 				onsubmit="join_submitForm(this); return false;">
 				<div class="table-box-type-1">
 					<table>
@@ -33,24 +26,39 @@
 							<tr height="105">
 								<th>사무용품 교체,요청</th>
 								<td>
-									<li>asdf</li>
-									<li>sdf</li>
-									<li>sadf</li>
-									<input type="text" placeholder ="사유적기"/>
-									<input type="text" placeholder ="목적지"/>
+									<div>
+										모니터 교체 신청<input vlaue ="type=""checkbox" checked="checked"
+											class="checkbox checkbox-accent" />
+									</div>
+										pc 교체 신청 <input type="checkbox" checked="checked"
+											class="checkbox checkbox-accent" />
+										<div>
+											의자 교체 신청 <input type="checkbox" checked="checked"
+												class="checkbox checkbox-accent" />
+										</div>
+										<div>
+											책상 교체 신청 <input type="checkbox" checked="checked"
+												class="checkbox checkbox-accent" />
+										</div>
+										<input type="text" placeholder="사유적기" />
 								</td>
 							</tr>
 							<tr>
 								<th>관용차 대여 요청</th>
 								<td>
-									<li>스타렉스</li>	
-									<li>스타리아</li>
-									<li>제네시스 G80</li>
-									<li>제네시스 G90</li>
-									<input type="text" placeholder ="사유적기"/>
-									<input type="text" placeholder ="목적지"/>
+									<div>
+										스타렉스 <input type="checkbox" checked="checked"
+											class="checkbox checkbox-accent" />
+									</div>
+									<div>
+										제네시스 G90 <input type="checkbox" checked="checked"
+											class="checkbox checkbox-accent" />
+									</div>
+									<div>포터 <input type="checkbox" checked="checked"
+									class="checkbox checkbox-accent" /><div>
+									<input type="text" placeholder="목적지" />
+									<input type="text" placeholder="사유적기" />
 								</td>
-
 							</tr>
 							<tr>
 								<th>편의 시설 사용 신청</th>
@@ -58,9 +66,7 @@
 							</tr>
 							<tr>
 								<th>자리 배치 이동 요청</th>
-								<td>
-									<input type="text" placeholder ="사유적기"/>
-								</td>
+								<td><input type="text" placeholder="사유적기" /></td>
 							</tr>
 							<tr>
 
