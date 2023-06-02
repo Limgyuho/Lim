@@ -28,8 +28,7 @@
 	                            <ul class="flex">
 	                                <li class="flex-grow-1"><a href="#" class="block">부서별 자료</a></li>
 	                                <li class="flex-grow-1"><a href="#" class="block">개인 자료 전송</a></li>
-	                  
-	                                <li class="flex-grow-1"><a  href="required program" class="block">필수 프로그램</a></li>
+	                                <li class="flex-grow-1"><a  href="/usr/article/program" class="block">필수 프로그램</a></li>
 	                            </ul>
 	                        </div>
 	                    </div>

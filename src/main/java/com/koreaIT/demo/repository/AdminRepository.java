@@ -46,6 +46,18 @@ public interface AdminRepository {
 	public List<suggestion> getsuggestion();
 
 
+	
+//	@Insert("""
+//			<script>
+//			INSERT INTO suggestion
+//				SET regDate = NOW(),
+//				<if test= "item != '' and item !=null">		
+//					item = #{item},
+//				</if>
+//					reason = #{reason}	
+//			</script>	
+//			""")
+	
 	@Insert("""
 			<script>
 			INSERT INTO suggestion

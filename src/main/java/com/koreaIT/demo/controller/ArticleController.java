@@ -99,6 +99,10 @@ public class ArticleController {
 	@RequestMapping("/usr/article/insertSuggestion")
 	public String insertSuggestion(Model model, ArrayList<String> item,String reason ) {	
 		adminService.insertSuggestion(item,reason);
+		
+		System.out.println(item);
+		System.out.println(reason);
+		
 		return "usr/article/suggestion";
 	}
 }

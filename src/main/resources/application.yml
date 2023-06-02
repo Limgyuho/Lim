@@ -1,6 +1,10 @@
 server:
   port: 8085
 spring:
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 5GB
   mvc:
     view:
       prefix: /WEB-INF/jsp/

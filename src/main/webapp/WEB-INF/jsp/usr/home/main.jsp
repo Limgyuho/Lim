@@ -17,5 +17,24 @@
         <a href="/usr/home/home">로그아웃</a>
         <div class="w-80 h-60 border-black"></div>
         <div class="w-80 h-60 border-black"></div>
+        
+        
+        <c:forEach var="file" items="${files }">
+		<div>
+			<img src="/usr/home/file/${file.id}" />
+		</div>
+		
+		
+		<div>
+				<form action="upload" method="POST" enctype="multipart/form-data">
+					<input type="file" name="file" />
+					<button>업로드</button>
+				</form>
+			</div>
+			
+			<div>
+				<a href="/usr/home/view">파일보러가기</a>
+			</div>
+	</c:forEach>
     </div>
 </div>

@@ -8,9 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.koreaIT.demo.repository.AdminRepository;
 import com.koreaIT.demo.vo.Admin;
-import com.koreaIT.demo.vo.suggestion;
-
-@Service
+import com.koreaIT.demo.vo.suggestion;@Service
 public class AdminService {
 
 	private AdminRepository adminRepository;
