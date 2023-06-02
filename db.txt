@@ -119,26 +119,27 @@ CREATE TABLE join_requests(
 	
 );
 
+z
+
 
 
 SELECT * FROM suggestion
+DROP TABLE suggestion
 
 
-CREATE TABLE suggestion(
-    id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    	regDate DATETIME NOT NULL,
-    	monitor VARCHAR(50),
-    	pc VARCHAR(50),
-    	chair VARCHAR(50),
-    	desck VARCHAR(50),
-    	starex VARCHAR(50),
-    	genesis VARCHAR(50),
-    	potter VARCHAR(50),
-    	reason1 VARCHAR(50),
-    	reason2 VARCHAR(50),
-    	destination VARCHAR(50)
-    	
-)
+
+CREATE TABLE suggestion (
+  id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  applicant_number INT,
+  regDate DATETIME NOT NULL,
+  category VARCHAR(50),
+  item VARCHAR(50),
+  reason TEXT
+);
+
+SELECT * FROM suggestion;
+
+DROP TABLE suggestion
 
 INSERT INTO `member`
 SET regDate = NOW(),
@@ -169,26 +170,26 @@ permission = 0,
 department = '기획재정담당관',
 `position` = '서기관';
 
-`   
+  
 INSERT INTO join_requests
 SET regDate = NOW(),
 updateDate = NOW(),
 loginId = 'join8',
 loginPw = 'join8',
-`NAME` = '조인5',
+`name` = '조인5',
 cellphoneNum = '010-1j12-1112',
 email = 'test1@naver.com',
 permission = 0,
 department = '정보과',
-`POSITION` = '서기관';
+`position` = '서기관';
 
 
-INSERT INTO `ADMIN`
+INSERT INTO `admin`
 SET regDate = NOW(),
 updateDate = NOW(),
 loginId = 'admin',
 loginPw = 'admin',
-`NAME` = 'admin',
+`name` = 'admin',
 cellphoneNum = '010-1112-1112',
 email = 'test1@naver.com';
 
@@ -199,15 +200,15 @@ SELECT *
 
 
 SELECT * FROM article;
-SELECT * FROM `ADMIN`;
-SELECT * FROM `MEMBER`;
+SELECT * FROM `admin`;
+SELECT * FROM `member`;
 SELECT * FROM join_requests;
 
-DELETE FROM `MEMBER` WHERE id IN (1,2,3,4);
+DELETE FROM `member` WHERE id IN (1,2,3,4);
 
 DELETE FROM join_requests
 				WHERE id = 4
-UPDATE `MEMBER`
+UPDATE `member`
 SET permission = 1
 WHERE id = 
 
@@ -238,55 +239,38 @@ SELECT *
         -- AND name = #{name}
 
 SELECT *
-				FROM `MEMBER`
+				FROM `member`
 				WHERE department = '전체'
 				
 				
 
-			UPDATE `MEMBER`
+			UPDATE `member`
 			set department = '기획재정담당관',
-			    `POSITION` = '서기관'
+			    `position` = '서기관'
 			WHERE loginId = 4
-			
-버튼과 내용을 입력한것이 어드민 대시보드에 보여야한다
+pk역할
+신청일
+신청자
+신청항목 (교체, 대여)
+신청아이템 = #{a}
+신청사유
+비고
 
-신청 테이블을 따로 만든다?
-테이블에 들어갈 것들
-모니터
-피시
-의자
-책상
-스타렉스
-제네시스
-포터
-요청마다 
-텍스트의 name을 다르게 준다
+신청항목 (교체, 대여)
+신청아이템 a
+신청사유
+비고
 
-버튼을 클릭시 액션의 경로 이동한
-이동한 경로의 어드민 컨트롤러에서 요청한것을
-인설트를 하고 어드민 대시보드에서 새로운 탭을 만들어
-신청자의 정보와 체크박스 내용과 사유를 확인한다
-
-체크박스는 체크박스를 한순간에 자동으로 데이터가 담긴다
-
-알큐로 겟으로 회원정보를 가져온다
-
-또한 신청자가 신청을하면 신청을 완료 하였습니다라는
-메세지가 나온후 자신이 신청한 내역이 목록으로 보인다
-또한 어드민이 대시보드에서 승인 버튼을 누르면
-신청자가 신청한 목록에서 신청이 승인,미승인 결과가 나온다
-
-컬럼을 하나 더 남들어라 
-업데이트 할때 이동한 부서만 남김
+신청아이템이 여러개인 경우
+복수개의 데이터를 받아와서
+신청된 아이템의 개수만큼 반복문을 돌려서
+컬럼 하나 더 추가해서 신청자 번호로 저장한다
+누가 누군지 알기 위함이다 이 컬럼에는
+사용자의 대한 정보를 알기 위함이다 여기에는 
 
 
+인서트 실행
+저장 할때만 교체 대여 
 
-
-
-
-작성과 조인과 비슷한?
-
-인설트
-
-버튼을 클릭시 
-
+일단 컨트롤러에서 받는거 먼저하기
+데이터 체크하기
