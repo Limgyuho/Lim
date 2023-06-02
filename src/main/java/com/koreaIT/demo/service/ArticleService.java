@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.koreaIT.demo.repository.ArticleRepository;
 import com.koreaIT.demo.vo.Article;
-import com.koreaIT.demo.vo.ResultData;
+import com.koreaIT.demo.vo.suggestion;
 
 @Service
 public class ArticleService {
@@ -45,31 +45,12 @@ public class ArticleService {
 	public void deleteArticle(int id) {
 		articleRepository.deleteArticle(id);
 	}
-	
-	public ResultData actorCanMD(int loginedMemberId, Article article) {
-		if(article == null) {
-			return ResultData.from("F-1", "해당 게시물은 존재하지 않습니다");
-		}
-		
-		if (loginedMemberId != article.getMemberId()) {
-			return ResultData.from("F-B", "해당 게시물에 대한 권한이 없습니다");	
-		}
-		
-		return ResultData.from("S-1", "가능");
-	}
 
 	public Article getForPrintArticle(int id) {
 		
 	
 		
 		return articleRepository.getForPrintArticle(id);
-	}
-
-	public void actorCanChangeData(int loginedMemberId, Article article) {
-		
-		ResultData actorCanChangeDataRd = actorCanMD(loginedMemberId, article);
-		
-		article.setActorCanChangeData(actorCanChangeDataRd.isSuccess());
 	}
 
 	public int getArticlesCnt(int boardId, String searchKeywordType, String searchKeyword) {
@@ -79,5 +60,6 @@ public class ArticleService {
 	public void increaseHitCount(int id) {
 		articleRepository.increaseHitCount(id);
 	}
+
 
 }

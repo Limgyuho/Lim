@@ -18,6 +18,7 @@ import com.koreaIT.demo.vo.Admin;
 import com.koreaIT.demo.vo.JoinRequest;
 import com.koreaIT.demo.vo.Member;
 import com.koreaIT.demo.vo.Rq;
+import com.koreaIT.demo.vo.suggestion;
 
 @Controller
 public class AdminController {
@@ -47,7 +48,7 @@ public class AdminController {
 	@RequestMapping("/usr/admin/admindashboard")
 	public String showadmindashboard(Model model, @RequestParam(defaultValue = "1") int boardId,
 			@RequestParam(defaultValue = "1") int page, String department,
-			@RequestParam(defaultValue = "") String name) {
+			@RequestParam(defaultValue = "") String name, String item) {
 
 		// 가입 요청자 정보 조회
 		int joinRequestCnt = joinRequestService.joinRequestCnt();
@@ -61,6 +62,11 @@ public class AdminController {
 		List<Member> getAllApprovedMembers = memberService.getAllApprovedMembers(department, name);	
 		model.addAttribute("getAllApprovedMembers", getAllApprovedMembers);
 		model.addAttribute("memberCnt", memberCnt);
+		
+		
+		List<suggestion> showsuggestion = adminService.suggestion(item);
+		model.addAttribute("suggestion",showsuggestion);
+		
 
 		return "usr/admin/admindashboard";
 	}

@@ -4,10 +4,6 @@
 
 <c:set var="pageTitle" value="Home" />
 <%@ include file="../common/head.jsp"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
 <title>어드민 대시보드</title>
 <style>
 .tab-content {
@@ -118,7 +114,6 @@
 						<c:if test="${member.permission == 1}">
 							<td>허가 상태</td>
 						</c:if>
-						<a href=""></a>
 						<c:if test="${member.permission == 0}">
 							<td>거부 상태
 								<button onclick="location.href='/usr/admin/Reapproval'"">재승인</button>
@@ -137,8 +132,7 @@
 					<option value="전체" ${department == '' ? 'selected' : ''}>전체</option>
 					<option value="운영지원과" ${department == '운영지원과' ? 'selected' : ''}>운영지원과</option>
 					<option value="정보과" ${department == '정보과' ? 'selected' : ''}>정보과</option>
-					<option value="기획재정담당관"
-						${department == '기획재정담당관' ? 'selected' : ''}>기획재정담당관</option>
+					<option value="기획재정담당관"${department == '기획재정담당관' ? 'selected' : ''}>기획재정담당관</option>
 					<option value="감사과" ${department == '감사과' ? 'selected' : ''}>감사과</option>
 				</select> <input class="ml-2 w-80 input input-bordered" name="name"
 					placeholder="검색어를 입력해주세요" maxlength="20" value="${name }" />
@@ -146,55 +140,24 @@
 			</form>
 		</div>
 	</div>
-	<!-- 가입 완료된 멤버 탭 -->
+	<!-- 요청-->
 	<div id="suggestion" class="tab-content">
-		<div class="flex">
-			<h2 class="flex-grow-1">요청사항들</h2>
-			<h2 class="flex-grow-1 justify-content-end">총 인원 : ${memberCnt }
-				명</h2>
-		</div>
 		<table>
 			<thead>
 				<tr>
 					<th></th>
-					<th>회원번호</th>
-					<th>요청날짜</th>
-					<th>부서</th>
-					<th>직급</th>
-					<th>이름</th>
-					<th>전화번호</th>
-					<th>신청 항목</th>
-					<th>신청 사유</th>
-					<th>목적지</th>
-					<th>전화번호</th>
-					<th>이메일</th>
-					<th>승인 상태</th>
+				
 				</tr>
 			</thead>
 			<tbody>
-				<%-- 가입 완료된 멤버 정보 반복문 --%>
-				<c:forEach var="member" items="${getAllApprovedMembers}">
+				<%-- 요청 정보 --%>
+				<c:forEach var="suggestion" items="${showsuggestion}">
 					<tr>	
-						<td>
-						</td>
-						<td>${member.id}</td>
-						<td>${member.regDate}</td>
-						<td>${member.department}</td>
-						<td>${member.position}</td>
-						<td>${member.name}</td>
-						<td>${member.cellphoneNum}</td>
-						<c:if test="${member.permission == 1}">
-							<td>허가 상태</td>
-						</c:if>
-						<a href=""></a>
-						<c:if test="${member.permission == 0}">
-							<td>거부 상태
-								<button onclick="location.href='/usr/admin/Reapproval'"">재승인</button>
-							</td>
-						</c:if>
+						<th>정보</th>
+						<td>${suggestion.name}</td>
 					</tr>
 				</c:forEach>
-			</tbody>
+			</tbody>	
 		</table>
 	</div>
 	<script>
@@ -210,6 +173,5 @@
 			selectedTab.style.display = "block";
 		}
 	</script>
-
 </body>
 </html>

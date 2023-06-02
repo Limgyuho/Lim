@@ -2,13 +2,6 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ include file="../common/head.jsp"%>
-
-<!DOCTYPE html>
-<html>
-<head>
-
-<title>Insert title here</title>
-</head>
 <body>
 
 <div id="approvedMembers" class="tab-content">
@@ -16,7 +9,7 @@
 			<h2 class="flex-grow-1">가입된 멤버들</h2>
 			<h2 class="flex-grow-1 justify-content-end">총 인원 : ${memberCnt }
 				명</h2>
-		</div>
+		</div>	
 		<table>
 			<thead>
 
@@ -44,4 +37,3 @@
 				<button class="btn-text-link btn btn-active" type="button" onclick="history.back();">뒤로가기</button>
 			</div>
 </body>
-</html>

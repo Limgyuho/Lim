@@ -4,17 +4,12 @@ import java.util.List;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
-
-import com.koreaIT.demo.service.AdminService;
-import com.koreaIT.demo.service.JoinRequestService;
 import com.koreaIT.demo.service.MemberService;
-import com.koreaIT.demo.vo.JoinRequest;
 import com.koreaIT.demo.vo.Member;
 import com.koreaIT.demo.vo.Rq;
 
@@ -30,14 +25,13 @@ public class MainController {
 	//rq 역시 마찬가지이다
 	//rq는 로그인한 사람의 대한 정보를 가지고 있으며
 	//검증을 위해 존재 하며 조건에 부합하지 않을시 특정 메세지를 보여주기 위함이다
-	private Rq rq;
+
 
 	//@Autowired의존성 주입을하기 위함이다
 	@Autowired
 	//해당 컨트롤러에 위에서 주입한 멤버와 rq를 물고 있게 하기 위함이다
 	public MainController(MemberService memberService, Rq rq) {
 		this.memberService = memberService;
-		this.rq = rq;
 	}
 
 	

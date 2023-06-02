@@ -61,10 +61,6 @@
 				</tbody>
 			</table>
 		</div>
-
-
-
-
 		<div class="mt-2 flex justify-end">
 			<c:if test="${rq.getLoginedMemberId() != 0  }">
 				<a class="btn-text-link btn btn-active" href="write">WRITE</a>

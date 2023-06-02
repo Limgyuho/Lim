@@ -21,9 +21,3 @@
 <script src="/resource/common.js" defer="defer"></script>
 </head>
 <body>
-
-
-
-
-<!-- </body> -->
-<!-- </html> -->

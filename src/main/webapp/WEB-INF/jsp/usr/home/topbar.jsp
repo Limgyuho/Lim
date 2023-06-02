@@ -1,17 +1,9 @@
 	<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <script src="/resource/common.js" defer="defer"></script>
-<!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
 <body>
 <div class ="flex-jc-c flex-ai-c h-20 flex  mx-auto text-3xl bg-red-50">대한민국정부 기관</div>
-
-
-
 <div>
 	<div class = "top-bar bg-blue-200 con-min-width">
 		<div class = " flex flex-ai-c">	
@@ -76,4 +68,3 @@
 	</div>
 </div>
 </body>
-</html>

@@ -25,10 +25,8 @@
 	            <input type="text" name="loginPw" placeholder="비밀번호" >
 	        </div>
 	        <div class="button-row">
-	            <button class="btn btn-outline btn-success" type="submit">로그인</button>
-	            
+	            <button class="btn btn-outline btn-success" type="submit">로그인</button>     
 	        </div>
-	
 	        <p id="statusMessage"></p>
 	    </div>
 	</div>

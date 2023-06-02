@@ -7,8 +7,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.beans.factory.annotation.Autowired;
 import com.koreaIT.demo.service.AdminService;
 import com.koreaIT.demo.service.ArticleService;
 import com.koreaIT.demo.service.BoardService;
@@ -16,37 +14,32 @@ import com.koreaIT.demo.service.JoinRequestService;
 import com.koreaIT.demo.service.MemberService;
 import com.koreaIT.demo.vo.Article;
 import com.koreaIT.demo.vo.Board;
-import com.koreaIT.demo.vo.JoinRequest;
 import com.koreaIT.demo.vo.Member;
 import com.koreaIT.demo.vo.Rq;
 import com.koreaIT.demo.vo.suggestion;
 
 @Controller
 public class ArticleController {
-	
-	private AdminService adminService;
-	private JoinRequestService joinRequestService;
+
 	private MemberService memberService;
 	private ArticleService articleService;
 	private BoardService boardService;
+	private AdminService adminService;
 	private Rq rq;
 
 	@Autowired
-	public ArticleController(ArticleService articleService,BoardService boardService,AdminService adminService, MemberService memberService, Rq rq, JoinRequestService joinRequestService) {
-		this.adminService = adminService;
+	public ArticleController(ArticleService articleService, BoardService boardService, AdminService adminService,
+			MemberService memberService, Rq rq, JoinRequestService joinRequestService ) {
 		this.memberService = memberService;
-		this.joinRequestService = joinRequestService;
 		this.articleService = articleService;
 		this.boardService = boardService;
+		this.adminService = adminService;
 		this.rq = rq;
 	}
-	
 
-	
 	@RequestMapping("/usr/article/noticelist")
 	public String showList(Model model, @RequestParam(defaultValue = "1") int boardId,
-			@RequestParam(defaultValue = "1") int page, 
-			@RequestParam(defaultValue = "title") String searchKeywordType,
+			@RequestParam(defaultValue = "1") int page, @RequestParam(defaultValue = "title") String searchKeywordType,
 			@RequestParam(defaultValue = "") String searchKeyword) {
 
 		if (page <= 0) {
@@ -55,15 +48,14 @@ public class ArticleController {
 
 		Board board = boardService.getBoardById(boardId);
 
-	
-
 		int articlesCnt = articleService.getArticlesCnt(boardId, searchKeywordType, searchKeyword);
 
 		int itemsInAPage = 10;
 
 		int pagesCount = (int) Math.ceil((double) articlesCnt / itemsInAPage);
 
-		List<Article> articles = articleService.getArticles(boardId, searchKeywordType, searchKeyword, itemsInAPage, page);
+		List<Article> articles = articleService.getArticles(boardId, searchKeywordType, searchKeyword, itemsInAPage,
+				page);
 
 		model.addAttribute("pagesCount", pagesCount);
 		model.addAttribute("page", page);
@@ -75,22 +67,17 @@ public class ArticleController {
 
 		return "usr/article/noticelist";
 	}
-	
-	
-	
+
 	@RequestMapping("/usr/article/transferList")
 	public String showtransfer(Model model) {
 
-	
 		// 가입 완료된 멤버 정보 조회
 		List<Member> approvedMembers = memberService.approvedMembers();
 		model.addAttribute("approvedMembers", approvedMembers);
 
 		return "usr/article/transferList";
 	}
-	
 
-	
 	@RequestMapping("/usr/article/transferdetail")
 	public String showatransferdetail(Model model) {
 
@@ -99,13 +86,10 @@ public class ArticleController {
 		model.addAttribute("approvedMembers", approvedMembers);
 		return "/usr/article/transferdetail";
 	}
-	
-	
+
 	@RequestMapping("/usr/article/suggestion")
-	public String showsuggestion(Model model) {
-		
-		//suggestion테이블을에 값을 인설트 하는부분 만들기
-		List<suggestion> suggestion = adminService.suggestion(rq.getLoginedMemberId());
+	public String showsuggestion() {	
+	
 		return "usr/article/suggestion";
 	}
 }

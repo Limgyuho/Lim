@@ -11,7 +11,6 @@
 </head>
 <body>
 	인사이동 관리창 입니다
-
 		<div>${searchMember.getId()}</div>
 		<div>${searchMember.getRegDate()}</div>
 		<div>${searchMember.getLoginId()}</div>
@@ -21,7 +20,6 @@
 		<div>${searchMember.getName()}</div>
 		<div>${searchMember.getCellphoneNum()}</div>
 		<div>${searchMember.getEmail()}</div>
-
 	<form action ="transferupdate" class="flex" method="GET">
 		<input type="hidden" name="id" value="${searchMember.getId()}"/>
     	<div>부서</div>
