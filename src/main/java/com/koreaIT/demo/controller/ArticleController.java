@@ -97,7 +97,7 @@ public class ArticleController {
 	
 	//요청사항 테이블에 넣기
 	@RequestMapping("/usr/article/insertSuggestion")
-	public String insertSuggestion(Model model, ArrayList<String> item,String reason ) {	
+	public String insertSuggestion(Model model, String item, String reason ) {	
 		adminService.insertSuggestion(item,reason);
 		
 		System.out.println(item);

@@ -150,7 +150,7 @@
 			</thead>
 			<tbody>
 				<%-- 요청 정보 --%>
-				<c:forEach var="suggestion" items="${showsuggestion}">
+				<c:forEach var="suggestion" items="${getsuggestion}">
 					<tr>	
 						<td>${suggestion.item}</td>
 					</tr>

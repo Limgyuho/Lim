@@ -26,13 +26,18 @@ public class AdminService {
 		return adminRepository.getsuggestion();
 	}
 
-	public void insertSuggestion(ArrayList<String> items, String reason) {
-	    if (items.size() > 0) {
-	        for (String item : items) {
-	            adminRepository.insertSuggestion(item, reason);
-	        }
-	    }
+	public void insertSuggestion(String items, String reason) {
+		String[] itemArray = items.split(",");
+		
+		for(int i = 0; i < itemArray.length; i++) {
+			adminRepository.insertSuggestion(itemArray[i], reason);
+		}
+		
+		
+//	    if (items.size() > 0) {
+//	        for (String item : items) {
+//	            
+//	        }
+//	    }
 	}
-
-
 }

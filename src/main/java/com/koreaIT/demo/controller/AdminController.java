@@ -64,8 +64,8 @@ public class AdminController {
 		model.addAttribute("memberCnt", memberCnt);
 		
 		
-		List<suggestion> showsuggestion = adminService.getsuggestion();
-		model.addAttribute("suggestion",showsuggestion);
+		List<suggestion> getsuggestion = adminService.getsuggestion();
+		model.addAttribute("getsuggestion",getsuggestion);
 		
 
 		return "usr/admin/admindashboard";
