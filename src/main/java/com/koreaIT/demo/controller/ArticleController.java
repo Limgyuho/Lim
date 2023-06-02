@@ -1,5 +1,6 @@
 package com.koreaIT.demo.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,6 @@ import com.koreaIT.demo.vo.Article;
 import com.koreaIT.demo.vo.Board;
 import com.koreaIT.demo.vo.Member;
 import com.koreaIT.demo.vo.Rq;
-import com.koreaIT.demo.vo.suggestion;
 
 @Controller
 public class ArticleController {
@@ -87,9 +87,18 @@ public class ArticleController {
 		return "/usr/article/transferdetail";
 	}
 
+	//요청 사항 선택 메서드
 	@RequestMapping("/usr/article/suggestion")
-	public String showsuggestion() {	
+	public String showsuggestion(Model model) {	
+			
+		return "usr/article/suggestion";
+	}
 	
+	
+	//요청사항 테이블에 넣기
+	@RequestMapping("/usr/article/insertSuggestion")
+	public String insertSuggestion(Model model, ArrayList<String> item,String reason ) {	
+		adminService.insertSuggestion(item,reason);
 		return "usr/article/suggestion";
 	}
 }

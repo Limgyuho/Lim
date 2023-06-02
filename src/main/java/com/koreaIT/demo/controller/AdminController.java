@@ -48,7 +48,7 @@ public class AdminController {
 	@RequestMapping("/usr/admin/admindashboard")
 	public String showadmindashboard(Model model, @RequestParam(defaultValue = "1") int boardId,
 			@RequestParam(defaultValue = "1") int page, String department,
-			@RequestParam(defaultValue = "") String name, String item) {
+			@RequestParam(defaultValue = "") String name ) {
 
 		// 가입 요청자 정보 조회
 		int joinRequestCnt = joinRequestService.joinRequestCnt();
@@ -64,7 +64,7 @@ public class AdminController {
 		model.addAttribute("memberCnt", memberCnt);
 		
 		
-		List<suggestion> showsuggestion = adminService.suggestion(item);
+		List<suggestion> showsuggestion = adminService.getsuggestion();
 		model.addAttribute("suggestion",showsuggestion);
 		
 

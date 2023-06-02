@@ -139,24 +139,22 @@
 				<button class="ml-2 btn-text-link btn btn-active" type="submit">검색</button>
 			</form>
 		</div>
-	</div>
+	</div>`
 	<!-- 요청-->
 	<div id="suggestion" class="tab-content">
 		<table>
 			<thead>
 				<tr>
-					<th></th>
-				
+					<th>정보</th>
 				</tr>
 			</thead>
 			<tbody>
 				<%-- 요청 정보 --%>
 				<c:forEach var="suggestion" items="${showsuggestion}">
 					<tr>	
-						<th>정보</th>
-						<td>${suggestion.name}</td>
+						<td>${suggestion.item}</td>
 					</tr>
-				</c:forEach>
+				</c:forEach>	
 			</tbody>	
 		</table>
 	</div>

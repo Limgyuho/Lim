@@ -35,16 +35,26 @@ public interface AdminRepository {
 			""")
 	public Admin getAdminByLoginId(String loginId);
 	
-	@Select("SELECT LAST_INSERT_ID()")
+	@Select("SELECT LAST_INSERT_ID()")	
 	public int getLastInsertId();
 	
 	
 	@Select("""
 			SELECT *
 				FROM suggestion
-				WHERE item= #{item}
 			""")
-	public List<suggestion> getsuggestion(String item);
+	public List<suggestion> getsuggestion();
+
+
+	@Insert("""
+			<script>
+			INSERT INTO suggestion
+				SET regDate = NOW(),
+					item = #{item},
+					reason = #{reason}	
+			</script>	
+			""")
+	public void insertSuggestion(String  item,String reason);
 	
 	
 
