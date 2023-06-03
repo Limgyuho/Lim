@@ -10,9 +10,10 @@ import lombok.NoArgsConstructor;
 public class suggestion {
 	private int id;
 	private String regDate;
-	private String monitor;
-	private String List;
-	private String chair;
 	private String item;
 	private String reason;
+	private String department;
+    private String position;
+    private String name;
+
 }

@@ -17,6 +17,7 @@ import com.koreaIT.demo.vo.Article;
 import com.koreaIT.demo.vo.Board;
 import com.koreaIT.demo.vo.Member;
 import com.koreaIT.demo.vo.Rq;
+import com.koreaIT.demo.vo.suggestion;
 
 @Controller
 public class ArticleController {
@@ -29,7 +30,7 @@ public class ArticleController {
 
 	@Autowired
 	public ArticleController(ArticleService articleService, BoardService boardService, AdminService adminService,
-			MemberService memberService, Rq rq, JoinRequestService joinRequestService ) {
+			MemberService memberService, Rq rq, JoinRequestService joinRequestService) {
 		this.memberService = memberService;
 		this.articleService = articleService;
 		this.boardService = boardService;
@@ -87,22 +88,26 @@ public class ArticleController {
 		return "/usr/article/transferdetail";
 	}
 
-	//요청 사항 선택 메서드
+	// 요청 사항 선택 메서드
 	@RequestMapping("/usr/article/suggestion")
-	public String showsuggestion(Model model) {	
-			
+	public String showsuggestion(Model model) {
+
+		int applicantnumber = rq.getLoginedMember().getId();
+
+		System.out.println(rq.getLoginedMember().getId());
+
+		List<suggestion> showsuggestion = memberService.showsuggestion(applicantnumber);
+		model.addAttribute("showsuggestion", showsuggestion);
+
 		return "usr/article/suggestion";
 	}
-	
-	
-	//요청사항 테이블에 넣기
+
+	// 요청사항 테이블에 넣기
 	@RequestMapping("/usr/article/insertSuggestion")
-	public String insertSuggestion(Model model, String item, String reason ) {	
-		adminService.insertSuggestion(item,reason);
-		
-		System.out.println(item);
-		System.out.println(reason);
-		
+	public String insertSuggestion(Model model, String item, String reason) {
+		int applicantNumber = rq.getLoginedMemberId();
+		adminService.insertSuggestion(applicantNumber, item, reason);
+
 		return "usr/article/suggestion";
 	}
 }

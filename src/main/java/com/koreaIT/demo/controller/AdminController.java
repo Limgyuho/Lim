@@ -82,8 +82,7 @@ public class AdminController {
 				joinRequests.getLoginId(), joinRequests.getLoginPw(), joinRequests.getName(),
 				joinRequests.getCellphoneNum(), joinRequests.getEmail(), permission,
 				joinRequests.getDepartment(), joinRequests.getPosition());
-		
-		
+
 		joinRequestService.deletejoinRequestsMember(id);
 		
 
@@ -111,20 +110,12 @@ public class AdminController {
 		model.addAttribute("searchMember",searchMember);
 		
 		
-//		memberService.memberTransfer(loginId,department,position);
-//		model.addAttribute("memberTransfer");
-		
 		return "/usr/admin/transfer";
 	}
 	@RequestMapping("/usr/admin/transferupdate")
 	public String transferUpdate(Model model, int id ,String department,String position) {
 	
 		memberService.memberTransfer(id,department,position);
-		
-		System.out.println(id);
-		System.out.println(department);
-		System.out.println(position);
-
 		
 		return "redirect:/usr/admin/admindashboard";
 	}

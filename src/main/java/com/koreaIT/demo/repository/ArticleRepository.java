@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 
 import com.koreaIT.demo.vo.Article;
+import com.koreaIT.demo.vo.suggestion;
 
 @Mapper
 public interface ArticleRepository {
@@ -26,6 +27,7 @@ public interface ArticleRepository {
 	public int getArticlesCnt(int boardId, String searchKeywordType, String searchKeyword);
 
 	public int increaseHitCount(int id);
+
 
 
 }

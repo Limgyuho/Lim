@@ -39,14 +39,6 @@ public interface AdminRepository {
 	public int getLastInsertId();
 	
 	
-	@Select("""
-			SELECT *
-				FROM suggestion
-			""")
-	public List<suggestion> getsuggestion();
-
-
-	
 //	@Insert("""
 //			<script>
 //			INSERT INTO suggestion
@@ -63,11 +55,20 @@ public interface AdminRepository {
 			INSERT INTO suggestion
 				SET regDate = NOW(),
 					item = #{item},
-					reason = #{reason}	
+					reason = #{reason},
+					applicantNumber	 =#{applicantNumber}
 			</script>	
 			""")
-	public void insertSuggestion(String  item,String reason);
+	public void insertSuggestion(int applicantNumber,String  item,String reason);
+
 	
+	@Select("""
+			SELECT s.*, m.department, m.position, m.name
+			FROM suggestion AS s
+			JOIN member AS m ON s.applicantNumber = m.id
+			""")
+	public List<suggestion> getSuggestion();
 	
+		
 
 }

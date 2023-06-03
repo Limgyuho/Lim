@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.koreaIT.demo.repository.MemberRepository;
 
 import com.koreaIT.demo.vo.Member;
+import com.koreaIT.demo.vo.suggestion;
 
 @Service
 public class MemberService {
@@ -83,6 +84,11 @@ public class MemberService {
 	public void memberTransfer(int id, String department, String position) {
 		memberRepository.memberTransfer(id, department, position);
 
+	}
+
+	public List<suggestion> showsuggestion(int applicantnumber) {
+	
+		return memberRepository.memberRepository(applicantnumber);
 	}
 
 }

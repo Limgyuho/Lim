@@ -8,7 +8,10 @@ import org.springframework.stereotype.Service;
 
 import com.koreaIT.demo.repository.AdminRepository;
 import com.koreaIT.demo.vo.Admin;
-import com.koreaIT.demo.vo.suggestion;@Service
+import com.koreaIT.demo.vo.Member;
+import com.koreaIT.demo.vo.suggestion;
+
+@Service
 public class AdminService {
 
 	private AdminRepository adminRepository;
@@ -22,22 +25,19 @@ public class AdminService {
 		return adminRepository.getMemberByLoginId(loginId);
 	}
 
-	public List<suggestion> getsuggestion() {
-		return adminRepository.getsuggestion();
+
+	public void insertSuggestion(int applicantNumber, String items, String reason) {
+		String[] itemArray = items.split(",");
+
+		for (int i = 0; i < itemArray.length; i++) {
+			adminRepository.insertSuggestion(applicantNumber, itemArray[i],reason);
+		}
+
 	}
 
-	public void insertSuggestion(String items, String reason) {
-		String[] itemArray = items.split(",");
-		
-		for(int i = 0; i < itemArray.length; i++) {
-			adminRepository.insertSuggestion(itemArray[i], reason);
-		}
-		
-		
-//	    if (items.size() > 0) {
-//	        for (String item : items) {
-//	            
-//	        }
-//	    }
+	public List<suggestion> getsuggestion() {
+		return adminRepository.getSuggestion();
 	}
+
+
 }

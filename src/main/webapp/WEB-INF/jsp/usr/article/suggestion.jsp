@@ -12,6 +12,7 @@
 	<section class="mt-8 text-xl">
 		<div class="container mx-auto px-3">
 			<form action="/usr/article/insertSuggestion" method="POST"onsubmit="join_submitForm(this); return false;">
+			 	<input type="hidden" name="applicant_number" value="${rq.getLoginedMember().getId()}" />
 				<div class="table-box-type-1">
 					<table>
 						<colgroup>
@@ -37,8 +38,7 @@
 										책상 교체 신청 <input name="item" value ="책상" type="checkbox"class="checkbox checkbox-accent" />
 									</div> 
 									사유 : <input name="reason" type="text" placeholder="사유적기" />
-								</td>
-							</tr>	
+								</td>	
 							<tr>
 								<th>관용차 대여 요청</th>
 								<td>
@@ -57,14 +57,25 @@
 								</td>
 							</tr>
 							<tr>
+								<th>요청 목록</th>
+								<td>
+								<c:forEach var="suggestion" items="${showsuggestion}">
+									<div>
+										날짜 : ${suggestion.regDate}
+										신청 사항 : ${suggestion.item}
+									</div>
+								</c:forEach>
+								</td>
+							</tr>
+							<tr>
 						</tbody>
 					</table>
 				</div>
 				<button class="ml-2 btn-text-link btn btn-active" type="submit">신청</button>
 			</form>
 			<div class="btns mt-2">
-				<button class="btn-text-link btn btn-active" type="button"
-					onclick="history.back();">뒤로가기</button>
+				<button class="btn-text-link btn btn-active" type="button" 
+				onclick="window.location.href='/usr/home/main'">뒤로가기</button>
 			</div>
 		</div>
 	</section>

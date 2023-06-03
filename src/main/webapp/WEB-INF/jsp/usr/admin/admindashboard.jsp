@@ -145,14 +145,25 @@
 		<table>
 			<thead>
 				<tr>
-					<th>정보</th>
+					<th>신청 날짜</th>
+					
+					<th>신청자 부서</th>
+					<th>신청자 직급</th>
+					<th>신청이름</th>
+					<th>신청 사항</th>
+					<th>신청 사유</th>
 				</tr>
 			</thead>
-			<tbody>
+			<tbody  class="">
 				<%-- 요청 정보 --%>
 				<c:forEach var="suggestion" items="${getsuggestion}">
 					<tr>	
+						<td>${suggestion.regDate}</td>
+						<td>${suggestion.department}</td>
+						<td>${suggestion.position}</td>
+						<td>${suggestion.name}</td>
 						<td>${suggestion.item}</td>
+						<td>${suggestion.reason}</td>
 					</tr>
 				</c:forEach>	
 			</tbody>	

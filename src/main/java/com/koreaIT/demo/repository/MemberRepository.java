@@ -10,6 +10,7 @@ import org.apache.ibatis.annotations.Update;
 
 import com.koreaIT.demo.vo.JoinRequest;
 import com.koreaIT.demo.vo.Member;
+import com.koreaIT.demo.vo.suggestion;
 
 @Mapper
 public interface MemberRepository {
@@ -152,5 +153,13 @@ public interface MemberRepository {
 			    WHERE id = #{id}
 			""")
 	public Member searchMember(int id);
+
+	
+	@Select("""
+		    SELECT *
+		    FROM suggestion
+		    WHERE applicantnumber = #{applicantnumber}
+		""")
+	public List<suggestion> memberRepository(int applicantnumber);
 
 }
