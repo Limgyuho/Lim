@@ -4,7 +4,8 @@ spring:
   servlet:
     multipart:
       enabled: true
-      max-file-size: 5GB
+      max-file-size: 30GB
+      max-request-size: 30GB
   mvc:
     view:
       prefix: /WEB-INF/jsp/
@@ -17,3 +18,5 @@ spring:
 mybatis:
   type-aliases-package: com.koreaIT.demo.vo
   mapper-locations: classpath:com/koreaIT/demo/repository/*.xml
+file:
+  dir: C:/Users/USER/Downloads

@@ -162,4 +162,11 @@ public interface MemberRepository {
 		""")
 	public List<suggestion> memberRepository(int applicantnumber);
 
+	@Select("""
+		    SELECT *
+		    FROM `member`
+		    WHERE name = "admin"
+		""")
+	public List<Member> adminUpload();
+
 }

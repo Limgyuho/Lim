@@ -20,7 +20,6 @@
 		<button onclick="showTab('approvedMembers')">Approved Members</button>
 		<button onclick="showTab('suggestion')">suggestion page</button>
 	</div>
-
 	<!-- 가입 요청자 탭 -->
 	<div id="joinRequests" class="tab-content">
 		<div class="flex">

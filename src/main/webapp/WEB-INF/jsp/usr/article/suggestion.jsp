@@ -29,28 +29,25 @@
 								<td>
 									<div>
 										모니터 교체 신청<input name="item" value="모니터"type="checkbox"  class="checkbox checkbox-accent" />
-									</div>
+								
 										 pc 교체 신청 <input name="item" value="pc" type="checkbox" class="checkbox checkbox-accent" />
-									<div>
+								
 										의자 교체 신청 <input name="item" value ="의자" type="checkbox" class="checkbox checkbox-accent" />
-									</div>
-									<div>
+									
 										책상 교체 신청 <input name="item" value ="책상" type="checkbox"class="checkbox checkbox-accent" />
 									</div> 
 									사유 : <input name="reason" type="text" placeholder="사유적기" />
-								</td>	
+								</td>		
 							<tr>
 								<th>관용차 대여 요청</th>
 								<td>
 									<div>
 										스타렉스 <input value ="스타렉스" name="item" type="checkbox" class="checkbox checkbox-accent" />
-									</div>
-									<div>
+								
 										제네시스 <input value="제네시스" name="item" type="checkbox" class="checkbox checkbox-accent" />
-									</div>
-									<div>
+									
 										포터 <input value ="포터"name="item" type="checkbox" class="checkbox checkbox-accent" />
-									<div>
+									
 										사유 : <input name="reason" type="text" placeholder="사유적기" />
 									</div>
 									</div>
@@ -71,13 +68,35 @@
 						</tbody>
 					</table>
 				</div>
+				<div class="btns mt-2">
 				<button class="ml-2 btn-text-link btn btn-active" type="submit">신청</button>
-			</form>
-			<div class="btns mt-2">
-				<button class="btn-text-link btn btn-active" type="button" 
-				onclick="window.location.href='/usr/home/main'">뒤로가기</button>
-			</div>
+					<button class="btn-text-link btn btn-active" type="button" 
+					onclick="window.location.href='/usr/home/main'">뒤로가기</button>
+				</div>
+			</form>	
 		</div>
 	</section>
+	
+	
+	  <script>
+			function join_submitForm(form) {
+    		var checkboxes = form.querySelectorAll('input[type="checkbox"]');
+   			var checkedCount = 0;
+    
+    		for (var i = 0; i < checkboxes.length; i++) {
+        		if (checkboxes[i].checked) {
+            		checkedCount++;
+        		}
+    		}
+    
+    		if (checkedCount === 0) {
+        		alert('하나 이상의 체크박스를 선택해주세요.');
+        		return false;
+    }
+    
+    // 체크박스가 선택되었을 경우에만 form 제출
+    form.submit();
+}
+</script>
 </body>
 </html>

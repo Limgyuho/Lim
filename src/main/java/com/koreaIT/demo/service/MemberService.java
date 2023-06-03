@@ -91,4 +91,9 @@ public class MemberService {
 		return memberRepository.memberRepository(applicantnumber);
 	}
 
+	public List<Member> adminUpload() {
+		
+		return memberRepository.adminUpload();
+	}
+
 }

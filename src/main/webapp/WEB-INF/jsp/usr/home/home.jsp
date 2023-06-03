@@ -9,6 +9,7 @@
 <meta charset="UTF-8">
 </head>
 <body>
+<img src="/images/111.png">
 	<form action="doLogin" method="post">
 		<div class="center">
 			<div class="login-form">
@@ -24,10 +25,9 @@
 				<div class="button-row">
 					<button class="btn btn-outline ">로그인</button>
 	</form>
-	<a class="btn-text-link btn btn-active mr-2 " href="/usr/member/join">회원가입</a>
+				<a class="btn-text-link btn btn-active mr-2 " href="/usr/member/join">회원가입</a>
 	</div>
 	</div>
 	</div>
-
 </body>
 </html>

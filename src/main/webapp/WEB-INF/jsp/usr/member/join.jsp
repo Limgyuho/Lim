@@ -108,7 +108,7 @@
 
 
 	<section class="mt-8 text-xl">
-		<div class="container mx-auto px-3">
+		<div class="container mx-auto px-3 flex justify-center items-center">
 			<form action="/usr/member/dojoin" method="POST" onsubmit="join_submitForm(this); return false;">
 				<div class="table-box-type-1">
 					<table>
@@ -168,12 +168,8 @@
 						</tbody>
 					</table>
 				</div>
-			</form>
-			
-			
-			
-			<div class="btns mt-2">
-				<button class="btn-text-link btn btn-active" type="button" onclick="history.back();">뒤로가기</button>
-			</div>
+					<button class="btn-text-link btn btn-active" type="button" onclick="history.back();">뒤로가기</button>
+
+			</form>			
 		</div>
 	</section>
