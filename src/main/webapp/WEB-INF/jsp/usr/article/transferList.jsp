@@ -3,7 +3,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ include file="../common/head.jsp"%>
 <%@ include file="../home/topbar.jsp" %>
-<!DOCTYPE html>
 <html>
 <head>
 <title>게시글 목록</title>
@@ -91,4 +90,6 @@
 	</div>
 </body>
 </html>
-<%@ include file="../common/bottom.jsp" %>
+<div class="fixed-bottom pt-10">
+    <%@ include file="../common/bottom.jsp" %>
+</div>

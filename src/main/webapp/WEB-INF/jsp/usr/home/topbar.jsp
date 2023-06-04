@@ -4,8 +4,8 @@
 <script src="/resource/common.js" defer="defer"></script>
 <html>
 <body>
-	<div class="flex-jc-c flex-ai-c h-20 flex  mx-auto text-3xl bg-red-50">대한민국정부
-		기관</div>
+	<div class="flex-jc-c flex-ai-c h-20 flex  mx-auto text-3xl bg-red-50">
+	<a href="/usr/home/main"class="block">대한민국 정부 기관</a></div>
 	<div>
 		<div class="top-bar con-min-width">
 			<div class=" flex flex-ai-c ">
@@ -17,7 +17,7 @@
 						<li><a href="#" class="block">부서별 자료</a></li>
 						<li><a href="#" class="block">개인 자료전송</a></li>
 						<li><a href="/usr/article/program"class="block">필수 프로그램</a></li>
-						<li><a href="#" class="block">휴가/보고</a></li>
+						<li><a href="/usr/article/leave" class="block">휴가/보고</a></li>
 						<li><a href="# class="block"></a></li>
 					</ul>
 				</nav>

@@ -6,14 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import com.koreaIT.demo.service.AdminService;
 import com.koreaIT.demo.service.ArticleService;
 import com.koreaIT.demo.service.BoardService;
 import com.koreaIT.demo.service.JoinRequestService;
 import com.koreaIT.demo.service.MemberService;
-import com.koreaIT.demo.vo.Article;
-import com.koreaIT.demo.vo.Board;
 import com.koreaIT.demo.vo.Member;
 import com.koreaIT.demo.vo.Rq;
 import com.koreaIT.demo.vo.Suggestion;
@@ -23,52 +20,51 @@ public class ArticleController {
 
 	private MemberService memberService;
 	private ArticleService articleService;
-	private BoardService boardService;
 	private AdminService adminService;
 	private Rq rq;
 
 	@Autowired
-	public ArticleController(ArticleService articleService, BoardService boardService, AdminService adminService,
+	public ArticleController(ArticleService articleService, AdminService adminService,
 			MemberService memberService, Rq rq, JoinRequestService joinRequestService) {
 		this.memberService = memberService;
 		this.articleService = articleService;
-		this.boardService = boardService;
 		this.adminService = adminService;
 		this.rq = rq;
 	}
 
-	@RequestMapping("/usr/article/noticelist")
-	public String showList(Model model, @RequestParam(defaultValue = "1") int boardId,
-			@RequestParam(defaultValue = "1") int page, @RequestParam(defaultValue = "title") String searchKeywordType,
-			@RequestParam(defaultValue = "") String searchKeyword) {
+//	@RequestMapping("/usr/article/noticelist")
+//	public String showList(Model model, @RequestParam(defaultValue = "1") int boardId,
+//			@RequestParam(defaultValue = "1") int page, @RequestParam(defaultValue = "title") String searchKeywordType,
+//			@RequestParam(defaultValue = "") String searchKeyword) {
+//
+//		if (page <= 0) {
+//			return rq.jsReturnOnView("페이지번호가 올바르지 않습니다", true);
+//		}
+//
+//		
+//		Board board = boardService.getBoardById(boardId);
+//
+//		int articlesCnt = articleService.getArticlesCnt(boardId, searchKeywordType, searchKeyword);
+//
+//		int itemsInAPage = 10;
+//
+//		int pagesCount = (int) Math.ceil((double) articlesCnt / itemsInAPage);
+//
+//		List<Article> articles = articleService.getArticles(boardId, searchKeywordType, searchKeyword, itemsInAPage,
+//				page);
+//
+//		model.addAttribute("pagesCount", pagesCount);
+//		model.addAttribute("page", page);
+//		model.addAttribute("articlesCnt", articlesCnt);
+//		model.addAttribute("articles", articles);
+//		model.addAttribute("board", board);
+//		model.addAttribute("searchKeyword", searchKeyword);
+//		model.addAttribute("searchKeywordType", searchKeywordType);
+//
+//		return "usr/article/noticelist";
+//	}
 
-		if (page <= 0) {
-			return rq.jsReturnOnView("페이지번호가 올바르지 않습니다", true);
-		}
-
-		
-		Board board = boardService.getBoardById(boardId);
-
-		int articlesCnt = articleService.getArticlesCnt(boardId, searchKeywordType, searchKeyword);
-
-		int itemsInAPage = 10;
-
-		int pagesCount = (int) Math.ceil((double) articlesCnt / itemsInAPage);
-
-		List<Article> articles = articleService.getArticles(boardId, searchKeywordType, searchKeyword, itemsInAPage,
-				page);
-
-		model.addAttribute("pagesCount", pagesCount);
-		model.addAttribute("page", page);
-		model.addAttribute("articlesCnt", articlesCnt);
-		model.addAttribute("articles", articles);
-		model.addAttribute("board", board);
-		model.addAttribute("searchKeyword", searchKeyword);
-		model.addAttribute("searchKeywordType", searchKeywordType);
-
-		return "usr/article/noticelist";
-	}
-
+	//인사이동 페이지
 	@RequestMapping("/usr/article/transferList")
 	public String showtransfer(Model model) {
 
@@ -79,6 +75,7 @@ public class ArticleController {
 		return "usr/article/transferList";
 	}
 
+	//인사이동 내용
 	@RequestMapping("/usr/article/transferdetail")
 	public String showatransferdetail(Model model) {
 
@@ -101,6 +98,7 @@ public class ArticleController {
 
 		return "usr/article/suggestion";
 	}
+	
 
 	// 요청사항 테이블에 넣기
 	@RequestMapping("/usr/article/insertSuggestion")
@@ -110,5 +108,12 @@ public class ArticleController {
 
 		return "usr/article/suggestion";
 	}
+	
+	//휴가신청
+		@RequestMapping("usr/article/leave")
+		public String leave(Model model ) {
+
+			return "/usr/article/leave";
+		}
 	
 }

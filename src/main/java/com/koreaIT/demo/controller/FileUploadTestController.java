@@ -6,7 +6,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;
-import org.springframework.core.io.UrlResource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -16,10 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.koreaIT.demo.service.AdminService;
 import com.koreaIT.demo.service.FileService;
 import com.koreaIT.demo.service.MemberService;
-import com.koreaIT.demo.vo.Admin;
 import com.koreaIT.demo.vo.FileVO;
 import com.koreaIT.demo.vo.Member;
 
