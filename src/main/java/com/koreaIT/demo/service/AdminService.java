@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.koreaIT.demo.repository.AdminRepository;
 import com.koreaIT.demo.vo.Admin;
-import com.koreaIT.demo.vo.suggestion;
+import com.koreaIT.demo.vo.Suggestion;
 
 @Service
 public class AdminService {
@@ -23,16 +23,23 @@ public class AdminService {
 		return adminRepository.getMemberByLoginId(loginId);
 	}
 
-	public void insertSuggestion(int applicantNumber, String items, String reason) {
+	public void insertSuggestion(int applicantNumber, String items) {
 		String[] itemArray = items.split(",");
 
 		for (int i = 0; i < itemArray.length; i++) {
-			adminRepository.insertSuggestion(applicantNumber, itemArray[i], reason);
+			adminRepository.insertSuggestion(applicantNumber, itemArray[i]);
 		}
 
 	}
 
-	public List<suggestion> getsuggestion() {
+	public List<Suggestion> getsuggestion() {
 		return adminRepository.getSuggestion();
+	}
+
+
+	public void updateSuggestionPermission(int id, int permission) {
+		
+		adminRepository.updateSuggestionPermission(id,permission);
+		
 	}
 }

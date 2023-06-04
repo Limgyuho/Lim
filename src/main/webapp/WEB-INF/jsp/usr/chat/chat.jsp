@@ -91,9 +91,8 @@
 	}
 
 	function chatName(){
-		var userName = $("#userName").val();
-		if(userName == null || userName.trim() == ""){
-			alert("사용자 이름을 입력해주세요.");
+		var userName = ${rq.getLoginedMember().getName()}.val();
+		if(userName != null || userName.trim() == ""){
 			$("#userName").focus();
 		}else{
 			wsOpen();

@@ -24,3 +24,4 @@
         </div>
     </c:if>
 </body>
+<%@ include file="../common/bottom.jsp" %>

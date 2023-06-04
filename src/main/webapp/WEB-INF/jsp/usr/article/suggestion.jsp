@@ -5,24 +5,34 @@
 <%@ include file="../home/topbar.jsp"%>
 <html>
 <head>
+<style>
+	.container {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		min-height: 100vh;
+	}
+</style>
 </head>
 <body>
-	<div class="flex justify-center">요청 및 건의 사항</div>
+<div class="container">
+	<div>
+	<div class="flex justify-center text-3xl mt-10">요청 및 건의 사항</div>
 
-	<section class="mt-8 text-xl">
+	<section class="mt-8 text-xl ">
 		<div class="container mx-auto px-3">
 			<form action="/usr/article/insertSuggestion" method="POST"onsubmit="join_submitForm(this); return false;">
 			 	<input type="hidden" name="applicant_number" value="${rq.getLoginedMember().getId()}" />
-				<div class="table-box-type-1">
-					<table>
+				<div class="">
+					<table class="table">
 						<colgroup>
-							<col width="200" />
+							<col width="130" />
 						</colgroup>
 						<tbody>
-							<tr height="105">
+							<tr height="145">
 							<th>신청자</th>
 								<td>
-									부서 : ${rq.getLoginedMember().getDepartment()} ,직급 : ${rq.getLoginedMember().getPosition()}, 이름 : ${rq.getLoginedMember().getName()}
+									부서 : ${rq.getLoginedMember().getDepartment()}   직급 : ${rq.getLoginedMember().getPosition()}   이름 : ${rq.getLoginedMember().getName()}
 								</td>
 							</tr>	
 								<th>사무용품 교체,요청</th>
@@ -36,7 +46,6 @@
 									
 										책상 교체 신청 <input name="item" value ="책상" type="checkbox"class="checkbox checkbox-accent" />
 									</div> 
-									사유 : <input name="reason" type="text" placeholder="사유적기" />
 								</td>		
 							<tr>
 								<th>관용차 대여 요청</th>
@@ -47,8 +56,6 @@
 										제네시스 <input value="제네시스" name="item" type="checkbox" class="checkbox checkbox-accent" />
 									
 										포터 <input value ="포터"name="item" type="checkbox" class="checkbox checkbox-accent" />
-									
-										사유 : <input name="reason" type="text" placeholder="사유적기" />
 									</div>
 									</div>
 								</td>
@@ -58,8 +65,18 @@
 								<td>
 								<c:forEach var="suggestion" items="${showsuggestion}">
 									<div>
-										날짜 : ${suggestion.regDate}
 										신청 사항 : ${suggestion.item}
+										요청 결과 :  <c:choose>
+							            <c:when test="${suggestion.permission == 1}">
+							                승인
+							            </c:when>
+							            <c:when test="${suggestion.permission == -1}">
+							                거부
+							            </c:when>
+							            <c:otherwise>
+							                대기중
+							            </c:otherwise>
+							        </c:choose>
 									</div>
 								</c:forEach>
 								</td>
@@ -76,6 +93,8 @@
 			</form>	
 		</div>
 	</section>
+	</div>
+</div>
 	
 	
 	  <script>
@@ -100,3 +119,4 @@
 </script>
 </body>
 </html>
+<%@ include file="../common/bottom.jsp" %>

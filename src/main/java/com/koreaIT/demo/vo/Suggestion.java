@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class suggestion {
+public class Suggestion {
 	private int id;
 	private String regDate;
 	private String item;
@@ -15,5 +15,6 @@ public class suggestion {
 	private String department;
     private String position;
     private String name;
+    private int permission;
 
 }

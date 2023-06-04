@@ -52,7 +52,7 @@ public class MainController {
 	public String showdepartment(Model model) {
 		return "usr/chat/department";
 	}
-
+	
 	// 부서를 클릭시 부서에 해당하는 사람들의 정보를 보여주기 위함
 	@RequestMapping("/usr/chat/members")
 	//@RequestParam은 어노테이션중에 하나이며 사용자가 요청한 파라미터를 받아오기 위함이다

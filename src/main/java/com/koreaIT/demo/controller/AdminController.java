@@ -17,7 +17,7 @@ import com.koreaIT.demo.vo.Admin;
 import com.koreaIT.demo.vo.JoinRequest;
 import com.koreaIT.demo.vo.Member;
 import com.koreaIT.demo.vo.Rq;
-import com.koreaIT.demo.vo.suggestion;
+import com.koreaIT.demo.vo.Suggestion;
 
 @Controller
 public class AdminController {
@@ -61,7 +61,7 @@ public class AdminController {
 		model.addAttribute("getAllApprovedMembers", getAllApprovedMembers);
 		model.addAttribute("memberCnt", memberCnt);
 
-		List<suggestion> getsuggestion = adminService.getsuggestion();
+		List<Suggestion> getsuggestion = adminService.getsuggestion();
 		model.addAttribute("getsuggestion", getsuggestion);
 
 		return "usr/admin/admindashboard";
@@ -82,14 +82,22 @@ public class AdminController {
 
 		return "redirect:/usr/admin/admindashboard";
 	}
-
+	//재승인
 	@RequestMapping("/usr/admin/Reapproval")
 	public String Reapproval() {
-
+		
 		memberService.updatePermission();
-
+		
 		return "redirect:/usr/admin/admindashboard";
 	}
+
+	//요청사항 승인
+    @RequestMapping("/usr/admin/suggestionap")
+    public String suggestionApproval(@RequestParam("id") int id, @RequestParam("permission") int permission) {
+        adminService.updateSuggestionPermission(id, permission);
+        return "redirect:/usr/admin/admindashboard";
+    }
+	
 
 	// 로그인드 아이디가 아니라 id를 사용하는 이유는
 	// 프라이머리 키이기 때문에 로그인드 아이디가 유니크라고해도

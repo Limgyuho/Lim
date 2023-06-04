@@ -16,7 +16,7 @@ import com.koreaIT.demo.vo.Article;
 import com.koreaIT.demo.vo.Board;
 import com.koreaIT.demo.vo.Member;
 import com.koreaIT.demo.vo.Rq;
-import com.koreaIT.demo.vo.suggestion;
+import com.koreaIT.demo.vo.Suggestion;
 
 @Controller
 public class ArticleController {
@@ -46,6 +46,7 @@ public class ArticleController {
 			return rq.jsReturnOnView("페이지번호가 올바르지 않습니다", true);
 		}
 
+		
 		Board board = boardService.getBoardById(boardId);
 
 		int articlesCnt = articleService.getArticlesCnt(boardId, searchKeywordType, searchKeyword);
@@ -95,7 +96,7 @@ public class ArticleController {
 
 		System.out.println(rq.getLoginedMember().getId());
 
-		List<suggestion> showsuggestion = memberService.showsuggestion(applicantnumber);
+		List<Suggestion> showsuggestion = memberService.showsuggestion(applicantnumber);
 		model.addAttribute("showsuggestion", showsuggestion);
 
 		return "usr/article/suggestion";
@@ -103,9 +104,9 @@ public class ArticleController {
 
 	// 요청사항 테이블에 넣기
 	@RequestMapping("/usr/article/insertSuggestion")
-	public String insertSuggestion(Model model, String item, String reason) {
+	public String insertSuggestion(Model model, String item) {
 		int applicantNumber = rq.getLoginedMemberId();
-		adminService.insertSuggestion(applicantNumber, item, reason);
+		adminService.insertSuggestion(applicantNumber, item);
 
 		return "usr/article/suggestion";
 	}

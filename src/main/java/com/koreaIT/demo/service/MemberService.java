@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import com.koreaIT.demo.repository.MemberRepository;
 
 import com.koreaIT.demo.vo.Member;
-import com.koreaIT.demo.vo.suggestion;
+import com.koreaIT.demo.vo.Suggestion;
 
 @Service
 public class MemberService {
@@ -86,7 +86,7 @@ public class MemberService {
 
 	}
 
-	public List<suggestion> showsuggestion(int applicantnumber) {
+	public List<Suggestion> showsuggestion(int applicantnumber) {
 	
 		return memberRepository.memberRepository(applicantnumber);
 	}

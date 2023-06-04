@@ -12,13 +12,17 @@
 </style>
 </head>
 <body>
-	<h1>어드민 대시보드</h1>
+	<h1 class ="text-2xl">어드민 대시보드</h1>
 
 	<!-- 탭 버튼 -->
 	<div>
-		<button onclick="showTab('joinRequests')">Join Requests</button>
-		<button onclick="showTab('approvedMembers')">Approved Members</button>
-		<button onclick="showTab('suggestion')">suggestion page</button>
+		<button onclick="showTab('joinRequests')">가입 요청자 목록</button>
+		&nbsp;
+		&nbsp;
+		<button onclick="showTab('approvedMembers')">가입 멤버 목록</button>
+		&nbsp;
+		&nbsp;
+		<button onclick="showTab('suggestion')">요청 사항 목록</button>
 	</div>
 	<!-- 가입 요청자 탭 -->
 	<div id="joinRequests" class="tab-content">
@@ -27,7 +31,6 @@
 			<h2 class="flex-grow-1 justify-content-end">총 인원 :
 				${joinRequestCnt  } 명</h2>
 		</div>
-
 		<table>
 			<thead>
 				<tr>
@@ -115,7 +118,7 @@
 						</c:if>
 						<c:if test="${member.permission == 0}">
 							<td>거부 상태
-								<button onclick="location.href='/usr/admin/Reapproval'"">재승인</button>
+								<button onclick="location.href='/usr/admin/Reapproval'">재승인</button>
 							</td>
 						</c:if>
 					</tr>
@@ -138,19 +141,18 @@
 				<button class="ml-2 btn-text-link btn btn-active" type="submit">검색</button>
 			</form>
 		</div>
-	</div>`
+	</div>
 	<!-- 요청-->
 	<div id="suggestion" class="tab-content">
 		<table>
 			<thead>
 				<tr>
-					<th>신청 날짜</th>
-					
+					<th>신청 날짜</th>				
 					<th>신청자 부서</th>
 					<th>신청자 직급</th>
 					<th>신청이름</th>
 					<th>신청 사항</th>
-					<th>신청 사유</th>
+					<th>승인 상태</th>
 				</tr>
 			</thead>
 			<tbody  class="">
@@ -162,7 +164,20 @@
 						<td>${suggestion.position}</td>
 						<td>${suggestion.name}</td>
 						<td>${suggestion.item}</td>
-						<td>${suggestion.reason}</td>
+						        <td>
+						            <c:choose>
+						                <c:when test="${suggestion.permission == 1}">
+						                    요청 허가
+						                </c:when>
+						                <c:when test="${suggestion.permission == -1}">
+						                    요청 거부
+						                </c:when>
+						                <c:otherwise>
+						                    <a href="suggestionap?id=${suggestion.id}&permission=1">Approve</a>
+						                    <a href="suggestionap?id=${suggestion.id}&permission=-1">Reject</a>
+						                </c:otherwise>
+						            </c:choose>
+						        </td>
 					</tr>
 				</c:forEach>	
 			</tbody>	

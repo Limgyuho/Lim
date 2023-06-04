@@ -133,7 +133,7 @@ html > body {
 
 /* 탑바 시작 */
 .top-bar {
-    height: 120px;
+    height: 100px;
     border-bottom: 1px solid #afafaf; 
     top: 0;
     left: 0;
@@ -142,18 +142,21 @@ html > body {
 }
 
 /* 탑바 - 메뉴박스 1 */
+.top-bar .menu-box-1 > ul > li {
+	
+}
+
 .top-bar .menu-box-1 > ul > li > a {
     padding: 0 20px;
     position: relative;
     font-weight: bold;
+    font-size: 20px;
 }
 
 
 .top-bar .menu-box-1 > ul > li > a::after {
-    content: "";
     position: absolute;
     width: 0;
-    height: 2px;
     background-color: black;
     bottom: 0;
     left: 0;
@@ -175,8 +178,7 @@ html > body {
 }
 
 .top-bar .menu-box-1 > ul > li:hover > div {
-    display: block;
-    	
+    display: block;    	
 }
 
 .top-bar .menu-box-1 > ul > li > div > div > ul > li {
@@ -187,7 +189,7 @@ html > body {
     width: 25%;
 }
 
-.top-bar .menu-box-1 > ul > li > div > div > ul > li > a {
+.top-bar .menu-box-1 > ul > li > a {
     text-align: center;
     padding: 30px 0;
     font-weight: bold;
