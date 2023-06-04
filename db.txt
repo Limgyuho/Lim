@@ -77,6 +77,7 @@ CREATE TABLE `admin`(
 	`name` VARCHAR(20) NOT NULL,
 	cellphoneNum VARCHAR(20) NOT NULL,
 	email VARCHAR(50) NOT NULL,
+	permission INT NOT NULL,
 	delStatus TINYINT UNSIGNED NOT NULL DEFAULT 0 COMMENT '탈퇴여부 (탈퇴 전 = 0, 탈퇴 후 = 1)',
 	delDate DATETIME COMMENT '탈퇴 날짜'
 );
@@ -122,24 +123,56 @@ CREATE TABLE join_requests(
 z
 
 
+SELECT m.name, m.department, m.position
+FROM suggestion as s
+INNER JOIN `member` as m ON s.applicant_number = m.id
 
+
+select * from `member`
 SELECT * FROM suggestion
 DROP TABLE suggestion
+DROP TABLE `member`
 
+
+SELECT suggestion.*, member.name, member.position, member.department
+FROM suggestion
+INNER JOIN member ON suggestion.applicant_number = member.id;
 
 
 CREATE TABLE suggestion (
   id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-  applicant_number INT,
+  applicantnumber INT,
   regDate DATETIME NOT NULL,
   category VARCHAR(50),
   item VARCHAR(50),
-  reason TEXT
+  permission INT DEFAULT 0
+  
 );
+	
+
+
+CREATE TABLE `file`(
+	id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	regDate DATETIME NOT NULL,
+    originName VARCHAR(50) NOT NULL,
+    savedName VARCHAR(100) NOT NULL,
+    savedPath VARCHAR(100) NOT NULL
+);
+
+
+ALTER TABLE suggestion
+DROP PRIMARY KEY,
+MODIFY COLUMN id INT UNSIGNED,
+ADD PRIMARY KEY (applicant_number);
 
 SELECT * FROM suggestion;
 
 DROP TABLE suggestion
+
+
+SELECT s.*, m.department, m.position, m.name
+FROM suggestion AS s
+JOIN member AS m ON s.applicantNumber = m.id
 
 INSERT INTO `member`
 SET regDate = NOW(),
@@ -153,7 +186,9 @@ permission = 1,
 department = '감사과',
 `position` = '주무관';
 
-
+  SELECT *
+		    FROM `member`
+		    WHERE name = "admin"
 
 DROP TABLE `member`;
 
@@ -184,14 +219,19 @@ department = '정보과',
 `position` = '서기관';
 
 
-INSERT INTO `admin`
+
+INSERT INTO `member`
 SET regDate = NOW(),
 updateDate = NOW(),
 loginId = 'admin',
 loginPw = 'admin',
 `name` = 'admin',
 cellphoneNum = '010-1112-1112',
-email = 'test1@naver.com';
+email = 'test1@naver.com',
+permission = 1,
+department = '관리부',
+`position` = '관리자';
+
 
 
 
@@ -264,10 +304,9 @@ pk역할
 신청아이템이 여러개인 경우
 복수개의 데이터를 받아와서
 신청된 아이템의 개수만큼 반복문을 돌려서
-
 컬럼 하나 더 추가해서 신청자 번호로 저장한다
 누가 누군지 알기 위함이다 이 컬럼에는
-사용자의 대한 정보를 알기 위함이다
+사용자의 대한 정보를 알기 위함이다 여기에는 
 
 
 인서트 실행
