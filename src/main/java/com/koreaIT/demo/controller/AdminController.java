@@ -82,7 +82,7 @@ public class AdminController {
 
 		return "redirect:/usr/admin/admindashboard";
 	}
-	//재승인
+	//가입 재승인
 	@RequestMapping("/usr/admin/Reapproval")
 	public String Reapproval() {
 		
@@ -93,8 +93,8 @@ public class AdminController {
 
 	//요청사항 승인
     @RequestMapping("/usr/admin/suggestionap")
-    public String suggestionApproval(@RequestParam("id") int id, @RequestParam("permission") int permission) {
-        adminService.updateSuggestionPermission(id, permission);
+    public String suggestionApproval(@RequestParam("id") int id, @RequestParam("permission") int permission, String reason) {
+        adminService.updateSuggestionPermission(id, permission,reason);
         return "redirect:/usr/admin/admindashboard";
     }
 	

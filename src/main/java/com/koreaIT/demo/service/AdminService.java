@@ -37,9 +37,8 @@ public class AdminService {
 	}
 
 
-	public void updateSuggestionPermission(int id, int permission) {
-		
-		adminRepository.updateSuggestionPermission(id,permission);
+	public void updateSuggestionPermission(int id, int permission, String reason) {
+		adminRepository.updateSuggestionPermission(id,permission,reason);
 		
 	}
 }

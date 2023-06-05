@@ -56,13 +56,14 @@ public interface AdminRepository {
 			JOIN member AS m ON s.applicantNumber = m.id
 			""")
 	public List<Suggestion> getSuggestion();
-
+	
 	@Update("""
-			UPDATE suggestion
-				SET permission =  #{permission}
-				WHERE  id = #{id}
-			""")
-	public void updateSuggestionPermission(int id, int permission);
+	        UPDATE suggestion
+	        SET permission = #{permission},
+	            reason = #{reason}
+	        WHERE id = #{id}
+	        """)
+	public void updateSuggestionPermission(int id, int permission, String reason);
 	
 		
 

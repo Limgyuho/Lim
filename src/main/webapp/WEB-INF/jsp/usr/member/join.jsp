@@ -142,17 +142,20 @@
 							    <option value="운영지원과">운영지원과</option>
 							    <option value="정보과">정보과</option>
 							    <option value="기획재정담당관">기획재정담당관</option>
-							    <option value="감사과">감사과</option></td>
-							  </select><br>
+							    <option value="감사과">감사과</option>
+								  </select>
+							    </td>
 							</tr>
 							<tr>
 							  <th><label for="position">직급</label></th>
-							  <td><select id="position" name="position">
+							  <td>
+							  <select id="position" name="position">
 							  <option value="과장">과장</option>
 							    <option value="서기관">서기관</option>
 							    <option value="사무관">사무관</option>
-							    <option value="주무관">주무관</option></td>
-							  </select><br>
+							    <option value="주무관">주무관</option>
+								  </select>
+							    </td>
 							 </tr>
 							<tr>
 								<th>전화번호</th>
