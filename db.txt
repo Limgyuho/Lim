@@ -66,6 +66,7 @@ ALTER TABLE article ADD COLUMN hitCount INT UNSIGNED NOT NULL DEFAULT 0;
 
 
 DROP TABLE article
+DROP TABLE  `admin`
 
 CREATE TABLE `admin`(
 	id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -124,11 +125,11 @@ z
 
 
 SELECT m.name, m.department, m.position
-FROM suggestion as s
-INNER JOIN `member` as m ON s.applicant_number = m.id
+FROM suggestion AS s
+INNER JOIN `member` AS m ON s.applicant_number = m.id
 
 
-select * from `member`
+SELECT * FROM `member`
 SELECT * FROM suggestion
 DROP TABLE suggestion
 DROP TABLE `member`
@@ -136,17 +137,16 @@ DROP TABLE `member`
 
 SELECT suggestion.*, member.name, member.position, member.department
 FROM suggestion
-INNER JOIN member ON suggestion.applicant_number = member.id;
+INNER JOIN MEMBER ON suggestion.applicant_number = member.id;
 
 
 CREATE TABLE suggestion (
   id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
   applicantnumber INT,
   regDate DATETIME NOT NULL,
-  category VARCHAR(50),
   item VARCHAR(50),
-  permission INT DEFAULT 0
-  
+  permission INT DEFAULT 0,
+  reason VARCHAR(50)
 );
 	
 
@@ -172,7 +172,7 @@ DROP TABLE suggestion
 
 SELECT s.*, m.department, m.position, m.name
 FROM suggestion AS s
-JOIN member AS m ON s.applicantNumber = m.id
+JOIN MEMBER AS m ON s.applicantNumber = m.id
 
 INSERT INTO `member`
 SET regDate = NOW(),
@@ -186,9 +186,35 @@ permission = 1,
 department = '감사과',
 `position` = '주무관';
 
-  SELECT *
-		    FROM `member`
-		    WHERE name = "admin"
+
+
+INSERT INTO `member`
+SET regDate = NOW(),
+updateDate = NOW(),
+loginId = 'test2',
+loginPw = 'test2',
+`name` = '유저2',
+cellphoneNum = '010-1112-1112',
+email = 'test1@naver.com',
+permission = 1,
+department = '운영지원과',
+`position` = '과장';
+
+
+
+INSERT INTO `member`
+SET regDate = NOW(),
+updateDate = NOW(),
+loginId = 'test3',
+loginPw = 'test3',
+`name` = '유저3',
+cellphoneNum = '010-1112-1112',
+email = 'test1@naver.com',
+permission = 1,
+department = '감사과',
+`position` = '서기관';
+
+
 
 DROP TABLE `member`;
 
@@ -219,8 +245,7 @@ department = '정보과',
 `position` = '서기관';
 
 
-
-INSERT INTO `member`
+INSERT INTO `admin`
 SET regDate = NOW(),
 updateDate = NOW(),
 loginId = 'admin',
@@ -228,10 +253,7 @@ loginPw = 'admin',
 `name` = 'admin',
 cellphoneNum = '010-1112-1112',
 email = 'test1@naver.com',
-permission = 1,
-department = '관리부',
-`position` = '관리자';
-
+permission= 1;
 
 
 
@@ -285,7 +307,7 @@ SELECT *
 				
 
 			UPDATE `member`
-			set department = '기획재정담당관',
+			SET department = '기획재정담당관',
 			    `position` = '서기관'
 			WHERE loginId = 4
 pk역할
