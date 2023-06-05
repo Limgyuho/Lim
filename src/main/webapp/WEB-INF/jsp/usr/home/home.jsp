@@ -4,7 +4,7 @@
 <c:set var="pageTitle" value="Home" />
 <%@ include file="../common/head.jsp"%>
 
-<div><img src="resource/images/img.png"></div>
+<div><img src="../../resource/images/img.png"></div>
 <form action="doLogin" method="post">
 	<div class="center">	
 		<div class="login-form">

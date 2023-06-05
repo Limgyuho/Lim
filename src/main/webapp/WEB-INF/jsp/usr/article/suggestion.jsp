@@ -28,13 +28,13 @@
 								<th>사무용품 교체,요청</th>
 								<td>
 									<div>
-										<span>모니터 교체 신청<input name="item" value="모니터"type="checkbox"  class="checkbox checkbox-accent" /></span>
+										<span>모니터 교체 신청</span><input name="item" value="모니터"type="checkbox"  class="checkbox checkbox-accent" />
 								
-										 <span>pc 교체 신청 <input name="item" value="pc" type="checkbox" class="checkbox checkbox-accent" /></span>
+										 <span>pc 교체 신청</span> <input name="item" value="pc" type="checkbox" class="checkbox checkbox-accent" />
 								
-										<span>의자 교체 신청 <input name="item" value ="의자" type="checkbox" class="checkbox checkbox-accent" /></span>
+										<span>의자 교체 신청</span> <input name="item" value ="의자" type="checkbox" class="checkbox checkbox-accent" />
 									
-										<span>책상 교체 신청 <input name="item" value ="책상" type="checkbox"class="checkbox checkbox-accent" /></span>
+										<span>책상 교체 신청</span> <input name="item" value ="책상" type="checkbox"class="checkbox checkbox-accent" />
 									</div> 
 								</td>
 							</tr>		
@@ -42,11 +42,11 @@
 								<th>관용차 대여 요청</th>
 								<td>
 									<div>
-										<span>스타렉스 <input value ="스타렉스" name="item" type="checkbox" class="checkbox checkbox-accent" /></span>
+										<span>스타렉스</span> <input value ="스타렉스" name="item" type="checkbox" class="checkbox checkbox-accent" />
 								
-										<span>제네시스 <input value="제네시스" name="item" type="checkbox" class="checkbox checkbox-accent" /></span>
+										<span>제네시스 </span><input value="제네시스" name="item" type="checkbox" class="checkbox checkbox-accent" />
 									
-										<span>포터 <input value ="포터"name="item" type="checkbox" class="checkbox checkbox-accent" /></span>
+										<span>포터</span> <input value ="포터"name="item" type="checkbox" class="checkbox checkbox-accent" />
 									</div>
 								</td>
 							</tr>
