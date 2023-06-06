@@ -10,8 +10,7 @@
 		<nav class="menu-box-1 w-full">
 			<ul class="flex justify-center height-100p justify-between">
 				<li><a href="" class="block"></a></li>
-				<li><a href="/usr/article/suggestion" class="block">건의/요청
-						사항</a></li>
+				<li><a href="/usr/article/suggestion" class="block">건의/요청사항</a></li>
 				<li><a href="/usr/article/transferList" class="block">인사 이동</a></li>
 				<li><a href="#" class="block">부서별 자료</a></li>
 				<li><a href="#" class="block">개인 자료전송</a></li>

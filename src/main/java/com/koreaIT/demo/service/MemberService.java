@@ -102,5 +102,10 @@ public class MemberService {
 		return memberRepository.adminUpload();
 	}
 
+	public List<Vacation> showallVacation() {
+		
+		return memberRepository.showallVacation();
+	}
+
 
 }

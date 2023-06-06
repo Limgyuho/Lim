@@ -177,5 +177,11 @@ public interface MemberRepository {
 		""")
 	public List<Member> adminUpload();
 
+	@Select("""
+		    SELECT *
+		    FROM vacation
+		""")
+	public List<Vacation> showallVacation();
+
 
 }

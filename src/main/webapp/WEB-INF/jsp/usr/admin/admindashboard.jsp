@@ -117,9 +117,9 @@
 </div>
 <div class="flex">
 	<div>
-		<form method="GET">
+		 <form method="GET">
 			<select data-value="${department }" class="select select-bordered" name="department">
-				<option value="전체" ${department == '' ? 'selected' : ''}>전체</option>
+				<option value="전체" ${empty department ? 'selected' : ''}>전체</option>
 				<option value="운영지원과" ${department == '운영지원과' ? 'selected' : ''}>운영지원과</option>
 				<option value="정보과" ${department == '정보과' ? 'selected' : ''}>정보과</option>
 				<option value="기획재정담당관"${department == '기획재정담당관' ? 'selected' : ''}>기획재정담당관</option>
@@ -140,8 +140,7 @@
         <th>신청자 부서</th>
         <th>신청자 직급</th>
         <th>신청이름</th>
-        <th>신청 사항</th>
-        <th>사유</th>        
+        <th>신청 사항</th>      
         <th>승인 상태</th>
       </tr>
     </thead>
@@ -154,27 +153,34 @@
           <td>${suggestion.name}</td>
           <td>${suggestion.item}</td>
           <td>
-          
-          	<c:set var="reason" value="${empty suggestion.reason ? '' : suggestion.reason}" scope="request" />
-            <c:choose>
-			  <c:when test="${not empty suggestion.reason}">
-			    ${suggestion.reason}
-			  </c:when>
-			  <c:otherwise>
-			    <form action="suggestionap" method="get">
-			      <input type="hidden" name="id" value="${suggestion.id}">
-			      <input type="hidden" name="permission" value="1">
-			      <input type="text" name="reason" value="${reason}" placeholder="사유를 적으세요">
-			      <button type="submit" onclick="return validateReason()">Approve</button>
-			    </form>
-			    <form action="suggestionap" method="get">
-			      <input type="hidden" name="id" value="${suggestion.id}">
-			      <input type="hidden" name="permission" value="-1">
-			      <input type="text" name="reason" value="${reason}" placeholder="사유를 적으세요">
-			      <button type="submit" onclick="return validateReason()">Reject</button>
-			    </form>
-			  </c:otherwise>
-			</c:choose>
+          	<c:choose>
+          		<c:when test="${suggestion.permission == 1}">
+          			요청 허가
+          		</c:when>
+          		<c:when test="${suggestion.permission == -1}">
+          			요청 거부
+          		</c:when>
+          		<c:otherwise>
+          			<c:set var="reason" value="${empty suggestion.reason ? '' : suggestion.reason}" />
+          			<c:if test="${not empty suggestion.reason}">
+          				${suggestion.reason}
+          			</c:if>
+          			<c:if test="${empty suggestion.reason}">
+          				<form action="suggestionap" method="get">
+          					<input type="hidden" name="id" value="${suggestion.id}">
+          					<input type="hidden" name="permission" value="1">
+          					<input type="text" name="reason" value="${reason}" placeholder="사유를 적으세요">
+          					<button type="submit" onclick="return validateReason()">Approve</button>
+          				</form>
+          				<form action="suggestionap" method="get">
+          					<input type="hidden" name="id" value="${suggestion.id}">
+          					 <input type="hidden" name="permission" value="-1">
+          					<input type="text" name="reason" value="${reason}" placeholder="사유를 적으세요">
+          					<button type="submit" onclick="return validateReason()">Reject</button>
+          				</form>
+          			</c:if>
+          		</c:otherwise>
+          	</c:choose>
           </td>
         </tr>
       </c:forEach>
@@ -209,3 +215,5 @@
     return true; // 어프로브나 리젝트 동작을 계속합니다.
   }
 </script>
+</body>
+</html>

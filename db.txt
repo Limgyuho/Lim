@@ -156,7 +156,19 @@ CREATE TABLE `file`(
 	regDate DATETIME NOT NULL,
     originName VARCHAR(50) NOT NULL,
     savedName VARCHAR(100) NOT NULL,
-    savedPath VARCHAR(100) NOT NULL
+    savedPath VARCHAR(100) NOT NULL	
+);
+
+DROP TABLE vacation
+SELECT * FROM vacation
+
+CREATE TABLE vacation (
+  id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  applicantnumber INT,
+  regDate DATETIME NOT NULL,
+  `date` VARCHAR(100),
+  `status`INT DEFAULT 0,
+  vacationType VARCHAR(50)
 );
 
 
@@ -177,9 +189,9 @@ JOIN MEMBER AS m ON s.applicantNumber = m.id
 INSERT INTO `member`
 SET regDate = NOW(),
 updateDate = NOW(),
-loginId = 'test1',
-loginPw = 'test1',
-`name` = '유저1',
+loginId = 'admin',
+loginPw = 'admin',
+`name` = 'admin',
 cellphoneNum = '010-1112-1112',
 email = 'test1@naver.com',
 permission = 1,
@@ -254,6 +266,17 @@ loginPw = 'admin',
 cellphoneNum = '010-1112-1112',
 email = 'test1@naver.com',
 permission= 1;
+
+INSERT INTO `admin`
+SET regDate = NOW(),
+updateDate = NOW(),
+loginId = 'test1',
+loginPw = 'test1',
+`name` = '유저1',
+cellphoneNum = '010-1112-1112',
+email = 'test1@naver.com',
+permission=1;
+
 
 
 
