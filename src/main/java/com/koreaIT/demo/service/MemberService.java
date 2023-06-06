@@ -9,6 +9,7 @@ import com.koreaIT.demo.repository.MemberRepository;
 
 import com.koreaIT.demo.vo.Member;
 import com.koreaIT.demo.vo.Suggestion;
+import com.koreaIT.demo.vo.Vacation;
 
 @Service
 public class MemberService {
@@ -88,12 +89,18 @@ public class MemberService {
 
 	public List<Suggestion> showsuggestion(int applicantnumber) {
 	
-		return memberRepository.memberRepository(applicantnumber);
+		return memberRepository.showsuggestion(applicantnumber);
+	}
+	
+	public List<Vacation> showVacation(int applicantnumber) {
+		
+		return memberRepository.showVacation(applicantnumber);
 	}
 
 	public List<Member> adminUpload() {
 		
 		return memberRepository.adminUpload();
 	}
+
 
 }

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.koreaIT.demo.repository.AdminRepository;
 import com.koreaIT.demo.vo.Admin;
 import com.koreaIT.demo.vo.Suggestion;
+import com.koreaIT.demo.vo.Vacation;
 
 @Service
 public class AdminService {
@@ -36,9 +37,19 @@ public class AdminService {
 		return adminRepository.getSuggestion();
 	}
 
-
 	public void updateSuggestionPermission(int id, int permission, String reason) {
-		adminRepository.updateSuggestionPermission(id,permission,reason);
-		
+		adminRepository.updateSuggestionPermission(id, permission, reason);
+
 	}
+
+	public void insertVacation(int applicantNumber, String date, String vacationType) {
+		adminRepository.insertVacation(applicantNumber, date, vacationType);
+
+	}
+
+	public void leaveRequest(int applicantNumber, String date, String vacationType) {
+
+			adminRepository.leaveRequest(applicantNumber,date,vacationType);
+	}
+
 }

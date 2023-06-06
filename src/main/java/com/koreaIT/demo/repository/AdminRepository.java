@@ -9,6 +9,7 @@ import org.apache.ibatis.annotations.Update;
 
 import com.koreaIT.demo.vo.Admin;
 import com.koreaIT.demo.vo.Suggestion;
+import com.koreaIT.demo.vo.Vacation;
 
 @Mapper
 public interface AdminRepository {
@@ -64,7 +65,34 @@ public interface AdminRepository {
 	        WHERE id = #{id}
 	        """)
 	public void updateSuggestionPermission(int id, int permission, String reason);
+
 	
-		
+	@Insert("""
+			INSERT INTO vacation
+				SET regDate = NOW(),
+					date = #{date},
+					vacationType =#{vacationType}	
+			""")
+	public void insertVacation(int applicantNumber,String date, String vacationType);
+
+
+	
+	@Insert("""
+			<script>
+			INSERT INTO vacation
+				SET regDate = NOW(),
+					date = #{date},
+					vacationType = #{vacationType},
+					applicantNumber	 =#{applicantNumber}
+			</script>	
+			""")
+	public void leaveRequest(int applicantNumber, String date, String vacationType);
+
+//	@Select("""
+//			SELECT v.date, v.status, v.vacationType
+//			FROM vacation AS v
+//			JOIN member AS m ON v.id = m.id
+//			""")
+//	public List<Vacation> showVacation();
 
 }

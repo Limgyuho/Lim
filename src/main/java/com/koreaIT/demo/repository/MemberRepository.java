@@ -11,6 +11,7 @@ import org.apache.ibatis.annotations.Update;
 import com.koreaIT.demo.vo.JoinRequest;
 import com.koreaIT.demo.vo.Member;
 import com.koreaIT.demo.vo.Suggestion;
+import com.koreaIT.demo.vo.Vacation;
 
 @Mapper
 public interface MemberRepository {
@@ -160,13 +161,21 @@ public interface MemberRepository {
 		    FROM suggestion
 		    WHERE applicantnumber = #{applicantnumber}
 		""")
-	public List<Suggestion> memberRepository(int applicantnumber);
+	public List<Suggestion> showsuggestion(int applicantnumber);
 
+	@Select("""
+		    SELECT *
+		    FROM vacation
+		    WHERE applicantnumber = #{applicantnumber}
+		""")
+	public List<Vacation> showVacation(int applicantnumber);
+	
 	@Select("""
 		    SELECT *
 		    FROM `member`
 		    WHERE name = "admin"
 		""")
 	public List<Member> adminUpload();
+
 
 }
