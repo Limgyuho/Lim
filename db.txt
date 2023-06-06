@@ -162,14 +162,14 @@ CREATE TABLE `file`(
 DROP TABLE vacation
 SELECT * FROM vacation
 
-CREATE TABLE vacation (
-  id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  applicantnumber INT,
-  regDate DATETIME NOT NULL,
-  `date` VARCHAR(100),
-  `status`INT DEFAULT 0,
-  vacationType VARCHAR(50)
-);
+	CREATE TABLE vacation (
+	  id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	  applicantnumber INT ,
+	  regDate DATETIME NOT NULL,
+	  `date` VARCHAR(100),
+	  `status`INT DEFAULT 0,
+	  vacationType VARCHAR(50)
+	);
 
 
 ALTER TABLE suggestion
