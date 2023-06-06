@@ -153,6 +153,7 @@
           <td>${suggestion.name}</td>
           <td>${suggestion.item}</td>
           <td>
+          	
           	<c:choose>
           		<c:when test="${suggestion.permission == 1}">
           			요청 허가

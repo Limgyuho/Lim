@@ -104,6 +104,12 @@
 	          <td class="border px-4 py-2">${vacation.vacationType}</td>
 	          <td class="border px-4 py-2">${vacation.date}</td>
 	          <td>
+	          	<c:if test="${vacation.status == 1}">
+						<td>허가</td>
+				</c:if>
+				<c:if test="${vacation.status == -1}">
+						<td>거부</td>
+				</c:if>
 			  	<a  href="leaveAp?id=${vacation.id}&status=1"class="button">허가</a>
 			  	&nbsp;
 			  	&nbsp;
