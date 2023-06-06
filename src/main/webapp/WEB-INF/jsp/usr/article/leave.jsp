@@ -102,13 +102,12 @@
 		          <input type="checkbox" name="id" class="checkbox checkbox-info"value="${vacation.id}" />
 	          </td>
 	          <td class="border px-4 py-2">${vacation.vacationType}</td>
-	          <td class="border px-4 py-2">${vacation.vacationType}</td>
 	          <td class="border px-4 py-2">${vacation.date}</td>
 	          <td>
-			  	<a  href="leaveAp?id=${vacation.applicantNumber}&status=1"class="button">허가</a>
+			  	<a  href="leaveAp?id=${vacation.id}&status=1"class="button">허가</a>
 			  	&nbsp;
 			  	&nbsp;
-			  	<a  href="leaveAp?id=${vacation.applicantNumber}&status=-1"class="button">거부</a>	          
+			  	<a  href="leaveAp?id=${vacation.id}&status=-1"class="button">거부</a>	          
 	          </td>
 	        </tr>
 	      </c:forEach>

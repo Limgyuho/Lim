@@ -155,42 +155,38 @@ public interface MemberRepository {
 			""")
 	public Member searchMember(int id);
 
-	
 	@Select("""
-		    SELECT *
-		    FROM suggestion
-		    WHERE applicantnumber = #{applicantnumber}
-		""")
+			    SELECT *
+			    FROM suggestion
+			    WHERE applicantnumber = #{applicantnumber}
+			""")
 	public List<Suggestion> showsuggestion(int applicantnumber);
 
 	@Select("""
-		    SELECT *
-		    FROM vacation
-		    WHERE applicantnumber = #{applicantnumber}
-		""")
+			    SELECT *
+			    FROM vacation
+			    WHERE applicantnumber = #{applicantnumber}
+			""")
 	public List<Vacation> showVacation(int applicantnumber);
-	
+
 	@Select("""
-		    SELECT *
-		    FROM `member`
-		    WHERE name = "admin"
-		""")
+			    SELECT *
+			    FROM `member`
+			    WHERE name = "admin"
+			""")
 	public List<Member> adminUpload();
 
 	@Select("""
-		    SELECT *
-		    FROM vacation
-		""")
-	public List<Vacation> showallVacation();
-	
-	
-	@Update("""
-			UPDATE vacation
-			SET status = #{status}
-			WHERE  status = 0
+			    SELECT *
+			    FROM vacation
 			""")
-	public void upDateStatus(int status);
+	public List<Vacation> showallVacation();
 
-
+	@Update("""
+			  UPDATE vacation
+			  SET status = #{status}
+			  WHERE id = #{id}
+			""")
+	public void updateStatus(int id, int status);
 
 }

@@ -88,27 +88,27 @@ public class MemberService {
 	}
 
 	public List<Suggestion> showsuggestion(int applicantnumber) {
-	
+
 		return memberRepository.showsuggestion(applicantnumber);
 	}
-	
+
 	public List<Vacation> showVacation(int applicantnumber) {
-		
+
 		return memberRepository.showVacation(applicantnumber);
 	}
 
 	public List<Member> adminUpload() {
-		
+
 		return memberRepository.adminUpload();
 	}
 
 	public List<Vacation> showallVacation() {
-		
+
 		return memberRepository.showallVacation();
 	}
 
-	public void upDateStatus(int status ) {
-		memberRepository.upDateStatus(status);
+	public void updateStatus(int id, int status) {
+		memberRepository.updateStatus(id, status);
 	}
 
 }

@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 public class Vacation {
 	private int id;
 	private String date;
-	private String status;
+	private int status;
 	private String vacationType;
 	private int applicantNumber;
 }

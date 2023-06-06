@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.koreaIT.demo.service.AdminService;
 import com.koreaIT.demo.service.ArticleService;
@@ -97,17 +98,18 @@ public class ArticleController {
 
 		int applicantNumber = rq.getLoginedMemberId();
 		adminService.leaveRequest(applicantNumber, date, vacationType);
+		
 
 		return "redirect:/usr/article/leave";
 	}
 
 	// 휴가신청 허가 거부
 	@RequestMapping("usr/article/leaveAp")
-	public String getLeaveMember(Model model,int status) {
-
-		memberService.upDateStatus(status);
-
-		return "redirect:/usr/article/leave";
+	public String getLeaveMember(@RequestParam int id, @RequestParam int status) {
+		
+	  memberService.updateStatus(id, status);
+	  
+	  return "redirect:/usr/article/leave";
 	}
 
 }
