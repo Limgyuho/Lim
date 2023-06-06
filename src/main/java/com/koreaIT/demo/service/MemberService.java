@@ -107,5 +107,8 @@ public class MemberService {
 		return memberRepository.showallVacation();
 	}
 
+	public void upDateStatus(int status ) {
+		memberRepository.upDateStatus(status);
+	}
 
 }

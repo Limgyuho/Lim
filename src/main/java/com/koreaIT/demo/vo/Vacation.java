@@ -12,4 +12,5 @@ public class Vacation {
 	private String date;
 	private String status;
 	private String vacationType;
+	private int applicantNumber;
 }

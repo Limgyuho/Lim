@@ -11,6 +11,7 @@ import com.koreaIT.demo.service.AdminService;
 import com.koreaIT.demo.service.ArticleService;
 import com.koreaIT.demo.service.JoinRequestService;
 import com.koreaIT.demo.service.MemberService;
+import com.koreaIT.demo.vo.JoinRequest;
 import com.koreaIT.demo.vo.Member;
 import com.koreaIT.demo.vo.Rq;
 import com.koreaIT.demo.vo.Suggestion;
@@ -75,36 +76,37 @@ public class ArticleController {
 
 	// 휴가 신청 화면
 	@RequestMapping("usr/article/leave")
-	public String leave(Model model) {
+	public String leave(Model model ) {
 
 		int applicantnumber = rq.getLoginedMember().getId();
 
-		//멤버 서비스 넣고
-		//이게 아니지 병신아 보여지는 건 jsp 니까 씨태그 조건걸어서
-		//포지션이 과장인 사람만 해당 div가 보이게 하고
-		//컨트롤러 부분은 병시나 아래와 똑같이 보여 지는데 
-		
-		//본인이 신청한것만 
+		// 본인이 신청한것만
 		List<Vacation> showVacation = memberService.showVacation(applicantnumber);
 		model.addAttribute("showVacation", showVacation);
-		
-		//신청한 사람 전체 보기
-	)
+
+		// 신청한 사람 전체 보기
+		List<Vacation> showallVacation = memberService.showallVacation();
+		model.addAttribute("showallVacation", showallVacation);
 
 		return "/usr/article/leave";
 	}
-	//휴가 승인허가와 불가 메서드를 만들어야지
-	//여기서 실제로 업데이트를 할수 있게 서비스로 넘기고
-	//
 
 	// 휴가신청 넣기
 	@RequestMapping("usr/article/leaveRequest")
 	public String leave(Model model, String date, String vacationType) {
-		
-		int applicantNumber = rq.getLoginedMemberId();
-		adminService.leaveRequest(applicantNumber, date,vacationType);
 
-		
+		int applicantNumber = rq.getLoginedMemberId();
+		adminService.leaveRequest(applicantNumber, date, vacationType);
+
+		return "redirect:/usr/article/leave";
+	}
+
+	// 휴가신청 허가 거부
+	@RequestMapping("usr/article/leaveAp")
+	public String getLeaveMember(Model model,int status) {
+
+		memberService.upDateStatus(status);
+
 		return "redirect:/usr/article/leave";
 	}
 

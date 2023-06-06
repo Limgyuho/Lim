@@ -132,7 +132,7 @@ public interface MemberRepository {
 			""")
 	public int updatePermission();
 
-	@Select("""
+	@Update("""
 			<script>
 			UPDATE `member`
 			<set>
@@ -182,6 +182,15 @@ public interface MemberRepository {
 		    FROM vacation
 		""")
 	public List<Vacation> showallVacation();
+	
+	
+	@Update("""
+			UPDATE vacation
+			SET status = #{status}
+			WHERE  status = 0
+			""")
+	public void upDateStatus(int status);
+
 
 
 }
