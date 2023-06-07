@@ -3,16 +3,16 @@
 <c:set var="pageTitle" value="admindashboard" />
 <%@ include file="../common/head.jsp"%>
 
-<h1 class="text-2xl">어드민 대시보드</h1>
+<h1 class="text-3xl"><a href="/usr/admin/admindashboard">어드민 대시보드</a></h1>
 
 <div>
-    <button onclick="showTab('joinRequests')">가입 요청자 목록</button>
+    <button class="btn btn-link" onclick="showTab('joinRequests')">가입 요청자 목록</button>
    &nbsp;
    &nbsp;
-   <button onclick="showTab('approvedMembers')">가입 멤버 목록</button>
+   <button class="btn btn-link" onclick="showTab('approvedMembers')">가입 멤버 목록</button>
    &nbsp;
    &nbsp;
-   <button onclick="showTab('suggestion')">요청 사항 목록</button>
+   <button class="btn btn-link" onclick="showTab('suggestion')">요청 사항 목록</button>
 </div>
 <!-- 가입 요청자 탭 -->
 <div id="joinRequests" class="tab-content">
