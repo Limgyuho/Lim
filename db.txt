@@ -161,7 +161,7 @@ CREATE TABLE suggestion (
   reason VARCHAR(50)
 );
 	
-
+SELECT * FROM `file`
 
 CREATE TABLE `file`(
 	id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -171,7 +171,10 @@ CREATE TABLE `file`(
     savedPath VARCHAR(100) NOT NULL	
 );
 
-DROP TABLE `member`
+ALTER TABLE FILE MODIFY originName VARCHAR(255);
+
+
+DROP TABLE `file`
 SELECT * FROM vacation
 SELECT * FROM `member`
 

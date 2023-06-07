@@ -116,4 +116,16 @@ public class MemberService {
 		return memberRepository.manager();
 	}
 
+
+	public List<Member> transmissionMembers() {
+
+		return memberRepository.transmissionMembers();
+	}
+
+
+	public void deleteMembers(int id) {
+		// TODO Auto-generated method stub
+		memberRepository.deleteMembers(id );
+	}
+
 }

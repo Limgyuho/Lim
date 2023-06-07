@@ -1,9 +1,7 @@
 package com.koreaIT.demo.controller;
 
-
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 
 @Controller
 public class HomeContoller {
@@ -17,15 +15,11 @@ public class HomeContoller {
 	public String showPopUp() {
 		return "/usr/home/popUp";
 	}
-	
 
 	@RequestMapping("/usr/home/main")
 	public String showmain() {
-		
-		
-		
+
 		return "usr/home/main";
 	}
-
 
 }

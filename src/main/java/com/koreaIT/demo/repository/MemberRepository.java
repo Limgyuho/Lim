@@ -111,15 +111,12 @@ public interface MemberRepository {
 	public int getMemberCnt();
 
 	@Select("""
-			SELECT m.`name`, m.`position`, m.cellphoneNum ,v.vacationType,v.date
-			FROM `member`m
-			JOIN vacation v ON m.id = v.applicantnumber
+			SELECT `name`, `position`, cellphoneNum
+			FROM `member`
 			WHERE department = #{department}
 			""")
 	public List<Member> getMembersByDepartment(String department);
 
-
-	
 	@Select("""
 			    SELECT *
 			    FROM `member`
@@ -193,10 +190,24 @@ public interface MemberRepository {
 	public void updateStatus(int id, int status);
 
 	@Select("""
+			    SELECT *
+			    FROM `member`
+			    WHERE `position` = '과장'
+			""")
+	public List<Member> manager();
+
+	@Select("""
 		    SELECT *
 		    FROM `member`
-		    WHERE `position` = '과장'
 		""")
-	public List<Member> manager();
+	public List<Member> transmissionMembers();
+
+	@Update("""
+		    UPDATE `member`
+		    SET permission = -2
+		    WHREE id = {id}
+		""")
+	public List<Member> deleteMembers(int id );
+
 
 }

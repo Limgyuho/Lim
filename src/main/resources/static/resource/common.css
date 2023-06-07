@@ -267,3 +267,18 @@ html>body {
 	bottom: 0;
 	width: 100%;
 }
+
+
+
+.member-list {
+  height: 400px; /* 원하는 높이로 조정합니다 */
+  overflow-y: scroll; /* 세로 스크롤바가 표시됩니다 */
+}
+
+.member-list table {
+  width: 100%;
+}
+
+.member-list td {
+  padding: 5px;
+}

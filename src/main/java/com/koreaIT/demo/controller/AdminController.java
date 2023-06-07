@@ -45,8 +45,7 @@ public class AdminController {
 	// 각각의 정보회 탭에서의 페이지 처리와 키워드 검색
 	//
 	@RequestMapping("/usr/admin/admindashboard")
-	public String showadmindashboard(Model model, @RequestParam(defaultValue = "1") int boardId,
-			@RequestParam(defaultValue = "1") int page, String department,
+	public String showadmindashboard(Model model, @RequestParam(defaultValue = "1") int page, String department,
 			@RequestParam(defaultValue = "") String name) {
 
 		// 가입 요청자 정보 조회
@@ -61,14 +60,21 @@ public class AdminController {
 		model.addAttribute("getAllApprovedMembers", getAllApprovedMembers);
 		model.addAttribute("memberCnt", memberCnt);
 
-		List<Suggestion> getsuggestion = adminService.getsuggestion();
-			model.addAttribute("getsuggestion", getsuggestion);
-
-			
 		
-			
-			
+
+		List<Suggestion> getsuggestion = adminService.getsuggestion();
+		model.addAttribute("getsuggestion", getsuggestion);
+
 		return "usr/admin/admindashboard";
+	}
+
+	// 멤버 탈퇴
+	@RequestMapping("/usr/admin/deleteMembers")
+	public String deleteMembers(int id) {
+
+		memberService.deleteMembers(id);
+
+		return "redirect:/usr/admin/admindashboard";
 	}
 
 	// 겟과 포트스방식 즉 쿼리 스트링으로 사용경우 @RequestMapping으로 사용해야 한다
@@ -86,22 +92,23 @@ public class AdminController {
 
 		return "redirect:/usr/admin/admindashboard";
 	}
-	//가입 재승인
+
+	// 가입 재승인
 	@RequestMapping("/usr/admin/Reapproval")
 	public String Reapproval() {
-		
+
 		memberService.updatePermission();
-		
+
 		return "redirect:/usr/admin/admindashboard";
 	}
 
-	//요청사항 승인
-    @RequestMapping("/usr/admin/suggestionap")
-    public String suggestionApproval(@RequestParam("id") int id, @RequestParam("permission") int permission, String reason) {
-        adminService.updateSuggestionPermission(id, permission,reason);
-        return "redirect:/usr/admin/admindashboard";
-    }
-	
+	// 요청사항 승인
+	@RequestMapping("/usr/admin/suggestionap")
+	public String suggestionApproval(@RequestParam("id") int id, @RequestParam("permission") int permission,
+			String reason) {
+		adminService.updateSuggestionPermission(id, permission, reason);
+		return "redirect:/usr/admin/admindashboard";
+	}
 
 	// 로그인드 아이디가 아니라 id를 사용하는 이유는
 	// 프라이머리 키이기 때문에 로그인드 아이디가 유니크라고해도

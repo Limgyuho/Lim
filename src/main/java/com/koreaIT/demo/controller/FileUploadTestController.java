@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -19,18 +20,20 @@ import com.koreaIT.demo.service.FileService;
 import com.koreaIT.demo.service.MemberService;
 import com.koreaIT.demo.vo.FileVO;
 import com.koreaIT.demo.vo.Member;
+import com.koreaIT.demo.vo.Rq;
 
 @Controller
 public class FileUploadTestController {
 
 	private FileService fileService;
 	private MemberService memberService;
+	private Rq rq;
 
 	@Autowired
-	public FileUploadTestController(FileService fileService,MemberService memberService) {
+	public FileUploadTestController(FileService fileService, MemberService memberService) {
 		this.fileService = fileService;
 		this.memberService = memberService;
-
+		this.rq = rq;
 	}
 
 	@RequestMapping("/usr/article/upload")
@@ -47,16 +50,26 @@ public class FileUploadTestController {
 		return "파일 업로드 성공";
 	}
 
-	@RequestMapping("/usr/article/program")
-	public String view(Model model) {
+	@RequestMapping("usr/article/transmission")
+	public String transmission(Model model,String department, String name) {
 
 		List<FileVO> files = fileService.getFiles();
 		model.addAttribute("files", files);
+		
 		List<Member> adminUpload = memberService.adminUpload();
 		model.addAttribute("adminUpload", adminUpload);
+		
+		List<Member> transmissionMembers = memberService.transmissionMembers();
+		model.addAttribute("transmissionMembers", transmissionMembers);
+		
+		return "usr/article/transmission";
+	}
 
-		
-		
+	@RequestMapping("/usr/article/program")
+	public String view(Model model) {
+		List<FileVO> files = fileService.getFiles();
+	    model.addAttribute("files", files);
+
 		return "usr/article/program";
 	}
 
