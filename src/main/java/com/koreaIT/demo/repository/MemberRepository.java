@@ -189,4 +189,11 @@ public interface MemberRepository {
 			""")
 	public void updateStatus(int id, int status);
 
+	@Select("""
+		    SELECT *
+		    FROM `member`
+		    WHERE `position` = '과장'
+		""")
+	public List<Member> manager();
+
 }

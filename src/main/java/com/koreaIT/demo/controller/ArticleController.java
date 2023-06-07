@@ -12,7 +12,6 @@ import com.koreaIT.demo.service.AdminService;
 import com.koreaIT.demo.service.ArticleService;
 import com.koreaIT.demo.service.JoinRequestService;
 import com.koreaIT.demo.service.MemberService;
-import com.koreaIT.demo.vo.JoinRequest;
 import com.koreaIT.demo.vo.Member;
 import com.koreaIT.demo.vo.Rq;
 import com.koreaIT.demo.vo.Suggestion;
@@ -85,10 +84,16 @@ public class ArticleController {
 		List<Vacation> showVacation = memberService.showVacation(applicantnumber);
 		model.addAttribute("showVacation", showVacation);
 
-		// 신청한 사람 전체 보기
+		//직급이 과장인
+		List<Member> manager = memberService.manager();
+		model.addAttribute("manager",manager);
+		
+		//휴가 신청한 기록 보기
 		List<Vacation> showallVacation = memberService.showallVacation();
 		model.addAttribute("showallVacation", showallVacation);
 
+		
+		
 		return "/usr/article/leave";
 	}
 

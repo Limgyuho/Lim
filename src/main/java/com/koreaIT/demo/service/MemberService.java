@@ -111,4 +111,9 @@ public class MemberService {
 		memberRepository.updateStatus(id, status);
 	}
 
+	public List<Member> manager() {
+		
+		return memberRepository.manager();
+	}
+
 }

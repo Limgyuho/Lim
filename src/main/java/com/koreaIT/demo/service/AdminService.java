@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import com.koreaIT.demo.repository.AdminRepository;
 import com.koreaIT.demo.vo.Admin;
 import com.koreaIT.demo.vo.Suggestion;
-import com.koreaIT.demo.vo.Vacation;
 
 @Service
 public class AdminService {

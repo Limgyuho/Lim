@@ -9,9 +9,7 @@
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 
-<div class="flex">
-
-
+<div class="flex justify-center">
 	<div class="border-blue w-80 h-100">
 		<form action="/usr/article/leaveRequest" method="post">
 			<label for="date">날짜:</label> <input type="text" id="date" name="date">
@@ -86,40 +84,44 @@
 	  </tbody>
 	</table>
 
-  <div class="border-blue w-30 h-50 overflow-auto">
-	  <table class="table-auto">
-	    <thead>
-	      <tr>
-	        <th class="px-4 py-2">ID</th>
-	        <th class="px-4 py-2">휴가 종류</th>
-	        <th class="px-4 py-2">날짜</th>
-	      </tr>
-	    </thead>
-	    <tbody>
-	      <c:forEach var="vacation" items="${showallVacation}">
-	        <tr>
-	          <td class="border px-4 py-2">
-		          <input type="checkbox" name="id" class="checkbox checkbox-info"value="${vacation.id}" />
-	          </td>
-	          <td class="border px-4 py-2">${vacation.vacationType}</td>
-	          <td class="border px-4 py-2">${vacation.date}</td>
-	          <td>
-	          	<c:if test="${vacation.status == 1}">
-						<td>허가</td>
-				</c:if>
-				<c:if test="${vacation.status == -1}">
-						<td>거부</td>
-				</c:if>
-			  	<a  href="leaveAp?id=${vacation.id}&status=1"class="button">허가</a>
-			  	&nbsp;
-			  	&nbsp;
-			  	<a  href="leaveAp?id=${vacation.id}&status=-1"class="button">거부</a>	          
-	          </td>
-	        </tr>
-	      </c:forEach>
-	    </tbody>
-	  </table>
-	</div>
+	<c:forEach var="member" items="${manager}">
+	  <c:if test="${member.position == rq.getLoginedMember().getPosition()}">
+	  	<div class="border-blue w-30 h-50 overflow-auto">
+			  <table class="table-auto">
+			    <thead>
+			      <tr>
+			        <th class="px-4 py-2">ID</th>
+			        <th class="px-4 py-2">휴가 종류</th>
+			        <th class="px-4 py-2">날짜</th>
+			      </tr>
+			    </thead>
+			    <tbody>
+				      <c:forEach var="vacation" items="${showallVacation}">
+				          <tr>
+				            <td class="border px-4 py-2">
+				              <input type="checkbox" name="id" class="checkbox checkbox-info" value="${vacation.id}" />
+				            </td>
+				            <td class="border px-4 py-2">${vacation.vacationType}</td>
+				            <td class="border px-4 py-2">${vacation.date}</td>
+				            <td>
+				              <c:if test="${vacation.status == 1}">
+				                <td>허가</td>
+				              </c:if>
+				              <c:if test="${vacation.status == -1}">
+				                <td>거부</td>
+				              </c:if>
+				              <a href="leaveAp?id=${vacation.id}&status=1" class="button">허가</a>
+				              &nbsp;
+				              &nbsp;
+				              <a href="leaveAp?id=${vacation.id}&status=-1" class="button">거부</a>
+				            </td>
+				          </tr>
+					   </c:forEach>
+			    </tbody>
+			  </table>
+			</div>
+		</c:if>
+	</c:forEach>
 </div>
 
 <script>
@@ -132,15 +134,16 @@
       var selectedOtherVacationType = $("#otherVacationType").val();
 
       // 선택된 값이 없는 경우
-      if (selectedDate === "" || selectedVacationType === "없음") {
+      if (selectedDate === "") {
         e.preventDefault(); // 제출 방지
-        alert("날짜와 휴가 종류를 선택해주세요.");
+        alert("날짜를 선택해주세요.");
+      } else if (selectedVacationType === "없음" && selectedOtherVacationType === "없음") {
+        e.preventDefault(); // 제출 방지
+        alert("휴가 종류를 선택해주세요.");
+      } else if (selectedVacationType === "없음" && selectedOtherVacationType === "없음") {
+        e.preventDefault(); // 제출 방지
+        alert("법정 휴가와 약정 휴가는 동시에 선택할 수 없습니다.");
       }
-
-      if (selectedVacationType !== "없음" && selectedOtherVacationType !== "없음") {
-          e.preventDefault(); // 제출 방지
-          alert("법정 휴가와 약정 휴가는 동시에 선택할 수 없습니다.");
-        }
     });
 
     // Datepicker 설정
@@ -149,6 +152,8 @@
     });
   });
 </script>
+
+
 
 <div class="fixed-bottom">
 	<%@ include file="../common/bottom.jsp"%>
