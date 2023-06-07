@@ -124,7 +124,7 @@ public class MemberService {
 
 
 	public void deleteMembers(int id) {
-		// TODO Auto-generated method stub
+		
 		memberRepository.deleteMembers(id );
 	}
 

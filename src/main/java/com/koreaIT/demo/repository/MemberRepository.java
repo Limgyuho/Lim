@@ -204,10 +204,10 @@ public interface MemberRepository {
 
 	@Update("""
 		    UPDATE `member`
-		    SET permission = -2
-		    WHREE id = {id}
+		    SET permission = -1
+		    WHERE id = #{id}
 		""")
-	public List<Member> deleteMembers(int id );
+	public void deleteMembers(int id );
 
 
 }
