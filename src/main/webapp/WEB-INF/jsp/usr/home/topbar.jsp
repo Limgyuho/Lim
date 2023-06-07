@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ include file="../common/head.jsp"%>
+
 <div class="flex-jc-c flex-ai-c h-20 flex  mx-auto text-3xl bg-red-50">
 	<a href="/usr/home/main" class="block">대한민국 정부 기관</a>
 </div>
@@ -23,7 +24,6 @@
 </div>
 
 <div class="w-52 h-20 border-black">
-	<input type="hidden" name="id" value="${member.id }"/>
     <div class="user-info">
         <span>${rq.loginedMember.department }</span>
         <span>${rq.loginedMember.position }</span>

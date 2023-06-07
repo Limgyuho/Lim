@@ -22,6 +22,7 @@ public class MainController {
 	//서비스의 기능들을 가져다가 사용할수 있다
 	//private은 해당 클래스에대해서만 사용을 하기 위함이며 캡슐화를 위함으다
 	private MemberService memberService;
+	private Rq rq;
 	//rq 역시 마찬가지이다
 	//rq는 로그인한 사람의 대한 정보를 가지고 있으며
 	//검증을 위해 존재 하며 조건에 부합하지 않을시 특정 메세지를 보여주기 위함이다
@@ -32,6 +33,7 @@ public class MainController {
 	//해당 컨트롤러에 위에서 주입한 멤버와 rq를 물고 있게 하기 위함이다
 	public MainController(MemberService memberService, Rq rq) {
 		this.memberService = memberService;
+		this.rq = rq;
 	}
 
 	

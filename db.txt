@@ -90,18 +90,31 @@ CREATE TABLE `member`(
 	updateDate DATETIME NOT NULL,
 	loginId VARCHAR(20) NOT NULL UNIQUE,
 	loginPw VARCHAR(100) NOT NULL,
-	`authLevel` SMALLINT UNSIGNED NOT NULL DEFAULT 3 COMMENT '권한 레벨 (일반 = 3, 관리자 = 7)',
 	`name` VARCHAR(20) NOT NULL,
 	cellphoneNum VARCHAR(20) NOT NULL,
 	email VARCHAR(50) NOT NULL,
-	delStatus TINYINT UNSIGNED NOT NULL DEFAULT 0 COMMENT '탈퇴여부 (탈퇴 전 = 0, 탈퇴 후 = 1)',
 	delDate DATETIME COMMENT '탈퇴 날짜',
 	permission INT NOT NULL,
 	department VARCHAR(50),
-	`position` VARCHAR(50)
-	
+	`position` VARCHAR(50),
+	vacationstate VARCHAR(50)
 );
 
+SELECT * FROM vacation
+SELECT * FROM `member`
+DROP TABLE vacation
+
+SELECT m.*, v.vacationType
+FROM MEMBER m
+JOIN vacation v ON m.id = v.applicantnumber
+
+SELECT m.`name`, m.`position`, m.cellphoneNum ,v.vacationType
+			FROM `member`m
+			JOIN vacation v ON m.id = v.applicantnumber
+			WHERE department = #{department}
+
+
+SELECT * FROM MEMBER WHERE `date`
 
 CREATE TABLE join_requests(
 	id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -118,10 +131,9 @@ CREATE TABLE join_requests(
 	permission INT DEFAULT 0,
 	department VARCHAR(50),
 	`position` VARCHAR(50)
-	
 );
 
-z
+
 
 
 SELECT m.name, m.department, m.position
@@ -159,17 +171,18 @@ CREATE TABLE `file`(
     savedPath VARCHAR(100) NOT NULL	
 );
 
-DROP TABLE vacation
+DROP TABLE `member`
 SELECT * FROM vacation
+SELECT * FROM `member`
 
-	CREATE TABLE vacation (
-	  id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
-	  applicantnumber INT ,
-	  regDate DATETIME NOT NULL,
-	  `date` VARCHAR(100),
-	  `status`INT DEFAULT 0,
-	  vacationType VARCHAR(50)
-	);
+CREATE TABLE vacation (
+  id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  applicantnumber INT ,
+  regDate DATETIME NOT NULL,
+  `date` VARCHAR(100),
+  `status`INT DEFAULT 0,
+  vacationType VARCHAR(50)
+);
 
 
 ALTER TABLE suggestion
@@ -217,6 +230,20 @@ department = '운영지원과',
 INSERT INTO `member`
 SET regDate = NOW(),
 updateDate = NOW(),
+loginId = 'test1',
+loginPw = 'test1',
+`name` = '유저1',
+cellphoneNum = '010-1112-1112',
+email = 'test1@naver.com',
+permission = 1,
+department = '운영지원과',
+`position` = '주무관';
+
+
+
+INSERT INTO `member`
+SET regDate = NOW(),
+updateDate = NOW(),
 loginId = 'test3',
 loginPw = 'test3',
 `name` = '유저3',
@@ -226,7 +253,7 @@ permission = 1,
 department = '감사과',
 `position` = '서기관';
 
-
+SELECT * FROM `member`
 
 DROP TABLE `member`;
 
@@ -283,6 +310,11 @@ permission=1;
 SELECT *
 				FROM join_requests
 
+
+
+   SELECT *
+		    FROM `member`
+		    WHERE `position` = '과장'
 
 SELECT * FROM article;
 SELECT * FROM `admin`;

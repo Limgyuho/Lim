@@ -111,12 +111,15 @@ public interface MemberRepository {
 	public int getMemberCnt();
 
 	@Select("""
-			SELECT `name`, `position`, cellphoneNum
-			FROM `member`
+			SELECT m.`name`, m.`position`, m.cellphoneNum ,v.vacationType,v.date
+			FROM `member`m
+			JOIN vacation v ON m.id = v.applicantnumber
 			WHERE department = #{department}
 			""")
 	public List<Member> getMembersByDepartment(String department);
 
+
+	
 	@Select("""
 			    SELECT *
 			    FROM `member`
