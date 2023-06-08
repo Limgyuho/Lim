@@ -15,7 +15,7 @@
 	<div class="member-list border-red">
 		<table>
 			<tbody id="memberTable">
-				<c:forEach var="member" items="${transmissionMembers }">
+				<c:forEach var="member	" items="${transmissionMembers }">
 					<tr>
 						<td>${member.department }</td>
 						<td>${member.position }</td>

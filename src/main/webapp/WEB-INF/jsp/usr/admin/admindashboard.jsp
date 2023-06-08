@@ -79,6 +79,7 @@
                    <th>전화번호</th>
                    <th>이메일</th>
                    <th>승인 상태</th>
+                   <th>비	고</th>
                </tr>
            </thead>
            <tbody>
@@ -108,11 +109,20 @@
                            <td>탈퇴 상태</td>
                        </c:if>
                        <c:if test="${member.permission == 0}">
-                           <td>거부 상태
+                           <td>거부 상태</td>
+                       </c:if>
+                       <td>
+                       <c:if test="${member.permission == 0}">
                                <button class="ml-2 btn-text-link btn btn-active" type="button"
                                    onclick="location.href='/usr/admin/Reapproval'">재승인</button>
-                           </td>
                        </c:if>
+                       <c:if test="${member.permission == 1}">
+                               이미지?
+                       </c:if>
+                       <c:if test="${member.permission == -1}">
+                               이미지?
+                       </c:if>
+                       </td>
                    </tr>
                </c:forEach>
             </tbody>

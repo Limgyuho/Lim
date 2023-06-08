@@ -20,7 +20,6 @@ import com.koreaIT.demo.service.FileService;
 import com.koreaIT.demo.service.MemberService;
 import com.koreaIT.demo.vo.FileVO;
 import com.koreaIT.demo.vo.Member;
-import com.koreaIT.demo.vo.Rq;
 
 @Controller
 public class FileUploadTestController {
@@ -33,7 +32,7 @@ public class FileUploadTestController {
 		this.fileService = fileService;
 		this.memberService = memberService;
 
-	}
+	}	
 
 	@RequestMapping("/usr/article/upload")
 	@ResponseBody

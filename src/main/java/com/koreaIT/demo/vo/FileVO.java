@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class FileVO {
 	private int id;
-	private String orgNm;
+	private String originName;
 	private String savedNm;
 	private String savedPath;
 }

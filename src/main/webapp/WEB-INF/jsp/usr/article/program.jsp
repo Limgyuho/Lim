@@ -10,24 +10,24 @@
 		<thead>
 			<tr>
 				<th>번호</th>
-				<th>파일 내용</th>
-				<th>파일</th>
-				<th>게시자</th>
 				<th>게시일</th>
+				<th>게시자</th>
+				<th>파일 이름</th>
+				<th>파일</th>
 			</tr>
 		</thead>
 		<tbody>
 			<c:forEach var="file" items="${files}">
 				<tr>
 					<td>${file.id}</td>
-					<td>파일 내용</td>
+					<td>${rq.getLoginedMember().getRegDate()}</td>
+					<td>${rq.getLoginedMember().getName()}</td>
+					<td>${file.originName }</td>
 					<td>
 						<a href="/usr/article/file/${file.id}" download>
-					  		<img src="/usr/article/file/${file.id}" />
+					  		<i class="fa-solid fa-download"></i>
 						</a>
 					</td>
-					<td>${rq.getLoginedMember().getName()}</td>
-					<td>${rq.getLoginedMember().getRegDate()}</td>
 				</tr>
 			</c:forEach>
 		</tbody>
