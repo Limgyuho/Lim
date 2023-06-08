@@ -46,9 +46,9 @@ public class AdminService {
 
 	}
 
-	public void leaveRequest(int applicantNumber, String date, String vacationType) {
+	public void leaveRequest(int applicantNumber, String date, String vacationType1,String vacationType2) {
 
-			adminRepository.leaveRequest(applicantNumber,date,vacationType);
+			adminRepository.leaveRequest(applicantNumber,date,vacationType1,vacationType2);
 	}
 
 }

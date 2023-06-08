@@ -82,11 +82,12 @@ public interface AdminRepository {
 			INSERT INTO vacation
 				SET regDate = NOW(),
 					date = #{date},
-					vacationType = #{vacationType},
+					vacationType1 = #{vacationType1},
+					vacationType2 = #{vacationType2},
 					applicantNumber	 =#{applicantNumber}
 			</script>	
 			""")
-	public void leaveRequest(int applicantNumber, String date, String vacationType);
+	public void leaveRequest(int applicantNumber, String date, String vacationType1,String vacationType2);
 
 //	@Select("""
 //			SELECT v.date, v.status, v.vacationType

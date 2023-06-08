@@ -135,10 +135,12 @@ public class ArticleController {
 
 	// 휴가신청 넣기
 	@RequestMapping("usr/article/leaveRequest")
-	public String leave(Model model, String date, String vacationType) {
-
+	public String leave(Model model, String date, String vacationType1,String vacationType2) {
+		
+		System.out.println(vacationType1);
+		
 		int applicantNumber = rq.getLoginedMemberId();
-		adminService.leaveRequest(applicantNumber, date, vacationType);
+		adminService.leaveRequest(applicantNumber, date, vacationType1,vacationType2);
 		
 
 		return "redirect:/usr/article/leave";

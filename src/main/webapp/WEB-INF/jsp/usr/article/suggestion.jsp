@@ -58,10 +58,10 @@
 										<span>신청 사항 : ${suggestion.item}요청 결과 : </span>  
 										<c:choose>
 							            <c:when test="${suggestion.permission == 1}">
-							            <span>승인 | 승인 사유 : ${suggestion.reason} </span>
+							            <span>승인</span>
 							            </c:when>
 							            <c:when test="${suggestion.permission == -1}">
-							            <span> 거부 | 거부 사유 : ${suggestion.reason} </span>
+							            <span> 거부</span>
 							            </c:when>
 							            <c:otherwise>
 							            <span> 대기중 </span>

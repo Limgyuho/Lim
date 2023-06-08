@@ -184,20 +184,16 @@
                                <c:if test="${not empty suggestion.reason}">
                                    ${suggestion.reason}
                                </c:if>
-                               <c:if test="${empty suggestion.reason}">
                                    <form action="suggestionap" method="get">
                                        <input type="hidden" name="id" value="${suggestion.id}">
                                        <input type="hidden" name="permission" value="1">
-                                       <input type="text" name="reason" value="${reason}" placeholder="사유를 적으세요">
-                                       <button type="submit" onclick="return validateReason()">Approve</button>
+                                       <button type="submit" >Approve</button>
                                    </form>
                                    <form action="suggestionap" method="get">
                                        <input type="hidden" name="id" value="${suggestion.id}">
                                        <input type="hidden" name="permission" value="-1">
-                                       <input type="text" name="reason" value="${reason}" placeholder="사유를 적으세요">
-                                       <button type="submit" onclick="return validateReason()">Reject</button>
+                                       <button type="submit" >Reject</button>
                                    </form>
-                               </c:if>
                            </c:otherwise>
                        </c:choose>
                    </td>
@@ -253,13 +249,9 @@ function transferSelected() {
         // 선택한 탭 컨텐츠 보이기
         document.getElementById(tabName).style.display = "block";
     }
-
-    function validateReason() {
-        var reasonInput = document.querySelector('input[name="reason"]');
-        if (reasonInput.value.trim() === "") {
-            alert("사유를 입력해주세요.");
-            return false;
-        }
-        return true;
-    }
+    
+    
 </script>
+
+
+

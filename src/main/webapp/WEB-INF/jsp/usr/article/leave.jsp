@@ -9,14 +9,16 @@
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 
-<div class="flex justify-center">
+<div class="flex">
+
+
 	<div class="border-blue w-80 h-100">
 		<form action="/usr/article/leaveRequest" method="post">
 			<label for="date">날짜:</label> <input type="text" id="date" name="date">
 			<br />
 			<br />
-			<label for="vacationType">법정 휴가:</label> 
-			<select id="vacationType" name="vacationType">
+			<label for="vacationType1">법정 휴가:</label> 
+			<select id="vacationType1" name="vacationType1">
 				<option value="없음" selected>없음</option>
 				<option value="연차">연차</option>
 				<option value="월차">월차</option>
@@ -35,8 +37,8 @@
 			</ul>
 			<br />	
 			<br />
-			<label for="otherVacationType">약정 휴가:</label> 
-			<select id="otherVacationType" name="otherVacationType">
+			<label for="vacationType2">약정 휴가:</label> 
+			<select id="vacationType2" name="vacationType2">
 				<option value="없음" selected>없음</option>
 				<option value="경조사">경조사</option>
 				<option value="포상휴가">포상휴가</option>
@@ -49,7 +51,7 @@
 				<li>포상휴가: 행정기관의 장은 소속 공무원이 국가 또는 해당 기관의 주요 업무를 성공적으로
 						수행하여 탁월한 성과와 공로가 인정되는 경우에는 10일 이내의 포상휴가를 줄 수 있습니다.</li>
 			</ul>
-		
+
 			<input type="submit" value="제출">
 		</form>
 	</div>
@@ -59,7 +61,8 @@
 	  <thead>
 	    <tr>
 	      <th class="border border-blue px-4 py-2">날짜</th>
-	      <th class="border border-blue px-4 py-2">휴가 종류</th>
+	      <th class="border border-blue px-4 py-2">법정 휴가</th>
+	      <th class="border border-blue px-4 py-2">약정 휴가</th>
 	      <th class="border border-blue px-4 py-2">상태</th>
 	    </tr>
 	  </thead>
@@ -67,7 +70,8 @@
 	    <c:forEach var="vacation" items="${showVacation}">
 	      <tr>
 	        <td class="border border-blue px-4 py-2">${vacation.date}</td>
-	        <td class="border border-blue px-4 py-2">${vacation.vacationType}</td>
+	        <td class="border border-blue px-4 py-2">${vacation.vacationType1}</td>
+	        <td class="border border-blue px-4 py-2">${vacation.vacationType2}</td>
 	        <td class="border border-blue px-4 py-2">
 	          <c:if test="${vacation.status == 1}">
 	            <span class="text-green-500">허가</span>
@@ -91,8 +95,10 @@
 			    <thead>
 			      <tr>
 			        <th class="px-4 py-2">ID</th>
-			        <th class="px-4 py-2">휴가 종류</th>
+			        <th class="px-4 py-2">법정휴가</th>
+			        <th class="px-4 py-2">포상휴가</th>
 			        <th class="px-4 py-2">날짜</th>
+			        <th class="px-4 py-2">승인 상태</th>
 			      </tr>
 			    </thead>
 			    <tbody>
@@ -101,24 +107,28 @@
 				            <td class="border px-4 py-2">
 				              <input type="checkbox" name="id" class="checkbox checkbox-info" value="${vacation.id}" />
 				            </td>
-				            <td class="border px-4 py-2">${vacation.vacationType}</td>
+				            <td class="border px-4 py-2">${vacation.vacationType1}</td>
+				            <td class="border px-4 py-2">${vacation.vacationType2}</td>
 				            <td class="border px-4 py-2">${vacation.date}</td>
-				            <td>
+
 				              <c:if test="${vacation.status == 1}">
 				                <td>허가</td>
 				              </c:if>
 				              <c:if test="${vacation.status == -1}">
 				                <td>거부</td>
 				              </c:if>
-				              <a href="leaveAp?id=${vacation.id}&status=1" class="button">허가</a>
-				              &nbsp;
-				              &nbsp;
-				              <a href="leaveAp?id=${vacation.id}&status=-1" class="button">거부</a>
-				            </td>
+
 				          </tr>
-					   </c:forEach>
-			    </tbody>
+					   </c:forEach>	
+			    </tbody>	
+			    
 			  </table>
+			        <a href="leaveAp?id=${vacation.id}&status=1" class="button">허가</a>
+		              &nbsp;
+		              &nbsp;
+              		<a href="leaveAp?id=${vacation.id}&status=-1" class="button">거부</a>
+              		<button class="btn btn-outline btn-secondary" type="button"
+              		 onclick="leaveAp()" id="" >거부</button>
 			</div>
 		</c:if>
 	</c:forEach>
@@ -130,28 +140,29 @@
     $("form").submit(function(e) {
       // 선택된 날짜와 휴가 종류를 가져옴
       var selectedDate = $("#date").val();
-      var selectedVacationType = $("#vacationType").val();
-      var selectedOtherVacationType = $("#otherVacationType").val();
-
+      var selectedVacationType1 = $("#vacationType1").val();
+      var selectedVacationType2 = $("#vacationType2").val();
       // 선택된 값이 없는 경우
-      if (selectedDate === "") {
+      if (selectedDate === "" ) {
         e.preventDefault(); // 제출 방지
         alert("날짜를 선택해주세요.");
-      } else if (selectedVacationType === "없음" && selectedOtherVacationType === "없음") {
+      } else if (selectedVacationType1 === "없음" && selectedVacationType2 === "없음") {
         e.preventDefault(); // 제출 방지
-        alert("휴가 종류를 선택해주세요.");
-      } else if (selectedVacationType === "없음" && selectedOtherVacationType === "없음") {
+        alert("법정 휴가 또는 약정 휴가 중 하나를 선택해주세요.");
+      } else if (selectedVacationType1 !== "없음" && selectedVacationType2 !== "없음") {
         e.preventDefault(); // 제출 방지
-        alert("법정 휴가와 약정 휴가는 동시에 선택할 수 없습니다.");
+        alert("법정 휴가 또는 약정 휴가 중 하나만 선택해주세요.");
       }
     });
-
     // Datepicker 설정
     $("#date").datepicker({
       dateFormat: "yy-mm-dd" // 날짜 형식 설정
     });
   });
 </script>
+
+
+
 
 
 

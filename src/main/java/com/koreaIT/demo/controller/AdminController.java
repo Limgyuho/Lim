@@ -104,11 +104,16 @@ public class AdminController {
 
 	// 요청사항 승인
 	@RequestMapping("/usr/admin/suggestionap")
-	public String suggestionApproval(@RequestParam("id") int id, @RequestParam("permission") int permission,
-			String reason) {
+	public String suggestionApproval(@RequestParam("id") int id, 
+			@RequestParam("permission") int permission,String reason) {
+		
 		adminService.updateSuggestionPermission(id, permission, reason);
 		return "redirect:/usr/admin/admindashboard";
 	}
+	
+	
+	
+		
 
 	// 로그인드 아이디가 아니라 id를 사용하는 이유는
 	// 프라이머리 키이기 때문에 로그인드 아이디가 유니크라고해도
