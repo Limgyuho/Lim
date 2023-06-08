@@ -21,7 +21,11 @@
 				<tr>
 					<td>${file.id}</td>
 					<td>파일 내용</td>
-					<td><img src="/usr/article/file/${file.id}" /></td>
+					<td>
+						<a href="/usr/article/file/${file.id}" download>
+					  		<img src="/usr/article/file/${file.id}" />
+						</a>
+					</td>
 					<td>${rq.getLoginedMember().getName()}</td>
 					<td>${rq.getLoginedMember().getRegDate()}</td>
 				</tr>
@@ -65,6 +69,9 @@
 		</c:if>
 	</div>
 </div>
+
+
+
 
 <c:if test="${rq.getLoginedMember().getName() eq 'admin'}">
 	<form action="upload" method="POST" enctype="multipart/form-data">

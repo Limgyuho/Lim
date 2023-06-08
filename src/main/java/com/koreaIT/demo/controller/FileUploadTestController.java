@@ -3,6 +3,7 @@ package com.koreaIT.demo.controller;
 import java.io.IOException;
 import java.util.List;
 
+import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;
@@ -12,7 +13,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -27,13 +27,12 @@ public class FileUploadTestController {
 
 	private FileService fileService;
 	private MemberService memberService;
-	private Rq rq;
 
 	@Autowired
 	public FileUploadTestController(FileService fileService, MemberService memberService) {
 		this.fileService = fileService;
 		this.memberService = memberService;
-		this.rq = rq;
+
 	}
 
 	@RequestMapping("/usr/article/upload")
@@ -78,11 +77,14 @@ public class FileUploadTestController {
 	public ResponseEntity<Resource> downloadFile(@PathVariable("fileId") int fileId) throws IOException {
 
 		FileVO fileVo = fileService.getFileById(fileId);
-
+		
 		Resource resource = new FileSystemResource(fileVo.getSavedPath());
 
 		return ResponseEntity.ok()
 				.header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + resource.getFilename() + "\"")
 				.body(resource);
 	}
+
+	
+	
 }

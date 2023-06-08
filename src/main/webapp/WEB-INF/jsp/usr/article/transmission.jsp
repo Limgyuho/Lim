@@ -4,26 +4,12 @@
 <%@ include file="../common/head.jsp"%>
 <%@ include file="../home/topbar.jsp"%>
 
-<style>
-.drop-area {
-	border: 2px dashed #999;
-	padding: 20px;
-	text-align: center;
-	font-size: 1.2rem;
-}
-
-.drop-area.drag-over {
-	background-color: #e0e0e0;
-}
-</style>
-
-
 <div class="flex">
 	<div class="flex border-red">
 		<c:if test="${rq.getLoginedMember().getName() eq 'admin'}">
-			<form action="upload" method="POST" enctype="multipart/form-data">
+<!-- 			<form action="upload" method="POST" enctype="multipart/form-data"> -->
 				<input type="file" name="file" />
-			</form>
+<!-- 			</form> -->
 		</c:if>
 	</div>
 	<div class="member-list border-red">
@@ -58,18 +44,6 @@
 		</c:forEach>
 	</ul>
 </div>
-
-<script>
-	var sendFileLinks = document.querySelectorAll('.send-file');
-	sendFileLinks.forEach(function(link) {
-		link.addEventListener('click', function(e) {
-			e.preventDefault();
-			var memberName = this.getAttribute('data-member');
-			// TODO: 파일을 선택하고 memberName에게 보내는 로직 구현
-			console.log('Sending file to member: ' + memberName);
-		});
-	});
-</script>
 
 
 
