@@ -155,5 +155,13 @@ public class ArticleController {
 	  return "redirect:/usr/article/leave";
 	}
 	
+	
+	@RequestMapping("usr/article/departmentalData")
+	public String departmentalData() {
+		
+	  
+	  return "usr/article/departmentalData";
+	}
+	
 
 }

@@ -13,7 +13,7 @@
 				<li><a href="" class="block"></a></li>
 				<li><a href="/usr/article/suggestion" class="block">건의/요청사항</a></li>
 				<li><a href="/usr/article/transferList" class="block">인사 이동</a></li>
-				<li><a href="#" class="block">부서별 자료</a></li>
+				<li><a href="/usr/article/departmentalData" class="block">부서별 자료</a></li>
 				<li><a href="/usr/article/transmission" class="block">개인 자료전송</a></li>
 				<li><a href="/usr/article/program" class="block">필수 프로그램</a></li>
 				<li><a href="/usr/article/leave" class="block">휴가/보고</a></li>

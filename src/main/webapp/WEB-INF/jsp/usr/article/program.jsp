@@ -11,8 +11,8 @@
 			<tr>
 				<th>번호</th>
 				<th>게시일</th>
-				<th>게시자</th>
 				<th>파일 이름</th>
+				<th>게시자</th>
 				<th>파일</th>
 			</tr>
 		</thead>
@@ -21,8 +21,8 @@
 				<tr>
 					<td>${file.id}</td>
 					<td>${rq.getLoginedMember().getRegDate()}</td>
-					<td>${rq.getLoginedMember().getName()}</td>
 					<td>${file.originName }</td>
+					<td>${rq.getLoginedMember().getName()}</td>
 					<td>
 						<a href="/usr/article/file/${file.id}" download>
 					  		<i class="fa-solid fa-download"></i>
@@ -80,4 +80,7 @@
 	</form>
 </c:if>
 
-<%@ include file="../common/bottom.jsp"%>
+
+<div class="fixed-bottom">
+	<%@ include file="../common/bottom.jsp"%>
+</div>

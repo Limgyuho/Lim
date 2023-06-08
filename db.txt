@@ -101,7 +101,7 @@ CREATE TABLE `member`(
 );
 
 SELECT * FROM vacation
-SELECT * FROM `member`
+    
 DROP TABLE vacation
 
 SELECT m.*, v.vacationType
@@ -174,7 +174,7 @@ CREATE TABLE `file`(
 ALTER TABLE FILE MODIFY originName VARCHAR(255);
 
 
-DROP TABLE `file`
+DROP TABLE vacation
 SELECT * FROM vacation
 SELECT * FROM `member`
 
@@ -184,7 +184,8 @@ CREATE TABLE vacation (
   regDate DATETIME NOT NULL,
   `date` VARCHAR(100),
   `status`INT DEFAULT 0,
-  vacationType VARCHAR(50)
+  vacationType1 VARCHAR(50),
+  vacationType2 VARCHAR(50)
 );
 
 

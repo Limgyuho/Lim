@@ -11,4 +11,7 @@
 	 <div class="flex w-80 h-60 border-black block"></div>
 	 <div class="flex w-80 h-60 border-black block"></div>
 </div>
-<%@ include file="../common/bottom.jsp" %>
+
+<div class="fixed-bottom">
+	<%@ include file="../common/bottom.jsp"%>
+</div>

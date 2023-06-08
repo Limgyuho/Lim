@@ -57,7 +57,7 @@
 	</div>
 	
 	
-	<table class="border-collapse border-blue">
+	<table class="border-collapse border-blue ">
 	  <thead>
 	    <tr>
 	      <th class="border border-blue px-4 py-2">날짜</th>
