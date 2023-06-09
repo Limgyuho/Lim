@@ -12,4 +12,6 @@ public class FileDP {
 	private String originName;
 	private String savedNm;
 	private String savedPath;
+	private String dpn;
+	
 }

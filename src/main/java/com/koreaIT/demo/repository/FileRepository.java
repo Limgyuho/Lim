@@ -45,8 +45,9 @@ public interface FileRepository {
 					originName = #{orgName},
 					savedName = #{savedName},
 					savedPath = #{savedPath}
+					dpn = #{dpn}
 			""")
-	void insertfileDPInfo(String orgName, String savedName, String savedPath);
+	void insertfileDPInfo(String orgName, String savedName, String savedPath, String dpn);
 
 
 	
@@ -60,8 +61,9 @@ public interface FileRepository {
 	@Select("""
 			SELECT *
 				FROM fileDP
+				WHERE dpn =#{dpn}
 			""")
-	List<FileDP> getFileDP();
+	List<FileDP> getFileDP(String dpn);
 	
 
 

@@ -56,9 +56,11 @@ public class FileService {
         return fileRepository.getFileById(fileId);
     }
     
+  
+    
     
    //부서별 자료 올리는곳
-  public void saveFileDP(MultipartFile file2) throws IOException {
+  public void saveFileDP(MultipartFile file2, String dpn) throws IOException {
         
         if (file2.isEmpty()) {
             return;
@@ -74,13 +76,14 @@ public class FileService {
         
         String savedPath = fileDir + File.separator + savedName;
         
-        fileRepository.insertfileDPInfo(orgName, savedName, savedPath);
+ 
+        fileRepository.insertfileDPInfo(orgName, savedName, savedPath, dpn);
         
         file2.transferTo(new File(savedPath));
     }
 
-    public List<FileDP> getFileDP() {
-        return fileRepository.getFileDP();
+    public List<FileDP> getFileDP(String dpn) {
+        return fileRepository.getFileDP(dpn);
     }
     
     public FileDP getFileDPeById(int fileId) {

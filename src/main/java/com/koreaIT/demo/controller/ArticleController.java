@@ -170,8 +170,8 @@ public class ArticleController {
 	
 	
 	@RequestMapping("usr/article/departmentalData")
-	public String departmentalData(Model model) {
-		List<FileDP> files2 = fileService.getFileDP();
+	public String departmentalData(Model model,String dpn) {
+		List<FileDP> files2 = fileService.getFileDP(dpn);
 	    model.addAttribute("files2", files2);
 	  
 	  return "usr/article/departmentalData";
@@ -181,10 +181,10 @@ public class ArticleController {
 	
 	@RequestMapping("/usr/article/upload2")
 	@ResponseBody
-	public String uploadFile(MultipartFile file2) {
+	public String uploadFile(MultipartFile file2, String dpn) {
 
 		try {
-			fileService.saveFileDP(file2);
+			fileService.saveFileDP(file2,dpn);
 		} catch (IOException e) {
 			e.printStackTrace();
 			return "파일 업로드 실패";
