@@ -3,69 +3,7 @@ CREATE DATABASE LimProject;
 USE LimProject;
 
 # board 테이블 생성
-CREATE TABLE board(
-	id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
-	regDate DATETIME NOT NULL,
-	updateDate DATETIME NOT NULL,
-	`code` VARCHAR(20) NOT NULL UNIQUE COMMENT '공지, 인사이동, ...',
-	`name` VARCHAR(20) NOT NULL UNIQUE COMMENT '게시판 이름',
-	delStatus TINYINT UNSIGNED NOT NULL DEFAULT 0 COMMENT '삭제여부 (삭제 전 = 0, 삭제 후 = 1)',
-	delDate DATETIME COMMENT '삭제 날짜'
-);
 
-# reactionPoint 테이블 생성	
-CREATE TABLE reactionPoint(
-	id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
-	regDate DATETIME NOT NULL,
-	updateDate DATETIME NOT NULL,
-    memberId INT UNSIGNED NOT NULL,
-    relTypeCode VARCHAR(20) NOT NULL COMMENT '관련 데이터 타입 코드',
-    relId INT UNSIGNED NOT NULL COMMENT '관련 데이터 번호',
-	`point` SMALLINT NOT NULL DEFAULT 0
-);
-
-# reply 테이블 생성
-CREATE TABLE reply(
-	id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
-	regDate DATETIME NOT NULL,
-	updateDate DATETIME NOT NULL,
-    memberId INT UNSIGNED NOT NULL,
-    relTypeCode VARCHAR(20) NOT NULL COMMENT '관련 데이터 타입 코드',
-    relId INT UNSIGNED NOT NULL COMMENT '관련 데이터 번호',
-	`body` TEXT NOT NULL
-);
-
-# article 테스트 데이터
-INSERT INTO article
-SET regDate = NOW(),
-updateDate = NOW(),
-memberId = 2,
-boardId = 2,
-title = '제목1',
-`body` = '내용1';
-
-INSERT INTO article
-(
-    regDate, updateDate, memberId, boardId, title, `body`
-)
-SELECT NOW(), NOW(), FLOOR(RAND() * 3) + 1, FLOOR(RAND() * 2) + 1, CONCAT('제목_', RAND()), CONCAT('내용_', RAND())
-FROM article;
-
-
-CREATE TABLE article(
-	id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
-	regDate DATETIME NOT NULL,
-	updateDate DATETIME NOT NULL,
-	title VARCHAR(100) NOT NULL,
-	`body` TEXT NOT NULL
-);
-
-ALTER TABLE article ADD COLUMN memberId INT UNSIGNED NOT NULL AFTER updateDate;
-ALTER TABLE article ADD COLUMN boardId INT UNSIGNED NOT NULL AFTER memberId;
-ALTER TABLE article ADD COLUMN hitCount INT UNSIGNED NOT NULL DEFAULT 0;
-
-
-DROP TABLE article
 DROP TABLE  `admin`
 
 CREATE TABLE `admin`(
@@ -100,7 +38,7 @@ CREATE TABLE `member`(
 	vacationstate VARCHAR(50)
 );
 
-SELECT * FROM vacation
+SELECT * FROM `member`
     
 DROP TABLE vacation
 
@@ -160,8 +98,9 @@ CREATE TABLE suggestion (
   permission INT DEFAULT 0,
   reason VARCHAR(50)
 );
-	
-SELECT * FROM `file`
+
+DROP TABLE `fileDP`
+SELECT * FROM `fileDP`
 
 CREATE TABLE `file`(
 	id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -171,6 +110,19 @@ CREATE TABLE `file`(
     savedPath VARCHAR(100) NOT NULL	
 );
 
+
+CREATE TABLE `fileDP`(
+	id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	regDate DATETIME NOT NULL,
+    originName VARCHAR(50) NOT NULL,
+    savedName VARCHAR(100) NOT NULL,
+    savedPath VARCHAR(100) NOT NULL	,
+    dpn VARCHAR(100) NOT NULL	
+);
+
+
+
+SELECT * FROM `fileDP`
 ALTER TABLE FILE MODIFY originName VARCHAR(255);
 
 
@@ -186,6 +138,15 @@ CREATE TABLE vacation (
   `status`INT DEFAULT 0,
   vacationType1 VARCHAR(50),
   vacationType2 VARCHAR(50)
+);
+
+
+CREATE TABLE message (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  sender INT NOT NULL,
+  recipient INT NOT NULL,
+  content VARCHAR(255) NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 
