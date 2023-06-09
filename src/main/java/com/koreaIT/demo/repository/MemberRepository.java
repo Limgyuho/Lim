@@ -111,7 +111,7 @@ public interface MemberRepository {
 	public int getMemberCnt();
 
 	@Select("""
-			SELECT `name`, `position`, cellphoneNum
+			SELECT *
 			FROM `member`
 			WHERE department = #{department}
 			""")

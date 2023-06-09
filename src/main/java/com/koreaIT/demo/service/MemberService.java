@@ -128,4 +128,9 @@ public class MemberService {
 		memberRepository.deleteMembers(id );
 	}
 
+	public Member getMemberByName(int memberName) {
+
+		return memberRepository.getMemberById(memberName);
+	}
+
 }

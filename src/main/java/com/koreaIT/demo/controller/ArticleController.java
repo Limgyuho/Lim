@@ -1,20 +1,31 @@
 package com.koreaIT.demo.controller;
 
+import java.io.IOException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.FileSystemResource;
+import org.springframework.core.io.Resource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.koreaIT.demo.service.AdminService;
 import com.koreaIT.demo.service.ArticleService;
 import com.koreaIT.demo.service.BoardService;
+import com.koreaIT.demo.service.FileService;
 import com.koreaIT.demo.service.JoinRequestService;
 import com.koreaIT.demo.service.MemberService;
 import com.koreaIT.demo.vo.Article;
 import com.koreaIT.demo.vo.Board;
+import com.koreaIT.demo.vo.FileDP;
+import com.koreaIT.demo.vo.FileVO;
 import com.koreaIT.demo.vo.Member;
 import com.koreaIT.demo.vo.Rq;
 import com.koreaIT.demo.vo.Suggestion;
@@ -24,16 +35,18 @@ import com.koreaIT.demo.vo.Vacation;
 public class ArticleController {
 
 	private ArticleService articleService;
+	private FileService fileService;
 	private MemberService memberService;
 	private AdminService adminService;
 	private BoardService boardService;
 	private Rq rq;
 
 	@Autowired
-	public ArticleController(ArticleService articleService, AdminService adminService, BoardService boardService,MemberService memberService,
+	public ArticleController(FileService fileService,ArticleService articleService, AdminService adminService, BoardService boardService,MemberService memberService,
 			Rq rq, JoinRequestService joinRequestService) {
 		this.memberService = memberService;
 		this.adminService = adminService;
+		this.fileService = fileService;
 		this.boardService = boardService;
 		this.rq = rq;
 	}
@@ -157,10 +170,41 @@ public class ArticleController {
 	
 	
 	@RequestMapping("usr/article/departmentalData")
-	public String departmentalData() {
-		
+	public String departmentalData(Model model) {
+		List<FileDP> files2 = fileService.getFileDP();
+	    model.addAttribute("files2", files2);
 	  
 	  return "usr/article/departmentalData";
+	}
+	
+	
+	
+	@RequestMapping("/usr/article/upload2")
+	@ResponseBody
+	public String uploadFile(MultipartFile file2) {
+
+		try {
+			fileService.saveFileDP(file2);
+		} catch (IOException e) {
+			e.printStackTrace();
+			return "파일 업로드 실패";
+		}
+
+		return "파일 업로드 성공";
+	}
+	
+	
+	@RequestMapping("/usr/article/file2/{fileId}")
+	@ResponseBody
+	public ResponseEntity<Resource> downloadFile(@PathVariable("fileId") int fileId) throws IOException {
+
+		FileDP FileDP = fileService.getFileDPeById(fileId);
+		
+		Resource resource = new FileSystemResource(FileDP.getSavedPath());
+
+		return ResponseEntity.ok()
+				.header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + resource.getFilename() + "\"")
+				.body(resource);
 	}
 	
 

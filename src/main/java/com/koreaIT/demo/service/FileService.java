@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.koreaIT.demo.repository.FileRepository;
+import com.koreaIT.demo.vo.FileDP;
 import com.koreaIT.demo.vo.FileVO;
 @Service
 public class FileService {
@@ -25,6 +26,7 @@ public class FileService {
         this.fileRepository = fileRepository;
     }
     
+    // 필수 프로그램 올리는곳
     public void saveFile(MultipartFile file) throws IOException {
         
         if (file.isEmpty()) {
@@ -53,4 +55,36 @@ public class FileService {
     public FileVO getFileById(int fileId) {
         return fileRepository.getFileById(fileId);
     }
+    
+    
+   //부서별 자료 올리는곳
+  public void saveFileDP(MultipartFile file2) throws IOException {
+        
+        if (file2.isEmpty()) {
+            return;
+        }
+        
+        String orgName = file2.getOriginalFilename();
+        
+        String uuid = UUID.randomUUID().toString();
+        
+        String extension = orgName.substring(orgName.lastIndexOf("."));
+        
+        String savedName = uuid + extension;
+        
+        String savedPath = fileDir + File.separator + savedName;
+        
+        fileRepository.insertfileDPInfo(orgName, savedName, savedPath);
+        
+        file2.transferTo(new File(savedPath));
+    }
+
+    public List<FileDP> getFileDP() {
+        return fileRepository.getFileDP();
+    }
+    
+    public FileDP getFileDPeById(int fileId) {
+        return fileRepository.getFileDPeById(fileId);
+    }
+    
 }

@@ -47,20 +47,6 @@ public class FileUploadTestController {
 		return "파일 업로드 성공";
 	}
 
-	@RequestMapping("usr/article/transmission")
-	public String transmission(Model model,String department, String name) {
-
-		List<FileVO> files = fileService.getFiles();
-		model.addAttribute("files", files);
-		
-		List<Member> adminUpload = memberService.adminUpload();
-		model.addAttribute("adminUpload", adminUpload);
-		
-		List<Member> transmissionMembers = memberService.transmissionMembers();
-		model.addAttribute("transmissionMembers", transmissionMembers);
-		
-		return "usr/article/transmission";
-	}
 
 	@RequestMapping("/usr/article/program")
 	public String view(Model model) {
@@ -84,5 +70,22 @@ public class FileUploadTestController {
 	}
 
 	
+	
+	
+	
+	@RequestMapping("usr/article/transmission")
+	public String transmission(Model model,String department, String name) {
+
+		List<FileVO> files = fileService.getFiles();
+		model.addAttribute("files", files);
+		
+		List<Member> adminUpload = memberService.adminUpload();
+		model.addAttribute("adminUpload", adminUpload);
+		
+		List<Member> transmissionMembers = memberService.transmissionMembers();
+		model.addAttribute("transmissionMembers", transmissionMembers);
+		
+		return "usr/article/transmission";
+	}
 	
 }
