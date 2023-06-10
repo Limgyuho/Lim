@@ -44,27 +44,27 @@ public interface FileRepository {
 				SET regDate = NOW(),
 					originName = #{orgName},
 					savedName = #{savedName},
-					savedPath = #{savedPath}
+					savedPath = #{savedPath},
 					dpn = #{dpn}
 			""")
 	void insertfileDPInfo(String orgName, String savedName, String savedPath, String dpn);
 
+	
+	@Select("""
+		    SELECT *
+		    FROM fileDP
+		    """)
+	List<FileDP> getFileDPByDpn();
 
 	
+
 	@Select("""
 			SELECT *
-			FROM fileDP
-			WHERE id = #{fileId}
+				FROM file
+				WHERE id = #{fileId}
 			""")
 	FileDP getFileDPeById(int fileId);
-	
-	@Select("""
-			SELECT *
-				FROM fileDP
-				WHERE dpn =#{dpn}
-			""")
-	List<FileDP> getFileDP(String dpn);
-	
+
 
 
 }

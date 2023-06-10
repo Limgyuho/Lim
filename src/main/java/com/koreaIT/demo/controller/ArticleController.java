@@ -170,10 +170,11 @@ public class ArticleController {
 	
 	
 	@RequestMapping("usr/article/departmentalData")
-	public String departmentalData(Model model,String dpn) {
-		List<FileDP> files2 = fileService.getFileDP(dpn);
+	public String departmentalData(Model model) {
+		
+		List<FileDP> files2 = fileService.getFileDPByDpn();
 	    model.addAttribute("files2", files2);
-	  
+	    
 	  return "usr/article/departmentalData";
 	}
 	
@@ -181,7 +182,7 @@ public class ArticleController {
 	
 	@RequestMapping("/usr/article/upload2")
 	@ResponseBody
-	public String uploadFile(MultipartFile file2, String dpn) {
+	public String uploadFile(@RequestParam("file2") MultipartFile file2, @RequestParam("dpn") String dpn) {
 
 		try {
 			fileService.saveFileDP(file2,dpn);

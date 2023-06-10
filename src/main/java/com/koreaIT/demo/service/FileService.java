@@ -60,34 +60,29 @@ public class FileService {
     
     
    //부서별 자료 올리는곳
-  public void saveFileDP(MultipartFile file2, String dpn) throws IOException {
-        
+    public void saveFileDP(MultipartFile file2, String dpn) throws IOException {
         if (file2.isEmpty()) {
             return;
         }
-        
+
         String orgName = file2.getOriginalFilename();
-        
         String uuid = UUID.randomUUID().toString();
-        
         String extension = orgName.substring(orgName.lastIndexOf("."));
-        
         String savedName = uuid + extension;
-        
         String savedPath = fileDir + File.separator + savedName;
-        
- 
+
         fileRepository.insertfileDPInfo(orgName, savedName, savedPath, dpn);
-        
+
         file2.transferTo(new File(savedPath));
     }
 
-    public List<FileDP> getFileDP(String dpn) {
-        return fileRepository.getFileDP(dpn);
+    public List<FileDP> getFileDPByDpn() {
+        return fileRepository.getFileDPByDpn();
     }
-    
-    public FileDP getFileDPeById(int fileId) {
-        return fileRepository.getFileDPeById(fileId);
-    }
-    
+
+
+	public FileDP getFileDPeById(int fileId) {
+		
+		return fileRepository.getFileDPeById(fileId);
+	}
 }
