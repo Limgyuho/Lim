@@ -131,24 +131,6 @@
 
 </div>
 
-	
-
-<div class="flex">
-    <div>
-        <form method="GET">
-            <select data-value="${department }" class="select select-bordered" name="department">
-               <option value="전체" ${empty department ? 'selected' : ''}>전체</option>
-               <option value="운영지원과" ${department == '운영지원과' ? 'selected' : ''}>운영지원과</option>
-               <option value="정보과" ${department == '정보과' ? 'selected' : ''}>정보과</option>
-               <option value="기획재정담당관"${department == '기획재정담당관' ? 'selected' : ''}>기획재정담당관</option>
-               <option value="감사과" ${department == '감사과' ? 'selected' : ''}>감사과</option>
-           </select>
-           <input class="ml-2 w-80 input input-bordered" name="name" placeholder="검색어를 입력해주세요"
-               maxlength="20" value="${name }" />
-            <button class="ml-2 btn-text-link btn btn-active" type="submit">검색</button>
-        </form>
-    </div>
-</div>
 <!-- 요청 -->
 <div id="suggestion" class="tab-content">
     <table class="table">
@@ -202,6 +184,23 @@
         </tbody>
     </table>
 </div>
+
+
+<div class="flex">
+    <div>
+        <form id="searchForm">
+            <select data-value="${department }" class="select select-bordered" name="department">
+                <option value="전체" ${empty department ? 'selected' : ''}>전체</option>
+                <option value="운영지원과" ${department == '운영지원과' ? 'selected' : ''}>운영지원과</option>
+                <option value="정보과" ${department == '정보과' ? 'selected' : ''}>정보과</option>
+                <option value="기획재정담당관" ${department == '기획재정담당관' ? 'selected' : ''}>기획재정담당관</option>
+                <option value="감사과" ${department == '감사과' ? 'selected' : ''}>감사과</option>
+            </select>
+            <input class="ml-2 w-80 input input-bordered" name="name" placeholder="검색어를 입력해주세요" maxlength="20" value="${name }" autocomplete="off"/>
+            <button class="ml-2 btn-text-link btn btn-active" type="submit">검색</button>
+        </form>
+    </div>
+</div>
 <script>
 function transferSelected() {
     const checkboxes = document.querySelectorAll('input[name="id"]:checked');
@@ -252,6 +251,12 @@ function transferSelected() {
     
     
 </script>
+<style>
+.table-wrapper {
+    max-height: 300px; /* Adjust the height as needed */
+    overflow-y: auto;
+}
+</style>
 
 
 

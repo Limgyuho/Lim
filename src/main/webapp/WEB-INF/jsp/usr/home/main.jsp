@@ -6,10 +6,12 @@
 
 
 <div class="flex mt-5 justify-center">
-	 <div class="flex w-80 h-60 border-black block"></div>
-	 <div class="flex w-80 h-60 border-black block"></div>
-	 <div class="flex w-80 h-60 border-black block"></div>
-	 <div class="flex w-80 h-60 border-black block"></div>
+	 <div class="flex w-80 h-60 border-black block m-11"></div>
+	 <div class="flex w-80 h-60 border-black block m-11"></div>
+</div>
+<div class="flex mt-5 justify-center">
+	 <div class="flex w-80 h-60 border-black block m-11"></div>
+	 <div class="flex w-80 h-60 border-black block m-11"></div>
 </div>
 
 <div class="fixed-bottom">
