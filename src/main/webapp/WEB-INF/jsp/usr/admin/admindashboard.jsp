@@ -1,20 +1,20 @@
-z`<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set var="pageTitle" value="admindashboard" />
 <%@ include file="../common/head.jsp"%>
 
-<h1 class="text-3xl"><a href="/usr/admin/admindashboard">어드민 대시보드</a></h1>
+<span class="text-3xl bg-blue-300 "><a href="/usr/admin/admindashboard">어드민 대시보드</a></span>
 
-<div>
-    <button class="btn btn-link" onclick="showTab('joinRequests')">가입 요청자 목록</button>
-   &nbsp;
-   &nbsp;
-   <button class="btn btn-link" onclick="showTab('approvedMembers')">가입 멤버 목록</button>
-   &nbsp;
-   &nbsp;
-   <button class="btn btn-link" onclick="showTab('suggestion')">요청 사항 목록</button>
+<div class="mt-5">
+    <button class="btn btn-link border-red"  onclick="showTab('joinRequests')">가입 요청자 목록</button>
+    &nbsp;
+    &nbsp;
+    <button class="btn btn-link" onclick="showTab('approvedMembers')">가입 멤버 목록</button>
+    &nbsp;
+    &nbsp;
+    <button class="btn btn-link" onclick="showTab('suggestion')">요청 사항 목록</button>
 </div>
-<!-- 가입 요청자 탭 -->
+
 <div id="joinRequests" class="tab-content">
     <div class="flex">
         <h2 class="flex-grow-1">요청자 목록</h2>

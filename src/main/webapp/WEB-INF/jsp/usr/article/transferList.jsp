@@ -4,7 +4,7 @@
 <%@ include file="../common/head.jsp"%>
 <%@ include file="../home/topbar.jsp"%>
 
-<title>게시글 목록</title>
+<div class="text-6xl text-center mb-14">인사이동</div>
 
 <div class="container mx-auto px-3  items-center">
 	

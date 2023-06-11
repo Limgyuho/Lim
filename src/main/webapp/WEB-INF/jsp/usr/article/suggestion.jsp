@@ -4,10 +4,10 @@
 <%@ include file="../common/head.jsp"%>
 <%@ include file="../home/topbar.jsp"%>
 
+<div class="text-6xl text-center mb-14">요청 및 건의 사항</div>
+
 <div class="flex justify-center items-center h-screen">
 	<div class="container">
-		<div class="flex justify-center text-3xl mt-10">요청 및 건의 사항</div>
-
 		<div class="border-red">
 			<section class="mt-8 text-xl ">
 				<div class="container mx-auto px-3">

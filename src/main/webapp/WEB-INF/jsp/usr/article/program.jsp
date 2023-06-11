@@ -4,7 +4,8 @@
 <%@ include file="../common/head.jsp"%>
 <%@ include file="../home/topbar.jsp"%>
 
-업로드 장소
+<div class="text-6xl text-center mb-14">필수 프로그램</div>
+
 <div class="flex justify-center">
 	<table class="table">
 		<thead>

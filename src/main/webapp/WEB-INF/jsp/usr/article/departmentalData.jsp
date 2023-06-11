@@ -3,9 +3,11 @@
 <%@ include file="../common/head.jsp" %>
 <%@ include file="../home/topbar.jsp" %>
 
+<div class="text-6xl text-center mb-14">부서별 자료</div>
+
 <div class="flex mt-5 justify-center content-center h-screen">
-    <div id="div1" class="flex w-80 h-96 border-black block">
-        운영지원과
+    <div id="div1" class="flex w-80 h-96 border-black block ">
+        <span class="text-2xl">운영지원과</span>
         <ul>
             <c:forEach var="file" items="${files2}">
                 <c:if test="${file.dpn eq '운영지원과'}">
@@ -27,7 +29,7 @@
     </div>
 
     <div id="div2" class="flex w-80 h-96 border-black block">
-        기획재정담당관
+    	<span class="text-2xl">기획재정담당관</span>
         <ul>
             <c:forEach var="file" items="${files2}">
                 <c:if test="${file.dpn eq '기획재정담당관'}">
@@ -49,7 +51,7 @@
     </div>
 
     <div id="div3" class="flex w-80 h-96 border-black block">
-        정보과
+        <span class="text-2xl">정보과</span>
         <ul>
             <c:forEach var="file" items="${files2}">
                 <c:if test="${file.dpn eq '정보과'}">
@@ -71,7 +73,7 @@
     </div>
 
     <div id="div4" class="flex w-80 h-96 border-black block">
-        감사과
+        <span class="text-2xl">감사과</span>
         <ul>
             <c:forEach var="file" items="${files2}">
                 <c:if test="${file.dpn eq '감사과'}">
