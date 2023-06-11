@@ -42,8 +42,8 @@ public class ArticleController {
 	private Rq rq;
 
 	@Autowired
-	public ArticleController(FileService fileService,ArticleService articleService, AdminService adminService, BoardService boardService,MemberService memberService,
-			Rq rq, JoinRequestService joinRequestService) {
+	public ArticleController(FileService fileService, ArticleService articleService, AdminService adminService,
+			BoardService boardService, MemberService memberService, Rq rq, JoinRequestService joinRequestService) {
 		this.memberService = memberService;
 		this.adminService = adminService;
 		this.fileService = fileService;
@@ -62,45 +62,17 @@ public class ArticleController {
 		return "usr/article/transferList";
 	}
 
-	// 인사이동 내용
+	// 해당 멤버의 인사이동 내용
 	@RequestMapping("/usr/article/transferdetail")
-	public String showatransferdetail(Model model, @RequestParam(defaultValue = "1") int boardId,
-			@RequestParam(defaultValue = "1") int page, 
-			@RequestParam(defaultValue = "title") String searchKeywordType,
-			@RequestParam(defaultValue = "") String searchKeyword) {
-		
-		if (page <= 0) {
-			return rq.jsReturnOnView("페이지번호가 올바르지 않습니다", true);
-		}
+	public String showTransferDetail(@RequestParam("memberId") int memberId, Model model) {
 
-		Board board = boardService.getBoardById(boardId);
-
-		if (board == null) {
-			return rq.jsReturnOnView("존재하지 않는 게시판입니다", true);
-		}
-
-		int articlesCnt = articleService.getArticlesCnt(boardId, searchKeywordType, searchKeyword);
-
-		int itemsInAPage = 10;
-
-		int pagesCount = (int) Math.ceil((double) articlesCnt / itemsInAPage);
-
-		List<Article> articles = articleService.getArticles(boardId, searchKeywordType, searchKeyword, itemsInAPage, page);
-
-		model.addAttribute("pagesCount", pagesCount);
-		model.addAttribute("page", page);
-		model.addAttribute("articlesCnt", articlesCnt);
-		model.addAttribute("articles", articles);
-		model.addAttribute("board", board);
-		model.addAttribute("searchKeyword", searchKeyword);
-		model.addAttribute("searchKeywordType", searchKeywordType);
-
-		
-		// 가입 완료된 멤버 정보 조회
-		List<Member> approvedMembers = memberService.approvedMembers();
-		model.addAttribute("approvedMembers", approvedMembers);
-		return "/usr/article/transferdetail";
+	    Member member = memberService.getMemberById(memberId);
+	    
+	    model.addAttribute("member", member);
+	    
+	    return "/usr/article/transferdetail";
 	}
+
 
 	// 요청 사항 선택 메서드
 	@RequestMapping("/usr/article/suggestion")
@@ -125,7 +97,7 @@ public class ArticleController {
 
 	// 휴가 신청 화면
 	@RequestMapping("usr/article/leave")
-	public String leave(Model model ) {
+	public String leave(Model model) {
 
 		int applicantnumber = rq.getLoginedMember().getId();
 
@@ -133,28 +105,25 @@ public class ArticleController {
 		List<Vacation> showVacation = memberService.showVacation(applicantnumber);
 		model.addAttribute("showVacation", showVacation);
 
-		//직급이 과장인
+		// 직급이 과장인
 		List<Member> manager = memberService.manager();
-		model.addAttribute("manager",manager);
-		
-		//휴가 신청한 기록 보기
+		model.addAttribute("manager", manager);
+
+		// 휴가 신청한 기록 보기
 		List<Vacation> showallVacation = memberService.showallVacation();
 		model.addAttribute("showallVacation", showallVacation);
 
-		
-		
 		return "/usr/article/leave";
 	}
 
 	// 휴가신청 넣기
 	@RequestMapping("usr/article/leaveRequest")
-	public String leave(Model model, String date, String vacationType1,String vacationType2) {
-		
+	public String leave(Model model, String date, String vacationType1, String vacationType2) {
+
 		System.out.println(vacationType1);
-		
+
 		int applicantNumber = rq.getLoginedMemberId();
-		adminService.leaveRequest(applicantNumber, date, vacationType1,vacationType2);
-		
+		adminService.leaveRequest(applicantNumber, date, vacationType1, vacationType2);
 
 		return "redirect:/usr/article/leave";
 	}
@@ -162,30 +131,27 @@ public class ArticleController {
 	// 휴가신청 허가 거부
 	@RequestMapping("usr/article/leaveAp")
 	public String getLeaveMember(@RequestParam int id, @RequestParam int status) {
-		
-	  memberService.updateStatus(id, status);
-	  
-	  return "redirect:/usr/article/leave";
+
+		memberService.updateStatus(id, status);
+
+		return "redirect:/usr/article/leave";
 	}
-	
-	
+
 	@RequestMapping("usr/article/departmentalData")
 	public String departmentalData(Model model) {
-		
+
 		List<FileDP> files2 = fileService.getFileDPByDpn();
-	    model.addAttribute("files2", files2);
-	    
-	  return "usr/article/departmentalData";
+		model.addAttribute("files2", files2);
+
+		return "usr/article/departmentalData";
 	}
-	
-	
-	
+
 	@RequestMapping("/usr/article/upload2")
 	@ResponseBody
 	public String uploadFile(@RequestParam("file2") MultipartFile file2, @RequestParam("dpn") String dpn) {
 
 		try {
-			fileService.saveFileDP(file2,dpn);
+			fileService.saveFileDP(file2, dpn);
 		} catch (IOException e) {
 			e.printStackTrace();
 			return "파일 업로드 실패";
@@ -193,20 +159,18 @@ public class ArticleController {
 
 		return "파일 업로드 성공";
 	}
-	
-	
+
 	@RequestMapping("/usr/article/file2/{fileId}")
 	@ResponseBody
 	public ResponseEntity<Resource> downloadFile(@PathVariable("fileId") int fileId) throws IOException {
 
 		FileDP FileDP = fileService.getFileDPeById(fileId);
-		
+
 		Resource resource = new FileSystemResource(FileDP.getSavedPath());
 
 		return ResponseEntity.ok()
 				.header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + resource.getFilename() + "\"")
 				.body(resource);
 	}
-	
 
 }
