@@ -8,7 +8,7 @@
     <script>
         $(document).ready(function () {
             // WebSocket 연결
-            var socket = new WebSocket("ws://localhost:8080/chat");
+            var socket = new WebSocket("ws://localhost:8085/chat");
 
             // 연결이 열린 경우
             socket.onopen = function (event) {
