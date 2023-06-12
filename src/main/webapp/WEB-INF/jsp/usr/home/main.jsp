@@ -4,8 +4,10 @@
 <%@ include file="../home/topbar.jsp" %>
 <%@ include file="../common/head.jsp" %>
 
+<div class ="border-blue h-80"></div>
 
-<div class="flex mt-5 justify-center">
+
+<div class="flex mt-5 justify-center border-blue banner_list--wrap mvis_list slick-initialized slick-slider">
 
 	 <div class="flex w-3/12 h-60 border-black block m-11 rounded-xl">
 	 	<span>인사이동 대상자</span>
@@ -38,9 +40,7 @@
 			</c:forEach>
 		</div>
 	 </div>
-</div>
 
-<div class="flex mt-5 justify-center">
 	 <div class="flex w-3/12 h-60 border-black block m-11 rounded-xl">
 	 	<span>필수 프로그램</span>
 	 	<div class="border-red h-5/6">

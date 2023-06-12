@@ -57,7 +57,8 @@
     </table>
 </div>
 
-<div id="approvedMembers" class="tab-content ">
+<div id="approvedMembers" class="tab-content" style="max-height: full; overflow-y: scroll;">
+
     <div class="flex">
         <div class="flex">가입된 멤버들</div>
         <div class="flex ">총 인원: ${memberCnt} 명</div>
@@ -132,7 +133,7 @@
 </div>
 
 <!-- 요청 -->
-<div id="suggestion" class="tab-content">
+<div id="suggestion" class="tab-content" style="max-height: 300px; overflow-y: scroll;">
     <table class="table">
         <thead>
             <tr>

@@ -23,13 +23,17 @@
 	</div>
 </div>
 
-<div class="w-52 h-20 border-black">
-    <div class="user-info">
-        <span>${rq.loginedMember.department }</span>
-        <span>${rq.loginedMember.position }</span>
-        <span>${rq.loginedMember.name }</span>
-       	<span class="Messenger" >메신저</span>
+<div class="border-black w-48">
+    <ul class="user-info">
+        <li>${rq.loginedMember.department }</li>
+        <li>${rq.loginedMember.position }</li>
+        <li>${rq.loginedMember.name }</li>
+       	<li class="Messenger" >메신저</li>
         <a href="/usr/home/home">로그아웃</a>
-    </div>
+    </ul>
+</div>
+<div>
+
+
 </div>
 

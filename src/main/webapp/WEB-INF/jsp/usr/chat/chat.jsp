@@ -4,48 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Chat</title>
-    <style>
-        /* CSS 스타일을 여기에 작성해주세요. */
-        #chat-container {
-            width: 400px;
-            margin: 0 auto;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        #message-container {
-            height: 300px;
-            overflow-y: scroll;
-            border: 1px solid #ccc;
-            padding: 10px;
-            margin-bottom: 10px;
-        }
-
-        #input-container {
-            display: flex;
-        }
-
-        #message-input {
-            flex-grow: 1;
-            margin-right: 10px;
-            padding: 5px;
-        }
-
-        #send-button {
-            padding: 5px 10px;
-        }
-    </style>
-</head>
-<body>
-    <div id="chat-container">
-        <div id="message-container"></div>
-        <div id="input-container">
-            <input type="text" id="message-input" placeholder="메시지를 입력하세요">
-            <button id="send-button">전송</button>
-        </div>
-    </div>
-
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function () {
@@ -68,6 +26,9 @@
                 console.log("WebSocket 연결이 닫혔습니다.");
             };
 
+            // 현재 로그인한 사용자의 이름 설정
+            var currentUserName = "${member.name}"; // 서버에서 전달한 사용자 이름으로 수정해주세요.
+
             // 메시지 전송
             $("#send-button").on("click", function () {
                 var messageInput = $("#message-input");
@@ -75,7 +36,7 @@
 
                 if (message.trim() !== "") {
                     var data = {
-                        senderName: "현재 로그인한 사용자의 이름", // 현재 로그인한 사용자의 이름으로 수정해주세요.
+                        senderName: currentUserName,
                         content: message
                     };
                     socket.send(JSON.stringify(data));
@@ -84,15 +45,30 @@
                 }
             });
 
+            // 엔터 키 입력 시 메시지 전송
+            $("#message-input").on("keydown", function (event) {
+                if (event.keyCode === 13) { // 엔터 키
+                    event.preventDefault();
+                    $("#send-button").click();
+                }
+            });
+
             // 메시지 처리
             function handleMessage(message) {
                 var senderName = message.senderName;
                 var content = message.content;
 
-                $("#message-container").append("<p><strong>" + senderName + ":</strong> " + content + "</p>");
-                // 채팅 메시지를 화면에 추가하는 로직을 작성해주세요.
+                var chatMessage = "<p><strong>" + senderName + ":</strong> " + content + "</p>";
+                $("#chat-window").append(chatMessage);
+                $("#chat-window").scrollTop($("#chat-window")[0].scrollHeight);
             }
         });
     </script>
+</head>
+<body>
+    <h1>채팅 화면</h1>
+    <div id="chat-window" style="height: 400px; overflow-y: scroll; border: 1px solid #ccc; padding: 10px;"></div>
+    <input type="text" id="message-input" style="margin-top: 10px;">
+    <button id="send-button" style="margin-top: 10px;">전송</button>
 </body>
 </html>

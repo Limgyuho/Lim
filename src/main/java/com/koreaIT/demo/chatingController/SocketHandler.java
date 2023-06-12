@@ -14,17 +14,16 @@ import org.springframework.web.socket.handler.TextWebSocketHandler;
 @Component
 public class SocketHandler extends TextWebSocketHandler {
 
-    HashMap<String, WebSocketSession> sessionMap = new HashMap<>(); // 웹소켓 세션을 담아둘 맵
+    private final HashMap<String, WebSocketSession> sessionMap = new HashMap<>(); // 웹소켓 세션을 담아둘 맵
 
     @Override
-    public void handleTextMessage(WebSocketSession session, TextMessage message) {
+    protected void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception {
         // 메시지 발송
         String msg = message.getPayload();
         JSONObject obj = jsonToObjectParser(msg);
         String senderName = getSessionAttribute(session, "userName");
         obj.put("senderName", senderName); // 채팅을 보낸 사용자의 이름 추가
-        for (String key : sessionMap.keySet()) {
-            WebSocketSession wss = sessionMap.get(key);
+        for (WebSocketSession wss : sessionMap.values()) {
             try {
                 wss.sendMessage(new TextMessage(obj.toJSONString()));
             } catch (Exception e) {
@@ -33,7 +32,6 @@ public class SocketHandler extends TextWebSocketHandler {
         }
     }
 
-    @SuppressWarnings("unchecked")
     @Override
     public void afterConnectionEstablished(WebSocketSession session) throws Exception {
         // 소켓 연결

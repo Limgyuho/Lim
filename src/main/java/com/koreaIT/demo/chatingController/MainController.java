@@ -32,13 +32,7 @@ public class MainController {
 	@GetMapping("/usr/chat/chat/{id}")
 	public String chat(@PathVariable int id, HttpSession session, Model model) {
 		// HttpSession을 사용하여 로그인한 사용자의 정보를 세션에 저장합니다.
-		session.setAttribute("userId", id);
-		return "usr/chat/chat";
-	}
-
-	@GetMapping("/usr/chat/profile")
-	public String profile(HttpSession session, Model model) {
-		// 세션에서 로그인한 사용자의 ID를 가져옵니다.
+		
 		int userId = (int) session.getAttribute("userId");
 
 		// 사용자 ID를 기반으로 사용자 정보를 조회합니다.
@@ -47,8 +41,11 @@ public class MainController {
 		// 사용자 정보를 모델에 추가합니다.
 		model.addAttribute("member", member);
 
-		return "usr/profile";
+		
+		session.setAttribute("userId", id);
+		return "usr/chat/chat";
 	}
+
 
 	@GetMapping("/usr/chat/department")
 	public String showDepartment() {
