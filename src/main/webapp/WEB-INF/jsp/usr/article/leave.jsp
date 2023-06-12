@@ -11,7 +11,7 @@
 	
 <div class="text-6xl text-center mb-14">휴가 보고</div>
 
-<div class="flex">
+<div class="flex ">
 	<div class="border-blue w-80 h-100">
 		<form action="/usr/article/leaveRequest" method="post">
 			<label for="date">날짜:</label> <input type="text" id="date" name="date">

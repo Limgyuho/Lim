@@ -19,7 +19,7 @@
         <c:forEach var="member" items="${departmentMembers}">
             <tr>
                 <td>${member.position}</td>
-                <td><a href="/usr/main/chat/${member.id}">${member.name}</a></td>
+                <td><a href="/usr/chat/chat/${member.id}">${member.name}</a></td>
                 <td>${member.cellphoneNum}</td>
             </tr>
         </c:forEach>
