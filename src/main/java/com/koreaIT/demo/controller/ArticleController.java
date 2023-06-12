@@ -22,10 +22,7 @@ import com.koreaIT.demo.service.BoardService;
 import com.koreaIT.demo.service.FileService;
 import com.koreaIT.demo.service.JoinRequestService;
 import com.koreaIT.demo.service.MemberService;
-import com.koreaIT.demo.vo.Article;
-import com.koreaIT.demo.vo.Board;
 import com.koreaIT.demo.vo.FileDP;
-import com.koreaIT.demo.vo.FileVO;
 import com.koreaIT.demo.vo.Member;
 import com.koreaIT.demo.vo.Rq;
 import com.koreaIT.demo.vo.Suggestion;
@@ -34,11 +31,9 @@ import com.koreaIT.demo.vo.Vacation;
 @Controller
 public class ArticleController {
 
-	private ArticleService articleService;
 	private FileService fileService;
 	private MemberService memberService;
 	private AdminService adminService;
-	private BoardService boardService;
 	private Rq rq;
 
 	@Autowired
@@ -47,7 +42,6 @@ public class ArticleController {
 		this.memberService = memberService;
 		this.adminService = adminService;
 		this.fileService = fileService;
-		this.boardService = boardService;
 		this.rq = rq;
 	}
 

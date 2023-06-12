@@ -9,7 +9,6 @@ import org.apache.ibatis.annotations.Update;
 
 import com.koreaIT.demo.vo.Admin;
 import com.koreaIT.demo.vo.Suggestion;
-import com.koreaIT.demo.vo.Vacation;
 
 @Mapper
 public interface AdminRepository {
