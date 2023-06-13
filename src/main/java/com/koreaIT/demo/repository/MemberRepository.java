@@ -209,5 +209,13 @@ public interface MemberRepository {
 		""")
 	public void deleteMembers(int id );
 
+	
+	@Select("""
+			SELECT *
+				FROM `member`
+				WHERE id = #{userId}
+			""")
+	public Member getMemberBychatId(int userId);
+
 
 }

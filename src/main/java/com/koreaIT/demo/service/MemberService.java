@@ -133,4 +133,9 @@ public class MemberService {
 		return memberRepository.getMemberById(memberName);
 	}
 
+	public Member getMemberBychatId(int userId) {
+		
+		return memberRepository.getMemberBychatId(userId);
+	}
+
 }

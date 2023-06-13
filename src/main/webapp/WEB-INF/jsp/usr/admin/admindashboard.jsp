@@ -118,7 +118,7 @@
                                    onclick="location.href='/usr/admin/Reapproval'">재승인</button>
                        </c:if>
                        <c:if test="${member.permission == 1}">
-                               이미지?
+                               ■
                        </c:if>
                        <c:if test="${member.permission == -1}">
                                이미지?

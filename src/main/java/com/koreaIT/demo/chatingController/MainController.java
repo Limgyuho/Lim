@@ -33,16 +33,21 @@ public class MainController {
 	public String chat(@PathVariable int id, HttpSession session, Model model) {
 	    // HttpSession을 사용하여 로그인한 사용자의 정보를 세션에 저장합니다.
 	    session.setAttribute("userId", id);
+	    System.out.println(session.getAttribute("userId"));
 
 	    // 사용자 ID를 기반으로 사용자 정보를 조회합니다.
-	    int userId = (int) session.getAttribute("userId");
-	    Member member = memberService.getMemberById(userId);
-
+	    Member member = memberService.getMemberBychatId(id);
+	    
+	    System.out.println( member.getName());
+	    
 	    // 사용자 정보를 모델에 추가합니다.
 	    model.addAttribute("member", member);
+	    session.setAttribute("userName", member.getName());
+	    System.out.println(session.getAttribute("userName"));
 
 	    return "usr/chat/chat";
 	}
+
 
 
 

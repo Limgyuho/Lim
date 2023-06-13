@@ -1,0 +1,359 @@
+DROP DATABASE IF EXISTS LimProject;
+CREATE DATABASE LimProject;
+USE LimProject;
+
+# board 테이블 생성
+
+DROP TABLE  `admin`
+
+CREATE TABLE `admin`(
+	id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	regDate DATETIME NOT NULL,
+	updateDate DATETIME NOT NULL,
+	loginId VARCHAR(20) NOT NULL UNIQUE,
+	loginPw VARCHAR(100) NOT NULL,
+	`authLevel` SMALLINT UNSIGNED NOT NULL DEFAULT 3 COMMENT '권한 레벨 (일반 = 3, 관리자 = 7)',
+	`name` VARCHAR(20) NOT NULL,
+	cellphoneNum VARCHAR(20) NOT NULL,
+	email VARCHAR(50) NOT NULL,
+	permission INT NOT NULL,
+	delStatus TINYINT UNSIGNED NOT NULL DEFAULT 0 COMMENT '탈퇴여부 (탈퇴 전 = 0, 탈퇴 후 = 1)',
+	delDate DATETIME COMMENT '탈퇴 날짜'
+);
+
+
+CREATE TABLE `member`(
+	id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	regDate DATETIME NOT NULL,
+	updateDate DATETIME NOT NULL,
+	loginId VARCHAR(20) NOT NULL UNIQUE,
+	loginPw VARCHAR(100) NOT NULL,
+	`name` VARCHAR(20) NOT NULL,
+	cellphoneNum VARCHAR(20) NOT NULL,
+	email VARCHAR(50) NOT NULL,
+	delDate DATETIME COMMENT '탈퇴 날짜',
+	permission INT NOT NULL,
+	department VARCHAR(50),
+	`position` VARCHAR(50),
+	vacationstate VARCHAR(50)
+);
+
+SELECT * FROM `member`
+    
+DROP TABLE vacation
+
+SELECT m.*, v.vacationType
+FROM MEMBER m
+JOIN vacation v ON m.id = v.applicantnumber
+
+SELECT m.`name`, m.`position`, m.cellphoneNum ,v.vacationType
+			FROM `member`m
+			JOIN vacation v ON m.id = v.applicantnumber
+			WHERE department = #{department}
+
+
+SELECT * FROM MEMBER WHERE `date`
+
+CREATE TABLE join_requests(
+	id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	regDate DATETIME NOT NULL,
+	updateDate DATETIME NOT NULL,
+	loginId VARCHAR(20) NOT NULL UNIQUE,
+	loginPw VARCHAR(100) NOT NULL,
+	`authLevel` SMALLINT UNSIGNED NOT NULL DEFAULT 3 COMMENT '권한 레벨 (일반 = 3, 관리자 = 7)',
+	`name` VARCHAR(20) NOT NULL,
+	cellphoneNum VARCHAR(20) NOT NULL,
+	email VARCHAR(50) NOT NULL,
+	delStatus TINYINT UNSIGNED NOT NULL DEFAULT 0 COMMENT '탈퇴여부 (탈퇴 전 = 0, 탈퇴 후 = 1)',
+	delDate DATETIME COMMENT '탈퇴 날짜',
+	permission INT DEFAULT 0,
+	department VARCHAR(50),
+	`position` VARCHAR(50)
+);
+
+
+
+
+SELECT m.name, m.department, m.position
+FROM suggestion AS s
+INNER JOIN `member` AS m ON s.applicant_number = m.id
+
+
+SELECT * FROM `member`
+SELECT * FROM suggestion
+DROP TABLE suggestion
+DROP TABLE `member`
+
+
+SELECT suggestion.*, member.name, member.position, member.department
+FROM suggestion
+INNER JOIN MEMBER ON suggestion.applicant_number = member.id;
+
+
+CREATE TABLE suggestion (
+  id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  applicantnumber INT,
+  regDate DATETIME NOT NULL,
+  item VARCHAR(50),
+  permission INT DEFAULT 0,
+  reason VARCHAR(50)
+);
+
+DROP TABLE `fileDP`
+SELECT * FROM `fileDP`
+
+CREATE TABLE `file`(
+	id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	regDate DATETIME NOT NULL,
+    originName VARCHAR(50) NOT NULL,
+    savedName VARCHAR(100) NOT NULL,
+    savedPath VARCHAR(100) NOT NULL	
+);
+
+
+CREATE TABLE `fileDP`(
+	id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	regDate DATETIME NOT NULL,
+    originName VARCHAR(50) NOT NULL,
+    savedName VARCHAR(100) NOT NULL,
+    savedPath VARCHAR(100) NOT NULL	,
+    dpn VARCHAR(100) NOT NULL	
+);
+
+
+
+SELECT * FROM `fileDP`
+ALTER TABLE FILE MODIFY originName VARCHAR(255);
+
+
+DROP TABLE vacation
+SELECT * FROM vacation
+SELECT * FROM `member`
+
+CREATE TABLE vacation (
+  id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  applicantnumber INT ,
+  regDate DATETIME NOT NULL,
+  `date` VARCHAR(100),
+  `status`INT DEFAULT 0,
+  vacationType1 VARCHAR(50),
+  vacationType2 VARCHAR(50)
+);
+
+
+CREATE TABLE message (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  sender INT NOT NULL,
+  recipient INT NOT NULL,
+  content VARCHAR(255) NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+
+ALTER TABLE suggestion
+DROP PRIMARY KEY,
+MODIFY COLUMN id INT UNSIGNED,
+ADD PRIMARY KEY (applicant_number);
+
+SELECT * FROM suggestion;
+
+DROP TABLE suggestion
+
+
+SELECT s.*, m.department, m.position, m.name
+FROM suggestion AS s
+JOIN MEMBER AS m ON s.applicantNumber = m.id
+
+INSERT INTO `member`
+SET regDate = NOW(),
+updateDate = NOW(),
+loginId = 'admin',
+loginPw = 'admin',
+`name` = 'admin',
+cellphoneNum = '010-1112-1112',
+email = 'test1@naver.com',
+permission = 1,
+department = '감사과',
+`position` = '주무관';
+
+
+
+INSERT INTO `member`
+SET regDate = NOW(),
+updateDate = NOW(),
+loginId = 'test2',
+loginPw = 'test2',
+`name` = '유저2',
+cellphoneNum = '010-1112-1112',
+email = 'test1@naver.com',
+permission = 1,
+department = '운영지원과',
+`position` = '과장';
+
+
+
+INSERT INTO `member`
+SET regDate = NOW(),
+updateDate = NOW(),
+loginId = 'test1',
+loginPw = 'test1',
+`name` = '유저1',
+cellphoneNum = '010-1112-1112',
+email = 'test1@naver.com',
+permission = 1,
+department = '운영지원과',
+`position` = '주무관';
+
+
+
+INSERT INTO `member`
+SET regDate = NOW(),
+updateDate = NOW(),
+loginId = 'test3',
+loginPw = 'test3',
+`name` = '유저3',
+cellphoneNum = '010-1112-1112',
+email = 'test1@naver.com',
+permission = 1,
+department = '감사과',
+`position` = '서기관';
+
+SELECT * FROM `member`
+
+DROP TABLE `member`;
+
+
+INSERT INTO join_requests
+SET regDate = NOW(),
+updateDate = NOW(),
+loginId = 'join2',
+loginPw = 'join2',
+`name` = '조인1',
+cellphoneNum = '010-1j12-1112',
+email = 'test1@naver.com',
+permission = 0,
+department = '기획재정담당관',
+`position` = '서기관';
+
+  
+INSERT INTO join_requests
+SET regDate = NOW(),
+updateDate = NOW(),
+loginId = 'join8',
+loginPw = 'join8',
+`name` = '조인5',
+cellphoneNum = '010-1j12-1112',
+email = 'test1@naver.com',
+permission = 0,
+department = '정보과',
+`position` = '서기관';
+
+
+INSERT INTO `admin`
+SET regDate = NOW(),
+updateDate = NOW(),
+loginId = 'admin',
+loginPw = 'admin',
+`name` = 'admin',
+cellphoneNum = '010-1112-1112',
+email = 'test1@naver.com',
+permission= 1;
+
+INSERT INTO `admin`
+SET regDate = NOW(),
+updateDate = NOW(),
+loginId = 'test1',
+loginPw = 'test1',
+`name` = '유저1',
+cellphoneNum = '010-1112-1112',
+email = 'test1@naver.com',
+permission=1;
+
+
+
+
+SELECT *
+				FROM join_requests
+
+
+
+   SELECT *
+		    FROM `member`
+		    WHERE `position` = '과장'
+
+SELECT * FROM article;
+SELECT * FROM `admin`;
+SELECT * FROM `member`;
+SELECT * FROM join_requests;
+
+DELETE FROM `member` WHERE id IN (1,2,3,4);
+
+DELETE FROM join_requests
+				WHERE id = 4
+UPDATE `member`
+SET permission = 1
+WHERE id = 
+
+
+디비를 부서별, 직급별로 나눈다
+
+어드민 대시보드에서 가입된 멤버들 탭에서
+전제 직원들 보기(직원검색 이름으로가능)와 
+부서별로 보기(직원검색 이름으로가능) 
+
+회웝가입시 인사이동 페이제
+정보들을 자동으로 보여준다
+
+인사이동 탭을 따로 만든다
+인사이동 탭에는 부서와 직급에 대한 정보가 담겨져있는데
+운영지원과, 정보과..... 주무관 사무관 과장 국장....
+
+멤버들의 정보를 보여지게 되며
+버튼으로 과와 직급을 변경 가능하다 직급에는 권한 등급이 담겨있다
+변경된 내용들은 인사이동란, 페이지에 자동으로 게시된다.
+
+
+모듈화 아이프레임
+
+SELECT *
+		FROM join_requests
+		WHERE department = '정보과'
+        -- AND name = #{name}
+
+SELECT *
+				FROM `member`
+				WHERE department = '전체'
+				
+				
+
+			UPDATE `member`
+			SET department = '기획재정담당관',
+			    `position` = '서기관'
+			WHERE loginId = 4
+pk역할
+신청일
+신청자
+신청항목 (교체, 대여)
+신청아이템 = #{a}
+신청사유
+비고
+
+신청항목 (교체, 대여)
+신청아이템 a
+신청사유
+비고
+
+신청아이템이 여러개인 경우
+복수개의 데이터를 받아와서
+신청된 아이템의 개수만큼 반복문을 돌려서
+컬럼 하나 더 추가해서 신청자 번호로 저장한다
+누가 누군지 알기 위함이다 이 컬럼에는
+사용자의 대한 정보를 알기 위함이다 여기에는 
+
+
+
+인서트 실행
+저장 할때만 교체 대여 
+
+일단 컨트롤러에서 받는거 먼저하기
+데이터 체크하기

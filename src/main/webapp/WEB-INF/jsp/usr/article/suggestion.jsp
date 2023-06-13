@@ -6,7 +6,7 @@
 
 <div class="text-6xl text-center mb-14">요청 및 건의 사항</div>
 
-<div class="flex justify-center items-center h-screen">
+<div class="flex justify-center items-center">
 	<div class="container">
 		<div class="border-red">
 			<section class="mt-8 text-xl ">
@@ -15,7 +15,7 @@
 						onsubmit="join_submitForm(this); return false;">
 						<input type="hidden" name="applicant_number"
 							value="${rq.getLoginedMember().getId()}" />
-						<div class="">
+						<div class="flex justify-center">
 							<table class="table">
 								<colgroup>
 									<col width="160" />

@@ -12,4 +12,5 @@ public class FileVO {
 	private String originName;
 	private String savedNm;
 	private String savedPath;
+	private String orgName;
 }

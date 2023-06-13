@@ -22,7 +22,7 @@
 				<tr>
 					<td>${file.id}</td>
 					<td>${rq.getLoginedMember().getRegDate()}</td>
-					<td>${file.originName }</td>
+					<td>${file.orgName }</td>
 					<td>${rq.getLoginedMember().getName()}</td>
 					<td>
 						<a href="/usr/article/file/${file.id}" download>

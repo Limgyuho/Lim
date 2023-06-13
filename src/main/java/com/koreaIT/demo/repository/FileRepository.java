@@ -29,8 +29,8 @@ public interface FileRepository {
 	FileVO getFileById(int fileId);
 
 	@Select("""
-			SELECT *
-				FROM file
+			 SELECT  *, SUBSTRING_INDEX(originName, IF(LOCATE('_', originName) > 0, '_', '.'), 1) AS orgName
+			 FROM `file`
 			""")
 	List<FileVO> getFiles();
 	
