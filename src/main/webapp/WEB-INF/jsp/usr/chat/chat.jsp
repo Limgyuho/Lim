@@ -24,6 +24,9 @@
                 handleMessage(message);
             };
 
+            
+            var currentUserName = "${userName}"; 
+            
             // 연결이 닫힌 경우
             socket.onclose = function (event) {
                 console.log("WebSocket 연결이 닫혔습니다.");
@@ -37,7 +40,7 @@
 	
 	               if (message.trim() !== "") {
 	                   var data = {
-	                       senderName: "userName",
+	                       senderName: currentUserName,
 	                       content: message
 	                   };
 	                   socket.send(JSON.stringify(data));
