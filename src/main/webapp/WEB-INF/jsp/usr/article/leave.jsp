@@ -11,10 +11,10 @@
 	
 <div class="text-6xl text-center mb-14">휴가 보고</div>
 
-<div class="flex ">
-	<div class="border-blue w-80 h-100">
+<div class="flex justify-center">
+	<div class="border-blue w-80 h-100 rounded-3xl p-8 m-3">
 		<form action="/usr/article/leaveRequest" method="post">
-			<label for="date">날짜:</label> <input type="text" id="date" name="date">
+			<label for="date">날짜:</label> <input type="text" id="date" name="date" autocomplete="off">
 			<br />
 			<br />
 			<label for="vacationType1">법정 휴가:</label> 
@@ -56,41 +56,36 @@
 		</form>
 	</div>
 	
+<!-- 	<table class="border-collapse border-blue rounded-3xl p-8 m-3"> -->
 	
-	<table class="border-collapse border-blue ">
-	  <thead>
-	    <tr>
-	      <th class="border border-blue px-4 py-2">날짜</th>
-	      <th class="border border-blue px-4 py-2">법정 휴가</th>
-	      <th class="border border-blue px-4 py-2">약정 휴가</th>
-	      <th class="border border-blue px-4 py-2">상태</th>
-	    </tr>
-	  </thead>
-	  <tbody>
-	    <c:forEach var="vacation" items="${showVacation}">
-	      <tr>
-	        <td class="border border-blue px-4 py-2">${vacation.date}</td>
-	        <td class="border border-blue px-4 py-2">${vacation.vacationType1}</td>
-	        <td class="border border-blue px-4 py-2">${vacation.vacationType2}</td>
-	        <td class="border border-blue px-4 py-2">
-	          <c:if test="${vacation.status == 1}">
-	            <span class="text-green-500">허가</span>
-	          </c:if>
-	          <c:if test="${vacation.status == 0}">
-	            <span class="text-yellow-500">대기</span>
-	          </c:if>
-	          <c:if test="${vacation.status == -1}">
-	            <span class="text-red-500">거부</span>
-	          </c:if>
-	        </td>
-	      </tr>
-	    </c:forEach>
-	  </tbody>
-	</table>
+	  <div class="list-container ">
+		  <ul class="list-disc list-inside">
+		    <c:forEach var="vacation" items="${showVacation}">
+		      <li>
+		        <span>날짜: ${vacation.date}</span>
+		        <span>법정 휴가: ${vacation.vacationType1}</span>
+		        <span>약정 휴가: ${vacation.vacationType2}</span>
+		        <span>
+		          <c:if test="${vacation.status == 1}">
+		            <span class="text-green-500">허가</span>
+		          </c:if>
+		          <c:if test="${vacation.status == 0}">
+		            <span class="text-yellow-500">대기</span>
+		          </c:if>
+		          <c:if test="${vacation.status == -1}">
+		            <span class="text-red-500">거부</span>
+		          </c:if>
+		        </span>
+		      </li>
+		    </c:forEach>
+		  </ul>
+		</div>
+
+
 
 	<c:forEach var="member" items="${manager}">
 	  <c:if test="${member.position == rq.getLoginedMember().getPosition()}">
-	  	<div class="border-blue w-30 h-50 overflow-auto">
+	  	<div class="border-blue w-30 h-50 overflow-auto rounded-3xl p-8 m-3">
 			  <table class="table-auto">
 			    <thead>
 			      <tr>
@@ -166,6 +161,5 @@
 
 
 
-<div class="fixed-bottom">
-	<%@ include file="../common/bottom.jsp"%>
-</div>
+
+<%@ include file="../common/bottom.jsp"%>

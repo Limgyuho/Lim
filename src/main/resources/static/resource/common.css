@@ -19,7 +19,7 @@
 html>body {
 	font-family: 'NanumSquareNeo-Variable', sans-serif;
 	text-underline-position: under;
-	height: 1080px;
+
 	margin: 0;
 	padding: 0;
 }
@@ -271,6 +271,20 @@ html>body {
 	height: 400px; /* 원하는 높이로 조정합니다 */
 	overflow-y: scroll; /* 세로 스크롤바가 표시됩니다 */
 }
+
+
+.list-container {
+  max-height: 500px; /* 원하는 높이 값으로 변경 */
+  overflow-y: scroll;
+}
+
+
+.scrollable-container {
+  max-height: 400px; /* 원하는 높이 값으로 변경 */
+  overflow-y: auto;
+}
+
+
 
 .member-list table {
 	width: 100%;

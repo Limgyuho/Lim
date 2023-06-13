@@ -40,9 +40,8 @@
             <div class="slider-slide"><img src="/resource/images/주거사기.jpg" alt="Image 3"></div>
             <div class="slider-slide"><img src="/resource/images/지방세.jpg" alt="Image 4"></div>
             <div class="slider-slide"><img src="/resource/images/폭염.jpg" alt="Image 5"></div>
-            <div class="slider-slide"><img src="image2.jpg" alt="Image 2"></div>
-            <div class="slider-slide"><img src="image3.jpg" alt="Image 3"></div>
-            <div class="slider-slide"><img src="image4.jpg" alt="Image 4"></div>
+            <div class="slider-slide"><img src="/resource/images/폭염.jpg" alt="Image 6"></div>
+            <div class="slider-slide"><img src="/resource/images/폭염.jpg" alt="Image 7"></div>
         </div>
         <div class="slider-button slider-button-prev">&lt;</div>
         <div class="slider-button slider-button-next">&gt;</div>

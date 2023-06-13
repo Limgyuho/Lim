@@ -10,14 +10,6 @@
 	
 	<div class="flex justify-center">
 		<table class="table ">
-			<colgroup>
-				<col width="60" />
-				<col width="200" />
-				<col />
-				<col width="120" />
-				<col width="60" />
-				<col width="40" />
-			</colgroup>
 			<thead>
 				<tr>
 					<th>번호</th>

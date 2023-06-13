@@ -5,7 +5,7 @@
 
 <div class="text-6xl text-center mb-14">부서별 자료</div>
 
-<div class="flex mt-5 justify-center content-center h-screen">
+<div class="flex mt-5 justify-center content-center">
     <div id="div1" class="flex w-80 h-96 border-black block ">
         <span class="text-2xl">운영지원과</span>
         <ul>

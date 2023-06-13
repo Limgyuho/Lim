@@ -8,20 +8,18 @@
 
 <div class="flex justify-center items-center">
 	<div class="container">
-		<div class="border-red">
+		<div>
 			<section class="mt-8 text-xl ">
 				<div class="container mx-auto px-3">
 					<form action="/usr/article/insertSuggestion" method="POST"
 						onsubmit="join_submitForm(this); return false;">
 						<input type="hidden" name="applicant_number"
 							value="${rq.getLoginedMember().getId()}" />
-						<div class="flex justify-center">
-							<table class="table">
-								<colgroup>
-									<col width="160" />
-								</colgroup>
+						<div class="flex justify-center ">
+							<table class="table border-red p-16 rounded-2xl">
+				
 								<tbody>
-									<tr height="145">
+									<tr height="">
 										<th>신청자</th>
 										<td>부서 : ${rq.getLoginedMember().getDepartment()} 직급 :
 											${rq.getLoginedMember().getPosition()} 이름 :
