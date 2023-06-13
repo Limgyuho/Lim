@@ -99,8 +99,16 @@ CREATE TABLE suggestion (
   reason VARCHAR(50)
 );
 
-DROP TABLE `fileDP`
+DROP TABLE `file`
 SELECT * FROM `fileDP`
+
+
+ SELECT  *, SUBSTRING_INDEX(originName, IF(LOCATE('_', originName) > 0, '_', '.'), 1) AS orgName
+    FROM `file`
+    
+
+
+
 
 CREATE TABLE `file`(
 	id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
