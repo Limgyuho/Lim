@@ -16,6 +16,7 @@ public class SocketHandler extends TextWebSocketHandler {
 
     // 웹소켓 세션을 담아둘 맵
     HashMap<String, ChatSession> sessionMap = new HashMap<>();
+    
 
     @Override
     public void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception {

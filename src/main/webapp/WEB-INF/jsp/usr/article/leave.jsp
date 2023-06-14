@@ -58,7 +58,7 @@
 	
 <!-- 	<table class="border-collapse border-blue rounded-3xl p-8 m-3"> -->
 	
-	  <div class="list-container ">
+	  <div class="list-container border-blue  rounded-3xl p-8 m-3">
 		  <ul class="list-disc list-inside">
 		    <c:forEach var="vacation" items="${showVacation}">
 		      <li>

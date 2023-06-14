@@ -36,6 +36,8 @@ public class MainController {
 	    session.setAttribute("loggedInUserId", rq.getLoginedMemberId());
 	    System.out.println(session.getAttribute("loggedInUserId"));
 
+	   
+	    
 	    // 세션에서 로그인한 사용자의 식별자를 가져옵니다.
 	    int loggedInUserId = (int) session.getAttribute("loggedInUserId");
 
