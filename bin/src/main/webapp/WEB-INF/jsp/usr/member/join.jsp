@@ -99,13 +99,15 @@
   }
 </script>
 
-<section class="mt-8 text-xl">
-  <div class="container mx-auto px-3 flex justify-center items-center">
+<section class="mt-8 text-xl ">
+	<h1 class="text-2xl text-center">우리기관 회원가입</h1>
+
+  <div class="container mx-auto px-3  justify-center">
     <form action="/usr/member/dojoin" method="POST" onsubmit="join_submitForm(this); return false;">
-      <div class="table-box-type-1" style="width: 500px;">
-        <table style="height: 400px;">
+      <div class="table-box-type-1" style="width: 800px;">
+        <table style="height: 600px;">
           <colgroup>
-            <col width="300" />
+            <col width="200" />
           </colgroup>
           <tbody>
             <tr height="80">

@@ -17,6 +17,7 @@
 <!-- 				<li><a href="/usr/article/transmission" class="block">개인 자료전송</a></li> -->
 				<li><a href="/usr/article/program" class="block">필수 프로그램</a></li>
 				<li><a href="/usr/article/leave" class="block">휴가/보고</a></li>
+				<li><a href="/usr/article/api" class="block">api</a></li>
 				<li><a href="#" class="block"></a></li>
 			</ul>
 		</nav>

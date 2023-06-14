@@ -45,6 +45,12 @@ public class ArticleController {
 		this.rq = rq;
 	}
 
+	@RequestMapping("/usr/article/api")
+	public String showapi() {
+
+		return "usr/article/api";
+	}
+	
 	// 인사이동 페이지
 	@RequestMapping("/usr/article/transferList")
 	public String showtransfer(Model model) {
@@ -64,7 +70,7 @@ public class ArticleController {
 	    
 	    model.addAttribute("member", member);
 	    
-	    return "/usr/article/transferdetail";
+	    return "usr/article/transferdetail";
 	}
 
 

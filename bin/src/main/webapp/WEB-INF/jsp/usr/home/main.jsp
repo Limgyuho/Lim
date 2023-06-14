@@ -4,13 +4,55 @@
 <%@ include file="../home/topbar.jsp" %>
 <%@ include file="../common/head.jsp" %>
 
-<div class ="border-blue h-80"></div>
+<div class ="border-blue h-80 mt-5">
+<script>
+        $(document).ready(function () {
+            var sliderWrapper = $(".slider-wrapper");
+            var slideWidth = sliderWrapper.width() / 4;
+            var slideIndex = 0;
 
+            $(".slider-button-prev").click(function () {
+                slideIndex--;
+                if (slideIndex < 0) {
+                    slideIndex = 5;
+                }
+                updateSliderPosition();
+            });
+
+            $(".slider-button-next").click(function () {
+                slideIndex++;
+                if (slideIndex > 5) {
+                    slideIndex = 0;
+                }
+                updateSliderPosition();
+            });
+
+            function updateSliderPosition() {
+                var leftPosition = -slideWidth * slideIndex;
+                sliderWrapper.css("left", leftPosition);
+            }
+        });
+    </script>
+<div class="slider-container ">
+        <div class="slider-wrapper">
+            <div class="slider-slide"><img src="/resource/images/건축문의.jpg" alt="Image 1"></div>
+            <div class="slider-slide"><img src="/resource/images/고령화.jpg" alt="Image 2"></div>
+            <div class="slider-slide"><img src="/resource/images/주거사기.jpg" alt="Image 3"></div>
+            <div class="slider-slide"><img src="/resource/images/지방세.jpg" alt="Image 4"></div>
+            <div class="slider-slide"><img src="/resource/images/폭염.jpg" alt="Image 5"></div>
+            <div class="slider-slide"><img src="/resource/images/폭염.jpg" alt="Image 6"></div>
+            <div class="slider-slide"><img src="/resource/images/폭염.jpg" alt="Image 7"></div>
+        </div>
+        <div class="slider-button slider-button-prev">&lt;</div>
+        <div class="slider-button slider-button-next">&gt;</div>
+    </div>
+
+</div>
 
 <div class="flex mt-5 justify-center border-blue banner_list--wrap mvis_list slick-initialized slick-slider">
 
 	 <div class="flex w-3/12 h-60 border-black block m-11 rounded-xl">
-	 	<span>인사이동 대상자</span>
+	 	<span class="text-2xl">인사이동 대상자</span>
 	 	<div class="border-red h-5/6">
 				<c:forEach var="member" items="${approvedMembers}">
 					<ul>		
@@ -20,7 +62,7 @@
 		</div>
 	 </div>
 	 <div class="flex w-3/12 h-60 border-black block m-11 rounded-xl">
-	 	<span>건의/요청사항</span>
+	 	<span class="text-2xl">건의/요청사항</span>
 	 	<div class="border-red h-5/6">
 		 	<c:forEach var="suggestion" items="${showsuggestion}">
 				<div>
@@ -42,11 +84,11 @@
 	 </div>
 
 	 <div class="flex w-3/12 h-60 border-black block m-11 rounded-xl">
-	 	<span>필수 프로그램</span>
+	 	<span class="text-2xl">필수 프로그램</span>
 	 	<div class="border-red h-5/6">
 	 		<c:forEach var="file" items="${files}">
 				<ul>
-					<li>${file.id}${file.originName }<a href="/usr/article/file/${file.id}" download>
+					<li>${file.id}${file.orgName }<a href="/usr/article/file/${file.id}" download>
 					  		<i class="fa-solid fa-download"></i>
 						</a></li>
 				</ul>
@@ -56,7 +98,7 @@
 	 
 	 
 	 <div class="flex w-3/12 h-60 border-black block m-11 rounded-xl">
-	 	<span>휴가/보고</span> 	
+	 	<span class="text-2xl">휴가/보고</span> 	
 		<div class="border-red h-5/6">
 		    <c:forEach var="vacation" items="${showVacation}">
 			<ul>
@@ -75,6 +117,5 @@
 	 </div>
 </div>
 
-<div class="fixed-bottom">
-	<%@ include file="../common/bottom.jsp"%>
-</div>
+
+<%@ include file="../common/bottom.jsp"%>

@@ -40,7 +40,6 @@ public class HomeContoller {
 
 		return "/usr/home/popUp";
 	}
-
 	@RequestMapping("/usr/home/main")
 	public String showmain(Model model) {
 		int applicantnumber = rq.getLoginedMember().getId();

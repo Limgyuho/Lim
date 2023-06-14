@@ -3,21 +3,20 @@
 <c:set var="pageTitle" value="admindashboard" />
 <%@ include file="../common/head.jsp"%>
 
-<span class="text-3xl bg-blue-300 "><a href="/usr/admin/admindashboard">어드민 대시보드</a></span>
+<span class="text-3xl border-black rounded-2xl m-10 p-5"><a href="/usr/admin/admindashboard">어드민 대시보드</a></span>
 
-<div class="mt-5">
+<div class="m-10">
     <button class="btn btn-link border-red"  onclick="showTab('joinRequests')">가입 요청자 목록</button>
     &nbsp;
     &nbsp;
-    <button class="btn btn-link" onclick="showTab('approvedMembers')">가입 멤버 목록</button>
+    <button class="btn btn-link border-red" onclick="showTab('approvedMembers')">가입 멤버 목록</button>
     &nbsp;
     &nbsp;
-    <button class="btn btn-link" onclick="showTab('suggestion')">요청 사항 목록</button>
+    <button class="btn btn-link border-red" onclick="showTab('suggestion')">요청 사항 목록</button>
 </div>
 
-<div id="joinRequests" class="tab-content">
+<div id="joinRequests" class="tab-content m-10" style="max-height: 400px; overflow-y: scroll;">
     <div class="flex">
-        <h2 class="flex-grow-1">요청자 목록</h2>
         <h2 class="flex-grow-1 justify-content-end">총 인원: ${joinRequestCnt} 명</h2>
    </div>
    <table class="table">
@@ -57,16 +56,16 @@
     </table>
 </div>
 
-<div id="approvedMembers" class="tab-content" style="max-height: full; overflow-y: scroll;">
+<div id="approvedMembers" class="tab-content" >
 
-    <div class="flex">
+    <div class="flex m-10">
         <div class="flex">가입된 멤버들</div>
-        <div class="flex ">총 인원: ${memberCnt} 명</div>
+        <div class="flex flex-grow">총 인원: ${memberCnt} 명</div>
            <button class="btn btn-outline btn-accent"type="button" onclick="transferSelected()" id="transferButton" >인사이동</button>
 			<button class="btn btn-outline btn-secondary" type="button" onclick="deleteMembers()" id="deleteButton" >멤버 탈퇴</button>
    </div>
-   <form id="transferForm" method="GET" action="/usr/admin/transfer">
-       <table class="table">
+   <form class="m-10" id="transferForm" method="GET" action="/usr/admin/transfer" style="max-height: 400px; overflow-y: scroll;">
+       <table class="table" style="max-height: 400px; overflow-y: scroll;">
            <thead>
                <tr>	
                    <th></th>
@@ -118,10 +117,10 @@
                                    onclick="location.href='/usr/admin/Reapproval'">재승인</button>
                        </c:if>
                        <c:if test="${member.permission == 1}">
-                               이미지?
+                               .
                        </c:if>
                        <c:if test="${member.permission == -1}">
-                               이미지?
+                               x
                        </c:if>
                        </td>
                    </tr>
@@ -133,8 +132,8 @@
 </div>
 
 <!-- 요청 -->
-<div id="suggestion" class="tab-content" style="max-height: 300px; overflow-y: scroll;">
-    <table class="table">
+<div id="suggestion" class="tab-content" style="max-height: 400px; overflow-y: scroll;">
+    <table class="table m-10">
         <thead>
             <tr>
                 <th>신청 날짜</th>
@@ -187,7 +186,7 @@
 </div>
 
 
-<div class="flex">
+<div class="flex m-10">
     <div>
         <form id="searchForm">
             <select data-value="${department }" class="select select-bordered" name="department">

@@ -3,10 +3,10 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ include file="../common/head.jsp"%>
 
-<div class="flex-jc-c flex-ai-c h-20 flex  mx-auto text-3xl bg-red-50">
+<div class="flex-jc-c flex-ai-c h-20 flex  mx-auto text-3xl">
 	<a href="/usr/home/main" class="block">대한민국 정부 기관</a>
 </div>
-<div class="top-bar con-min-width">
+<div class="top-bar con-min-width mb-3">
 	<div class=" flex flex-ai-c ">	
 		<nav class="menu-box-1 w-full">
 			<ul class="flex justify-center height-100p justify-between">
@@ -25,9 +25,9 @@
 
 <div class="border-black w-48">
     <ul class="user-info">
-        <li>${rq.loginedMember.department }</li>
-        <li>${rq.loginedMember.position }</li>
-        <li>${rq.loginedMember.name }</li>
+        <li>부서 : ${rq.loginedMember.department }</li>
+        <li>직급 : ${rq.loginedMember.position }</li>
+        <li>이름 : ${rq.loginedMember.name }</li>
        	<li class="Messenger" >메신저</li>
         <a href="/usr/home/home">로그아웃</a>
     </ul>

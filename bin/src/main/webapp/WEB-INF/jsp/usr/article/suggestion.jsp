@@ -6,22 +6,20 @@
 
 <div class="text-6xl text-center mb-14">요청 및 건의 사항</div>
 
-<div class="flex justify-center items-center h-screen">
-	<div class="container">
-		<div class="border-red">
+<div class="flex justify-center items-center border-red p-16 rounded-2xl">
+	<div class="container ">
+		<div class="">
 			<section class="mt-8 text-xl ">
 				<div class="container mx-auto px-3">
 					<form action="/usr/article/insertSuggestion" method="POST"
 						onsubmit="join_submitForm(this); return false;">
 						<input type="hidden" name="applicant_number"
 							value="${rq.getLoginedMember().getId()}" />
-						<div class="">
+						<div class="flex justify-center ">
 							<table class="table">
-								<colgroup>
-									<col width="160" />
-								</colgroup>
+				
 								<tbody>
-									<tr height="145">
+									<tr height="">
 										<th>신청자</th>
 										<td>부서 : ${rq.getLoginedMember().getDepartment()} 직급 :
 											${rq.getLoginedMember().getPosition()} 이름 :
@@ -57,31 +55,33 @@
 									</tr>
 									<tr>
 										<th>요청 목록</th>
-										<td><c:forEach var="suggestion" items="${showsuggestion}">
-												<div>
-													<span>신청 사항 : ${suggestion.item}요청 결과 : </span>
-													<c:choose>
-														<c:when test="${suggestion.permission == 1}">
-															<span>승인</span>
-														</c:when>
-														<c:when test="${suggestion.permission == -1}">
-															<span> 거부</span>
-														</c:when>
-														<c:otherwise>
-															<span> 대기중 </span>
-														</c:otherwise>
-													</c:choose>
-												</div>
-											</c:forEach></td>
+										<td style="overflow-y: scroll; max-height: 200px;">
+										  <c:forEach var="suggestion" items="${showsuggestion}">
+										    <div>
+										      <span>신청 사항 : ${suggestion.item}요청 결과 : </span>
+										      <c:choose>
+										        <c:when test="${suggestion.permission == 1}">
+										          <span>승인</span>
+										        </c:when>
+										        <c:when test="${suggestion.permission == -1}">
+										          <span> 거부</span>
+										        </c:when>
+										        <c:otherwise>
+										          <span> 대기중 </span>
+										        </c:otherwise>
+										      </c:choose>
+										    </div>
+										  </c:forEach>
+										</td>
 									</tr>
 									<tr>
 								</tbody>
 							</table>
 						</div>
 						<div class="btns mt-2">
-							<button class="ml-2 btn-text-link btn btn-active" type="submit">신청</button>
 							<button class="btn-text-link btn btn-active" type="button"
 								onclick="window.location.href='/usr/home/main'">뒤로가기</button>
+							<button class="ml-2 btn-text-link btn btn-active" type="submit">신청</button>
 						</div>
 					</form>
 				</div>

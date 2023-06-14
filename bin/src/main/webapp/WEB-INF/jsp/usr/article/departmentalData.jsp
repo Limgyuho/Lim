@@ -5,8 +5,8 @@
 
 <div class="text-6xl text-center mb-14">부서별 자료</div>
 
-<div class="flex mt-5 justify-center content-center h-screen">
-    <div id="div1" class="flex w-80 h-96 border-black block ">
+<div class="flex mt-5 justify-center content-center">
+    <div id="div1" class="flex w-80 h-96 border-black block m-7 rounded-2xl">
         <span class="text-2xl">운영지원과</span>
         <ul>
             <c:forEach var="file" items="${files2}">
@@ -28,7 +28,7 @@
         </c:if>
     </div>
 
-    <div id="div2" class="flex w-80 h-96 border-black block">
+    <div id="div2" class="flex w-80 h-96 border-black block m-7 rounded-2xl">
     	<span class="text-2xl">기획재정담당관</span>
         <ul>
             <c:forEach var="file" items="${files2}">
@@ -50,7 +50,7 @@
         </c:if>
     </div>
 
-    <div id="div3" class="flex w-80 h-96 border-black block">
+    <div id="div3" class="flex w-80 h-96 border-black block m-7 rounded-2xl">
         <span class="text-2xl">정보과</span>
         <ul>
             <c:forEach var="file" items="${files2}">
@@ -72,7 +72,7 @@
         </c:if>
     </div>
 
-    <div id="div4" class="flex w-80 h-96 border-black block">
+    <div id="div4" class="flex w-80 h-96 border-black block m-7 rounded-2xl">
         <span class="text-2xl">감사과</span>
         <ul>
             <c:forEach var="file" items="${files2}">
