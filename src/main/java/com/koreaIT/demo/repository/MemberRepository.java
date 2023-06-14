@@ -113,7 +113,7 @@ public interface MemberRepository {
 	@Select("""
 			SELECT *
 			FROM `member`
-			WHERE department = #{department}
+			WHERE department = #{department} AND permission = 1
 			""")
 	public List<Member> getMembersByDepartment(String department);
 
