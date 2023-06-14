@@ -4,7 +4,7 @@
 <%@ include file="../home/topbar.jsp" %>
 <%@ include file="../common/head.jsp" %>
 
-<div class ="border-blue h-80">
+<div class ="border-blue h-80 mt-5">
 <script>
         $(document).ready(function () {
             var sliderWrapper = $(".slider-wrapper");
@@ -33,7 +33,7 @@
             }
         });
     </script>
-<div class="slider-container">
+<div class="slider-container ">
         <div class="slider-wrapper">
             <div class="slider-slide"><img src="/resource/images/건축문의.jpg" alt="Image 1"></div>
             <div class="slider-slide"><img src="/resource/images/고령화.jpg" alt="Image 2"></div>

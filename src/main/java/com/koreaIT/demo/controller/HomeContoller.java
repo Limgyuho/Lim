@@ -64,7 +64,6 @@ public class HomeContoller {
 		// 여부는 무조건 보여줘야 할것 같긴한데
 		// 본인이 신청한것만
 		
-		
 		List<Vacation> showVacation = memberService.showVacationMain(applicantnumber);
 		model.addAttribute("showVacation", showVacation);
 
