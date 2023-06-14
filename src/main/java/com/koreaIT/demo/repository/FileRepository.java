@@ -31,6 +31,7 @@ public interface FileRepository {
 	@Select("""
 			 SELECT  *, SUBSTRING_INDEX(originName, IF(LOCATE('_', originName) > 0, '_', '.'), 1) AS orgName
 			 FROM `file`
+			 ORDER BY id DESC
 			""")
 	List<FileVO> getFiles();
 	
@@ -64,6 +65,15 @@ public interface FileRepository {
 				WHERE id = #{fileId}
 			""")
 	FileDP getFileDPeById(int fileId);
+
+	
+	@Select("""
+			 SELECT  *, SUBSTRING_INDEX(originName, IF(LOCATE('_', originName) > 0, '_', '.'), 1) AS orgName
+			 FROM `file`
+			 ORDER BY id DESC
+			 LIMIT 5;
+			""")
+	List<FileVO> getFilesMain();
 
 
 

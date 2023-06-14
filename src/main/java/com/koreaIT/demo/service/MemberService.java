@@ -138,4 +138,19 @@ public class MemberService {
 		return memberRepository.getMemberBychatId(userId);
 	}
 
+	public List<Member> approvedMembersMain() {
+		
+		return memberRepository.approvedMembersMain();
+	}
+
+	public List<Suggestion> showsuggestionMain(int applicantnumber) {
+
+		return memberRepository.showsuggestionMain(applicantnumber);
+	}
+
+	public List<Vacation> showVacationMain(int applicantnumber) {
+
+		return memberRepository.showVacationMain(applicantnumber);
+	}
+
 }

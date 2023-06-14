@@ -85,4 +85,9 @@ public class FileService {
 		
 		return fileRepository.getFileDPeById(fileId);
 	}
+
+
+	public List<FileVO> getFilesMain() {
+		return fileRepository.getFilesMain();
+	}
 }

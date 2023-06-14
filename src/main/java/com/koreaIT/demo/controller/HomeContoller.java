@@ -46,20 +46,18 @@ public class HomeContoller {
 		int applicantnumber = rq.getLoginedMember().getId();
 		
 		// 가입 완료된 멤버 정보 조회 한것을 div 안에 보여주기
-		List<Member> approvedMembers = memberService.approvedMembers();
+		List<Member> approvedMembers = memberService.approvedMembersMain();
 		model.addAttribute("approvedMembers", approvedMembers);
 
 		//건의 요청사항 div 안에 보여주기 다운로드 버튼이 같이 있어야 하는가?
-
-
-		List<Suggestion> showsuggestion = memberService.showsuggestion(applicantnumber);
+		List<Suggestion> showsuggestion = memberService.showsuggestionMain(applicantnumber);
 		model.addAttribute("showsuggestion", showsuggestion);
 		
 		
 		// 필수 프로그램 div 안에 보여주기 다운로드 버튼이 같이 있어야 하는가?
 		// 다운로드 버튼이 있으면 필수 프로그램 페이지가 존재?이유가 있어야 하나
 		// div 안에는 몇개 안보여 지니까 있어도 상관이 없나?
-		List<FileVO> files = fileService.getFiles();
+		List<FileVO> files = fileService.getFilesMain();
 		model.addAttribute("files", files);
 
 		// 건의/요청사항 div 안에 보여주기 그런데 신청한 목록들만 보여주기 허가 여부와 함께
@@ -67,7 +65,7 @@ public class HomeContoller {
 		// 본인이 신청한것만
 		
 		
-		List<Vacation> showVacation = memberService.showVacation(applicantnumber);
+		List<Vacation> showVacation = memberService.showVacationMain(applicantnumber);
 		model.addAttribute("showVacation", showVacation);
 
 		return "/usr/home/main";

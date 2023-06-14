@@ -166,6 +166,7 @@ public interface MemberRepository {
 			    SELECT *
 			    FROM vacation
 			    WHERE applicantnumber = #{applicantnumber}
+			    ORDER BY id DESC
 			""")
 	public List<Vacation> showVacation(int applicantnumber);
 
@@ -216,6 +217,35 @@ public interface MemberRepository {
 				WHERE id = #{userId}
 			""")
 	public Member getMemberBychatId(int userId);
+
+	@Select("""
+		    SELECT *
+				FROM `member`
+				WHERE permission = 1
+				ORDER BY id DESC
+				LIMIT 5;
+		""")
+	public List<Member> approvedMembersMain();
+
+	
+	@Select("""
+		    SELECT *
+		    FROM suggestion
+		    WHERE applicantnumber = #{applicantnumber}
+		    ORDER BY id DESC
+		    LIMIT 5;
+		    
+		""")
+	public List<Suggestion> showsuggestionMain(int applicantnumber);
+
+	@Select("""
+		    SELECT *
+		    FROM vacation
+		    WHERE applicantnumber = #{applicantnumber}
+		    ORDER BY id DESC
+		    LIMIT 5;
+		""")
+	public List<Vacation> showVacationMain(int applicantnumber);
 
 
 }
