@@ -61,7 +61,7 @@ public interface FileRepository {
 
 	@Select("""
 			SELECT *
-				FROM file
+				FROM fileDP
 				WHERE id = #{fileId}
 			""")
 	FileDP getFileDPeById(int fileId);

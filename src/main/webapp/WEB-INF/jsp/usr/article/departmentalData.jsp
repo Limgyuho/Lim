@@ -77,7 +77,7 @@
         <ul>
             <c:forEach var="file" items="${files2}">
                 <c:if test="${file.dpn eq '감사과'}">
-                    <li>
+                    <li>	
                         <a href="/usr/article/file2/${file.id}" download>
                             ${file.originName} <i class="fa-solid fa-download"></i>
                         </a>
@@ -97,4 +97,3 @@
 
 
 <%@ include file="../common/bottom.jsp" %>
-
