@@ -99,73 +99,61 @@
   }
 </script>
 
-<section class="mt-8 text-xl ">
-	<h1 class="text-2xl text-center">우리기관 회원가입</h1>
+<section class="mt-8">
+  <h1 class="text-xl text-center">우리기관 회원가입</h1>
 
-  <div class="container mx-auto px-3  justify-center">
+  <div class="container mx-auto px-2">
     <form action="/usr/member/dojoin" method="POST" onsubmit="join_submitForm(this); return false;">
-      <div class="table-box-type-1" style="width: 800px;">
-        <table style="height: 600px;">
-          <colgroup>
-            <col width="200" />
-          </colgroup>
-          <tbody>
-            <tr height="80">
-              <th>아이디</th>
-              <td>
-                <input type="text" name="loginId" placeholder="아이디를 입력해주세요" onblur="loginIdDupCheck(this);" />
-                <div id="loginIdDupCheckMsg" class="text-sm mt-2 h-5 text-red-500"></div>
-              </td>
-            </tr>
-            <tr>
-              <th>비밀번호</th>
-              <td><input type="text" name="loginPw" placeholder="비밀번호를 입력해주세요" /></td>
-            </tr>
-            <tr>
-              <th>비밀번호 확인</th>
-              <td><input type="text" name="loginPwChk" placeholder="비밀번호확인을 입력해주세요" /></td>
-            </tr>
-            <tr>
-              <th>이름</th>
-              <td><input type="text" name="name" placeholder="이름을 입력해주세요" /></td>
-            </tr>
-            <tr>
-              <th><label for="department">부서</label></th>
-              <td>
-                <select id="department" name="department">
-                  <option value="운영지원과">운영지원과</option>
-                  <option value="정보과">정보과</option>
-                  <option value="기획재정담당관">기획재정담당관</option>
-                  <option value="감사과">감사과</option>
-                </select>
-              </td>
-            </tr>
-            <tr>
-              <th><label for="position">직급</label></th>
-              <td>
-                <select id="position" name="position">
-                  <option value="과장">과장</option>
-                  <option value="서기관">서기관</option>
-                  <option value="사무관">사무관</option>
-                  <option value="주무관">주무관</option>
-                </select>
-              </td>
-            </tr>
-            <tr>
-              <th>전화번호</th>
-              <td><input type="text" name="cellphoneNum" placeholder="전화번호를 입력해주세요" /></td>
-            </tr>
-            <tr>
-              <th>이메일</th>
-              <td><input type="text" name="email" placeholder="이메일을 입력해주세요" /></td>
-            </tr>
-            <tr>
-              <td colspan="2"><button class="btn-text-link btn btn-active">회원가입</button></td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="bg-white shadow rounded p-4">
+        <div class="form-group mb-4">
+          <label for="loginId" class="block font-semibold mb-1">아이디</label>
+          <input type="text" name="loginId" id="loginId" placeholder="아이디를 입력해주세요" onblur="loginIdDupCheck(this);" class="w-full p-2 border rounded focus:outline-none focus:border-blue-500" />
+          <div id="loginIdDupCheckMsg" class="text-red-500"></div>
+        </div>
+        <div class="form-group mb-4">
+          <label for="loginPw" class="block font-semibold mb-1">비밀번호</label>
+          <input type="password" name="loginPw" id="loginPw" placeholder="비밀번호를 입력해주세요" class="w-full p-2 border rounded focus:outline-none focus:border-blue-500" />
+        </div>
+        <div class="form-group mb-4">
+          <label for="loginPwChk" class="block font-semibold mb-1">비밀번호 확인</label>
+          <input type="password" name="loginPwChk" id="loginPwChk" placeholder="비밀번호 확인을 입력해주세요" class="w-full p-2 border rounded focus:outline-none focus:border-blue-500" />
+        </div>
+        <div class="form-group mb-4">
+          <label for="name" class="block font-semibold mb-1">이름</label>
+          <input type="text" name="name" id="name" placeholder="이름을 입력해주세요" class="w-full p-2 border rounded focus:outline-none focus:border-blue-500" />
+        </div>
+        <div class="form-group mb-4">
+          <label for="department" class="block font-semibold mb-1">부서</label>
+          <select id="department" name="department" class="w-full p-2 border rounded focus:outline-none focus:border-blue-500">
+            <option value="운영지원과">운영지원과</option>
+            <option value="정보과">정보과</option>
+            <option value="기획재정담당관">기획재정담당관</option>
+            <option value="감사과">감사과</option>
+          </select>
+        </div>
+        <div class="form-group mb-4">
+          <label for="position" class="block font-semibold mb-1">직급</label>
+          <select id="position" name="position" class="w-full p-2 border rounded focus:outline-none focus:border-blue-500">
+            <option value="과장">과장</option>
+            <option value="서기관">서기관</option>
+            <option value="사무관">사무관</option>
+            <option value="주무관">주무관</option>
+          </select>
+        </div>
+        <div class="form-group mb-4">
+          <label for="cellphoneNum" class="block font-semibold mb-1">전화번호</label>
+          <input type="text" name="cellphoneNum" id="cellphoneNum" placeholder="전화번호를 입력해주세요" class="w-full p-2 border rounded focus:outline-none focus:border-blue-500" />
+        </div>
+        <div class="form-group mb-4">
+          <label for="email" class="block font-semibold mb-1">이메일</label>
+          <input type="text" name="email" id="email" placeholder="이메일을 입력해주세요" class="w-full p-2 border rounded focus:outline-none focus:border-blue-500" />
+        </div>
+        <div class="button-row flex justify-between items-center">
+          <button class="btn btn-primary px-3 py-2 rounded" type="submit">회원가입</button>
+          <button class="btn btn-secondary px-3 py-2 rounded" type="button" onclick="history.back();">뒤로가기</button>
+        </div>
       </div>
-      <button class="btn-text-link btn btn-active" type="button" onclick="history.back();">뒤로가기</button>
     </form>
   </div>
 </section>
+

@@ -240,13 +240,13 @@ html>body {
 
 
 .list-container {
-  max-height: 500px; /* 원하는 높이 값으로 변경 */
+  max-height: 500px; 
   overflow-y: scroll;
 }
 
 
 .scrollable-container {
-  max-height: 400px; /* 원하는 높이 값으로 변경 */
+  max-height: 400px; 
   overflow-y: auto;
 }
 

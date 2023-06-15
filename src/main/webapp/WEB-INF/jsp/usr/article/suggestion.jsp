@@ -7,7 +7,7 @@
 
 <div class="flex justify-center items-center">
   <div class="p-16 bg-white rounded-2xl border-red">
-    <div class="container mx-auto px-3">
+    <div class=" mx-auto px-3">
       <form action="/usr/article/insertSuggestion" method="POST" onsubmit="join_submitForm(this); return false;">
         <input type="hidden" name="applicant_number" value="${rq.getLoginedMember().getId()}" />
         <div class="flex justify-center">

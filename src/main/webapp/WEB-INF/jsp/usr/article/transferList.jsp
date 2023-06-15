@@ -6,7 +6,7 @@
 
 <div class="text-6xl text-center mb-14">인사이동</div>
 
-<div class="container mx-auto px-3  items-center">
+<div class=" mx-auto px-3  items-center">
 	
 	<div class="flex justify-center">
 		<table class="table ">
