@@ -6,6 +6,8 @@
 <div class="flex-jc-c flex-ai-c h-20 flex  mx-auto text-3xl">
 	<a href="/usr/home/main" class="block">대한민국 정부 기관</a>
 </div>
+
+
 <div class="top-bar con-min-width mb-3">
 	<div class=" flex flex-ai-c ">	
 		<nav class="menu-box-1 w-full">
@@ -17,12 +19,15 @@
 <!-- 				<li><a href="/usr/article/transmission" class="block">개인 자료전송</a></li> -->
 				<li><a href="/usr/article/program" class="block">필수 프로그램</a></li>
 				<li><a href="/usr/article/leave" class="block">휴가/보고</a></li>
+				<li><a href="/usr/article/api" class="block">api</a></li>
 				<li><a href="#" class="block"></a></li>
 			</ul>
 		</nav>
 	</div>
 </div>
 
+
+<div class="flex">
 <div class="border-black w-48">
     <ul class="user-info">
         <li>부서 : ${rq.loginedMember.department }</li>
@@ -32,7 +37,9 @@
         <a href="/usr/home/home">로그아웃</a>
     </ul>
 </div>
-<div>
+
+
+<div class="text-center">ㅁㄴㅇㄻㄴㅇㄻㄴㅇㄻㄴㄹㅇㅁㄴㅇㄹ</div>
 
 
 </div>

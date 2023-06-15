@@ -28,18 +28,37 @@
 
 
 <div class="flex">
-<div class="border-black w-48">
-    <ul class="user-info">
-        <li>부서 : ${rq.loginedMember.department }</li>
-        <li>직급 : ${rq.loginedMember.position }</li>
-        <li>이름 : ${rq.loginedMember.name }</li>
-       	<li class="Messenger" >메신저</li>
-        <a href="/usr/home/home">로그아웃</a>
-    </ul>
-</div>
+	<div class="flex">
+	  <div class="border-black w-48 p-4">
+	    <ul class="user-info">
+	      <li class="mb-4">
+	        <span class="text-lg font-bold">프로필</span>
+	      </li>
+	      <li class="mb-2">
+	        <span class="text-sm">부서:</span>
+	        <span class="ml-2 text-base font-bold">${rq.loginedMember.department }</span>
+	      </li>
+	      <li class="mb-2">
+	        <span class="text-sm">직급:</span>
+	        <span class="ml-2 text-base font-bold">${rq.loginedMember.position }</span>
+	      </li>
+	      <li class="mb-2">
+	        <span class="text-sm">이름:</span>
+	        <span class="ml-2 text-base font-bold">${rq.loginedMember.name }</span>
+	      </li>
+	      <li class="mb-4 Messenger text-blue-500 hover:underline">
+	      	메신저
+	      </li>
+	      <li>
+	        <a href="/usr/home/home" class="text-red-500 hover:underline">로그아웃</a>
+	      </li>
+	    </ul>
+	  </div>
+	</div>
 
-
-<div class="text-center">ㅁㄴㅇㄻㄴㅇㄻㄴㅇㄻㄴㄹㅇㅁㄴㅇㄹ</div>
+	
+	
+	<div class="text-center">ㅁㄴㅇㄻㄴㅇㄻㄴㅇㄻㄴㄹㅇㅁㄴㅇㄹ</div>
 
 
 </div>
