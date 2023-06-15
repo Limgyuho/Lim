@@ -4,6 +4,29 @@
 <%@ include file="../home/topbar.jsp" %>
 
 <script>
+
+	function xmlTest() {
+		xmlData = `
+			<?xml version="1.0" encoding="UTF-8"?>
+			<root>
+				<person>
+					<age>22</age>
+					<name>홍길동</name>
+				</person>
+				<person>
+					<age>25</age>
+					<name>이순신</name>
+				</person>
+			</root>
+		`
+
+
+		const parser = new DOMParser();
+	    const xmlDoc = parser.parseFromString(xmlData, 'text/xml');
+		console.log(xmlDoc);
+	    //const cntHospitalizationsElement = xmlDoc.querySelector('searchKeyword');
+	}
+
 	const ServiceKey = 'en4c2vuVTyKygTbdDbBEUlqGqksHKZ9oJhjK03pzaXDa%2FxzAUkvW3nhf9QyNoBN1vT0gJvlhl0yxG9CTQ57VvA%3D%3D';
 
 	const query = '*';
@@ -17,33 +40,45 @@
 	    const response = await fetch(url);
 	    const xmlText = await response.text();
 
-	    console.log(xmlText);
-
+	    keyword = document.getElementById("keyword").value;
+	    
 	    const parser = new DOMParser();
 	    const xmlDoc = parser.parseFromString(xmlText, 'text/xml');
-
-	    const cntHospitalizationsElement = xmlDoc.querySelector('cnt_hospitalizations');
+	    
+	    console.log(keyword);
+	    const cntHospitalizationsElement = xmlDoc.querySelector(keyword);	    
+	    	    
 	    if (cntHospitalizationsElement) {
 	        const cntHospitalizations = cntHospitalizationsElement.textContent;
 	        console.log(cntHospitalizations);
+	        
 
 	        const contentDiv = document.querySelector('.API-content');
 	        contentDiv.textContent = cntHospitalizations; // 데이터를 텍스트로 할당
 
 	        // 또는 데이터를 HTML로 할당하려면:
 	        // contentDiv.innerHTML = cntHospitalizations;
+	        
+	        targetDiv = querySelector(".API-content");
+	        
+	        
 	    } else {
 	        console.log('Error: cnt_hospitalizations element not found in XML');
 	    }
 	}
-	getData();
 	
-	getData().catch((error) => {
+	getData().catch((error) => {	
 	    console.log('Error during API call:', error);
 	});
+	
+	xmlTest();
 </script>
 
 <div class="container mx-auto">
+	<div class="search">
+		<input type="text" id="keyword" name="keyword"  placeholder="검색" />
+		<input type="button" value="검색"  onclick="getData();" />
+	</div>
     <div>APITest입니다</div>
     <div class="API-content"></div>
 </div>
