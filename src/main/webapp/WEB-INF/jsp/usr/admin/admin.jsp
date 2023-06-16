@@ -15,7 +15,7 @@
         <input type="password" name="loginPw" placeholder="비밀번호" class="w-full py-2 px-4 border border-gray-300 rounded focus:outline-none focus:border-blue-500">
       </div>
       <div class="flex justify-center mt-6">
-        <button type="submit" class="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-green-500">
+        <button type="submit" class="border-green  text-black py-2 px-4 rounded   ">
           로그인
         </button>
       </div>

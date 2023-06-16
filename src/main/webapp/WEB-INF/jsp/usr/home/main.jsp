@@ -12,7 +12,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script>
 
 
-<div  id="calendar" class="mt-8"></div>
 <script>
 $(document).ready(function() {
   $('#calendar').fullCalendar({
@@ -108,11 +107,11 @@ $(document).ready(function() {
   });
 });
 </script>
-
-<div class="flex mt-32 justify-center space-x-4 mt-10">
-    <div class="flex w-3/12 h-60 p-4 rounded-lg border border-gray-300">
-        <div class="text-xl bg-gray-300 text-gray-800 py-2 px-4   rounded-t-lg vertical-text">인사이동 대상자</div>
-        <div class="h-5/6 mt-6 overflow-y-auto">
+<div class="flex items-end justify-end mt-24 px-10">
+	<div  id="calendar" class="mt-8"></div>
+    <div class="p-4 rounded-lg border border-gray-300 h-96">
+        <div class="text-xl bg-gray-300 text-gray-800 py-2 px-4">인사이동 대상자</div>
+        <div class="mt-6 overflow-y-auto">
             <ul class="m-0 p-0 space-y-2">
                 <c:forEach var="member" items="${approvedMembers}">
                     <li class="py-2">
@@ -124,9 +123,9 @@ $(document).ready(function() {
             </ul>
         </div>
     </div>
-    <div class="flex w-3/12 h-60 p-4 rounded-lg border border-gray-300">
-        <div class="text-xl bg-gray-300 text-gray-800 py-2 px-4 rounded-t-lg vertical-text">건의/요청사항</div>
-        <div class="h-5/6 mt-6 overflow-y-auto">
+    <div class="p-4 ml-4 rounded-lg border border-gray-300 h-96">
+        <div class="text-xl bg-gray-300 text-gray-800 py-2 px-4 rounded-t-lg w-80">건의/요청사항</div>
+        <div class="mt-6 overflow-y-auto">
             <ul class="p-0 space-y-2">
                 <c:forEach var="suggestion" items="${showsuggestion}">
                     <li class="py-2">
@@ -147,8 +146,10 @@ $(document).ready(function() {
             </ul>
         </div>
     </div>
-    <div class="flex w-3/12 h-60 p-4 rounded-lg border border-gray-300">
-        <div class="text-xl bg-gray-300 text-gray-800 py-2 px-4 rounded-t-lg vertical-text">필수 프로그램</div>
+</div>
+<div class="flex items-end justify-end mt-10 px-10">
+    <div class="p-4 rounded-lg border border-gray-300 h-96">
+        <div class="text-xl bg-gray-300 text-gray-800 py-2 px-4 rounded-t-lg w-80">필수 프로그램</div>
         <div class="h-5/6 mt-6 overflow-y-auto">
             <ul class="p-0 space-y-2">
                 <c:forEach var="file" items="${files}">
@@ -162,10 +163,8 @@ $(document).ready(function() {
             </ul>
         </div>
     </div>
-    <div class="flex w-3/12 h-60 p-4 rounded-lg border border-gray-300">
-        <div class="text-xl bg-gray-300 text-gray-800 py-2 px-4 rounded-t-lg vertical-text">
-		    휴가신청 현황
-		</div>
+    <div class="p-4 ml-4 rounded-lg border border-gray-300 h-96">
+        <div class="text-xl bg-gray-300 text-gray-800 py-2 px-4 rounded-t-lg w-80">휴가신청 현황</div>
         <div class="h-5/6 mt-6 overflow-y-auto">
             <ul class="p-0 space-y-2">
                 <c:forEach var="vacation" items="${showVacation}">
@@ -188,6 +187,8 @@ $(document).ready(function() {
         </div>
     </div>
 </div>
+
+
 
 
 <style>

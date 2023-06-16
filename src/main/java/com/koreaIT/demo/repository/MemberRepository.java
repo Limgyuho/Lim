@@ -246,5 +246,19 @@ public interface MemberRepository {
 		""")
 	public List<Vacation> showVacationMain(int applicantnumber);
 
+	
+	
+	@Select("""
+	        SELECT COUNT(*) FROM member
+	    """)
+	public int getApprovedMembersCount();
+	
+	 @Select("""
+		        SELECT * FROM member
+		        LIMIT #{startItemIndex}, #{itemsPerPage}
+		    """)
+	public List<Member> getApprovedMembers(int startItemIndex, int itemsPerPage);
+
+
 
 }

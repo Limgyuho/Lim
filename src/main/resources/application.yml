@@ -19,4 +19,4 @@ mybatis:
   type-aliases-package: com.koreaIT.demo.vo
   mapper-locations: classpath:com/koreaIT/demo/repository/*.xml
 file:
-  dir: C:/Users/Administrator/Desktop/임규호/개인프로젝트/Lim
+  dir: C:/Users/USER/Desktop/개인/Lim

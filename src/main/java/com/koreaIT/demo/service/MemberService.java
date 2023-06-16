@@ -112,20 +112,18 @@ public class MemberService {
 	}
 
 	public List<Member> manager() {
-		
+
 		return memberRepository.manager();
 	}
-
 
 	public List<Member> transmissionMembers() {
 
 		return memberRepository.transmissionMembers();
 	}
 
-
 	public void deleteMembers(int id) {
-		
-		memberRepository.deleteMembers(id );
+
+		memberRepository.deleteMembers(id);
 	}
 
 	public Member getMemberByName(int memberName) {
@@ -134,12 +132,12 @@ public class MemberService {
 	}
 
 	public Member getMemberBychatId(int userId) {
-		
+
 		return memberRepository.getMemberBychatId(userId);
 	}
 
 	public List<Member> approvedMembersMain() {
-		
+
 		return memberRepository.approvedMembersMain();
 	}
 
@@ -151,6 +149,16 @@ public class MemberService {
 	public List<Vacation> showVacationMain(int applicantnumber) {
 
 		return memberRepository.showVacationMain(applicantnumber);
+	}
+
+	public int getApprovedMembersCount() {
+		return memberRepository.getApprovedMembersCount();
+	}
+
+
+	public List<Member> getTransferMembers(int startItemIndex, int itemsPerPage) {
+
+		return memberRepository.getApprovedMembers(startItemIndex, itemsPerPage);
 	}
 
 }

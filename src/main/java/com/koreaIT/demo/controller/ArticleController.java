@@ -46,11 +46,11 @@ public class ArticleController {
 	}
 
 	
-	@RequestMapping("/usr/article/schedule")
-	public String showschedule() {
-
-		return "usr/article/schedule";
-	}
+		@RequestMapping("/usr/article/schedule")
+		public String showschedule() {
+	
+			return "usr/article/schedule";
+		}
 	
 	@RequestMapping("/usr/article/api")
 	public String showapi() {
@@ -58,16 +58,27 @@ public class ArticleController {
 		return "usr/article/api";
 	}
 	
-	// 인사이동 페이지
 	@RequestMapping("/usr/article/transferList")
-	public String showtransfer(Model model) {
+	public String showTransfer(@RequestParam(defaultValue = "1") int page, Model model) {
+	    int itemsPerPage = 10; // 페이지당 아이템 수
+	    int totalCount = memberService.getApprovedMembersCount(); // 전체 아이템 수
+	    int totalPages = (int) Math.ceil((double) totalCount / itemsPerPage); // 전체 페이지 수
 
-		// 가입 완료된 멤버 정보 조회
-		List<Member> approvedMembers = memberService.approvedMembers();
-		model.addAttribute("approvedMembers", approvedMembers);
+	    // 현재 페이지 값이 유효한 범위 내에 있는지 확인
+	    if (page < 1 || page > totalPages) {
+	        page = 1;
+	    }
 
-		return "usr/article/transferList";
+	    int startItemIndex = (page - 1) * itemsPerPage; // 현재 페이지에서 시작하는 아이템 인덱스
+	    List<Member> approvedMembers = memberService.getTransferMembers(startItemIndex, itemsPerPage);
+
+	    model.addAttribute("approvedMembers", approvedMembers);
+	    model.addAttribute("currentPage", page);
+	    model.addAttribute("totalPages", totalPages);
+
+	    return "usr/article/transferList";
 	}
+
 
 	// 해당 멤버의 인사이동 내용
 	@RequestMapping("/usr/article/transferdetail")
@@ -99,7 +110,7 @@ public class ArticleController {
 		int applicantNumber = rq.getLoginedMemberId();
 		adminService.insertSuggestion(applicantNumber, item);
 
-		return "usr/article/suggestion";
+		return "redirect:/usr/article/suggestion";
 	}
 
 	// 휴가 신청 화면

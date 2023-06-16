@@ -209,6 +209,10 @@ html>body {
 	height: 400px; /* 원하는 높이로 조정합니다 */
 	overflow-y: scroll; /* 세로 스크롤바가 표시됩니다 */
 }
+.suggestion-list {
+	height: 50px; /* 원하는 높이로 조정합니다 */
+	overflow-y: scroll; /* 세로 스크롤바가 표시됩니다 */
+}
 
 
 .list-container {
