@@ -17,7 +17,7 @@
                         </a>
                     </li>
                 </c:if>
-            </c:forEach>	
+            </c:forEach>
         </ul>
         <c:if test="${rq.getLoginedMember().getName() eq 'admin'}">
             <form id="form1" action="/usr/article/upload2" method="POST" enctype="multipart/form-data" class="mt-4">
@@ -29,7 +29,7 @@
     </div>
 
     <div id="div2" class="flex w-80 h-96 border-black block m-7 rounded-2xl p-4 bg-white dark:bg-gray-800">
-    	<span class="text-2xl">기획재정담당관</span>
+        <span class="text-2xl">기획재정담당관</span>
         <ul class="mt-4 space-y-2">
             <c:forEach var="file" items="${files2}">
                 <c:if test="${file.dpn eq '기획재정담당관'}">
@@ -77,7 +77,7 @@
         <ul class="mt-4 space-y-2">
             <c:forEach var="file" items="${files2}">
                 <c:if test="${file.dpn eq '감사과'}">
-                    <li>	
+                    <li>    
                         <a href="/usr/article/file2/${file.id}" download class="text-blue-500 hover:underline">
                             ${file.originName} <i class="fa-solid fa-download"></i>
                         </a>

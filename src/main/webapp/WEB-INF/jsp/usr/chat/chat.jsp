@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ include file="../common/head.jsp"%>
+<link href="https://cdn.jsdelivr.net/npm/daisyui@3.1.0/dist/full.css" rel="stylesheet" type="text/css" />
+
 <script>
     var socket;
     $(document).ready(function () {
@@ -61,9 +63,15 @@
             var senderName = message.senderName;
             var content = message.content;
 
+            
+            
             var chatMessage = '<div class="chat chat-start">\n' +
-                '  <div class="chat-bubble chat-bubble-primary">' + senderName + ': ' + content + '</div>\n' +
+                '  <div class="chat-bubble chat-bubble-info">' + senderName + ': ' + content + '</div>\n' +
                 '</div>';
+                
+                
+                
+                	
 
             $("#chat-window").append(chatMessage);
             $("#chat-window").scrollTop($("#chat-window")[0].scrollHeight);
