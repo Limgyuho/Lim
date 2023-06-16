@@ -45,6 +45,13 @@ public class ArticleController {
 		this.rq = rq;
 	}
 
+	
+	@RequestMapping("/usr/article/schedule")
+	public String showschedule() {
+
+		return "usr/article/schedule";
+	}
+	
 	@RequestMapping("/usr/article/api")
 	public String showapi() {
 

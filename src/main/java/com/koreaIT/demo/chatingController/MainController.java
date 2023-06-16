@@ -32,30 +32,20 @@ public class MainController {
 	@GetMapping("/usr/chat/chat/{id}")
 	public String chat(@PathVariable int id, HttpSession session, Model model) {
 	    // HttpSession을 사용하여 로그인한 사용자의 정보를 세션에 저장합니다.
-		System.out.println(rq.getLoginedMemberId());
-	    session.setAttribute("loggedInUserId", rq.getLoginedMemberId());
-	    System.out.println(session.getAttribute("loggedInUserId"));
+	    session.setAttribute("loggedInMemberId", rq.getLoginedMemberId());
 
-	   
-	    
 	    // 세션에서 로그인한 사용자의 식별자를 가져옵니다.
-	    int loggedInUserId = (int) session.getAttribute("loggedInUserId");
+	    int loggedInMemberId = (int) session.getAttribute("loggedInMemberId");
 
 	    // 로그인한 사용자의 정보를 조회합니다.
-	    Member loggedInMember = memberService.getMemberById(loggedInUserId);
-	    
-	    System.out.println(loggedInMember.getName());
-	    
+	    Member loggedInMember = memberService.getMemberById(loggedInMemberId);
+
 	    // 사용자 정보를 모델에 추가합니다.
 	    model.addAttribute("loggedInMember", loggedInMember);
 	    session.setAttribute("userName", loggedInMember.getName());
-	    System.out.println(session.getAttribute("userName"));
 
 	    return "usr/chat/chat";
 	}
-
-
-
 
 	@GetMapping("/usr/chat/department")
 	public String showDepartment() {
@@ -70,10 +60,15 @@ public class MainController {
 	}
 
 	@RequestMapping("/getUserInfo")
-	public String getUserInfo(Model model) {
-		Member loggedInMember = rq.getLoginedMember();
-		String userName = loggedInMember != null ? loggedInMember.getName() : "";
-		model.addAttribute("userName", userName);
+	public String getUserInfo(Model model, HttpSession session) {
+		// 세션에서 로그인한 사용자의 식별자를 가져옵니다.
+		int loggedInMemberId = (int) session.getAttribute("loggedInMemberId");
+
+		// 로그인한 사용자의 정보를 조회합니다.
+		Member loggedInMember = memberService.getMemberById(loggedInMemberId);
+
+		// 사용자 이름을 모델에 추가합니다.
+		model.addAttribute("userName", loggedInMember != null ? loggedInMember.getName() : "");
 		return "jsonView";
 	}
 }

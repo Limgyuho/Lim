@@ -3,17 +3,14 @@
 <c:set var="pageTitle" value="admindashboard" />
 <%@ include file="../common/head.jsp"%>
 
-<span class="text-3xl border-black rounded-2xl m-10 p-5"><a href="/usr/admin/admindashboard">어드민 대시보드</a></span>
 
-<div class="m-10">
-    <button class="btn btn-link border-red"  onclick="showTab('joinRequests')">가입 요청자 목록</button>
-    &nbsp;
-    &nbsp;
-    <button class="btn btn-link border-red" onclick="showTab('approvedMembers')">가입 멤버 목록</button>
-    &nbsp;
-    &nbsp;
-    <button class="btn btn-link border-red" onclick="showTab('suggestion')">요청 사항 목록</button>
-</div>
+<h1 class="text-3xl font-bold mb-10">멤버 관리 시스템</h1>
+    
+    <div class="m-10">
+        <button class="btn btn-link border-red-500 text-red-500 hover:text-red-700" onclick="showTab('joinRequests')">가입 요청자 목록</button>
+        <button class="btn btn-link border-red-500 text-red-500 hover:text-red-700" onclick="showTab('approvedMembers')">가입 멤버 목록</button>
+        <button class="btn btn-link border-red-500 text-red-500 hover:text-red-700" onclick="showTab('suggestion')">요청 사항 목록</button>
+    </div>
 
 <div id="joinRequests" class="tab-content m-10" style="max-height: 400px; overflow-y: scroll;">
     <div class="flex">
