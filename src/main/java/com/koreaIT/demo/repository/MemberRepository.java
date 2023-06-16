@@ -193,7 +193,6 @@ public interface MemberRepository {
 	@Select("""
 			    SELECT *
 			    FROM `member`
-			    WHERE `position` = '과장'
 			""")
 	public List<Member> manager();
 

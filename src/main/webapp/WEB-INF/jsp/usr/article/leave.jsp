@@ -83,8 +83,8 @@
 
 
 
-	<c:forEach var="member" items="${manager}">
-	  <c:if test="${member.position == rq.getLoginedMember().getPosition()}">
+
+	 <c:if test="${rq.getLoginedMember().getPosition() eq '과장'}">
 	  	<div class="border-blue w-30 h-50 overflow-auto rounded-3xl p-8 m-3">
 			  <table class="table-auto">
 			    <thead>
@@ -126,7 +126,6 @@
               		 onclick="leaveAp()" id="" >거부</button>
 			</div>
 		</c:if>
-	</c:forEach>
 </div>
 
 <script>

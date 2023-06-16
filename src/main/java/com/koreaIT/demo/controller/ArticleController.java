@@ -112,7 +112,7 @@ public class ArticleController {
 		List<Vacation> showVacation = memberService.showVacation(applicantnumber);
 		model.addAttribute("showVacation", showVacation);
 
-		// 직급이 과장인
+		// 직급이 과장인 사람 뽑아오기
 		List<Member> manager = memberService.manager();
 		model.addAttribute("manager", manager);
 
@@ -120,6 +120,8 @@ public class ArticleController {
 		List<Vacation> showallVacation = memberService.showallVacation();
 		model.addAttribute("showallVacation", showallVacation);
 
+		System.out.println(rq.getLoginedMember().getPosition());
+		
 		return "/usr/article/leave";
 	}
 
