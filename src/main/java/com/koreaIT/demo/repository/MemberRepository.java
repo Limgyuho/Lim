@@ -178,9 +178,10 @@ public interface MemberRepository {
 	public List<Member> adminUpload();
 
 	@Select("""
-			    SELECT *
-			    FROM vacation
-			""")
+		    SELECT v.*, m.name AS applicantName, m.position AS applicantPosition
+		    FROM vacation v
+		    JOIN member m ON v.applicantNumber = m.id
+		""")
 	public List<Vacation> showallVacation();
 
 	@Update("""

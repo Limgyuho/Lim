@@ -44,53 +44,50 @@ public class ArticleController {
 		this.fileService = fileService;
 		this.rq = rq;
 	}
+	
+	@RequestMapping("/usr/article/bus")
+	public String showschedule() {
 
-	
-		@RequestMapping("/usr/article/schedule")
-		public String showschedule() {
-	
-			return "usr/article/schedule";
-		}
-	
+		return "usr/article/bus";
+	}
+
 	@RequestMapping("/usr/article/api")
 	public String showapi() {
 
 		return "usr/article/api";
 	}
-	
+
 	@RequestMapping("/usr/article/transferList")
 	public String showTransfer(@RequestParam(defaultValue = "1") int page, Model model) {
-	    int itemsPerPage = 10; // 페이지당 아이템 수
-	    int totalCount = memberService.getApprovedMembersCount(); // 전체 아이템 수
-	    int totalPages = (int) Math.ceil((double) totalCount / itemsPerPage); // 전체 페이지 수
+		int itemsPerPage = 10; // 페이지당 아이템 수
+		int totalCount = memberService.getApprovedMembersCount(); // 전체 아이템 수
+		int totalPages = (int) Math.ceil((double) totalCount / itemsPerPage); // 전체 페이지 수
 
-	    // 현재 페이지 값이 유효한 범위 내에 있는지 확인
-	    if (page < 1 || page > totalPages) {
-	        page = 1;
-	    }
+		// 현재 페이지 값이 유효한 범위 내에 있는지 확인
+		if (page < 1 || page > totalPages) {
+			page = 1;
+		}
 
-	    int startItemIndex = (page - 1) * itemsPerPage; // 현재 페이지에서 시작하는 아이템 인덱스
-	    List<Member> approvedMembers = memberService.getTransferMembers(startItemIndex, itemsPerPage);
+		int startItemIndex = (page - 1) * itemsPerPage; // 현재 페이지에서 시작하는 아이템 인덱스
+		List<Member> approvedMembers = memberService.getTransferMembers(startItemIndex, itemsPerPage);
 
-	    model.addAttribute("approvedMembers", approvedMembers);
-	    model.addAttribute("currentPage", page);
-	    model.addAttribute("totalPages", totalPages);
+		model.addAttribute("approvedMembers", approvedMembers);
+		model.addAttribute("currentPage", page);
+		model.addAttribute("totalPages", totalPages);
 
-	    return "usr/article/transferList";
+		return "usr/article/transferList";
 	}
-
 
 	// 해당 멤버의 인사이동 내용
 	@RequestMapping("/usr/article/transferdetail")
 	public String showTransferDetail(@RequestParam("memberId") int memberId, Model model) {
 
-	    Member member = memberService.getMemberById(memberId);
-	    
-	    model.addAttribute("member", member);
-	    
-	    return "usr/article/transferdetail";
-	}
+		Member member = memberService.getMemberById(memberId);
 
+		model.addAttribute("member", member);
+
+		return "usr/article/transferdetail";
+	}
 
 	// 요청 사항 선택 메서드
 	@RequestMapping("/usr/article/suggestion")
@@ -131,8 +128,6 @@ public class ArticleController {
 		List<Vacation> showallVacation = memberService.showallVacation();
 		model.addAttribute("showallVacation", showallVacation);
 
-		System.out.println(rq.getLoginedMember().getPosition());
-		
 		return "/usr/article/leave";
 	}
 

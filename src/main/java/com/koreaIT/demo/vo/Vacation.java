@@ -14,4 +14,6 @@ public class Vacation {
 	private String vacationType1;
 	private String vacationType2;
 	private int applicantNumber;
+	private String applicantName;
+	private String applicantPosition;
 }
