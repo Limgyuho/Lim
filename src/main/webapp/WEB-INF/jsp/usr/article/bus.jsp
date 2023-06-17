@@ -96,7 +96,7 @@
 </div>
 <div class="flex justify-end w-3/5 border-red m-16">
 	<div class="tbl_st tbl_busRut">
-		<p class="pc_navy"></p>
+
 		<table>
 			<caption>노선 조치원(B)→청사의 경유지 및 운행시간에 대한 정보를 제공합니다</caption>
 			<colgroup>
@@ -158,7 +158,7 @@
 
 <div class="flex justify-end w-3/5 border-red m-16">
 	<div class="tbl_st tbl_busRut">
-		<p class="pc_navy"></p>
+
 		<table>
 			<caption>노선 대전 동구→세종청사의 경유지 및 운행시간에 대한 정보를 제공합니다</caption>
 			<colgroup>
@@ -229,7 +229,7 @@
 
 <div class="flex justify-end w-3/5 border-red m-16">
 	<div class="tbl_st tbl_busRut">
-		<p class="pc_navy"></p>
+
 		<table>
 			<caption>노선 대전 서구→세종청사의 경유지 및 운행시간에 대한 정보를 제공합니다</caption>
 			<colgroup>
@@ -335,7 +335,7 @@
 
 <div class="flex justify-end w-3/5 border-red m-16">
 	<div class="tbl_st tbl_busRut">
-		<p class="pc_navy"></p>
+
 		<table>
 			<caption>노선 대전 둔산 → 세종청사(1)의 경유지 및 운행시간에 대한 정보를 제공합니다</caption>
 			<colgroup>
@@ -419,7 +419,7 @@
 
 <div class="flex justify-end w-3/5 border-red m-16">
 	<div class="tbl_st tbl_busRut">
-		<p class="pc_navy"></p>
+
 		<table>
 			<caption>노선 대전 둔산 → 세종청사(2)의 경유지 및 운행시간에 대한 정보를 제공합니다</caption>
 			<colgroup>

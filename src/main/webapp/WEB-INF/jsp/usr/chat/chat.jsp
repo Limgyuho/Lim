@@ -68,10 +68,6 @@
             var chatMessage = '<div class="chat chat-start">\n' +
                 '  <div class="chat-bubble chat-bubble-info">' + senderName + ': ' + content + '</div>\n' +
                 '</div>';
-                
-                
-                
-                	
 
             $("#chat-window").append(chatMessage);
             $("#chat-window").scrollTop($("#chat-window")[0].scrollHeight);

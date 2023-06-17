@@ -4,115 +4,7 @@
 <%@ include file="../home/topbar.jsp"%>
 <%@ include file="../common/head.jsp"%>
 
-<!-- FullCalendar CSS -->
-<link
-	href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css"
-	rel="stylesheet" />
-
-<!-- FullCalendar JavaScript -->
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script>
-
-
-<script>
-// $(document).ready(function() {
-//   $('#calendar').fullCalendar({
-//     // 달력 옵션 설정
-//     header: {
-//       left: 'prev,next today',
-//       center: 'title',
-//       right: 'month,agendaWeek,agendaDay'
-//     },
-//     defaultView: 'month',
-//     // ...
-
-//     // 이벤트 데이터 로드
-//     events: '/events', // 서버에서 이벤트 데이터를 제공하는 URL
-
-//     // 일정 추가
-//     selectable: true,
-//     select: function(start, end) {
-//       var eventData = {
-//         title: '새로운 일정',
-//         start: start,
-//         end: end
-//       };
-//       // 서버에 일정 추가 요청
-//       $.ajax({
-//         url: '/addEvent',
-//         type: 'POST',
-//         data: JSON.stringify(eventData),
-//         contentType: 'application/json',
-//         success: function(response) {
-//           // 일정 추가 성공 시, 달력에 일정을 표시
-//           $('#calendar').fullCalendar('renderEvent', eventData, true);
-//         },
-//         error: function(xhr) {
-//           console.log('일정 추가 실패');
-//         }
-//       });
-//       $('#calendar').fullCalendar('unselect');
-//     },
-
-//     // 일정 수정 및 삭제
-//     editable: true,
-//     eventDrop: function(event, delta, revertFunc) {
-//       // 서버에 일정 수정 요청
-//       $.ajax({
-//         url: '/updateEvent',
-//         type: 'POST',
-//         data: JSON.stringify(event),
-//         contentType: 'application/json',
-//         success: function(response) {
-//           console.log('일정 수정 성공');
-//         },
-//         error: function(xhr) {
-//           console.log('일정 수정 실패');
-//           revertFunc(); // 일정 위치를 원래대로 되돌림
-//         }
-//       });
-//     },
-//     eventResize: function(event, delta, revertFunc) {
-//       // 서버에 일정 수정 요청
-//       $.ajax({
-//         url: '/updateEvent',
-//         type: 'POST',
-//         data: JSON.stringify(event),
-//         contentType: 'application/json',
-//         success: function(response) {
-//           console.log('일정 수정 성공');
-//         },
-//         error: function(xhr) {
-//           console.log('일정 수정 실패');
-//           revertFunc(); // 일정 크기를 원래대로 되돌림
-//         }
-//       });
-//     },
-//     eventClick: function(event) {
-//       if (confirm('일정을 삭제하시겠습니까?')) {
-//         // 서버에 일정 삭제 요청
-//         $.ajax({
-//           url: '/deleteEvent',
-//           type: 'POST',
-//           data: JSON.stringify(event),
-//           contentType: 'application/json',
-//           success: function(response) {
-//             console.log('일정 삭제 성공');
-//             $('#calendar').fullCalendar('removeEvents', event._id);
-//           },
-//           error: function(xhr) {
-//             console.log('일정 삭제 실패');
-//           }
-//         });
-//       }
-//     }
-//   });
-// });
-</script>
-<div class="flex items-end justify-end mt-24 px-10">
-	<div id="calendar" class="mt-8"></div>
+<div class="flex  justify-end mt-24 px-10">
 	<div class="p-4 rounded-lg border border-gray-300 h-96">
 		<div class="text-xl bg-gray-300 text-gray-800 py-2 px-4">인사이동
 			대상자</div>
@@ -151,10 +43,66 @@
 	</div>
 </div>
 
-
-
-<div class="flex items-end justify-end mt-10 px-10">
-
+<div class="flex justify-end mt-10 px-10">
+	<div class="min-h-full w-full mx-8 ">
+		<span class="text-3xl">출퇴근 버스 운행 시간</span>
+		<table>
+			<thead>
+				<tr>
+					<th>세종청사 출근 운행시간</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>08:12</td>
+					<td>08:17</td>
+					<td>08:22</td>
+					<td>08:33</td>
+					<td>08:40</td>
+					<td>08:45</td>
+					<td>08:52</td>
+				</tr>
+			</tbody>
+		</table>
+		<table>
+			<thead>
+				<tr>
+					<th>세종청사 퇴근 운행시간</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>18:05</td>
+					<td>18:17</td>
+					<td>18:25</td>
+					<td>18:37</td>
+					<td>18:45</td>
+					<td>19:05</td>
+					<td>19:17</td>
+				</tr>
+			</tbody>
+		</table>
+		<table>
+			<thead>
+				<tr>
+					<th>오송역 출근 운행시간</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>07:50</td>
+					<td>07:55</td>
+					<td>08:00</td>
+					<td>08:08</td>
+					<td>08:15</td>
+					<td>08:17</td>
+					<td>08:21</td>
+				</tr>
+			</tbody>
+		</table>
+		
+	</div>
+	
 	<div class="p-4 rounded-lg border border-gray-300 h-96">
 		<div
 			class="text-xl bg-gray-300 text-gray-800 py-2 px-4 rounded-t-lg w-80">필수
@@ -197,7 +145,19 @@
 </div>
 
 
+<style>
+  table {
+    margin-bottom: 20px;
+    border-collapse: collapse;
+    width: 100%;
+  }
 
+  th, td {
+    padding: 8px;
+    text-align: left;
+    border: 1px solid #ddd;
+  }
+</style>
 
 
 
