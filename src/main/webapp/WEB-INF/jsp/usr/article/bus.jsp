@@ -2,14 +2,45 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="../common/head.jsp"%>
 <%@ include file="../home/topbar.jsp"%>
+
+
+<title>Kakao 지도 시작하기</title>
+
+
+<div id="map" style="width:500px;height:400px;display:none;"></div> <!-- 지도를 표시할 div -->
+
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1fe1923de2e82c0ac685df4ed7ab5021"></script>
+
 <script>
-    function openKakaoMap(latitude, longitude) {
-        var url = 'https://map.kakao.com/link/map/' + latitude + ',' + longitude;
-        window.open(url);
+    function openKakaoMap() {
+        var mapContainer = document.getElementById('map'); // 지도를 표시할 div
+        mapContainer.style.display = "block"; // 지도를 보이도록 함
+
+        var mapOption = {
+            center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+            level: 3 // 지도의 확대 레벨
+        };
+
+        var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+        // 마커가 표시될 위치입니다
+        var markerPosition = new kakao.maps.LatLng(33.450701, 126.570667);
+
+        // 마커를 생성합니다
+        var marker = new kakao.maps.Marker({
+            position: markerPosition
+        });
+
+        // 마커가 지도 위에 표시되도록 설정합니다
+        marker.setMap(map);
+
+        // 아래 코드는 지도 위의 마커를 제거하는 코드입니다
+        // marker.setMap(null);
     }
 </script>
 
-<div class="flex justify-end w-3/5 border-red m-16">
+
+<div class="flex justify-end w-3/5 border-red m-16">	
 	<div class="tbl_st tbl_busRut" style="border: 1px solid black;">
 		<p class="pc_navy"></p>
 		<table style="border-collapse: collapse; width: 100%;">
@@ -20,12 +51,11 @@
 			<thead>
 				<tr>
 					<th colspan="7" style="border: 1px solid black;">운행시간</th>
-				</tr>
+				</tr>	
 			</thead>
 			<tbody>
 				<tr>
-					<td class="pointer" onclick="fn_showVialocInfo('7','21')"
-						style="border: 1px solid black;">모아 할인마트 앞</td>
+					<td class="pointer" onclick="openKakaoMap()">모아 할인마트 앞</td> <!-- 클릭하면 openKakaoMap() 함수 호출 -->
 					<td class="pointer" onclick="fn_showVialocInfo('7','22')"
 						style="border: 1px solid black;">조치원역 (종로약국 건너편 버스정류장 앞)</td>
 					<td class="pointer" onclick="fn_showVialocInfo('7','23')"
