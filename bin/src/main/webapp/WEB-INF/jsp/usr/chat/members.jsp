@@ -2,51 +2,51 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ include file="../common/head.jsp"%>
 
-<div class="flex items-center flex-col justify-center h-screen">
-    <div class="flex">
-        <h2 class="flex-grow-1">가입된 멤버들</h2>
-        <h2 class="flex-grow-1 justify-content-end">총 인원 : ${memberCnt}명</h2>
+<div class="flex items-center justify-center min-h-screen bg-gray-100">
+  <div class="w-full max-w-3xl">
+    <div class="flex justify-end mb-6">
+      <h2 class="text-2xl font-bold">총 인원 : ${memberCnt}명</h2>
     </div>
-    <div class="scrollable-table border-red">
-        <table>
-            <thead>
-                <tr>
-                    <th>직급</th>
-                    <th>이름</th>
-                    <th>전화번호</th>
-                </tr>
-            </thead>
-            <tbody>
-                <c:forEach var="member" items="${departmentMembers}">
-                    <tr>
-                        <td>${member.position}</td>
-                        <td>
-                            <a href="#" class="chat-link" data-member-id="${member.id}">${member.name}</a>
-                        </td>
-                        <td>${member.cellphoneNum}</td>
-                    </tr>
-                </c:forEach>
-            </tbody>
-        </table>
+    <div class="overflow-auto bg-white border border-gray-200 rounded-lg shadow-sm">
+      <table class="w-full">
+        <thead class="bg-gray-200">
+          <tr>
+            <th class="px-4 py-3">직급</th>
+            <th class="px-4 py-3">이름</th>
+            <th class="px-4 py-3">전화번호</th>
+          </tr>
+        </thead>
+        <tbody>
+          <c:forEach var="member" items="${departmentMembers}">
+            <tr>
+              <td class="px-4 py-3">${member.position}</td>
+              <td class="px-4 py-3">
+                <a href="#" class="text-blue-500 hover:underline chat-link" data-member-id="${member.id}">${member.name}</a>
+              </td>
+              <td class="px-4 py-3">${member.cellphoneNum}</td>
+            </tr>
+          </c:forEach>
+        </tbody>
+      </table>
     </div>
-    <div class="btns mt-2">
-        <button class="btn-text-link btn btn-active" type="button" onclick="history.back();">뒤로가기</button>
+    <div class="flex justify-center mt-6">
+      <button class="px-4 py-2 text-sm text-white bg-blue-500 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600" onclick="history.back();">뒤로가기</button>
     </div>
+  </div>
 </div>
 
-
 <script>
-    $(document).ready(function () {
-        // 채팅 링크 클릭 시 이벤트 처리
-        $(".chat-link").on("click", function (event) {
-            event.preventDefault();
-            var memberId = $(this).data("member-id");
-            openChat(memberId);
-        });
-
-        // 채팅창 열기
-        function openChat(memberId) {
-            window.location.href = "/usr/chat/chat/" + memberId;
-        }
+  $(document).ready(function () {
+    // 채팅 링크 클릭 시 이벤트 처리
+    $(".chat-link").on("click", function (event) {
+      event.preventDefault();
+      var memberId = $(this).data("member-id");
+      openChat(memberId);
     });
+
+    // 채팅창 열기
+    function openChat(memberId) {
+      window.location.href = "/usr/chat/chat/" + memberId;
+    }
+  });
 </script>

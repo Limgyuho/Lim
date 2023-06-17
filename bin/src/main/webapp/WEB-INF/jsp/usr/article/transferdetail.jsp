@@ -16,8 +16,13 @@
       <h3>${member.name}님 께서 </h3>
       <h3>${member.department} 부서로 인사이동 발령이 있었습니다.</h3>
       <h3 class="text-lg bottom-0">${member.regDate} 기관장 </h3>
+
+<img class="scaled-image" src="/resource/images/직인.jpg">
+
+
+
  
-	      <img  class="border-red"src="/resource/images/직인.png" class="sm:">
+	    
 
     </div>
   </div>
@@ -26,3 +31,4 @@
 <div class="fixed-bottom">
   <%@ include file="../common/bottom.jsp" %>
 </div>
+

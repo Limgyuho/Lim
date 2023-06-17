@@ -8,125 +8,117 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-	
+
 <div class="text-6xl text-center mb-14">휴가 보고</div>
 
 <div class="flex justify-center">
 	<div class="border-blue w-80 h-100 rounded-3xl p-8 m-3">
 		<form action="/usr/article/leaveRequest" method="post">
-			<label for="date">날짜:</label> <input type="text" id="date" name="date" autocomplete="off">
-			<br />
-			<br />
-			<label for="vacationType1">법정 휴가:</label> 
-			<select id="vacationType1" name="vacationType1">
+			<label for="date">날짜:</label> <input type="text" id="date"
+				name="date" autocomplete="off"> <br /> <br /> <label
+				for="vacationType1">법정 휴가:</label> <select id="vacationType1"
+				name="vacationType1">
 				<option value="없음" selected>없음</option>
 				<option value="연차">연차</option>
 				<option value="월차">월차</option>
 				<option value="반차">반차</option>
 				<option value="가족돌봄휴가">가족돌봄휴가</option>
 				<option value="공가">공가</option>
-			</select>
-			<br />	
-			<br />
+			</select> <br /> <br />
 			<ul>
-				<li>연차: 1년을 계속 근로한 근로자가 근로기준법 요건에 해당하는 경우 받게 되는
-						유급휴가입니다.</li>
-				<li>월차: 연차 유급휴가를 가리키는 말이며, 1개월 만근 시 1일의 휴가를 받을 수 있는
-						제도입니다.</li>
+				<li>연차: 1년을 계속 근로한 근로자가 근로기준법 요건에 해당하는 경우 받게 되는 유급휴가입니다.</li>
+				<li>월차: 연차 유급휴가를 가리키는 말이며, 1개월 만근 시 1일의 휴가를 받을 수 있는 제도입니다.</li>
 				<li>반차: 보통 오전과 오후로 나뉘는 휴가입니다.</li>
 			</ul>
-			<br />	
-			<br />
-			<label for="vacationType2">약정 휴가:</label> 
-			<select id="vacationType2" name="vacationType2">
+			<br /> <br /> <label for="vacationType2">약정 휴가:</label> <select
+				id="vacationType2" name="vacationType2">
 				<option value="없음" selected>없음</option>
 				<option value="경조사">경조사</option>
 				<option value="포상휴가">포상휴가</option>
-			</select>
-			<br />	
-			<br />
+			</select> <br /> <br />
 			<ul>
-				<li>경조사: 봉인: 5일 / 자녀: 1일 / 출산(본인): 20일, (배우자): 5일 /
-						사망(배우자): 5일</li>
-				<li>포상휴가: 행정기관의 장은 소속 공무원이 국가 또는 해당 기관의 주요 업무를 성공적으로
-						수행하여 탁월한 성과와 공로가 인정되는 경우에는 10일 이내의 포상휴가를 줄 수 있습니다.</li>
+				<li>경조사: 봉인: 5일 / 자녀: 1일 / 출산(본인): 20일, (배우자): 5일 / 사망(배우자): 5일</li>
+				<li>포상휴가: 행정기관의 장은 소속 공무원이 국가 또는 해당 기관의 주요 업무를 성공적으로 수행하여 탁월한
+					성과와 공로가 인정되는 경우에는 10일 이내의 포상휴가를 줄 수 있습니다.</li>
 			</ul>
 
 			<input type="submit" value="제출">
 		</form>
 	</div>
-	
-	
-	  <div class="list-container border-blue  rounded-3xl p-8 m-3">
-	  	
-		  <ul class="list-disc list-inside">
-		    <c:forEach var="vacation" items="${showVacation}">
-		      <li>
-		        <span>날짜: ${vacation.date}</span>
-		        <span>법정 휴가: ${vacation.vacationType1}</span>
-		        <span>약정 휴가: ${vacation.vacationType2}</span>
-		        <span>
-		          <c:if test="${vacation.status == 1}">
-		            <span class="text-green-500">허가</span>
-		          </c:if>
-		          <c:if test="${vacation.status == 0}">
-		            <span class="text-yellow-500">대기</span>
-		          </c:if>
-		          <c:if test="${vacation.status == -1}">
-		            <span class="text-red-500">거부</span>
-		          </c:if>
-		        </span>
-		      </li>
-		    </c:forEach>
-		  </ul>
+
+
+	<div class="border-blue rounded-3xl p-8 m-3">
+		<div class="text-2xl">나의 휴가신청 현황</div>
+		<table class="table-auto">
+			<thead>
+				<tr>
+					<th class="px-4 py-2">날짜</th>
+					<th class="px-4 py-2">법정 휴가</th>
+					<th class="px-4 py-2">약정 휴가</th>
+					<th class="px-4 py-2">승인 상태</th>
+				</tr>
+			</thead>
+			<tbody>
+				<c:forEach var="vacation" items="${showVacation}">
+					<tr>
+						<td class="border px-4 py-2">${vacation.date}</td>
+						<td class="border px-4 py-2">${vacation.vacationType1}</td>
+						<td class="border px-4 py-2">${vacation.vacationType2}</td>
+						<td class="border px-4 py-2"><c:if
+								test="${vacation.status == 1}">
+								<span class="text-green-500">허가</span>
+							</c:if> <c:if test="${vacation.status == 0}">
+								<span class="text-yellow-500">대기</span>
+							</c:if> <c:if test="${vacation.status == -1}">
+								<span class="text-red-500">거부</span>
+							</c:if></td>
+					</tr>
+				</c:forEach>
+			</tbody>
+		</table>
+	</div>
+
+
+
+
+	<c:if test="${rq.getLoginedMember().getPosition() eq '과장'}">
+		<div class=" w-30 h-50 overflow-auto  p-8 m-3">
+			<table class="table-auto">
+				<thead>
+					<tr>
+						<th class="px-4 py-2">이름</th>
+						<th class="px-4 py-2">법정휴가</th>
+						<th class="px-4 py-2">포상휴가</th>
+						<th class="px-4 py-2">날짜</th>
+						<th class="px-4 py-2">승인 상태</th>
+						<th class="px-4 py-2">처리</th>
+					</tr>
+				</thead>
+				<tbody>
+					<c:forEach var="vacation" items="${showallVacation}">
+						<tr>
+							<td class="border px-4 py-2">${vacation.applicantName}</td>
+							<td class="border px-4 py-2">${vacation.vacationType1}</td>
+							<td class="border px-4 py-2">${vacation.vacationType2}</td>
+							<td class="border px-4 py-2">${vacation.date}</td>
+							<td class="border px-4 py-2"><c:if
+									test="${vacation.status == 1}">
+	                허가
+	              </c:if> <c:if test="${vacation.status == -1}">
+	                거부
+	              </c:if></td>
+							<td class="border px-4 py-2"><a
+								href="leaveAp?id=${vacation.id}&status=1" class="button">허가</a>
+								<a href="leaveAp?id=${vacation.id}&status=-1" class="button">거부</a>
+							</td>
+						</tr>
+					</c:forEach>
+				</tbody>
+			</table>
 		</div>
+	</c:if>
 
 
-
-	<c:forEach var="member" items="${manager}">
-	  <c:if test="${member.position == rq.getLoginedMember().getPosition()}">
-	  	<div class="border-blue w-30 h-50 overflow-auto rounded-3xl p-8 m-3">
-			  <table class="table-auto">
-			    <thead>
-			      <tr>
-			        <th class="px-4 py-2">ID</th>
-			        <th class="px-4 py-2">법정휴가</th>
-			        <th class="px-4 py-2">포상휴가</th>
-			        <th class="px-4 py-2">날짜</th>
-			        <th class="px-4 py-2">승인 상태</th>
-			      </tr>
-			    </thead>
-			    <tbody>
-				      <c:forEach var="vacation" items="${showallVacation}">
-				          <tr>
-				            <td class="border px-4 py-2">
-				              <input type="checkbox" name="id" class="checkbox checkbox-info" value="${vacation.id}" />
-				            </td>
-				            <td class="border px-4 py-2">${vacation.vacationType1}</td>
-				            <td class="border px-4 py-2">${vacation.vacationType2}</td>
-				            <td class="border px-4 py-2">${vacation.date}</td>
-
-				              <c:if test="${vacation.status == 1}">
-				                <td>허가</td>
-				              </c:if>
-				              <c:if test="${vacation.status == -1}">
-				                <td>거부</td>
-				              </c:if>
-
-				          </tr>
-					   </c:forEach>	
-			    </tbody>	
-			    
-			  </table>
-			        <a href="leaveAp?id=${vacation.id}&status=1" class="button">허가</a>
-		              &nbsp;
-		              &nbsp;
-              		<a href="leaveAp?id=${vacation.id}&status=-1" class="button">거부</a>
-              		<button class="btn btn-outline btn-secondary" type="button"
-              		 onclick="leaveAp()" id="" >거부</button>
-			</div>
-		</c:if>
-	</c:forEach>
 </div>
 
 <script>
@@ -155,9 +147,6 @@
     });
   });
 </script>
-
-
-
 
 
 

@@ -19,11 +19,9 @@
 html>body {
 	font-family: 'NanumSquareNeo-Variable', sans-serif;
 	text-underline-position: under;
-
 	margin: 0;
 	padding: 0;
 }
-
 
 .btn-text-link {
 	color: white;
@@ -129,38 +127,6 @@ html>body {
 	margin-right: auto;
 }
 
-/* 탑바 시작 */
-.top-bar {
-	height: 100px;
-	border-bottom: 1px solid #afafaf;
-	top: 0;
-	left: 0;
-	width: 100%;
-}
-
-.top-bar .menu-box-1>ul>li>a {
-	padding: 0 20px;
-	position: relative;
-	font-weight: bold;
-	font-size: 20px;
-}
-
-.top-bar .menu-box-1>ul>li>a::after {
-	position: absolute;
-	width: 0;
-	background-color: black;
-	bottom: 0;
-	left: 0;
-	transition: width .3s;
-}
-
-.top-bar .menu-box-1>ul>li:hover>a::after {
-	width: 100%;
-}
-
-
-
-
 .bottom-bar {
 	background-color: #343849;
 	font-size: 15px;
@@ -238,19 +204,20 @@ html>body {
 	overflow-y: scroll; /* 세로 스크롤바가 표시됩니다 */
 }
 
+.suggestion-list {
+	height: 50px; /* 원하는 높이로 조정합니다 */
+	overflow-y: scroll; /* 세로 스크롤바가 표시됩니다 */
+}
 
 .list-container {
-  max-height: 500px; /* 원하는 높이 값으로 변경 */
-  overflow-y: scroll;
+	max-height: 500px;
+	overflow-y: scroll;
 }
-
 
 .scrollable-container {
-  max-height: 400px; /* 원하는 높이 값으로 변경 */
-  overflow-y: auto;
+	max-height: 400px;
+	overflow-y: auto;
 }
-
-
 
 .member-list table {
 	width: 100%;
@@ -261,53 +228,121 @@ html>body {
 }
 
 .slider-container {
-    width: 500px;
-    height: 300px;
-    position: relative;
-    overflow: hidden;
-
+	width: 1700px;
+	height: 300px;
+	position: relative;
+	overflow: hidden;
 }
 
 .slider-wrapper {
-    width: 400%;
-    height: 100%;
-    position: relative;
-    left: 0;
-    transition: left 0.5s ease;
+	width: 400%;
+	height: 100%;
+	position: relative;
+	left: 0;
+	transition: left 0.5s ease;
 }
 
 .slider-slide {
-    width: 25%;
-    height: 100%;
-    float: left;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+	width: 25%;
+	height: 100%;
+	float: left;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .slider-slide img {
-    max-width: 100%;
-    max-height: 100%;
+	max-width: 100%;
+	max-height: 100%;
 }
 
 .slider-button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 30px;
-    height: 30px;
-    background-color: #ccc;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 30px;
+	height: 30px;
+	background-color: #ccc;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
 }
 
 .slider-button-prev {
-    left: 10px;
+	left: 10px;
 }
 
 .slider-button-next {
-    right: 10px;
+	right: 10px;
+}
+
+.scaled-image {
+	max-width: 50%;
+	height: auto;
+}
+
+.top-bar {
+	background-color: #0f3057;
+	padding: 15px;
+	border-radius: 5px;
+}
+
+.menu-box-1 ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	justify-content: center;
+}
+
+.menu-box-1 li {
+	margin: 0 20px;
+}
+
+.menu-box-1 a {
+	color: #fff;
+	text-decoration: none;
+	font-size: 18px;
+	padding: 10px 20px;
+	border-radius: 3px;
+	transition: background-color 0.3s;
+}
+
+.menu-box-1 a:hover {
+	background-color: #16324a;
+}
+
+
+.tbl_busRut {
+    width: 100%;
+    overflow: auto;
+}
+.tbl_st {
+    position: relative;
+    width: 100%;
+    font-size: 0.75rem;
+    background: #fff;
+    overflow: hidden;
+}
+.tbl_st table thead th {
+    padding: 0.65rem 0.5rem;
+    vertical-align: middle;
+    color: #222;
+    font-weight: 400;
+    border-bottom: 1px solid #b9b9b9;
+    border-left: 1px solid #d2d2d2;
+    background: #f3f3f3;
+}
+
+
+.tbl_st table {
+    position: relative;
+    width: 100%;
+    margin: 5px 0 0 -1px;
+    text-align: center;
+    border-top: 2px solid #000;
+    -webkit-overflow-scrolling: touch;
+    word-break: keep-all;
 }
