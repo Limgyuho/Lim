@@ -200,13 +200,13 @@ html>body {
 }
 
 .member-list {
-	height: 400px; /* 원하는 높이로 조정합니다 */
-	overflow-y: scroll; /* 세로 스크롤바가 표시됩니다 */
+	height: 400px; 
+	overflow-y: scroll;
 }
 
 .suggestion-list {
-	height: 50px; /* 원하는 높이로 조정합니다 */
-	overflow-y: scroll; /* 세로 스크롤바가 표시됩니다 */
+	height: 50px;
+	overflow-y: scroll; 
 }
 
 .list-container {
@@ -345,4 +345,31 @@ html>body {
 
 .slider-button-next {
 	right: 10px;
+}
+
+
+.hidden {
+	display: none;
+}
+
+.table-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+}
+
+table {
+	text-align: center;
+	border-collapse: collapse;
+	width: 100%;
+}
+table th {
+	background-color: #f2f2f2;
+}
+
+table th,
+table td {
+	padding: 30px;
+	border: 1px solid black;
 }
