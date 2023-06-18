@@ -257,6 +257,7 @@ public interface MemberRepository {
 	 @Select("""
 		        SELECT * FROM member
 		        LIMIT #{startItemIndex}, #{itemsPerPage}
+		        
 		    """)
 	public List<Member> getApprovedMembers(int startItemIndex, int itemsPerPage);
 

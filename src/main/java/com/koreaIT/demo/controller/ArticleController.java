@@ -44,11 +44,28 @@ public class ArticleController {
 		this.fileService = fileService;
 		this.rq = rq;
 	}
-	
+
 	@RequestMapping("/usr/article/bus")
 	public String showschedule() {
 
 		return "usr/article/bus";
+	}
+
+	@RequestMapping("/usr/article/ministry")
+	public String showministry() {
+
+		return "usr/article/ministry";
+	}
+
+	@RequestMapping("/usr/article/organization")
+	public String showorganization(Model model) {
+		
+		List<Member> approvedMembers = memberService.approvedMembers();
+		
+		
+		model.addAttribute("approvedMembers",approvedMembers);
+		
+		return "usr/article/organization";
 	}
 
 	@RequestMapping("/usr/article/api")
@@ -59,16 +76,15 @@ public class ArticleController {
 
 	@RequestMapping("/usr/article/transferList")
 	public String showTransfer(@RequestParam(defaultValue = "1") int page, Model model) {
-		int itemsPerPage = 10; // 페이지당 아이템 수
-		int totalCount = memberService.getApprovedMembersCount(); // 전체 아이템 수
-		int totalPages = (int) Math.ceil((double) totalCount / itemsPerPage); // 전체 페이지 수
+		int itemsPerPage = 10;
+		int totalCount = memberService.getApprovedMembersCount();
+		int totalPages = (int) Math.ceil((double) totalCount / itemsPerPage);
 
-		// 현재 페이지 값이 유효한 범위 내에 있는지 확인
 		if (page < 1 || page > totalPages) {
 			page = 1;
 		}
 
-		int startItemIndex = (page - 1) * itemsPerPage; // 현재 페이지에서 시작하는 아이템 인덱스
+		int startItemIndex = (page - 1) * itemsPerPage;
 		List<Member> approvedMembers = memberService.getTransferMembers(startItemIndex, itemsPerPage);
 
 		model.addAttribute("approvedMembers", approvedMembers);

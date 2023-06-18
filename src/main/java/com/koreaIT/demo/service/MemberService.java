@@ -161,4 +161,9 @@ public class MemberService {
 		return memberRepository.getApprovedMembers(startItemIndex, itemsPerPage);
 	}
 
+	public List<Member> getAllApprovedMembers() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
