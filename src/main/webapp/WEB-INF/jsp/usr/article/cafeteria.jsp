@@ -3,14 +3,13 @@
 <%@ include file="../home/topbar.jsp"%>
 <%@ include file="../common/head.jsp"%>
 
-<form id="date-form" action="/usr/article/Cafeteria" method="get">
+<form id="date-form" action="/usr/article/cafeteria" method="get">
     <label for="date">날짜 선택:</label>
-    <input type="date" id="date" name="date" value="${date}" required>
+    <input type="date" id="date" name="date" required>
+    <button type="submit">변경</button>
 </form>
-<br>
 
-<div class="felx">
-${date} ${rice} ${soup} ${sideDish1} ${sideDish2} ${sideDish3}
+<div class="flex">
+    ${date} ${rice} ${soup} ${sideDish1} ${sideDish2} ${sideDish3}
 </div>
-
 

@@ -50,10 +50,16 @@ public class ArticleController {
 	}
 
 	@RequestMapping("/usr/article/cafeteria")
-	public String showsCafeteria(Model model) {
-		
-		LocalDate currentDate = LocalDate.now();
-		int dayOfMonth = currentDate.getDayOfMonth();
+	public String showsCafeteria(@RequestParam(value = "date", required = false) String dateString, Model model) {
+	    LocalDate selectedDate;
+
+	    if (dateString != null) {
+	        selectedDate = LocalDate.parse(dateString);
+	    } else {
+	        selectedDate = LocalDate.now();
+	    }
+
+	    int dayOfMonth = selectedDate.getDayOfMonth();
 		
 		// 리스트를 만들어 리스트에 직접 값들을 넣어주고
 		List<String> riceList = new ArrayList<>();
@@ -93,13 +99,14 @@ public class ArticleController {
 		String sideDish3 = getRandomMenu(sideDish3List, dayOfMonth);
 
 		// 넣어준것은 화면에 보여주기 위해 모델로 추가한다
-		model.addAttribute("date", currentDate.toString());
-		model.addAttribute("rice", rice);
-		model.addAttribute("soup", soup);
-		model.addAttribute("sideDish1", sideDish1);
-		model.addAttribute("sideDish2", sideDish2);
-		model.addAttribute("sideDish3", sideDish3);
+		model.addAttribute("date", selectedDate.toString());
+	    model.addAttribute("rice", rice);
+	    model.addAttribute("soup", soup);
+	    model.addAttribute("sideDish1", sideDish1);
+	    model.addAttribute("sideDish2", sideDish2);
+	    model.addAttribute("sideDish3", sideDish3);
 		
+
 		
 		return "usr/article/cafeteria";
 	}
