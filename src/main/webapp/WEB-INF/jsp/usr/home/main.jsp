@@ -26,14 +26,14 @@
 		<div class="border-black m-10 ">
 			<div
 				class="bg-blue-200 text-3xl p-10 rounded-full flex justify-center items-center">
-				<a href="/usr/article/organization"> 구내 <br /> 식당
+				<a href="/usr/article/cafeteria"> 구내 <br /> 식당
 				</a>
 			</div>
 		</div>
 		<div class="border-black m-10 ">
 			<div
 				class="bg-blue-200 text-3xl p-10 rounded-full flex justify-center items-center">
-				협력 <br /> 부처
+				옥상 <br /> 정원
 			</div>
 		</div>
 	</div>
