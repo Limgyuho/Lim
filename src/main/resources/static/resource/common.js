@@ -47,6 +47,8 @@ $('.department').click(function() {
 });
 
 
+
+
 //이미지 슬라이드부분
 $(document).ready(function() {
 	var sliderWrapper = $(".slider-wrapper");

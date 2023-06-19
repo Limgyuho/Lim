@@ -19,7 +19,7 @@
 				<li><a href="/usr/article/departmentalData">부서별 자료</a></li>
 				<li><a href="/usr/article/program">필수 프로그램</a></li>
 				<li><a href="/usr/article/leave">휴가/보고</a></li>
-				<li><a href="/usr/article/bus">기관 일정</a></li>
+				<li><a href="/usr/article/bus">통근 버스</a></li>
 				<li><a href="/usr/article/api">API</a></li>
 			</ul>
 		</nav>

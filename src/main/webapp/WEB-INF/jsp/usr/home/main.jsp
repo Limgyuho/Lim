@@ -26,7 +26,8 @@
 		<div class="border-black m-10 ">
 			<div
 				class="bg-blue-200 text-3xl p-10 rounded-full flex justify-center items-center">
-				구내 <br /> 식장
+				<a href="/usr/article/organization"> 구내 <br /> 식당
+				</a>
 			</div>
 		</div>
 		<div class="border-black m-10 ">
