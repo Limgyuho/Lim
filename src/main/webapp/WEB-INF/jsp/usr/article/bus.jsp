@@ -471,16 +471,14 @@
 <!-- /* 	letter-spacing: -0.5px; */ -->
 <!-- /* } */ -->
 <!-- </style> -->
-
 <style>
 .mapdiv {
 	display: none;
 	z-index: 9999;
-	left: 0;
-	top: 0;
-	width: 100%;
-	position: absolute;
-	overflow: auto;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	position: fixed;
 }
 
 .modal-content {
@@ -488,7 +486,7 @@
 	margin: 15% auto;
 	padding: 20px;
 	border: 1px solid #888;
-	width: 80%;
+	width: 100%;
 	max-width: 600px;
 }
 
@@ -506,4 +504,5 @@
 	cursor: pointer;
 }
 </style>
+
 <%@ include file="../common/bottom.jsp"%>

@@ -39,7 +39,7 @@
 		</div>
 	</div>
 	<div class="m-10 border-red " style="width: 500px; heigth: auto">sadf</div>
-	<div class="m-10 border-red flex-1" style=heigth:auto">
+	<div class="m-10 border-red flex-1" style=heigth:auto;>
 		<div class="time">현재 시간 :</div>
 		<div class="ctemp">현재 온도 :</div>
 		<div class="lowtemp">최저 온도 :</div>
