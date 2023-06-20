@@ -4,7 +4,7 @@
 <%@ include file="../home/topbar.jsp"%>
 <%@ include file="../common/head.jsp"%>
 
-<div class="flex border-red m-16">
+<div class="flex border-red m-16 ">
 	<div>
 		<div class="border-black m-10 ">
 			<div
@@ -38,7 +38,10 @@
 			</div>
 		</div>
 	</div>
+	<div class ="m-10 border-red "style="width: 500px; heigth: auto">sadf</div>
+	<div class ="m-10 border-red flex-1"style= heigth: auto">현재 날씨 api 웨더api</div>
 </div>
+
 
 
 

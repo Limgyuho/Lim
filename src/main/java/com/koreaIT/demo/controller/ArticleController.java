@@ -109,18 +109,17 @@ public class ArticleController {
 		String sideDish3 = getRandomMenu1(sideDish3List, dayOfMonth);
 
 		// 넣어준것은 화면에 보여주기 위해 모델로 추가한다
-		model.addAttribute("date", selectedDate.toString());
 		model.addAttribute("rice", rice);
 		model.addAttribute("soup", soup);
 		model.addAttribute("sideDish1", sideDish1);
 		model.addAttribute("sideDish2", sideDish2);
 		model.addAttribute("sideDish3", sideDish3);
 
-		String rice2 = getRandomMenu2(riceList, dayOfMonth);
-		String soup2 = getRandomMenu2(soupList, dayOfMonth);
-		String sideDish12 = getRandomMenu2(sideDish1List, dayOfMonth);
-		String sideDish22 = getRandomMenu2(sideDish2List, dayOfMonth);
-		String sideDish32 = getRandomMenu2(sideDish3List, dayOfMonth);
+		String rice2 = getRandomMenu1(riceList, dayOfMonth - 5);
+		String soup2 = getRandomMenu1(soupList, dayOfMonth - 5);
+		String sideDish12 = getRandomMenu1(sideDish1List, dayOfMonth - 5);
+		String sideDish22 = getRandomMenu1(sideDish2List, dayOfMonth - 5);
+		String sideDish32 = getRandomMenu1(sideDish3List, dayOfMonth - 5);
 
 		// 넣어준것은 화면에 보여주기 위해 모델로 추가한다
 		model.addAttribute("date", selectedDate.toString());
@@ -149,24 +148,12 @@ public class ArticleController {
 //		random.nextInt(4)+1; // 1 ~ 4 까지의 무작위 int 값 리턴 
 //		random.nextInt(4)+100; // 101 ~ 104 까지의 무작위 int 값 리턴		
 		int randomIndex = random.nextInt(menuList.size());
-		System.out.println(randomIndex);
+		System.out.println("rI : " + randomIndex);
 		// 리턴값에 멤버리스트에 겟으로 가져와서 보여준다
 		return menuList.get(randomIndex);
 	}
 
-	private String getRandomMenu2(List<String> menuList, int seed) {
-		// random 객체를 생성해줍니다.
-		Random random = new Random(seed-5);
-//		random.nextInt(4); // 0 ~ 3 까지의 무작위 int 값 리턴
-//		random.nextInt(10); // 0 ~ 9 까지의 무작위 int 값 리턴 
-//		random.nextInt(100); // 0 ~ 99 까지의 무작위 int 값 리턴 
-//		random.nextInt(4)+1; // 1 ~ 4 까지의 무작위 int 값 리턴 
-//		random.nextInt(4)+100; // 101 ~ 104 까지의 무작위 int 값 리턴		
-		int randomIndex = random.nextInt(menuList.size());
-		System.out.println(randomIndex);
-		// 리턴값에 멤버리스트에 겟으로 가져와서 보여준다
-		return menuList.get(randomIndex);
-	}
+
 
 	@RequestMapping("/usr/article/garden")
 	public String showsgarden() {
