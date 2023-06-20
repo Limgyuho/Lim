@@ -33,7 +33,8 @@
 		<div class="border-black m-10 ">
 			<div
 				class="bg-blue-200 text-3xl p-10 rounded-full flex justify-center items-center">
-				옥상 <br /> 정원
+				<a href="/usr/article/garden"> 옥상 <br /> 정원
+				</a>
 			</div>
 		</div>
 	</div>

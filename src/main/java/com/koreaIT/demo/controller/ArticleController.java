@@ -51,63 +51,85 @@ public class ArticleController {
 
 	@RequestMapping("/usr/article/cafeteria")
 	public String showsCafeteria(@RequestParam(value = "date", required = false) String dateString, Model model) {
-	    LocalDate selectedDate;
+		LocalDate selectedDate;
 
-	    if (dateString != null) {
-	        selectedDate = LocalDate.parse(dateString);
-	    } else {
-	        selectedDate = LocalDate.now();
-	    }
+		if (dateString != null) {
+			selectedDate = LocalDate.parse(dateString);
+		} else {
+			selectedDate = LocalDate.now();
+		}
 
-	    int dayOfMonth = selectedDate.getDayOfMonth();
-		
+		int dayOfMonth = selectedDate.getDayOfMonth();
+
 		// 리스트를 만들어 리스트에 직접 값들을 넣어주고
 		List<String> riceList = new ArrayList<>();
 		riceList.add("현미밥");
 		riceList.add("잡곡밥");
 		riceList.add("흰쌀밥");
+		riceList.add("콩밥");
+		riceList.add("흑미밥");
 
 		// 리스트를 만들어 리스트에 직접 값들을 넣어주고
 		List<String> soupList = new ArrayList<>();
 		soupList.add("된장국");
 		soupList.add("김치찌개");
 		soupList.add("육개장");
+		soupList.add("청국장");
+		soupList.add("감자탕");
 
 		// 리스트를 만들어 리스트에 직접 값들을 넣어주고
 		List<String> sideDish1List = new ArrayList<>();
 		sideDish1List.add("제육볶음");
 		sideDish1List.add("소불고기");
 		sideDish1List.add("춘천닭갈비");
+		sideDish1List.add("고등어 조림");
+		sideDish1List.add("계란말이");
 
 		// 리스트를 만들어 리스트에 직접 값들을 넣어주고
 		List<String> sideDish2List = new ArrayList<>();
 		sideDish2List.add("김치");
 		sideDish2List.add("김");
 		sideDish2List.add("장조림");
+		sideDish2List.add("멸치 볶음");
+		sideDish2List.add("소세지볶음");
 
 		// 리스트를 만들어 리스트에 직접 값들을 넣어주고
 		List<String> sideDish3List = new ArrayList<>();
 		sideDish3List.add("상추,깻잎,쌈장");
 		sideDish3List.add("요거트");
 		sideDish3List.add("아이스크림");
+		sideDish3List.add("사과주스");
+		sideDish3List.add("바나나");
 
 		// 변수를 만들어 들어 있는 리스트를 값으로 넣어 준다
-		String rice = getRandomMenu(riceList, dayOfMonth);
-		String soup = getRandomMenu(soupList, dayOfMonth);
-		String sideDish1 = getRandomMenu(sideDish1List, dayOfMonth);
-		String sideDish2 = getRandomMenu(sideDish2List, dayOfMonth);
-		String sideDish3 = getRandomMenu(sideDish3List, dayOfMonth);
+		String rice = getRandomMenu1(riceList, dayOfMonth);
+		String soup = getRandomMenu1(soupList, dayOfMonth);
+		String sideDish1 = getRandomMenu1(sideDish1List, dayOfMonth);
+		String sideDish2 = getRandomMenu1(sideDish2List, dayOfMonth);
+		String sideDish3 = getRandomMenu1(sideDish3List, dayOfMonth);
 
 		// 넣어준것은 화면에 보여주기 위해 모델로 추가한다
 		model.addAttribute("date", selectedDate.toString());
-	    model.addAttribute("rice", rice);
-	    model.addAttribute("soup", soup);
-	    model.addAttribute("sideDish1", sideDish1);
-	    model.addAttribute("sideDish2", sideDish2);
-	    model.addAttribute("sideDish3", sideDish3);
-		
+		model.addAttribute("rice", rice);
+		model.addAttribute("soup", soup);
+		model.addAttribute("sideDish1", sideDish1);
+		model.addAttribute("sideDish2", sideDish2);
+		model.addAttribute("sideDish3", sideDish3);
 
-		
+		String rice2 = getRandomMenu2(riceList, dayOfMonth);
+		String soup2 = getRandomMenu2(soupList, dayOfMonth);
+		String sideDish12 = getRandomMenu2(sideDish1List, dayOfMonth);
+		String sideDish22 = getRandomMenu2(sideDish2List, dayOfMonth);
+		String sideDish32 = getRandomMenu2(sideDish3List, dayOfMonth);
+
+		// 넣어준것은 화면에 보여주기 위해 모델로 추가한다
+		model.addAttribute("date", selectedDate.toString());
+		model.addAttribute("rice2", rice2);
+		model.addAttribute("soup2", soup2);
+		model.addAttribute("sideDish12", sideDish12);
+		model.addAttribute("sideDish22", sideDish22);
+		model.addAttribute("sideDish32", sideDish32);
+
 		return "usr/article/cafeteria";
 	}
 
@@ -116,23 +138,40 @@ public class ArticleController {
 	// 2.Math.random()
 	// 1. Random 클래스는 int, long, float, double, boolean type의 난수를 얻을 수 있지만
 	// Math.random()은 0.0에서 1사이의 난수를 얻습니다.
-	//2. Random 클래스는 seed를 설정 할 수 있지만 Math.random()은 현재시간으로 seed가 고정되어있습니다.
+	// 2. Random 클래스는 seed를 설정 할 수 있지만 Math.random()은 현재시간으로 seed가 고정되어있습니다.
 	// - seed란 난수를 만드는 알고리즘에 사용되는 값으로 seed가 같으면 같은 난수를 생성합니다.
-	private String getRandomMenu(List<String> menuList, int seed) {
-		
-		System.out.println(seed);
-		//random 객체를 생성해줍니다.
+	private String getRandomMenu1(List<String> menuList, int seed) {
+		// random 객체를 생성해줍니다.
 		Random random = new Random(seed);
-		
 //		random.nextInt(4); // 0 ~ 3 까지의 무작위 int 값 리턴
 //		random.nextInt(10); // 0 ~ 9 까지의 무작위 int 값 리턴 
 //		random.nextInt(100); // 0 ~ 99 까지의 무작위 int 값 리턴 
 //		random.nextInt(4)+1; // 1 ~ 4 까지의 무작위 int 값 리턴 
 //		random.nextInt(4)+100; // 101 ~ 104 까지의 무작위 int 값 리턴		
 		int randomIndex = random.nextInt(menuList.size());
-		
-		//리턴값에 멤버리스트에 겟으로 가져와서 보여준다
+		System.out.println(randomIndex);
+		// 리턴값에 멤버리스트에 겟으로 가져와서 보여준다
 		return menuList.get(randomIndex);
+	}
+
+	private String getRandomMenu2(List<String> menuList, int seed) {
+		// random 객체를 생성해줍니다.
+		Random random = new Random(seed-5);
+//		random.nextInt(4); // 0 ~ 3 까지의 무작위 int 값 리턴
+//		random.nextInt(10); // 0 ~ 9 까지의 무작위 int 값 리턴 
+//		random.nextInt(100); // 0 ~ 99 까지의 무작위 int 값 리턴 
+//		random.nextInt(4)+1; // 1 ~ 4 까지의 무작위 int 값 리턴 
+//		random.nextInt(4)+100; // 101 ~ 104 까지의 무작위 int 값 리턴		
+		int randomIndex = random.nextInt(menuList.size());
+		System.out.println(randomIndex);
+		// 리턴값에 멤버리스트에 겟으로 가져와서 보여준다
+		return menuList.get(randomIndex);
+	}
+
+	@RequestMapping("/usr/article/garden")
+	public String showsgarden() {
+
+		return "usr/article/garden";
 	}
 
 	@RequestMapping("/usr/article/bus")

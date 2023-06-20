@@ -46,7 +46,7 @@
         }
     </script>
 
-<div class="flex justify-end w-3/5  m-16">
+<div class="flex justify-end w-3/5  mx-auto m-16">
 	<div class="tbl_st tbl_busRut" style="border: 1px solid black;">
 		<p class="pc_navy"></p>
 		<table style="border-collapse: collapse; width: 100%;">
@@ -86,7 +86,7 @@
 		</table>
 	</div>
 </div>
-<div class="flex justify-end w-3/5  m-16" style="border: 1px solid black;">
+<div class="flex justify-end w-3/5  mx-auto m-16" style="border: 1px solid black;">
 	<div class="tbl_st tbl_busRut">
 
 		<table>
@@ -146,7 +146,7 @@
 	</div>
 </div>
 
-<div class="flex justify-end w-3/5  m-16" style="border: 1px solid black;">
+<div class="flex justify-end w-3/5  mx-auto m-16" style="border: 1px solid black;">
 	<div class="tbl_st tbl_busRut">
 
 		<table>
@@ -209,7 +209,7 @@
 	</div>
 </div>
 
-<div class="flex justify-end w-3/5  m-16" style="border: 1px solid black;">
+<div class="flex justify-end w-3/5  mx-auto m-16" style="border: 1px solid black;">
 	<div class="tbl_st tbl_busRut">
 
 		<table>
@@ -309,7 +309,7 @@
 	</div>
 </div>
 
-<div class="flex justify-end w-3/5  m-16" style="border: 1px solid black;">
+<div class="flex justify-end w-3/5  mx-auto m-16" style="border: 1px solid black;">
 	<div class="tbl_st tbl_busRut">
 
 		<table>
@@ -386,7 +386,7 @@
 	</div>
 </div>
 
-<div class="flex justify-end w-3/5  m-16" style="border: 1px solid black;">
+<div class="flex justify-end w-3/5  mx-auto m-16" style="border: 1px solid black;">
 	<div class="tbl_st tbl_busRut">
 
 		<table>
