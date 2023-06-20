@@ -46,7 +46,7 @@
         }
     </script>
 
-<div class="flex justify-end w-3/5 border-red m-16">
+<div class="flex justify-end w-3/5  m-16">
 	<div class="tbl_st tbl_busRut" style="border: 1px solid black;">
 		<p class="pc_navy"></p>
 		<table style="border-collapse: collapse; width: 100%;">
@@ -61,8 +61,7 @@
 			</thead>
 			<tbody>
 				<tr>
-					<td>
-						 <button class="pointer" onclick="openKakaoMap(36.60281768989961, 127.30384457392374)">모아 할인마트 앞</button>
+					<td class="pointer" onclick="openKakaoMap(36.60281768989961, 127.30384457392374)" style="border: 1px solid black;">모아 할인마트 앞
 					</td>
 					<td class="pointer"  onclick="openKakaoMap(36.60076478940301, 127.29627700915479)" style="border: 1px solid black;">조치원역
 						(종로약국 건너편 버스정류장 앞)</td>
@@ -71,8 +70,8 @@
 					<td class="pointer" onclick="openKakaoMap(36.58929806695886, 127.29916899806624)"style="border: 1px solid black;">죽림삼거리
 						(파밀리에@ 앞)</td>
 					<td class="pointer" onclick="openKakaoMap(36.58673110979444, 127.29697836224292)" style="border: 1px solid black;">홈플러스 건너편</td>
-					<td class="pointer" style="border: 1px solid black;">현대중전기앞</td>
-					<td class="pointer" style="border: 1px solid black;">세종청사</td>
+					<td class="pointer" onclick="openKakaoMap(36.58407735480117, 127.29327239842698)"style="border: 1px solid black;">현대중전기앞</td>
+					<td class="pointer" onclick="openKakaoMap(36.503911110116476, 127.26462300763349)"style="border: 1px solid black;">세종청사</td>
 				</tr>
 				<tr>
 					<td style="border: 1px solid black;">08:10</td>
@@ -87,7 +86,7 @@
 		</table>
 	</div>
 </div>
-<div class="flex justify-end w-3/5 border-red m-16">
+<div class="flex justify-end w-3/5  m-16" style="border: 1px solid black;">
 	<div class="tbl_st tbl_busRut">
 
 		<table>
@@ -97,30 +96,30 @@
 			</colgroup>
 			<thead>
 				<tr>
-					<th colspan="7">운행시간</th>
+					<th colspan="7" style="border: 1px solid black;">운행시간</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
-
-					<td class="pointer" 
+					<td class="pointer" onclick="openKakaoMap(36.63330068283091, 127.28311266727982)" 
 						style="border: 1px solid black;">신안리 요양병원 앞</td>
-
-					<td class="pointer" style="border: 1px solid black;">욱일삼거리
+					<td class="pointer" onclick="openKakaoMap(36.6033004, 127.2900611)" 
+					style="border: 1px solid black;">욱일삼거리
 						(LG전자 앞)</td>
-
-					<td class="pointer" style="border: 1px solid black;">신흥사거리 (육교
+					<td class="pointer" onclick="openKakaoMap(36.5904531, 127.2916051)"  
+					style="border: 1px solid black;">신흥사거리 (육교
 						앞)</td>
-
-					<td class="pointer" style="border: 1px solid black;">LG자이@
-						(118동 앞)</td>
-
-					<td class="pointer" style="border: 1px solid black;">봉암리 (윤가네
+					<td class="pointer" onclick="openKakaoMap(36.5904531, 127.2916051)" 
+					style="border: 1px solid black;">LG자이@
+						(118동 앞)</td>	
+					<td class="pointer" onclick="openKakaoMap(36.5614481, 127.2843702)" 
+					style="border: 1px solid black;">봉암리 (윤가네
 						들깨수제비)</td>
+					<td class="pointer" onclick="openKakaoMap(127.2768622, 36.5442462)" 
+					style="border: 1px solid black;">연기우편 취급소</td>
 
-					<td class="pointer" style="border: 1px solid black;">연기우편 취급소</td>
-
-					<td class="pointer" style="border: 1px solid black;">세종청사</td>
+					<td class="pointer" onclick="openKakaoMap(36.5046595, 127.2653915)" 
+					style="border: 1px solid black;">세종청사</td>
 
 				</tr>
 
@@ -147,7 +146,7 @@
 	</div>
 </div>
 
-<div class="flex justify-end w-3/5 border-red m-16">
+<div class="flex justify-end w-3/5  m-16" style="border: 1px solid black;">
 	<div class="tbl_st tbl_busRut">
 
 		<table>
@@ -157,37 +156,29 @@
 			</colgroup>
 			<thead>
 				<tr>
-					<th colspan="9">운행시간</th>
+					<th colspan="9" style="border: 1px solid black;">운행시간</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
-
-					<td class="pointer" style="border: 1px solid black;">대전역 서광장
+					<td class="pointer" onclick="openKakaoMap(36.3308165,127.4326126)" style="border: 1px solid black;">대전역 서광장
 						건너편 (국제교류센터앞)</td>
-
-					<td class="pointer" style="border: 1px solid black;">구 대전방송 앞
-						(우성유통)</td>
-
-					<td class="pointer" style="border: 1px solid black;">가오주공@ (농협
+					<td class="pointer" onclick="openKakaoMap(36.3138154, 127.4407987)" style="border: 1px solid black;">구 대전방송 앞
+						(우성유통)</td> 
+					<td class="pointer" onclick="openKakaoMap(36.304867, 127.4534634)" style="border: 1px solid black;">가오주공@ (농협
 						앞)</td>
-
-					<td class="pointer" style="border: 1px solid black;">동구청 건너편
+					<td class="pointer" onclick="openKakaoMap(36.3113611, 127.4557793)" style="border: 1px solid black;">동구청 건너편
 						(버스정류장)</td>
-
-					<td class="pointer" style="border: 1px solid black;">판암역
+					<td class="pointer" onclick="openKakaoMap(36.3167087, 127.4583965)" style="border: 1px solid black;">판암역
 						(2번출구)</td>
-
-					<td class="pointer" style="border: 1px solid black;">용운동주공@
+					<td class="pointer" onclick="openKakaoMap(36.3274555, 127.4653053)" style="border: 1px solid black;">용운동주공@
 						(115동 정문)</td>
-
-					<td class="pointer" style="border: 1px solid black;">판암@4․5단지
+					<td class="pointer" onclick="openKakaoMap(36.3229661, 127.4623684)" style="border: 1px solid black;">판암@4․5단지
 						(큰빛교회 앞)</td>
-
-					<td class="pointer" style="border: 1px solid black;">세종2청사
+					<td class="pointer"  onclick="openKakaoMap(36.5046595, 127.2653915)" style="border: 1px solid black;">세종2청사
 						(국세청 앞)</td>
 
-					<td class="pointer" style="border: 1px solid black;">세종청사</td>
+					<td class="pointer"   onclick="openKakaoMap(36.5046595, 127.2653915)" style="border: 1px solid black;">세종청사</td>
 
 				</tr>
 
@@ -218,7 +209,7 @@
 	</div>
 </div>
 
-<div class="flex justify-end w-3/5 border-red m-16">
+<div class="flex justify-end w-3/5  m-16" style="border: 1px solid black;">
 	<div class="tbl_st tbl_busRut">
 
 		<table>
@@ -228,34 +219,28 @@
 			</colgroup>
 			<thead>
 				<tr>
-					<th colspan="8">운행시간</th>
+					<th colspan="8" style="border: 1px solid black;">운행시간</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
-
-					<td class="pointer" style="border: 1px solid black;">건양대사거리
+					<td class="pointer" onclick="openKakaoMap(36.3029472, 127.3442179)"  style="border: 1px solid black;">건양대사거리
 						리슈빌@ 앞 (버스정류장)</td>
 
-					<td class="pointer" style="border: 1px solid black;">수묵토@ 104동
+					<td class="pointer" onclick="openKakaoMap(36.318751, 127.3476736)" style="border: 1px solid black;">수묵토@ 104동
 						앞 (버스정류장)</td>
-
-					<td class="pointer" style="border: 1px solid black;">도안신도시
+					<td class="pointer" onclick="openKakaoMap(36.3318934, 127.3462903)" style="border: 1px solid black;">도안신도시
 						금성백조@ 어울림@ 사거리 옆 도로</td>
-
-					<td class="pointer" style="border: 1px solid black;">트리플시티9단지
+					<td class="pointer" onclick="openKakaoMap(36.3415438, 127.3381329)" style="border: 1px solid black;">트리플시티9단지
 						버스정류장 (원골육교 근처)</td>
-
-					<td class="pointer" style="border: 1px solid black;">휴먼시아6단지
+					<td class="pointer" onclick="openKakaoMap(36.3460427, 127.3406337)" style="border: 1px solid black;">휴먼시아6단지
 						센트럴시티 (롯데리아 근처)</td>
-
-					<td class="pointer" style="border: 1px solid black;">반석역
+					<td class="pointer" onclick="openKakaoMap(36.3926901, 127.3145269)" style="border: 1px solid black;">반석역
 						(5번출구)</td>
-
-					<td class="pointer" style="border: 1px solid black;">세종2청사
+					<td class="pointer" onclick="openKakaoMap(36.4843105, 127.2599172)" style="border: 1px solid black;">세종2청사
 						(국세청앞)</td>
 
-					<td class="pointer" style="border: 1px solid black;">세종청사</td>
+					<td class="pointer" onclick="openKakaoMap(36.5046595, 127.2653915)" style="border: 1px solid black;">세종청사</td>
 
 				</tr>
 
@@ -324,7 +309,7 @@
 	</div>
 </div>
 
-<div class="flex justify-end w-3/5 border-red m-16">
+<div class="flex justify-end w-3/5  m-16" style="border: 1px solid black;">
 	<div class="tbl_st tbl_busRut">
 
 		<table>
@@ -334,27 +319,25 @@
 			</colgroup>
 			<thead>
 				<tr>
-					<th colspan="8">운행시간</th>
+					<th colspan="8" style="border: 1px solid black;">운행시간</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
+					<td class="pointer" onclick="openKakaoMap(36.3609579, 127.3905091)"  style="border: 1px solid black;">샘머리@ 209동 앞</td>
+					<td class="pointer" onclick="openKakaoMap(36.3660239, 127.3792379)"  style="border: 1px solid black;">만년네거리 상록수@ 105동</td>
 
-					<td class="pointer">샘머리@ 209동 앞</td>
+					<td class="pointer" onclick="openKakaoMap(36.3632988, 127.3661502)"  style="border: 1px solid black;">다모아@ 111동 건너편</td>
+ 
+					<td class="pointer" onclick="openKakaoMap(36.363726, 127.3374924)"  style="border: 1px solid black;">궁동사거리 버스정류장</td>
 
-					<td class="pointer">만년네거리 상록수@ 105동</td>
+					<td class="pointer" onclick="openKakaoMap(36.3663818, 127.3316021)"  style="border: 1px solid black;">죽동삼거리</td>
 
-					<td class="pointer">다모아@ 111동 건너편</td>
+					<td class="pointer" onclick="openKakaoMap(36.3699245, 127.3272512)"  style="border: 1px solid black;">한빛식물원 버스정류장</td>
 
-					<td class="pointer">궁동사거리 버스정류장</td>
+					<td class="pointer" onclick="openKakaoMap(36.3920744, 127.3146041)"  style="border: 1px solid black;">반석역</td>
 
-					<td class="pointer">죽동삼거리</td>
-
-					<td class="pointer">한빛식물원 버스정류장</td>
-
-					<td class="pointer">반석역</td>
-
-					<td class="pointer">세종청사</td>
+					<td class="pointer" onclick="openKakaoMap(36.5046185, 127.26548)"  style="border: 1px solid black;">세종청사</td>
 
 				</tr>
 
@@ -403,7 +386,7 @@
 	</div>
 </div>
 
-<div class="flex justify-end w-3/5 border-red m-16">
+<div class="flex justify-end w-3/5  m-16" style="border: 1px solid black;">
 	<div class="tbl_st tbl_busRut">
 
 		<table>
@@ -413,25 +396,25 @@
 			</colgroup>
 			<thead>
 				<tr>
-					<th colspan="7">운행시간</th>
+					<th colspan="7" style="border: 1px solid black;">운행시간</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
 
-					<td class="pointer">샘머리@ 209동 앞</td>
+					<td class="pointer" onclick="openKakaoMap(36.3609579, 127.3905091)"  style="border: 1px solid black;">샘머리@ 209동 앞</td>
 
-					<td class="pointer">만년네거리 상록수@ 105동</td>
+					<td class="pointer" onclick="openKakaoMap(36.3660239, 127.3792379)"  style="border: 1px solid black;">만년네거리 상록수@ 105동</td>
 
-					<td class="pointer">다모아@ 111동 건너편</td>
+					<td class="pointer" onclick="openKakaoMap(36.3632988, 127.3661502)"  style="border: 1px solid black;">다모아@ 111동 건너편</td>
 
-					<td class="pointer">궁동사거리 버스정류장</td>
+					<td class="pointer" onclick="openKakaoMap(36.363726, 127.3374924)"  style="border: 1px solid black;">궁동사거리 버스정류장</td>
 
-					<td class="pointer">죽동삼거리</td>
+					<td class="pointer" onclick="openKakaoMap(36.3663818, 127.3316021)"  style="border: 1px solid black;">죽동삼거리</td>
 
-					<td class="pointer">반석역</td>
+					<td class="pointer" onclick="openKakaoMap(36.3920744, 127.3146041)"  style="border: 1px solid black;">반석역</td>
 
-					<td class="pointer">세종청사</td>
+					<td class="pointer" onclick="openKakaoMap(36.5046185, 127.26548)"  style="border: 1px solid black;">세종청사</td>
 
 				</tr>
 
