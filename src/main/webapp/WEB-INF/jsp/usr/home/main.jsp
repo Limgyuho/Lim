@@ -21,7 +21,7 @@
 			</div>
 		</div>
 	</div>
-	
+
 	<div>
 		<div class="border-black m-10 ">
 			<div
@@ -38,10 +38,49 @@
 			</div>
 		</div>
 	</div>
-	<div class ="m-10 border-red "style="width: 500px; heigth: auto">sadf</div>
-	<div class ="m-10 border-red flex-1"style= heigth: auto">현재 날씨 api 웨더api</div>
+	<div class="m-10 border-red " style="width: 500px; heigth: auto">sadf</div>
+	<div class="m-10 border-red flex-1" style=heigth:auto">
+		<div class="time">현재 시간 :</div>
+		<div class="ctemp">현재 온도 :</div>
+		<div class="lowtemp">최저 온도 :</div>
+		<div class="highttemp">최고 온도 :</div>
+		<h1 class="icon"></h1>
+<!-- 			<img src="https://openweathermap.org/img/wn/10d.png" alt="" /> -->
+
+	</div>
 </div>
 
+
+<script src=""></script>
+<script>
+	$.getJSON('https://api.openweathermap.org/data/2.5/weather?q=Sejong&appid=8d2c2532f986952207c7366b1feffb69&units=metric',
+			function(result){
+		
+		$('.ctemp').append(result.main.temp);
+		$('.lowtemp').append(result.main.temp_min);
+		$('.highttemp').append(result.main.temp_max);
+// 		result.weather[0].icon
+		var wiconUrl = '<img src="https://openweathermap.org/img/wn/'+result.weather[0].icon+'.png" alt="'+result.weather[0].icon.description+'" />'
+		$('.icon').html(wiconUrl);
+		
+		var ct = result.dt;
+		
+		function convertTime(t){
+			var ot = new Date(t*1000);
+			//Tue Jun 20 2023 20:29:54 GMT+0900 (한국 표준시)
+			var hr = ot.getHours();
+			var m = ot.getMinutes();
+			var s = ot.getSeconds();
+			
+			return hr+':'+m+':'+s
+		}
+		
+		var currentTime= convertTime(ct);
+		$('.time').append(currentTime);
+		
+	});
+	
+</script>
 
 
 
@@ -234,14 +273,14 @@ th, td {
 }
 
 .btn {
-	flex: 1; 
+	flex: 1;
 }
 
 .tab-content {
-	flex: 1; 
+	flex: 1;
 }
-table th,
-table td {
+
+table th, table td {
 	padding: 0;
 	border: 1px solid black;
 }
