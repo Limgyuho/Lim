@@ -78,7 +78,7 @@
 				<li class="mb-2"><span class="text-sm">이름:</span> <span
 					class="ml-2 text-base font-bold">${rq.loginedMember.name }</span></li>	
 				<li class="mb-4 Messenger text-blue-500 hover:underline">메신저</li>
-				<li><a href="/usr/home/home"class="text-red-500 hover:underline">로그아웃</a></li>				
+				<li><a href="/usr/member/doLogout"class="text-red-500 hover:underline">로그아웃</a></li>				
 			</ul>
 		</div>
 	</div>

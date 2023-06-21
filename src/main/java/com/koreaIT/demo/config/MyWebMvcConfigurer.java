@@ -9,6 +9,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import com.koreaIT.demo.interceptor.BeforeActionInterceptor;
 import com.koreaIT.demo.interceptor.NeedLoginInterceptor;
+import com.koreaIT.demo.interceptor.NeedLogoutInterceptor;
 
 
 @Configuration
@@ -16,14 +17,15 @@ public class MyWebMvcConfigurer implements WebMvcConfigurer {
 
 	private BeforeActionInterceptor beforeActionInterceptor;
 	private NeedLoginInterceptor needLoginInterceptor;
-
+	private NeedLogoutInterceptor needLogoutInterceptor;
 
 	@Autowired
 	public MyWebMvcConfigurer(BeforeActionInterceptor beforeActionInterceptor,
-			NeedLoginInterceptor needLoginInterceptor ) {
-		this.beforeActionInterceptor = beforeActionInterceptor;
-		this.needLoginInterceptor = needLoginInterceptor;
-	}
+	NeedLoginInterceptor needLoginInterceptor, NeedLogoutInterceptor needLogoutInterceptor) {
+	this.beforeActionInterceptor = beforeActionInterceptor;
+	this.needLoginInterceptor = needLoginInterceptor;
+	this.needLogoutInterceptor = needLogoutInterceptor;
+}
 	
 
 	@Override
@@ -39,38 +41,22 @@ public class MyWebMvcConfigurer implements WebMvcConfigurer {
 		ir.excludePathPatterns("/resource/**");
 		
 
-		ir = registry.addInterceptor(needLoginInterceptor);
+		ir = registry.addInterceptor(needLoginInterceptor);	
 		ir.addPathPatterns("/usr/home/main");
+		ir.addPathPatterns("/usr/member/doLogout");
+		ir.addPathPatterns("/usr/article/suggestion");
+		ir.addPathPatterns("/usr/article/transferList");
+		ir.addPathPatterns("/usr/article/departmentalData");
+		ir.addPathPatterns("/usr/article/program");
+		ir.addPathPatterns("/usr/article/program");
+		ir.addPathPatterns("/usr/article/leave");
+		ir.addPathPatterns("/usr/article/bus");
+		ir.addPathPatterns("/usr/article/cafeteria");
+		ir.addPathPatterns("/usr/article/cafeteria");
+		ir.addPathPatterns("/usr/article/organization");
+		ir.addPathPatterns("/usr/article/organization");
+		ir.addPathPatterns("/usr/article/garden");
 		
-		
-//		ir.addPathPatterns("/usr/article/write");
-//		ir.addPathPatterns("/usr/article/doWrite");
-//		ir.addPathPatterns("/usr/article/modify");
-//		ir.addPathPatterns("/usr/article/doModify");
-//		ir.addPathPatterns("/usr/article/doDelete");
-//		ir.addPathPatterns("/usr/member/doLogout");
-//		ir.addPathPatterns("/usr/member/myPage");
-//		ir.addPathPatterns("/usr/member/checkPassword");
-//		ir.addPathPatterns("/usr/member/doCheckPassword");
-//		ir.addPathPatterns("/usr/member/doModify");
-//		ir.addPathPatterns("/usr/member/passwordModify");
-//		ir.addPathPatterns("/usr/member/doPasswordModify");
-//		ir.addPathPatterns("/usr/reactionPoint/getReactionPoint");
-//		ir.addPathPatterns("/usr/reactionPoint/doInsertReactionPoint");
-//		ir.addPathPatterns("/usr/reactionPoint/doDeleteReactionPoint");
-//		ir.addPathPatterns("/usr/reply/doWrite");
-//		ir.addPathPatterns("/usr/reply/doDelete");
-//		ir.addPathPatterns("/usr/reply/doModify");
-//		ir.addPathPatterns("/usr/reply/getReplyContent");
-//		
-//		
-//		
-//		
-//
-//		ir.addPathPatterns("/usr/member/join");
-//		ir.addPathPatterns("/usr/member/doJoin");
-//		ir.addPathPatterns("/usr/member/login");
-//		ir.addPathPatterns("/usr/member/doLogin");
 //		
 		
 	}

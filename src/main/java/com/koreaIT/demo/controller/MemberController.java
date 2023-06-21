@@ -1,5 +1,8 @@
 package com.koreaIT.demo.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -111,7 +114,6 @@ public class MemberController {
 	@ResponseBody
 	public String doModify(String nickname, String cellphoneNum, String email) {
 
-
 		if (Util.empty(cellphoneNum)) {
 			return Util.jsHistoryBack("전화번호를 입력해주세요");
 		}
@@ -142,5 +144,19 @@ public class MemberController {
 
 		return ResultData.from("S-1", "사용 가능한 아이디입니다", "loginId", loginId);
 	}
+	
+	@RequestMapping("/usr/member/doLogout")
+	public String doLogout(HttpSession httpSession, HttpServletRequest request) {
+	    if (httpSession.getAttribute("loginedMemberId") == null) {
+	        return rq.jsReturnOnView("로그인 후 이용해주세요", true);
+	    }
+	    
+	    httpSession.removeAttribute("loginedMemberId");
+	    
+	    
+	    return "redirect:/usr/home/home";
+	}
+
+
 
 }
