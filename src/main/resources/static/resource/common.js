@@ -70,7 +70,11 @@ $('.low-4').click(function() {
 	window.open(openUrl, 'pop', popOption);
 })
 
-
+$('.myPage').click(function() {
+	let popOption = "width=650px, height=550px, top=100px, left=100px, scrollbars=yes";
+	let openUrl = '/usr/member/myPage';
+	window.open(openUrl, 'pop', popOption);
+})
 
 
 //이미지 슬라이드부분

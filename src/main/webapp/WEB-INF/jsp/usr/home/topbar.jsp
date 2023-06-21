@@ -67,8 +67,8 @@
 <div class="flex">
 	<div class="flex">
 		<div class="border-black w-48 p-4">
+			<div class="mb-4 myPage text-lg font-bold ">마이 페이지</div>
 			<ul class="user-info">
-				<li class="mb-4"><a href="/usr/home/myPage" class="text-lg font-bold myPage">마이 페이지</a></li>
 				<li class="mb-2"><span class="text-sm">부서:</span> <span
 					class="ml-2 text-base font-bold">${rq.loginedMember.department }</span>
 				</li>
