@@ -2,9 +2,44 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ include file="../common/head.jsp"%>
-
+<script>
+	$.getJSON('https://api.openweathermap.org/data/2.5/weather?q=Sejong&appid=8d2c2532f986952207c7366b1feffb69&units=metric',
+			function(result){
+		
+		$('.ctemp').append(result.main.temp);
+		$('.lowtemp').append(result.main.temp_min);
+		$('.highttemp').append(result.main.temp_max);
+// 		result.weather[0].icon
+		var wiconUrl = '<img src="https://openweathermap.org/img/wn/'+result.weather[0].icon+'.png" alt="'+result.weather[0].icon.description+'" />'
+		$('.icon').html(wiconUrl);
+		
+		var ct = result.dt;
+		
+		function convertTime(t){
+			var ot = new Date(t*1000);
+			//Tue Jun 20 2023 20:29:54 GMT+0900 (한국 표준시)
+			var hr = ot.getHours();
+			var m = ot.getMinutes();
+			var s = ot.getSeconds();
+			
+			return hr+':'+m+':'+s
+		}
+		
+		var currentTime= convertTime(ct);
+		$('.time').append(currentTime);
+		
+	});
+	
+</script>
 <div class="flex-jc-c flex-ai-c h-20 flex  mx-auto text-3xl">
 	<a href="/usr/home/main" class="block">대한민국 정부 기관</a>
+	<div class="border-red flex justify-end">
+		<div class="time">현재 시간 :</div>
+		<div class="ctemp">현재 온도 :</div>
+		<div class="lowtemp">최저 온도 :</div>
+		<div class="highttemp">최고 온도 :</div>
+		<h1 class="icon"></h1>
+	</div>
 </div>
 
 

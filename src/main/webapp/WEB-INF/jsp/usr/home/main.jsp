@@ -4,6 +4,9 @@
 <%@ include file="../home/topbar.jsp"%>
 <%@ include file="../common/head.jsp"%>
 
+
+
+
 <div class="flex border-red m-16 ">
 	<div>
 		<div class="border-black m-10 ">
@@ -37,50 +40,58 @@
 				</a>
 			</div>
 		</div>
+<!-- 		href="https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EA%B3%B5%EB%AC%B4%EC%9B%90%ED%96%89%EB%8F%99%EA%B0%95%EB%A0%B9" -->
 	</div>
-	<div class="m-10 border-red " style="width: 500px; heigth: auto">sadf</div>
-	<div class="m-10 border-red flex-1" style=heigth:auto;>
-		<div class="time">현재 시간 :</div>
-		<div class="ctemp">현재 온도 :</div>
-		<div class="lowtemp">최저 온도 :</div>
-		<div class="highttemp">최고 온도 :</div>
-		<h1 class="icon"></h1>
-<!-- 			<img src="https://openweathermap.org/img/wn/10d.png" alt="" /> -->
+	<div class="flex-1 border-red my-10 low-1" >
+				<span class="text-xl">공무원 행동강령</span>
+				<br />	
+				<br />		
+				<span class="text-3xl" >[대통령령 제32661호, 2022. 6. 2., 일부개정]</span>
+				<br />	
+				<br />
+				<span class="text-xl">국민권인위원회</span>
+				<br />	
+				<br />
+				<span class="text-xl">[시행 2023. 5. 15.]</span>	
+	</div>
+	<div class="flex-1 border-red my-10 low-2">
+				<span class="text-xl">국가 공무원법</span>
+				<br />	
+				<br />		
+				<span class="text-3xl" >[법률 제19228호, 2023. 3. 4., 타법개정]</span>
+				<br />	
+				<br />
+				<span class="text-xl">인사혁신처</span>
+				<br />	
+				<br />
+				<span class="text-xl">[시행 2023. 6. 5.]</span>
+	</div>
+	<div class="flex-1 border-red my-10 low-2">
+				<span class="text-xl">세종특별자치시지원위원회 등의 설치ㆍ운영에 관한 규정</span>
+				<br />	
+				<br />		
+				<span class="text-3xl" >[대통령령 제31931호, 2021. 8. 6., 타법개정]</span>
+				<br />	
+				<br />
+				<span class="text-xl">행정안전부(자치분권제도과)</span>
+				<br />	
+				<br />
+				<span class="text-xl">[시행 2021. 8. 9.]</span>
+	</div>
+	<div class="flex-1 border-red my-10 low-3">
+				<span class="text-xl">공무원직장협의회의 설립ㆍ운영에 관한 법률</span>
+				<br />	
+				<br />		
+				<span class="text-3xl" >[법률 제18844호, 2022. 4. 26., 일부개정]</span>
+				<br />	
+				<br />
+				<span class="text-xl">행정안전부</span>
+				<br />	
+				<br />
+				<span class="text-xl">[시행 2022. 10. 27.]</span>
+	</div>	
 
-	</div>
 </div>
-
-
-<script src=""></script>
-<script>
-	$.getJSON('https://api.openweathermap.org/data/2.5/weather?q=Sejong&appid=8d2c2532f986952207c7366b1feffb69&units=metric',
-			function(result){
-		
-		$('.ctemp').append(result.main.temp);
-		$('.lowtemp').append(result.main.temp_min);
-		$('.highttemp').append(result.main.temp_max);
-// 		result.weather[0].icon
-		var wiconUrl = '<img src="https://openweathermap.org/img/wn/'+result.weather[0].icon+'.png" alt="'+result.weather[0].icon.description+'" />'
-		$('.icon').html(wiconUrl);
-		
-		var ct = result.dt;
-		
-		function convertTime(t){
-			var ot = new Date(t*1000);
-			//Tue Jun 20 2023 20:29:54 GMT+0900 (한국 표준시)
-			var hr = ot.getHours();
-			var m = ot.getMinutes();
-			var s = ot.getSeconds();
-			
-			return hr+':'+m+':'+s
-		}
-		
-		var currentTime= convertTime(ct);
-		$('.time').append(currentTime);
-		
-	});
-	
-</script>
 
 
 

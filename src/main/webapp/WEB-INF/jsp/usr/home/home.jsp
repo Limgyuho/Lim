@@ -2,9 +2,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set var="pageTitle" value="Home" />
 <%@ include file="../common/head.jsp"%>
-
 <form action="doLogin" method="post">
-  <div class="bg-blue-300 min-h-screen flex items-center justify-center">
+  <div class=" min-h-screen flex items-center justify-center" style="background-image: url('/resource/images/배경1.png'); background-size: cover;">
     <div class="max-w-md bg-white p-8 rounded-lg shadow-md">
       <h1 class="text-3xl font-bold text-center mb-6">대한민국 공공기관</h1>
       <hr class="my-4">
