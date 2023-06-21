@@ -62,29 +62,25 @@
             console.log(message);
             var senderName = message.senderName;
             var content = message.content;
+            var roomId = message.roomId; // 채팅방 ID
 
-            
-            
-            var chatMessage = '<div class="chat chat-start">\n' +
-                '  <div class="chat-bubble chat-bubble-info">' + senderName + ': ' + content + '</div>\n' +
-                '</div>';
+            // 현재 사용자가 속한 채팅방 ID
+            var currentRoomId = "${currentRoomId}"; // 현재 사용자가 속한 채팅방 ID를 서버에서 받아와야 합니다.
 
-            $("#chat-window").append(chatMessage);
-            $("#chat-window").scrollTop($("#chat-window")[0].scrollHeight);
+            // 현재 사용자가 속한 채팅방과 동일한 채팅방의 메시지만 표시
+            if (roomId === currentRoomId) {
+                var chatMessage = '<div class="chat chat-start">\n' +
+                    '  <div class="chat-bubble chat-bubble-info">' + senderName + ': ' + content + '</div>\n' +
+                    '</div>';
 
-            // 현재 메시지와 이전 메시지 저장
-            var allMessages = $("#chat-window").html();
-            localStorage.setItem('chatMessages', allMessages);
+                $("#chat-window").append(chatMessage);
+                $("#chat-window").scrollTop($("#chat-window")[0].scrollHeight);
+
+                // 현재 메시지와 이전 메시지 저장
+                var allMessages = $("#chat-window").html();
+                localStorage.setItem('chatMessages', allMessages);
+            }
         }
-
-        // 메시지 삭제
-        $("#clear-button").on("click", function () {
-            $("#chat-window").empty();
-            localStorage.removeItem('chatMessages');
-        });
-        $("#back-button").on("click", function () {
-            history.back(); // 뒤로 가기 기능 실행
-        });
     });
 </script>
 

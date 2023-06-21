@@ -31,16 +31,17 @@
 	});
 	
 </script>
-<div class="flex-jc-c flex-ai-c h-20 flex  mx-auto text-3xl">
-	<a href="/usr/home/main" class="block">대한민국 정부 기관</a>
-	<div class="border-red flex justify-end">
-		<div class="time">현재 시간 :</div>
-		<div class="ctemp">현재 온도 :</div>
-		<div class="lowtemp">최저 온도 :</div>
-		<div class="highttemp">최고 온도 :</div>
-		<h1 class="icon"></h1>
-	</div>
+
+<div class="flex justify-center items-center my-9 text-4xl">
+  <a href="/usr/home/main" class="block">대한민국 정부 기관</a>
+  <div class="border-red" style="position: absolute; right: 0;">
+    <div class="time text-sm">현재 시간 :</div>
+    <div class="ctemp text-sm">현재 온도 :</div>
+    <div class="highttemp text-sm">최고 온도 :</div>
+    <div class="icon text-sm"></div>	
+  </div>
 </div>
+
 
 
 
@@ -67,7 +68,7 @@
 	<div class="flex">
 		<div class="border-black w-48 p-4">
 			<ul class="user-info">
-				<li class="mb-4"><span class="text-lg font-bold">프로필</span></li>
+				<li class="mb-4"><a href="/usr/home/myPage" class="text-lg font-bold myPage">마이 페이지</a></li>
 				<li class="mb-2"><span class="text-sm">부서:</span> <span
 					class="ml-2 text-base font-bold">${rq.loginedMember.department }</span>
 				</li>
@@ -75,10 +76,9 @@
 					class="ml-2 text-base font-bold">${rq.loginedMember.position }</span>
 				</li>
 				<li class="mb-2"><span class="text-sm">이름:</span> <span
-					class="ml-2 text-base font-bold">${rq.loginedMember.name }</span></li>
+					class="ml-2 text-base font-bold">${rq.loginedMember.name }</span></li>	
 				<li class="mb-4 Messenger text-blue-500 hover:underline">메신저</li>
-				<li><a href="/usr/home/home"
-					class="text-red-500 hover:underline">로그아웃</a></li>
+				<li><a href="/usr/home/home"class="text-red-500 hover:underline">로그아웃</a></li>				
 			</ul>
 		</div>
 	</div>

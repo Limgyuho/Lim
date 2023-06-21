@@ -21,6 +21,7 @@ html>body {
 	text-underline-position: under;
 	margin: 0;
 	padding: 0;
+	
 }
 
 .btn-text-link {
@@ -132,7 +133,7 @@ html>body {
 	font-size: 15px;
 	font-family: '돋움', dotum, sans-serif;
 	padding: 20px 0 16px;
-	margin-top: 20px;
+
 }
 
 .bottom-bar .box-1 {

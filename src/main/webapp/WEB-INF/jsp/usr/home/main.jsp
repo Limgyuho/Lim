@@ -4,19 +4,16 @@
 <%@ include file="../home/topbar.jsp"%>
 <%@ include file="../common/head.jsp"%>
 
-
-
-
-<div class="flex border-red m-16 ">
+<div class="flex  m-16 ">
 	<div>
-		<div class="border-black m-10 ">
+		<div class=" m-10 ">
 			<div
 				class="bg-blue-200 text-3xl p-10 rounded-full flex justify-center items-center">
 				<a href="/usr/article/ministry"> 협력 <br /> 부처
 				</a>
 			</div>
 		</div>
-		<div class="border-black m-10 ">
+		<div class=" m-10 ">
 			<div
 				class="bg-blue-200 text-3xl p-10 rounded-full  flex justify-center items-center">
 				<a href="/usr/article/organization"> 직원 <br /> 안내
@@ -26,23 +23,24 @@
 	</div>
 
 	<div>
-		<div class="border-black m-10 ">
+		<div class=" m-10 ">
 			<div
 				class="bg-blue-200 text-3xl p-10 rounded-full flex justify-center items-center">
 				<a href="/usr/article/cafeteria"> 구내 <br /> 식당
 				</a>
 			</div>
 		</div>
-		<div class="border-black m-10 ">
+		<div class=" m-10 ">
 			<div
 				class="bg-blue-200 text-3xl p-10 rounded-full flex justify-center items-center">
 				<a href="/usr/article/garden"> 옥상 <br /> 정원
 				</a>
 			</div>
 		</div>
-<!-- 		href="https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EA%B3%B5%EB%AC%B4%EC%9B%90%ED%96%89%EB%8F%99%EA%B0%95%EB%A0%B9" -->
 	</div>
-	<div class="flex-1 border-red my-10 low-1" >
+	<div class="flex-1  my-10 low-1" >
+				<br />
+				<br />
 				<span class="text-xl">공무원 행동강령</span>
 				<br />	
 				<br />		
@@ -54,7 +52,9 @@
 				<br />
 				<span class="text-xl">[시행 2023. 5. 15.]</span>	
 	</div>
-	<div class="flex-1 border-red my-10 low-2">
+	<div class="flex-1  my-10 low-2">
+				<br />
+				<br />
 				<span class="text-xl">국가 공무원법</span>
 				<br />	
 				<br />		
@@ -66,7 +66,9 @@
 				<br />
 				<span class="text-xl">[시행 2023. 6. 5.]</span>
 	</div>
-	<div class="flex-1 border-red my-10 low-2">
+	<div class="flex-1  my-10 low-2">
+				<br />
+				<br />
 				<span class="text-xl">세종특별자치시지원위원회 등의 설치ㆍ운영에 관한 규정</span>
 				<br />	
 				<br />		
@@ -78,7 +80,9 @@
 				<br />
 				<span class="text-xl">[시행 2021. 8. 9.]</span>
 	</div>
-	<div class="flex-1 border-red my-10 low-3">
+	<div class="flex-1  my-10 low-3">
+				<br />
+				<br />
 				<span class="text-xl">공무원직장협의회의 설립ㆍ운영에 관한 법률</span>
 				<br />	
 				<br />		
@@ -95,8 +99,8 @@
 
 
 
-<div class="flex  border-red m-16 justify-between">
-	<div class=" border-black m-10 ">
+<div class="flex   m-16 justify-between">
+	<div class="  m-10 ">
 		<div class="flex px-10 w-full ">
 			<button
 				class="  bg-gray-300  rounded-l-full px-10 py-5 hover:bg-blue-200"
@@ -164,7 +168,7 @@
 					</div>
 				</div>
 			</div>
-
+	
 			<div id="vacationTab" class="tab-content hidden">
 				<div class="p-4 ml-4 rounded-lg border border-gray-300 h-72">
 					<div class="h-5/6 mt-6 ">
@@ -191,7 +195,7 @@
 	</div>
 
 	<div class="flex justify-end  m-10 px-10 flex-grow">
-		<div class="min-h-full w-full  border-blue ">
+		<div class="min-h-full w-full   ">
 			<span class="text-3xl">통근 버스 운행 시간</span>
 			<table>
 				<thead>

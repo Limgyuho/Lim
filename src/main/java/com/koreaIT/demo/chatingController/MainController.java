@@ -42,10 +42,13 @@ public class MainController {
 
 	    // 사용자 정보를 모델에 추가합니다.
 	    model.addAttribute("loggedInMember", loggedInMember);
-	    session.setAttribute("userName", loggedInMember.getName());
+
+	    // 채팅방의 고유한 식별자를 모델에 추가합니다.
+	    model.addAttribute("chatId", id);
 
 	    return "usr/chat/chat";
 	}
+
 
 	@GetMapping("/usr/chat/department")
 	public String showDepartment() {
