@@ -5,7 +5,7 @@
 <script>
 	$.getJSON('https://api.openweathermap.org/data/2.5/weather?q=Sejong&appid=8d2c2532f986952207c7366b1feffb69&units=metric',
 			function(result){
-		
+		console.log(result.dt);
 		$('.ctemp').append(result.main.temp);
 		$('.lowtemp').append(result.main.temp_min);
 		$('.highttemp').append(result.main.temp_max);
@@ -17,6 +17,7 @@
 		
 		function convertTime(t){
 			var ot = new Date(t*1000);
+			console.log(t);
 			//Tue Jun 20 2023 20:29:54 GMT+0900 (한국 표준시)
 			var hr = ot.getHours();
 			var m = ot.getMinutes();
