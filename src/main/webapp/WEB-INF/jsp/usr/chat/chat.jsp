@@ -65,7 +65,7 @@
             var roomId = message.roomId; // 채팅방 ID
 
             // 현재 사용자가 속한 채팅방 ID
-            var currentRoomId = "${currentRoomId}"; // 현재 사용자가 속한 채팅방 ID를 서버에서 받아와야 합니다.
+            var currentRoomId = "${chatId}"; // 현재 사용자가 속한 채팅방 ID를 서버에서 받아와야 합니다.
 
             // 현재 사용자가 속한 채팅방과 동일한 채팅방의 메시지만 표시
             if (roomId === currentRoomId) {

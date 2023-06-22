@@ -10,15 +10,15 @@
 
     <div class="flex justify-center">
         <table class="table">
-            <thead>
+            <thead class="tf">
                 <tr>
-                    <th style="width: 100px;">번호</th>
-                    <th style="width: 200px;">인사이동 날짜</th>
-                    <th style="width: 200px;">인사이동 대상자</th>
-                    <th style="width: 150px;">부서</th>
+                    <th style="width: 50px;">번호</th>
+                    <th style="width: 50px;">인사이동 날짜</th>
+                    <th style="width: 100px;">인사이동 대상자</th>
+                    <th style="width: 100px;">부서</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody >
                 <c:forEach var="member" items="${approvedMembers}">
                     <tr>
                         <td>${member.id}</td>
@@ -52,5 +52,10 @@
     </div>
 
 </div>
+<style>
+.tf {
+  border-bottom: 5px solid #ccc;
+}
+</style>
 
 <%@ include file="../common/bottom.jsp" %>

@@ -154,7 +154,12 @@ public class ArticleController {
 	}
 
 
+	@RequestMapping("/usr/article/sendData")
+	public String showsendData() {
 
+		return "/usr/article/sendData";
+	}
+	
 	@RequestMapping("/usr/article/garden")
 	public String showsgarden() {
 

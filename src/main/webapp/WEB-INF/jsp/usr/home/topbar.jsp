@@ -33,7 +33,9 @@
 </script>
 
 <div class="flex justify-center items-center my-9 text-4xl">
+
   <a href="/usr/home/main" class="block">대한민국 정부 기관</a>
+   <img src="/resource/images/정보로고.png" alt="Image 1">
   <div class="border-red" style="position: absolute; right: 0;">
     <div class="time text-sm">현재 시간 :</div>
     <div class="ctemp text-sm">현재 온도 :</div>
@@ -49,14 +51,14 @@
 	<div class="flex flex-ai-c">
 		<nav class="menu-box-1 w-full">
 			<ul>
-				<li><a href="#">Home</a></li>
+				<li><a href="/usr/home/main">Home</a></li>
 				<li><a href="/usr/article/suggestion">건의/요청사항</a></li>
 				<li><a href="/usr/article/transferList">인사 이동</a></li>
 				<li><a href="/usr/article/departmentalData">부서별 자료</a></li>
 				<li><a href="/usr/article/program">필수 프로그램</a></li>
+				<li><a href="/usr/article/sendData">자료 전송</a></li>
 				<li><a href="/usr/article/leave">휴가/보고</a></li>
 				<li><a href="/usr/article/bus">통근 버스</a></li>
-				<li><a href="/usr/article/api">API</a></li>
 			</ul>
 		</nav>
 	</div>
@@ -83,12 +85,12 @@
 		</div>
 	</div>
 	
-<div class="flex border-red w-full">
+<div class="flex w-full">
   <div class="h-80">
     <div class="slider-container">
       <div class="slider-wrapper">
         <div class="slider-slide">
-          <img src="/resource/images/제목 없음.png" alt="Image 1">
+          <img src="/resource/images/홍보.png" alt="Image 1">
         </div>
         <div class="slider-slide">
           <img src="/resource/images/제목 없음.png" alt="Image 2">
@@ -100,8 +102,6 @@
           <img src="/resource/images/제목 없음.png" alt="Image 4">
         </div>
       </div>
-      <div class="slider-button slider-button-prev">&lt;</div>
-      <div class="slider-button slider-button-next">&gt;</div>
     </div>
   </div>
 </div>

@@ -1,5 +1,6 @@
 package com.koreaIT.demo.chatingController;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -80,7 +81,6 @@ public class SocketHandler extends TextWebSocketHandler {
                 chatSession.close();
             }
             if (roomSessions.isEmpty()) {
-                // 채팅방에 더 이상 세션이 없는 경우 맵에서 제거
                 chatRooms.remove(roomId);
             }
         }
@@ -88,6 +88,7 @@ public class SocketHandler extends TextWebSocketHandler {
     }
 
     private static JSONObject jsonToObjectParser(String jsonStr) {
+        // JSON 문자열을 JSONObject로 파싱
         JSONParser parser = new JSONParser();
         JSONObject obj = null;
         try {
@@ -105,6 +106,7 @@ public class SocketHandler extends TextWebSocketHandler {
     }
 
     private class ChatSession {
+        // 채팅 세션 정보를 담고 있는 내부 클래스
         private WebSocketSession session;
         private StringBuilder chatHistory;
 
@@ -114,27 +116,42 @@ public class SocketHandler extends TextWebSocketHandler {
         }
 
         public void sendMessage(String message) {
+            // 메시지 전송
             try {
                 session.sendMessage(new TextMessage(message));
-            } catch (Exception e) {
+            } catch (IOException e) {
                 e.printStackTrace();
             }
         }
 
         public synchronized void appendToChatHistory(String message) {
-            // 대화 내용을 채팅 기록에 추가
+            // 채팅 내역에 메시지 추가
             chatHistory.append(message);
             chatHistory.append("\n");
         }
 
         public String getChatHistory() {
-            // 채팅 기록 반환
+            // 채팅 내역 반환
             return chatHistory.toString();
         }
 
         public void close() {
-            // 채팅 세션 종료
+            // 세션 닫기
             session = null;
+        }
+    }
+
+    public void handleChatMessage(String roomId, String message) {
+        // 해당 채팅방의 모든 채팅 세션에 메시지 전송
+        Map<String, ChatSession> roomSessions = chatRooms.get(roomId);
+        if (roomSessions != null) {
+            JSONObject obj = new JSONObject();
+            obj.put("type", "chatMessage");
+            obj.put("message", message);
+
+            for (ChatSession chatSession : roomSessions.values()) {
+                chatSession.sendMessage(obj.toJSONString());
+            }
         }
     }
 }
