@@ -41,7 +41,7 @@ public class SocketHandler extends TextWebSocketHandler {
             // 이전 메시지를 JSON 형식으로 만들어 전송
             JSONObject obj = new JSONObject();
             obj.put("type", "previousMessages");
-            obj.put("messages", previousMessages);
+            obj.put("messages", previousMessages);	
             chatSession.sendMessage(obj.toJSONString());
         }
     }

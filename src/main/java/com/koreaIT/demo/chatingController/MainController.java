@@ -24,7 +24,7 @@ public class MainController {
 	@GetMapping("/usr/chat/chat/{id}")
 	public String chat(@PathVariable int id, HttpSession session, Model model) {
 	    // HttpSession을 사용하여 로그인한 사용자의 정보를 세션에 저장합니다.
-		System.out.println(rq.getLoginedMemberId());
+	    System.out.println(rq.getLoginedMemberId());
 	    session.setAttribute("loggedInUserId", rq.getLoginedMemberId());
 	    System.out.println(session.getAttribute("loggedInUserId"));
 
@@ -37,7 +37,6 @@ public class MainController {
 	    System.out.println(loggedInMember.getName());
 
 	    // 사용자 정보를 모델에 추가합니다.
-	 
 	    model.addAttribute("loggedInMember", loggedInMember);
 	    session.setAttribute("userName", loggedInMember.getName());
 	    System.out.println(session.getAttribute("userName"));

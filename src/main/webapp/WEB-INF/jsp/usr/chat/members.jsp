@@ -5,7 +5,7 @@
 <div class="flex items-center justify-center min-h-screen bg-gray-100">
   <div class="w-full max-w-3xl">
     <div class="flex justify-end mb-6">
-      <h2 class="text-2xl font-bold">총 인원 : ${memberCnt}명</h2>
+      <h2 class="text-2xl font-bold">총 인원 : ${departmentMembers.size()}명</h2>
     </div>
     <div class="overflow-auto bg-white border border-gray-200 rounded-lg shadow-sm">
       <table class="w-full">
@@ -22,7 +22,6 @@
               <td class="px-4 py-3">${member.position}</td>
               <td class="px-4 py-3">
                 <a href="#" class="text-blue-500 hover:underline chat-link" data-member-id="${member.id}">${member.name}</a>
-
               </td>
               <td class="px-4 py-3">${member.cellphoneNum}</td>
             </tr>
@@ -38,13 +37,12 @@
 
 <script>
 $(".chat-link").on("click", function (event) {
-	  event.preventDefault();
-	  var memberId = $(this).data("member-id");
-	  openChat(memberId);
-	});
+  event.preventDefault();
+  var memberId = $(this).data("member-id");
+  openChat(memberId);
+});
 
-	function openChat(memberId) {
-	  window.location.href = "/usr/chat/chat/" + memberId;
-	}
-
+function openChat(memberId) {
+  window.location.href = "/usr/chat/chat/" + memberId;
+}
 </script>
