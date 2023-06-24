@@ -22,6 +22,7 @@
               <td class="px-4 py-3">${member.position}</td>
               <td class="px-4 py-3">
                 <a href="#" class="text-blue-500 hover:underline chat-link" data-member-id="${member.id}">${member.name}</a>
+
               </td>
               <td class="px-4 py-3">${member.cellphoneNum}</td>
             </tr>
@@ -36,17 +37,14 @@
 </div>
 
 <script>
-  $(document).ready(function () {
-    // 채팅 링크 클릭 시 이벤트 처리
-    $(".chat-link").on("click", function (event) {
-      event.preventDefault();
-      var memberId = $(this).data("member-id");
-      openChat(memberId);
-    });
+$(".chat-link").on("click", function (event) {
+	  event.preventDefault();
+	  var memberId = $(this).data("member-id");
+	  openChat(memberId);
+	});
 
-    // 채팅창 열기
-    function openChat(memberId) {
-      window.location.href = "/usr/chat/chat/" + memberId;
-    }
-  });
+	function openChat(memberId) {
+	  window.location.href = "/usr/chat/chat/" + memberId;
+	}
+
 </script>

@@ -37,6 +37,7 @@ public class MainController {
 	    System.out.println(loggedInMember.getName());
 
 	    // 사용자 정보를 모델에 추가합니다.
+	 
 	    model.addAttribute("loggedInMember", loggedInMember);
 	    session.setAttribute("userName", loggedInMember.getName());
 	    System.out.println(session.getAttribute("userName"));

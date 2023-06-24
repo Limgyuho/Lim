@@ -11,7 +11,6 @@ import org.springframework.web.socket.handler.TextWebSocketHandler;
 @Component
 public class SocketHandler extends TextWebSocketHandler {
 
- 
     // 웹소켓 세션을 담아둘 맵
     HashMap<String, ChatSession> sessionMap = new HashMap<>();
 
@@ -20,7 +19,7 @@ public class SocketHandler extends TextWebSocketHandler {
         // 메시지 발송
         String msg = message.getPayload();
         JSONObject obj = jsonToObjectParser(msg);
- 
+       
         // 모든 채팅 세션에 메시지 전송
         for (ChatSession chatSession : sessionMap.values()) {
             chatSession.sendMessage(obj.toJSONString());
@@ -32,7 +31,6 @@ public class SocketHandler extends TextWebSocketHandler {
     public void afterConnectionEstablished(WebSocketSession session) throws Exception {
         // 소켓 연결
         super.afterConnectionEstablished(session);
-       
         // ChatSession 생성 및 맵에 추가
         ChatSession chatSession = new ChatSession(session);
         sessionMap.put(session.getId(), chatSession);
@@ -51,6 +49,7 @@ public class SocketHandler extends TextWebSocketHandler {
     @Override
     public void afterConnectionClosed(WebSocketSession session, CloseStatus status) throws Exception {
         // 소켓 종료
+      
         // 맵에서 해당 세션 제거 및 ChatSession 닫기
         ChatSession chatSession = sessionMap.remove(session.getId());
         if (chatSession != null) {
@@ -69,6 +68,11 @@ public class SocketHandler extends TextWebSocketHandler {
         }
         return obj;
     }
+
+//    private static String getSessionAttribute(WebSocketSession session, String attributeName) {
+//        Object attributeValue = session.getAttributes().get(attributeName);
+//        return attributeValue != null ? attributeValue.toString() : null;
+//    }
 
     private class ChatSession {
         private WebSocketSession session;
