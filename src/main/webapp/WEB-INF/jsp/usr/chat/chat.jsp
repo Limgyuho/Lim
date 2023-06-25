@@ -9,6 +9,7 @@
         if (previousMessages) {
             $("#chat-window").html(previousMessages);
         }
+         // 연결이 열린 경우
         // WebSocket 연결
         var id = "${id}";
         socket = new WebSocket("ws://localhost:8085/chat/" + id);
@@ -16,6 +17,7 @@
         socket.onopen = function (event) {
             console.log("WebSocket 연결이 열렸습니다.");
         };
+          // 메시지 수신
         // 메시지 수신
         socket.onmessage = function (event) {
             var message = JSON.parse(event.data);
@@ -23,11 +25,13 @@
             console.log('message', message);
             handleMessage(message);
         };
+
         var currentUserName = "${userName}"; // 로그인한 사용자의 이름
         // 연결이 닫힌 경우
         socket.onclose = function (event) {
             console.log("WebSocket 연결이 닫혔습니다.");
         };
+           // 메시지 전송
         // 메시지 전송
         $("#send-button").on("click", function () {
             var messageInput = $("#message-input");
@@ -36,13 +40,13 @@
             if (message.trim() !== "") {
                 var data = {
                     senderName: currentUserName,
-                    content: message,
-                    roomId: id
+                    content: message
                 };
                 socket.send(JSON.stringify(data));
                 messageInput.val(""); // 입력 필드 초기화
             }
         });
+          // 엔터 키 입력 시 메시지 전송
         // 엔터 키 입력 시 메시지 전송
         $("#message-input").on("keydown", function (event) {
             if (event.keyCode === 13) { // 엔터 키
@@ -50,16 +54,20 @@
                 $("#send-button").click();
             }
         });
+           // 메시지 처리
         // 메시지 처리
         function handleMessage(message) {
             console.log(message);
             var senderName = message.senderName;
             var content = message.content;
-
+            
             var chatMessage = '<div class="chat chat-start">\n' +
                 '  <div class="chat-bubble chat-bubble-info">' + senderName + ': ' + content + '</div>\n' +
                 '</div>';
-
+                
+                
+                
+                	
             $("#chat-window").append(chatMessage);
             $("#chat-window").scrollTop($("#chat-window")[0].scrollHeight);
             // 현재 메시지와 이전 메시지 저장
