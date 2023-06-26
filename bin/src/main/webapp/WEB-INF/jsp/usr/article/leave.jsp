@@ -9,12 +9,13 @@
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 
+
 <div class="text-6xl text-center mb-14">휴가 보고</div>
 
 <div class="flex justify-center">
-	<div class="border-blue w-80 h-100 rounded-3xl p-8 m-3">
+	<div class="border-8 w-80 h-100 rounded-3xl p-8 m-3" style="border-color: #343849;">
 		<form action="/usr/article/leaveRequest" method="post">
-			<label for="date">날짜:</label> <input type="text" id="date"
+			<label for="date"></label>날짜:<input type="text" id="date"
 				name="date" autocomplete="off"> <br /> <br /> <label
 				for="vacationType1">법정 휴가:</label> <select id="vacationType1"
 				name="vacationType1">

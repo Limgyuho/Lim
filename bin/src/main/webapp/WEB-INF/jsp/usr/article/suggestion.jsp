@@ -8,9 +8,9 @@
 
 <div class="text-6xl text-center mb-14">요청 및 건의 사항</div>
 
-<div class="flex justify-center bg-blue items-center">
-  <div class="p-16">
-    <div class="mx-auto px-3 bg-blue-300 py-9">
+<div class="flex justify-center  items-center">
+  <div class="p-16 ">
+    <div class="mx-auto px-3 py-9">
       <form class="" action="/usr/article/insertSuggestion" method="POST" onsubmit="join_submitForm(this); return false;">
         <input type="hidden" name="applicant_number" value="${rq.getLoginedMember().getId()}" />
         <div class="flex justify-center">

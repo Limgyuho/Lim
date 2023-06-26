@@ -4,200 +4,304 @@
 <%@ include file="../home/topbar.jsp"%>
 <%@ include file="../common/head.jsp"%>
 
-<!-- FullCalendar CSS -->
-<link
-	href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css"
-	rel="stylesheet" />
+<div  src="/resource/images/홍보.png" alt="Image 1">
 
-<!-- FullCalendar JavaScript -->
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script>
+	<div class="flex  m-16 rounded-2xl  ">
+		<div>
+			<div class=" m-10 ">
+				<div
+					class="bg-blue-200 text-3xl p-10 rounded-full flex justify-center items-center">
+					<a href="/usr/article/ministry"> 협력 <br /> 부처
+					</a>
+				</div>
+			</div>
+			<div class=" m-10 ">
+				<div
+					class="bg-blue-200 text-3xl p-10 rounded-full  flex justify-center items-center">
+					<a href="/usr/article/organization"> 직원 <br /> 안내
+					</a>
+				</div>
+			</div>
+		</div>
+	
+		<div>
+			<div class=" m-10 ">
+				<div
+					class="bg-blue-200 text-3xl p-10 rounded-full flex justify-center items-center">
+					<a href="/usr/article/cafeteria"> 구내 <br /> 식당
+					</a>
+				</div>
+			</div>
+			<div class=" m-10 ">
+				<div
+					class="bg-blue-200 text-3xl p-10 rounded-full flex justify-center items-center">
+					<a href="/usr/article/garden"> 옥상 <br /> 정원
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="flex-1  my-10 low-1 " >
+					<br />
+					<br />
+					<span class="text-xl">공무원 행동강령</span>
+					<br />	
+					<br />		
+					<span class="text-3xl" >[대통령령 제32661호, 2022. 6. 2., 일부개정]</span>
+					<br />	
+					<br />
+					<span class="text-xl">국민권인위원회</span>
+					<br />	
+					<br />
+					<span class="text-xl">[시행 2023. 5. 15.]</span>	
+		</div>
+		<div class="flex-1  my-10 low-2">
+					<br />
+					<br />
+					<span class="text-xl">국가 공무원법</span>
+					<br />	
+					<br />		
+					<span class="text-3xl" >[법률 제19228호, 2023. 3. 4., 타법개정]</span>
+					<br />	
+					<br />
+					<span class="text-xl">인사혁신처</span>
+					<br />	
+					<br />
+					<span class="text-xl">[시행 2023. 6. 5.]</span>
+		</div>
+		<div class="flex-1  my-10 low-2">
+					<br />
+					<br />
+					<span class="text-xl">세종특별자치시지원위원회 등의 설치ㆍ운영에 관한 규정</span>
+					<br />	
+					<br />		
+					<span class="text-3xl" >[대통령령 제31931호, 2021. 8. 6., 타법개정]</span>
+					<br />	
+					<br />
+					<span class="text-xl">행정안전부(자치분권제도과)</span>
+					<br />	
+					<br />
+					<span class="text-xl">[시행 2021. 8. 9.]</span>
+		</div>
+		<div class="flex-1  my-10 low-3">
+					<br />
+					<br />
+					<span class="text-xl">공무원직장협의회의 설립ㆍ운영에 관한 법률</span>
+					<br />	
+					<br />		
+					<span class="text-3xl" >[법률 제18844호, 2022. 4. 26., 일부개정]</span>
+					<br />	
+					<br />
+					<span class="text-xl">행정안전부</span>
+					<br />	
+					<br />
+					<span class="text-xl">[시행 2022. 10. 27.]</span>
+		</div>	
+	
+	</div>
+	
+	
+	
+	<div class="flex m-16 justify-between rounded-2xl  ">
+		<div class=" m-10 ">
+			<div class="flex px-10 w-full ">
+				<button
+					class="bg-gray-300  rounded-l-full px-10 py-5 hover:bg-blue-200"
+					onclick="showTab('member')">인사이동대상자</button>
+				<button class="  bg-gray-300  px-10 py-5 hover:bg-blue-200"
+					onclick="showTab('suggestion')">건의/요청사항</button>
+				<button class="  bg-gray-300  px-10 py-5 hover:bg-blue-200"
+					onclick="showTab('program')">필수프로그램</button>
+				<button
+					class="  bg-gray-300  rounded-r-full px-10 py-5 hover:bg-blue-200"
+					onclick="showTab('vacation')">휴가신청현황</button>
+			</div>
+			<br />
+			<div class="flex justify-end px-10">
+				<div id="memberTab" class="tab-content">
+					<div class="p-4 rounded-2xl border border-gray-300 h-72">
+						<div class="">
+							<ul class="m-0 p-0 space-y-2">
+								<c:forEach var="member" items="${approvedMembers}">
+									<li class="py-2"><span class="text-gray-800">${member.regDate}</span>
+										<a href="/usr/article/transferdetail?memberId=${member.id}"
+										class="text-blue-500 hover:underline">${member.name}</a> <span
+										class="text-gray-800">${member.department}</span></li>
+								</c:forEach>
+							</ul>
+						</div>
+					</div>
+				</div>
+	
+				<div id="suggestionTab" class="tab-content hidden">
+					<div class="p-4 ml-4 rounded-lg border border-gray-300 h-72">
+						<div class="mt-6 ">
+							<ul class="p-0 space-y-2">
+								<c:forEach var="suggestion" items="${showsuggestion}">
+									<li class="py-2"><span class="text-gray-800">신청 사항:
+											${suggestion.item} 요청 결과: </span> <c:choose>
+											<c:when test="${suggestion.permission == 1}">
+												<span class="text-green-500">승인</span>
+											</c:when>
+											<c:when test="${suggestion.permission == -1}">
+												<span class="text-red-500">거부</span>
+											</c:when>
+											<c:otherwise>
+												<span class="text-yellow-500">대기중</span>
+											</c:otherwise>
+										</c:choose></li>
+								</c:forEach>
+							</ul>
+						</div>
+					</div>
+				</div>
+	
+				<div id="programTab" class="tab-content hidden">
+					<div class="p-4 rounded-lg border border-gray-300 h-72">
+						<div class="h-5/6 mt-6 ">
+							<ul class="p-0 space-y-2">
+								<c:forEach var="file" items="${files}">
+									<li class="py-2"><span class="text-gray-800">${file.id}
+											${file.orgName}</span> <a href="/usr/article/file/${file.id}"
+										download class="text-blue-500 hover:underline"> <i
+											class="fa-solid fa-download"></i>
+									</a></li>
+								</c:forEach>
+							</ul>
+						</div>
+					</div>
+				</div>
+		
+				<div id="vacationTab" class="tab-content hidden">
+					<div class="p-4 ml-4 rounded-lg border border-gray-300 h-72">
+						<div class="h-5/6 mt-6 ">
+							<ul class="p-0 space-y-2">
+								<c:forEach var="vacation" items="${showVacation}">
+									<li class="py-2"><span class="text-gray-800">${vacation.date}
+											${vacation.vacationType1}${vacation.vacationType2}</span> <c:choose>
+											<c:when test="${vacation.status == 1}">
+												<span class="text-green-500">허가</span>
+											</c:when>
+											<c:when test="${vacation.status == 0}">
+												<span class="text-yellow-500">대기</span>
+											</c:when>
+											<c:when test="${vacation.status == -1}">
+												<span class="text-red-500">거부</span>
+											</c:when>
+										</c:choose></li>
+								</c:forEach>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+		<div class="flex justify-end  m-10 px-10 flex-grow">
+			<div class="min-h-full w-full ">
+				<div class="text-3xl mb-16">통근 버스 운행 시간</div>
+				<table>
+					<thead>
+						<tr>
+							<th>세종청사 출근 운행시간</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>08:12</td>
+							<td>08:17</td>
+							<td>08:22</td>
+							<td>08:33</td>
+							<td>08:40</td>
+							<td>08:45</td>
+							<td>08:52</td>
+						</tr>
+					</tbody>
+				</table>
+				<table>
+					<thead>
+						<tr>
+							<th>세종청사 퇴근 운행시간</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>18:05</td>
+							<td>18:17</td>
+							<td>18:25</td>
+							<td>18:37</td>
+							<td>18:45</td>
+							<td>19:05</td>
+							<td>19:17</td>
+						</tr>
+					</tbody>
+				</table>
+				<table>
+					<thead>
+						<tr>
+							<th>오송역 출근 운행시간</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>07:50</td>
+							<td>07:55</td>
+							<td>08:00</td>
+							<td>08:08</td>
+							<td>08:15</td>
+							<td>08:17</td>
+							<td>08:21</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+
 
 
 <script>
-// $(document).ready(function() {
-//   $('#calendar').fullCalendar({
-//     // 달력 옵션 설정
-//     header: {
-//       left: 'prev,next today',
-//       center: 'title',
-//       right: 'month,agendaWeek,agendaDay'
-//     },
-//     defaultView: 'month',
-//     // ...
+	document.getElementById('memberTab').style.display = 'block';
 
-//     // 이벤트 데이터 로드
-//     events: '/events', // 서버에서 이벤트 데이터를 제공하는 URL
+	function showTab(tabName) {
+		// 모든 탭 컨텐츠를 숨김
+		const tabContents = document.getElementsByClassName('tab-content');
+		for (let i = 0; i < tabContents.length; i++) {
+			tabContents[i].style.display = 'none';
+		}
 
-//     // 일정 추가
-//     selectable: true,
-//     select: function(start, end) {
-//       var eventData = {
-//         title: '새로운 일정',
-//         start: start,
-//         end: end
-//       };
-//       // 서버에 일정 추가 요청
-//       $.ajax({
-//         url: '/addEvent',
-//         type: 'POST',
-//         data: JSON.stringify(eventData),
-//         contentType: 'application/json',
-//         success: function(response) {
-//           // 일정 추가 성공 시, 달력에 일정을 표시
-//           $('#calendar').fullCalendar('renderEvent', eventData, true);
-//         },
-//         error: function(xhr) {
-//           console.log('일정 추가 실패');
-//         }
-//       });
-//       $('#calendar').fullCalendar('unselect');
-//     },
-
-//     // 일정 수정 및 삭제
-//     editable: true,
-//     eventDrop: function(event, delta, revertFunc) {
-//       // 서버에 일정 수정 요청
-//       $.ajax({
-//         url: '/updateEvent',
-//         type: 'POST',
-//         data: JSON.stringify(event),
-//         contentType: 'application/json',
-//         success: function(response) {
-//           console.log('일정 수정 성공');
-//         },
-//         error: function(xhr) {
-//           console.log('일정 수정 실패');
-//           revertFunc(); // 일정 위치를 원래대로 되돌림
-//         }
-//       });
-//     },
-//     eventResize: function(event, delta, revertFunc) {
-//       // 서버에 일정 수정 요청
-//       $.ajax({
-//         url: '/updateEvent',
-//         type: 'POST',
-//         data: JSON.stringify(event),
-//         contentType: 'application/json',
-//         success: function(response) {
-//           console.log('일정 수정 성공');
-//         },
-//         error: function(xhr) {
-//           console.log('일정 수정 실패');
-//           revertFunc(); // 일정 크기를 원래대로 되돌림
-//         }
-//       });
-//     },
-//     eventClick: function(event) {
-//       if (confirm('일정을 삭제하시겠습니까?')) {
-//         // 서버에 일정 삭제 요청
-//         $.ajax({
-//           url: '/deleteEvent',
-//           type: 'POST',
-//           data: JSON.stringify(event),
-//           contentType: 'application/json',
-//           success: function(response) {
-//             console.log('일정 삭제 성공');
-//             $('#calendar').fullCalendar('removeEvents', event._id);
-//           },
-//           error: function(xhr) {
-//             console.log('일정 삭제 실패');
-//           }
-//         });
-//       }
-//     }
-//   });
-// });
+		// 선택한 탭 컨텐츠만 표시
+		const selectedTab = document.getElementById(tabName + 'Tab');
+		selectedTab.style.display = 'block';
+	}
 </script>
-<div class="flex items-end justify-end mt-24 px-10">
-	<div id="calendar" class="mt-8"></div>
-	<div class="p-4 rounded-lg border border-gray-300 h-96">
-		<div class="text-xl bg-gray-300 text-gray-800 py-2 px-4">인사이동
-			대상자</div>
-		<div class="mt-6 overflow-y-auto">
-			<ul class="m-0 p-0 space-y-2">
-				<c:forEach var="member" items="${approvedMembers}">
-					<li class="py-2"><span class="text-gray-800">${member.regDate}</span>
-						<a href="/usr/article/transferdetail?memberId=${member.id}"
-						class="text-blue-500 hover:underline">${member.name}</a> <span
-						class="text-gray-800">${member.department}</span></li>
-				</c:forEach>
-			</ul>
-		</div>
-	</div>
-	<div class="p-4 ml-4 rounded-lg border border-gray-300 h-96">
-		<div
-			class="text-xl bg-gray-300 text-gray-800 py-2 px-4 rounded-t-lg w-80">건의/요청사항</div>
-		<div class="mt-6 overflow-y-auto">
-			<ul class="p-0 space-y-2">
-				<c:forEach var="suggestion" items="${showsuggestion}">
-					<li class="py-2"><span class="text-gray-800">신청 사항:
-							${suggestion.item} 요청 결과: </span> <c:choose>
-							<c:when test="${suggestion.permission == 1}">
-								<span class="text-green-500">승인</span>
-							</c:when>
-							<c:when test="${suggestion.permission == -1}">
-								<span class="text-red-500">거부</span>
-							</c:when>
-							<c:otherwise>
-								<span class="text-yellow-500">대기중</span>
-							</c:otherwise>
-						</c:choose></li>
-				</c:forEach>
-			</ul>
-		</div>
-	</div>
-</div>
 
+<style>
+table {
+	margin-bottom: 20px;
+	border-collapse: collapse;
+	width: 100%;
+}
 
+th, td {
+	padding: 8px;
+	text-align: left;
+	border: 1px solid #ddd;
+}
 
-<div class="flex items-end justify-end mt-10 px-10">
+.btn {
+	flex: 1;
+}
 
-	<div class="p-4 rounded-lg border border-gray-300 h-96">
-		<div
-			class="text-xl bg-gray-300 text-gray-800 py-2 px-4 rounded-t-lg w-80">필수
-			프로그램</div>
-		<div class="h-5/6 mt-6 overflow-y-auto">
-			<ul class="p-0 space-y-2">
-				<c:forEach var="file" items="${files}">
-					<li class="py-2"><span class="text-gray-800">${file.id}
-							${file.orgName}</span> <a href="/usr/article/file/${file.id}" download
-						class="text-blue-500 hover:underline"> <i
-							class="fa-solid fa-download"></i>
-					</a></li>
-				</c:forEach>
-			</ul>
-		</div>
-	</div>
-	<div class="p-4 ml-4 rounded-lg border border-gray-300 h-96">
-		<div
-			class="text-xl bg-gray-300 text-gray-800 py-2 px-4 rounded-t-lg w-80">휴가신청
-			현황</div>
-		<div class="h-5/6 mt-6 overflow-y-auto">
-			<ul class="p-0 space-y-2">
-				<c:forEach var="vacation" items="${showVacation}">
-					<li class="py-2"><span class="text-gray-800">${vacation.date}
-							${vacation.vacationType1}${vacation.vacationType2}</span> <c:choose>
-							<c:when test="${vacation.status == 1}">
-								<span class="text-green-500">허가</span>
-							</c:when>
-							<c:when test="${vacation.status == 0}">
-								<span class="text-yellow-500">대기</span>
-							</c:when>
-							<c:when test="${vacation.status == -1}">
-								<span class="text-red-500">거부</span>
-							</c:when>
-						</c:choose></li>
-				</c:forEach>
-			</ul>
-		</div>
-	</div>
-</div>
+.tab-content {
+	flex: 1;
+}
 
-
-
+table th, table td {
+	padding: 0;
+	border: 1px solid black;
+}
+</style>
 
 
 

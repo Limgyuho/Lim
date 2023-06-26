@@ -98,7 +98,7 @@
     }, 'json');
   }
 </script>
-
+<div class=" min-h-screen flex items-center justify-center" style="background-image: url('/resource/images/배경1.png'); background-size: cover;">
 <section class="mt-8">
   <h1 class="text-xl text-center">우리기관 회원가입</h1>
 
@@ -156,4 +156,5 @@
     </form>
   </div>
 </section>
+</div>
 
