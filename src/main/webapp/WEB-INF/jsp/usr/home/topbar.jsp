@@ -69,7 +69,7 @@
 
 <div class="flex">
 	<div class="flex">
-		<div class="border-black w-48 p-4">
+		<div class="rounded-2xl border border-gray-300 w-48 p-4">
 			<div class="mb-4 myPage text-lg font-bold ">마이 페이지</div>
 			<ul class="user-info">
 				<li class="mb-2"><span class="text-sm">부서:</span> <span
@@ -94,13 +94,13 @@
           <img src="/resource/images/홍보.png" alt="Image 1">
         </div>
         <div class="slider-slide">
-          <img src="/resource/images/제목 없음.png" alt="Image 2">
+          <img src="/resource/images/보이스피싱.png" alt="Image 2">
         </div>
         <div class="slider-slide">
-          <img src="/resource/images/제목 없음.png" alt="Image 3">
+          <img src="/resource/images/컨설티.png" alt="Image 3">
         </div>
         <div class="slider-slide">
-          <img src="/resource/images/제목 없음.png" alt="Image 4">
+          <img src="/resource/images/보호.png" alt="Image 4">
         </div>
       </div>
     </div>

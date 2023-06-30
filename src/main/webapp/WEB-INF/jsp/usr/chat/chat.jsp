@@ -63,40 +63,42 @@
 
         // 파일 선택
         $("#file-input").on("change", function (event) {
+        	console.log('asdasdaskdljklafjkdsfjlskdfjdskl', event);
             selectedFile = event.target.files[0];
             if (selectedFile) {
                 $("#selected-file-info").text("선택한 파일: " + selectedFile.name);
-                $("#download-link").attr("href", "#");
-                $("#download-link").text("다운로드");
-                $("#download-link").hide();
             } else {
                 $("#selected-file-info").text("");
-                $("#download-link").attr("href", "#");
-                $("#download-link").hide();
+
             }
         });
 
         // 파일 전송
         $("#send-file-button").on("click", function () {
+        	console.log(selectedFile);
             if (selectedFile) {
+            	
+            
                 var reader = new FileReader();
+                
                 reader.onload = function (e) {
                     var fileData = e.target.result;
                     var data = {
                         senderName: currentUserName,
-                        content: fileData,
+                        content: selectedFile.name,
                         roomId: id,
                         fileName: selectedFile.name // 데이터에 파일 이름 포함
                     };
+                    console.log(data);
                     socket.send(JSON.stringify(data));
+//                     selected-file-info.val("");
                 };
                 reader.readAsDataURL(selectedFile);
             }
         });
 
-        // 메시지 처리
+     // 메시지 처리
         function handleMessage(message) {
-            console.log(message);
             var senderName = message.senderName;
             var content = message.content;
 
@@ -111,15 +113,16 @@
             var allMessages = $("#chat-window").html();
             localStorage.setItem('chatMessages', allMessages);
 
-            // 파일 다운로드 링크 처리
+            // 파일 메시지 처리
             if (message.fileName) {
-                var fileDownloadLink = '<a href="' + message.content + '" download="' + message.fileName + '">다운로드</a>';
-                $("#chat-window").append(fileDownloadLink);
+                var downloadLink = '<a href="' + message.content + '" download="' + message.fileName + '">다운로드</a>';
                 $("#download-link").attr("href", message.content);
                 $("#download-link").attr("download", message.fileName);
+                $("#download-link").text("다운로드");
                 $("#download-link").show();
             }
         }
+
 
         // 메시지 삭제
         $("#clear-button").on("click", function () {
@@ -142,7 +145,7 @@
     <input type="file" id="file-input" style="display: none;">
     <label for="file-input" class="btn btn-outline btn-accent mr-5" style="margin-top: 10px;">파일 선택</label>
     <span id="selected-file-info"></span>
-    <a href="#" id="download-link" style="display: none;">다운로드</a>
+    <a href="" id="download-link" style="display: none;">다운로드</a>
     <button class="btn btn-outline btn-accent mr-5" id="send-file-button" style="margin-top: 10px;">파일 전송</button>
 </div>
 
