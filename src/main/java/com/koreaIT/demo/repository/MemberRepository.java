@@ -178,10 +178,10 @@ public interface MemberRepository {
 	public List<Member> adminUpload();
 
 	@Select("""
-		    SELECT v.*, m.name AS applicantName, m.position AS applicantPosition
-		    FROM vacation v
-		    JOIN member m ON v.applicantNumber = m.id
-		""")
+			    SELECT v.*, m.name AS applicantName, m.position AS applicantPosition
+			    FROM vacation v
+			    JOIN member m ON v.applicantNumber = m.id
+			""")
 	public List<Vacation> showallVacation();
 
 	@Update("""
@@ -198,19 +198,18 @@ public interface MemberRepository {
 	public List<Member> manager();
 
 	@Select("""
-		    SELECT *
-		    FROM `member`
-		""")
+			    SELECT *
+			    FROM `member`
+			""")
 	public List<Member> transmissionMembers();
 
 	@Update("""
-		    UPDATE `member`
-		    SET permission = -1
-		    WHERE id = #{id}
-		""")
-	public void deleteMembers(int id );
+			    UPDATE `member`
+			    SET permission = -1
+			    WHERE id = #{id}
+			""")
+	public void deleteMembers(int id);
 
-	
 	@Select("""
 			SELECT *
 				FROM `member`
@@ -219,48 +218,79 @@ public interface MemberRepository {
 	public Member getMemberBychatId(int userId);
 
 	@Select("""
-		    SELECT *
-				FROM `member`
-				WHERE permission = 1
-				ORDER BY id DESC
-				LIMIT 5;
-		""")
+			    SELECT *
+					FROM `member`
+					WHERE permission = 1
+					ORDER BY id DESC
+					LIMIT 5;
+			""")
 	public List<Member> approvedMembersMain();
 
-	
 	@Select("""
-		    SELECT *
-		    FROM suggestion
-		    WHERE applicantnumber = #{applicantnumber}
-		    ORDER BY id DESC
-		    LIMIT 5;
-		    
-		""")
+			    SELECT *
+			    FROM suggestion
+			    WHERE applicantnumber = #{applicantnumber}
+			    ORDER BY id DESC
+			    LIMIT 5;
+
+			""")
 	public List<Suggestion> showsuggestionMain(int applicantnumber);
 
 	@Select("""
-		    SELECT *
-		    FROM vacation
-		    WHERE applicantnumber = #{applicantnumber}
-		    ORDER BY id DESC
-		    LIMIT 5;
-		""")
+			    SELECT *
+			    FROM vacation
+			    WHERE applicantnumber = #{applicantnumber}
+			    ORDER BY id DESC
+			    LIMIT 5;
+			""")
 	public List<Vacation> showVacationMain(int applicantnumber);
 
-	
-	
 	@Select("""
-	        SELECT COUNT(*) FROM member
-	    """)
+			    SELECT COUNT(*) FROM member
+			""")
 	public int getApprovedMembersCount();
-	
-	 @Select("""
-		        SELECT * FROM member
-		        LIMIT #{startItemIndex}, #{itemsPerPage}
-		        
-		    """)
+
+	@Select("""
+			    SELECT * FROM member
+			    LIMIT #{startItemIndex}, #{itemsPerPage}
+
+			""")
 	public List<Member> getApprovedMembers(int startItemIndex, int itemsPerPage);
 
+	@Insert("""
+			INSERT INTO accestime
+				SET id = #{id},
+					recent_access = #{formattedDateTime}
+			""")
+	public void insertaccestime(int id, String formattedDateTime);
 
+	@Select("""
+			    SELECT *
+				FROM accestime
+				WHERE id = #{memberId}
+			""")
+	public void isExistingRecord(int memberId);
+
+	@Update("""
+			UPDATE accestime
+			SET recent_access = #{formattedDateTime}
+			WHERE id = #{memberId}
+			""")
+	public void updateRecentAccess(int memberId, String formattedDateTime);
+
+	
+	@Insert("""
+			INSERT INTO accestime
+				SET id = #{memberId},
+					last_access = #{formattedDateTime}
+			""")
+	public void insertlastaccess(int memberId, String formattedDateTime);
+	
+	@Update("""
+			UPDATE accestime
+			SET last_access = #{formattedDateTime}
+			WHERE id = #{memberId}
+			""")
+	public void updatelastaccess(int memberId, String formattedDateTime);
 
 }

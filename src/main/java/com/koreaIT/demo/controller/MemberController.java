@@ -1,5 +1,8 @@
 package com.koreaIT.demo.controller;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -150,6 +153,23 @@ public class MemberController {
 	    if (httpSession.getAttribute("loginedMemberId") == null) {
 	        return rq.jsReturnOnView("로그인 후 이용해주세요", true);
 	    }
+	    
+	    
+	    
+	    int memberId = rq.getLoginedMember().getId();
+	    LocalDateTime now = LocalDateTime.now();
+	    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+	    String formattedDateTime = now.format(formatter);
+
+	    System.out.println(memberId);
+	    System.out.println(formattedDateTime);
+
+
+
+	        memberService.updatelastaccess(memberId, formattedDateTime);
+	
+
+	    
 	    
 	    httpSession.removeAttribute("loginedMemberId");
 	    

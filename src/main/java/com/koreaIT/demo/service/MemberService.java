@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.koreaIT.demo.repository.MemberRepository;
-
+import com.koreaIT.demo.vo.Accestime;
 import com.koreaIT.demo.vo.Member;
 import com.koreaIT.demo.vo.Suggestion;
 import com.koreaIT.demo.vo.Vacation;
@@ -161,9 +161,29 @@ public class MemberService {
 		return memberRepository.getApprovedMembers(startItemIndex, itemsPerPage);
 	}
 
-	public List<Member> getAllApprovedMembers() {
-		// TODO Auto-generated method stub
-		return null;
+	public void insertaccestime(int id, String formattedDateTime) {
+		memberRepository.insertaccestime(id,formattedDateTime);
+		
 	}
+
+	
+
+	public void updateRecentAccess(int memberId, String formattedDateTime) {
+		memberRepository.updateRecentAccess(memberId,formattedDateTime);
+		
+	}
+
+
+
+	public void updatelastaccess(int memberId, String formattedDateTime) {
+		memberRepository.updatelastaccess(memberId,formattedDateTime);
+		
+	}
+
+	public void isExistingRecord(int memberId) {
+		memberRepository.isExistingRecord(memberId);
+		
+	}
+
 
 }
