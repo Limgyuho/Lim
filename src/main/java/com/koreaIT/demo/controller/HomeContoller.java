@@ -34,6 +34,15 @@ public class HomeContoller {
 
 		return "usr/home/home";
 	}
+	@RequestMapping("/usr/home/access")
+	public String showaccess() {
+
+		
+		return "usr/home/access";
+	}
+	
+	
+
 
 	@RequestMapping("/usr/home/popUp")
 	public String showPopUp() {

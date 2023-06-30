@@ -29,7 +29,6 @@ import com.koreaIT.demo.vo.Suggestion;
 import com.koreaIT.demo.vo.Vacation;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 @Controller
@@ -154,6 +153,12 @@ public class ArticleController {
 	}
 
 
+	@RequestMapping("/usr/article/welfare")
+	public String showwelfare() {
+
+		return "/usr/article/welfare";
+	}
+	
 	@RequestMapping("/usr/article/sendData")
 	public String showsendData() {
 

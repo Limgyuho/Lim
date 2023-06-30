@@ -10,14 +10,14 @@
 		<div>
 			<div class=" m-10 ">
 				<div
-					class="bg-blue-200 text-3xl p-10 rounded-full flex justify-center items-center">
+					class="bg-blue-200 hover:bg-red-300 text-3xl p-10 rounded-full flex justify-center items-center ">
 					<a href="/usr/article/ministry"> 협력 <br /> 부처
 					</a>
 				</div>
 			</div>
 			<div class=" m-10 ">
 				<div
-					class="bg-blue-200 text-3xl p-10 rounded-full  flex justify-center items-center">
+					class="bg-blue-200 hover:bg-red-300 text-3xl p-10 rounded-full  flex justify-center items-center">
 					<a href="/usr/article/organization"> 직원 <br /> 안내
 					</a>
 				</div>
@@ -27,20 +27,20 @@
 		<div>
 			<div class=" m-10 ">
 				<div
-					class="bg-blue-200 text-3xl p-10 rounded-full flex justify-center items-center">
+					class="bg-blue-200 hover:bg-red-300 text-3xl p-10 rounded-full flex justify-center items-center">
 					<a href="/usr/article/cafeteria"> 구내 <br /> 식당
 					</a>
 				</div>
 			</div>
 			<div class=" m-10 ">
 				<div
-					class="bg-blue-200 text-3xl p-10 rounded-full flex justify-center items-center">
+					class="bg-blue-200 hover:bg-red-300 text-3xl p-10 rounded-full flex justify-center items-center">
 					<a href="/usr/article/garden"> 옥상 <br /> 정원
 					</a>
 				</div>
 			</div>
 		</div>
-		<div class="flex-1  my-10 low-1 " >
+		<div class="flex-1  my-10 low-1 hover:bg-blue-600 ">
 					<br />
 					<br />
 					<span class="text-xl">공무원 행동강령</span>
@@ -54,7 +54,7 @@
 					<br />
 					<span class="text-xl">[시행 2023. 5. 15.]</span>	
 		</div>
-		<div class="flex-1  my-10 low-2">
+		<div class="flex-1  my-10 low-2 hover:bg-blue-600">
 					<br />
 					<br />
 					<span class="text-xl">국가 공무원법</span>
@@ -68,7 +68,7 @@
 					<br />
 					<span class="text-xl">[시행 2023. 6. 5.]</span>
 		</div>
-		<div class="flex-1  my-10 low-2">
+		<div class="flex-1  my-10 low-2 hover:bg-blue-600">
 					<br />
 					<br />
 					<span class="text-xl">세종특별자치시지원위원회 등의 설치ㆍ운영에 관한 규정</span>
@@ -82,7 +82,7 @@
 					<br />
 					<span class="text-xl">[시행 2021. 8. 9.]</span>
 		</div>
-		<div class="flex-1  my-10 low-3">
+		<div class="flex-1  my-10 low-3 hover:bg-blue-600">
 					<br />
 					<br />
 					<span class="text-xl">공무원직장협의회의 설립ㆍ운영에 관한 법률</span>
@@ -96,9 +96,14 @@
 					<br />
 					<span class="text-xl">[시행 2022. 10. 27.]</span>
 		</div>	
-	
+
 	</div>
-	
+	<div class="flex border-red h-56">
+		<div class="flex-1 border-red text-center "><a href="/usr/article/welfare">복지 제도</a></div>
+		<div class="flex-1 border-red">채용 제도</div>
+		<div class="flex-1 border-red">xzcv</div>	
+		<div class="flex-1 border-red">xcvb</div>
+	</div>
 	
 	
 	<div class="flex m-16 justify-between rounded-2xl  ">

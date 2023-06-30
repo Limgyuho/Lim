@@ -66,7 +66,7 @@ public class MemberController {
 
 		rq.login(member);
 
-		return Util.jsReplace(Util.f("%s 회원님 환영합니다~!", member.getName()), "/usr/home/main");
+		return Util.jsReplace(Util.f("%s 회원님 환영합니다~!", member.getName()), "/usr/home/access");
 	}
 
 	// 회원가입요청자들.....

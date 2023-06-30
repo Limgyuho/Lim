@@ -6,7 +6,7 @@
 <div class="text-6xl text-center mb-14">부서별 자료</div>
 
 <div class="flex mt-5 justify-center content-center">
-    <div id="div1" class="flex w-80 h-96 p-4 rounded-2xl border border-gray-300 block m-7 bg-white dark:bg-gray-800">
+    <div id="div1" class="flex w-80 h-96 p-4 rounded-2xl border border-indigo-600 block m-7 bg-white dark:bg-gray-800">
         <span class="text-2xl">운영지원과</span>
         <ul class="mt-4 space-y-2">
             <c:forEach var="file" items="${files2}">
@@ -28,7 +28,7 @@
         </c:if>
     </div>
 
-    <div id="div2" class="flex w-80 h-96 border-black block m-7 rounded-2xl p-4 bg-white dark:bg-gray-800">
+    <div id="div2" class="flex w-80 h-96 border border-indigo-600  block m-7 rounded-2xl p-4 bg-white dark:bg-gray-800">
         <span class="text-2xl">기획재정담당관</span>
         <ul class="mt-4 space-y-2">
             <c:forEach var="file" items="${files2}">
@@ -50,7 +50,7 @@
         </c:if>
     </div>
 
-    <div id="div3" class="flex w-80 h-96 border-black block m-7 rounded-2xl p-4 bg-white dark:bg-gray-800">
+    <div id="div3" class="flex w-80 h-96 border border-indigo-600 block m-7 rounded-2xl p-4 bg-white dark:bg-gray-800">
         <span class="text-2xl">정보과</span>
         <ul class="mt-4 space-y-2">
             <c:forEach var="file" items="${files2}">
@@ -72,7 +72,7 @@
         </c:if>
     </div>
 
-    <div id="div4" class="flex w-80 h-96 border-black block m-7 rounded-2xl p-4 bg-white dark:bg-gray-800">
+    <div id="div4" class="flex w-80 h-96 border border-indigo-600 block m-7 rounded-2xl p-4 bg-white dark:bg-gray-800">
         <span class="text-2xl">감사과</span>
         <ul class="mt-4 space-y-2">
             <c:forEach var="file" items="${files2}">
