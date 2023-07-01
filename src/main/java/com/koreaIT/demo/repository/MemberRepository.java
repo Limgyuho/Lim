@@ -274,6 +274,7 @@ public interface MemberRepository {
 			""")
 	public void updateRecentAccess(int memberId, String formattedDateTime);
 
+	
 	@Select("""
 		    SELECT COUNT(*) FROM accestime
 		    WHERE id = #{memberId}
@@ -284,7 +285,14 @@ public interface MemberRepository {
 	@Update("""
 			UPDATE accestime 
 			SET last_access = #{formattedDateTime}
-			WHERE id = #{memberId}
+			WHERE id = #{memberId}	
 			""")
 	public void updatelastaccess(int memberId, String formattedDateTime);
+
+	
+	@Select("""
+		    SELECT * FROM accestime
+		    WHERE id = #{id}
+		""")
+	public Accestime getaccesstime(int id);
 }

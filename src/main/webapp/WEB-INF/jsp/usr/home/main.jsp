@@ -100,7 +100,7 @@
 	</div>
 	<div class="flex border-red h-56">
 		<div class="flex-1 border-red text-center "><a href="/usr/article/welfare">복지 제도</a></div>
-		<div class="flex-1 border-red">채용 제도</div>
+		<div class="flex-1 border-red text-center "><a href="/usr/article/recruitment">채용 제도</a></div>
 		<div class="flex-1 border-red">xzcv</div>	
 		<div class="flex-1 border-red">xcvb</div>
 	</div>

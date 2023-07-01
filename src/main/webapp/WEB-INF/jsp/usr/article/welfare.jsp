@@ -367,7 +367,7 @@
 
 
 </div>
-
+<%@ include file="../common/bottom.jsp"%>
 <script>
   function opendata(id) {
     var answer = document.getElementById("g" + id);

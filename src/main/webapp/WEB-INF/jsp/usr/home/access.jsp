@@ -15,6 +15,11 @@
 				<span class="text-sm">이름:</span>
 				<span class="ml-2 text-base font-bold">${rq.loginedMember.name}</span>
 			</div>
+				<span class="text-sm">최근 접속 시간:</span>
+				<span class="ml-2 text-base font-bold">${accestime.getRecent_access() }</span>
+				<br />
+				<span class="text-sm">마지막 접속 시간:</span>
+				<span class="ml-2 text-base font-bold">${accestime.getLast_access() }</span>
 			<div class="flex justify-center mt-6">
 				<button type="submit" class="hover:bg-blue-600 py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">접속</button>
 			</div>

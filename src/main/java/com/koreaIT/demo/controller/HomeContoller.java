@@ -34,14 +34,20 @@ public class HomeContoller {
 
 	@RequestMapping("/usr/home/home")
 	public String showMain() {
-
+	
 		return "usr/home/home";
 	}
 
 	@RequestMapping("/usr/home/access")
 	public String showaccess(Model model) {
-		rq.getLoginedMember().getId();
-
+		int id = rq.getLoginedMember().getId();
+		
+		
+		Accestime accestime = memberService.getaccesstime(id); 
+		System.out.println(accestime.getRecent_access());
+		
+		model.addAttribute("accestime",accestime);		
+		
 		return "usr/home/access";
 	}
 

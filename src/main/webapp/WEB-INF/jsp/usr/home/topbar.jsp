@@ -32,18 +32,21 @@
 	});
 	
 </script>
-
-<div class="flex justify-center items-center my-9 text-4xl">
-
-  <a href="/usr/home/main" class="block">대한민국 정부 기관</a>
-   <img src="/resource/images/정보로고.png" alt="Image 1">
-  <div class="border-red" style="position: absolute; right: 0;">
-    <div class="time text-sm">현재 시간 :</div>
-    <div class="ctemp text-sm">현재 온도 :</div>
-    <div class="highttemp text-sm">최고 온도 :</div>
-    <div class="icon text-sm"></div>	
-  </div>
+<div class="flex my-9">
+	<div class="flex justify-start">
+	    <img src="/resource/images/정보로고1.png" alt="Image 8" class="ml-5">
+	</div>
+	<div class="flex justify-center items-center  text-4xl w-full">
+	  <a href="/usr/home/main" class="block" style="margin-left: 10px;">대한민국 정부 기관</a>
+	  <div class="border-red" style="position: absolute; right: 0;">
+	    <div class="time text-sm">현재 시간 :</div>
+	    <div class="ctemp text-sm">현재 온도 :</div>
+	    <div class="highttemp text-sm">최고 온도 :</div>
+	    <div class="icon text-sm"></div>	
+	  </div>
+	</div>
 </div>
+
 
 
 

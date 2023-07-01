@@ -181,6 +181,12 @@ public class MemberService {
 		
 	}
 
+	public Accestime getaccesstime(int id) {
+	
+		
+		return memberRepository.getaccesstime(id);
+	}
+
 	
 
 
