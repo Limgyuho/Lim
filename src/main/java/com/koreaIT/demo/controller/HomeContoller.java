@@ -30,7 +30,7 @@ public class HomeContoller {
 		this.memberService = memberService;
 		this.fileService = fileService;
 		this.rq = rq;
-	}	
+	}
 
 	@RequestMapping("/usr/home/home")
 	public String showMain() {
@@ -40,31 +40,22 @@ public class HomeContoller {
 
 	@RequestMapping("/usr/home/access")
 	public String showaccess(Model model) {
-		rq.getLoginedMember().getId();		
-		
+		rq.getLoginedMember().getId();
+
 		return "usr/home/access";
 	}
 
 	@RequestMapping("/usr/home/gomain")
-	public String redirectToMain() {
-	    int memberId = rq.getLoginedMember().getId();
-	    LocalDateTime now = LocalDateTime.now();
-	    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-	    String formattedDateTime = now.format(formatter);
+    public String redirectToMain() {
+        int memberId = rq.getLoginedMember().getId();
+        LocalDateTime now = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        String formattedDateTime = now.format(formatter);
 
-	    System.out.println(memberId);
-	    System.out.println(formattedDateTime);
+        memberService.insertOrUpdateRecentAccess(memberId, formattedDateTime);
 
-	    memberService.isExistingRecord(memberId);
-	
-	
-
-	    
-	        memberService.insertaccestime(memberId, formattedDateTime);
-
-	    return "redirect:/usr/home/main";
-	}
-
+        return "redirect:/usr/home/main";
+    }
 
 	@RequestMapping("/usr/home/popUp")
 	public String showPopUp() {

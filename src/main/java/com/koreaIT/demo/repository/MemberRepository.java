@@ -8,6 +8,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
+import com.koreaIT.demo.vo.Accestime;
 import com.koreaIT.demo.vo.JoinRequest;
 import com.koreaIT.demo.vo.Member;
 import com.koreaIT.demo.vo.Suggestion;
@@ -257,40 +258,25 @@ public interface MemberRepository {
 			""")
 	public List<Member> getApprovedMembers(int startItemIndex, int itemsPerPage);
 
+	
 	@Insert("""
 			INSERT INTO accestime
-				SET id = #{id},
-					recent_access = #{formattedDateTime}
+				SET id = #{memberId},
+					recent_access = #{formattedDateTime}			
 			""")
-	public void insertaccestime(int id, String formattedDateTime);
-
-	@Select("""
-			    SELECT *
-				FROM accestime
-				WHERE id = #{memberId}
-			""")
-	public void isExistingRecord(int memberId);
+	
+	public void insertaccestime(int memberId, String formattedDateTime);	
 
 	@Update("""
-			UPDATE accestime
+			UPDATE accestime 
 			SET recent_access = #{formattedDateTime}
 			WHERE id = #{memberId}
 			""")
 	public void updateRecentAccess(int memberId, String formattedDateTime);
 
-	
-	@Insert("""
-			INSERT INTO accestime
-				SET id = #{memberId},
-					last_access = #{formattedDateTime}
-			""")
-	public void insertlastaccess(int memberId, String formattedDateTime);
-	
-	@Update("""
-			UPDATE accestime
-			SET last_access = #{formattedDateTime}
-			WHERE id = #{memberId}
-			""")
-	public void updatelastaccess(int memberId, String formattedDateTime);
-
+	@Select("""
+		    SELECT COUNT(*) FROM accestime
+		    WHERE id = #{memberId}
+		""")
+	public boolean isExistingRecord(int memberId);
 }

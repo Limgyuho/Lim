@@ -161,29 +161,23 @@ public class MemberService {
 		return memberRepository.getApprovedMembers(startItemIndex, itemsPerPage);
 	}
 
-	public void insertaccestime(int id, String formattedDateTime) {
-		memberRepository.insertaccestime(id,formattedDateTime);
+
+
+
+
+	public void insertOrUpdateRecentAccess(int memberId, String formattedDateTime) {
+		boolean isExistingRecord = memberRepository.isExistingRecord(memberId);
+		
+        if (isExistingRecord) {
+            memberRepository.updateRecentAccess(memberId, formattedDateTime);
+        } else {
+            memberRepository.insertaccestime(memberId, formattedDateTime);
+        }
 		
 	}
 
-	
-
-	public void updateRecentAccess(int memberId, String formattedDateTime) {
-		memberRepository.updateRecentAccess(memberId,formattedDateTime);
-		
-	}
 
 
-
-	public void updatelastaccess(int memberId, String formattedDateTime) {
-		memberRepository.updatelastaccess(memberId,formattedDateTime);
-		
-	}
-
-	public void isExistingRecord(int memberId) {
-		memberRepository.isExistingRecord(memberId);
-		
-	}
 
 
 }

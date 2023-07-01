@@ -147,36 +147,25 @@ public class MemberController {
 
 		return ResultData.from("S-1", "사용 가능한 아이디입니다", "loginId", loginId);
 	}
-	
+
 	@RequestMapping("/usr/member/doLogout")
 	public String doLogout(HttpSession httpSession, HttpServletRequest request) {
-	    if (httpSession.getAttribute("loginedMemberId") == null) {
-	        return rq.jsReturnOnView("로그인 후 이용해주세요", true);
-	    }
-	    
-	    
-	    
-	    int memberId = rq.getLoginedMember().getId();
-	    LocalDateTime now = LocalDateTime.now();
-	    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-	    String formattedDateTime = now.format(formatter);
-
-	    System.out.println(memberId);
-	    System.out.println(formattedDateTime);
-
-
-
-	        memberService.updatelastaccess(memberId, formattedDateTime);
+		if (httpSession.getAttribute("loginedMemberId") == null) {
+			return rq.jsReturnOnView("로그인 후 이용해주세요", true);
+		}
+//
+//		int memberId = rq.getLoginedMember().getId();
+//		LocalDateTime now = LocalDateTime.now();
+//		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+//		String formattedDateTime = now.format(formatter);
+//
+////	        memberService.insertlastaccess(memberId, formattedDateTime);
 	
+		
+		
+		httpSession.removeAttribute("loginedMemberId");
 
-	    
-	    
-	    httpSession.removeAttribute("loginedMemberId");
-	    
-	    
-	    return "redirect:/usr/home/home";
+		return "redirect:/usr/home/home";
 	}
-
-
 
 }
