@@ -279,4 +279,12 @@ public interface MemberRepository {
 		    WHERE id = #{memberId}
 		""")
 	public boolean isExistingRecord(int memberId);
+
+	
+	@Update("""
+			UPDATE accestime 
+			SET last_access = #{formattedDateTime}
+			WHERE id = #{memberId}
+			""")
+	public void updatelastaccess(int memberId, String formattedDateTime);
 }

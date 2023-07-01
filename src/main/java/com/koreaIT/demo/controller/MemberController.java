@@ -153,13 +153,13 @@ public class MemberController {
 		if (httpSession.getAttribute("loginedMemberId") == null) {
 			return rq.jsReturnOnView("로그인 후 이용해주세요", true);
 		}
-//
-//		int memberId = rq.getLoginedMember().getId();
-//		LocalDateTime now = LocalDateTime.now();
-//		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-//		String formattedDateTime = now.format(formatter);
-//
-////	        memberService.insertlastaccess(memberId, formattedDateTime);
+
+		int memberId = rq.getLoginedMember().getId();
+		LocalDateTime now = LocalDateTime.now();
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+		String formattedDateTime = now.format(formatter);
+
+	        memberService.updatelastaccess(memberId, formattedDateTime);
 	
 		
 		

@@ -176,6 +176,13 @@ public class MemberService {
 		
 	}
 
+	public void updatelastaccess(int memberId, String formattedDateTime) {
+		memberRepository.updatelastaccess(memberId,formattedDateTime);
+		
+	}
+
+	
+
 
 
 
