@@ -98,11 +98,11 @@
 		</div>	
 
 	</div>
-	<div class="flex border-red h-56">
-		<div class="flex-1 border-red text-center "><a href="/usr/article/welfare">복지 제도</a></div>
-		<div class="flex-1 border-red text-center "><a href="/usr/article/recruitment">채용 제도</a></div>
-		<div class="flex-1 border-red">xzcv</div>	
-		<div class="flex-1 border-red">xcvb</div>
+	<div class="flex text-center text-3xl">
+		<div class="flex-1  "><a href="/usr/article/welfare"><img src="/resource/images/복지.png" alt="Image 8" class="m-auto">복지 제도 FAQ</a></div>
+		<div class="flex-1  "><a href="/usr/article/recruitment"><img src="/resource/images/채용.png" alt="Image 8" class="m-auto">채용 제도 FAQ</a></div>
+		<div class="flex-1 ">xzcv</div>	
+		<div class="flex-1 ">xcvb</div>
 	</div>
 	
 	

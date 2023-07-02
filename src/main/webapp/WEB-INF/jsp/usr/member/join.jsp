@@ -5,67 +5,94 @@
 
 <script>
   let validLoginId = '';
-
   function join_submitForm(form) {
-    form.loginId.value = form.loginId.value.trim();
-    if (form.loginId.value.length == 0) {
-      alert('아이디를 입력해주세요');
-      form.loginId.focus();
-      return;
-    }
+	  form.loginId.value = form.loginId.value.trim();
+	  if (form.loginId.value.length === 0) {
+	    alert('아이디를 입력해주세요');
+	    form.loginId.focus();
+	    return;
+	  }
 
-    if (form.loginId.value != validLoginId) {
-      alert(form.loginId.value + '은(는) 사용할 수 없는 아이디입니다');
-      form.loginId.value = '';
-      form.loginId.focus();
-      return;
-    }
+	  if (form.loginId.value != validLoginId) {
+	    alert(form.loginId.value + '은(는) 사용할 수 없는 아이디입니다');
+	    form.loginId.value = '';
+	    form.loginId.focus();
+	    return;
+	  }
 
-    form.loginPw.value = form.loginPw.value.trim();
-    if (form.loginPw.value.length == 0) {
-      alert('비밀번호를 입력해주세요');
-      form.loginPw.focus();
-      return;
-    }
+	  form.loginPw.value = form.loginPw.value.trim();
+	  if (form.loginPw.value.length === 0) {
+	    alert('비밀번호를 입력해주세요');
+	    form.loginPw.focus();
+	    return;
+	  }
 
-    form.loginPwChk.value = form.loginPwChk.value.trim();
-    if (form.loginPwChk.value.length == 0) {
-      alert('비밀번호 확인을 입력해주세요');
-      form.loginPwChk.focus();
-      return;
-    }
+	  form.loginPwChk.value = form.loginPwChk.value.trim();
+	  if (form.loginPwChk.value.length === 0) {
+	    alert('비밀번호 확인을 입력해주세요');
+	    form.loginPwChk.focus();
+	    return;
+	  }
 
-    if (form.loginPw.value != form.loginPwChk.value) {
-      alert('비밀번호가 일치하지 않습니다');
-      form.loginPw.value = '';
-      form.loginPwChk.value = '';
-      form.loginPw.focus();
-      return;
-    }
+	  // Password validation: at least one uppercase letter, one lowercase letter, and one special character
+	  const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()])[A-Za-z\d!@#$%^&*()]{8,}$/;
+	  if (!passwordRegex.test(form.loginPw.value)) {
+	    alert('비밀번호는 대문자, 소문자, 특수문자를 포함한 8자 이상이어야 합니다');
+	    form.loginPw.value = '';
+	    form.loginPwChk.value = '';
+	    form.loginPw.focus();
+	    return;
+	  }
 
-    form.name.value = form.name.value.trim();
-    if (form.name.value.length == 0) {
-      alert('이름을 입력해주세요');
-      form.name.focus();
-      return;
-    }
+	  if (form.loginPw.value != form.loginPwChk.value) {
+	    alert('비밀번호가 일치하지 않습니다');
+	    form.loginPw.value = '';
+	    form.loginPwChk.value = '';
+	    form.loginPw.focus();
+	    return;
+	  }
 
-    form.cellphoneNum.value = form.cellphoneNum.value.trim();
-    if (form.cellphoneNum.value.length == 0) {
-      alert('전화번호를 입력해주세요');
-      form.cellphoneNum.focus();
-      return;
-    }
+	  form.name.value = form.name.value.trim();
+	  if (form.name.value.length === 0) {
+	    alert('이름을 입력해주세요');
+	    form.name.focus();
+	    return;
+	  }
 
-    form.email.value = form.email.value.trim();
-    if (form.email.value.length == 0) {
-      alert('이메일을 입력해주세요');
-      form.email.focus();
-      return;
-    }
+	  form.cellphoneNum.value = form.cellphoneNum.value.trim();
+	  if (form.cellphoneNum.value.length === 0) {
+	    alert('전화번호를 입력해주세요');
+	    form.cellphoneNum.focus();
+	    return;
+	  }
 
-    form.submit();
-  }
+	  // Phone number validation: must contain hyphen (-)
+	  const phoneRegex = /^(\d{3})-(\d{3,4})-(\d{4})$/;
+	  if (!phoneRegex.test(form.cellphoneNum.value)) {
+	    alert('전화번호는 하이픈(-)을 포함하여 입력해야 합니다 (예: 010-1234-5678)');
+	    form.cellphoneNum.value = '';
+	    form.cellphoneNum.focus();
+	    return;
+	  }
+
+	  form.email.value = form.email.value.trim();
+	  if (form.email.value.length === 0) {
+	    alert('이메일을 입력해주세요');
+	    form.email.focus();
+	    return;
+	  }
+
+	  // Email validation: basic email format
+	  const emailRegex = /^\S+@\S+\.\S+$/;
+	  if (!emailRegex.test(form.email.value)) {
+	    alert('유효한 이메일 주소를 입력해주세요');
+	    form.email.value = '';
+	    form.email.focus();
+	    return;
+	  }
+
+	  form.submit();
+	}
 
   function loginIdDupCheck(el) {
     let loginIdDupCheckMsg = $('#loginIdDupCheckMsg');
