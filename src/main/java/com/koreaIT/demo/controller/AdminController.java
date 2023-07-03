@@ -64,6 +64,11 @@ public class AdminController {
 
 		List<Suggestion> getsuggestion = adminService.getsuggestion();
 		model.addAttribute("getsuggestion", getsuggestion);
+		
+		//멤버별 접속시간 조회
+		List<Member> getAccesstime= memberService.getAccesstime();
+		model.addAttribute("getAccesstime", getAccesstime);
+		
 
 		return "usr/admin/admindashboard";
 	}

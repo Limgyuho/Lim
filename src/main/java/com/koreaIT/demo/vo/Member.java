@@ -24,4 +24,6 @@ public class Member {
 	public String position;
 	public String vacationType;
 	public String date;
+	private String recent_access;
+	private String last_access;
 }

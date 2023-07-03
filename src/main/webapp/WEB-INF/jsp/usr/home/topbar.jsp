@@ -56,11 +56,10 @@
 		<nav class="menu-box-1 w-full">
 			<ul>
 				<li><a href="/usr/home/main">Home</a></li>
-				<li><a href="/usr/article/suggestion">건의/요청사항</a></li>
+				<li><a href="/usr/article/suggestion">용품,차량대여</a></li>
 				<li><a href="/usr/article/transferList">인사 이동</a></li>
 				<li><a href="/usr/article/departmentalData">부서별 자료</a></li>
 				<li><a href="/usr/article/program">필수 프로그램</a></li>
-				<li><a href="/usr/article/sendData">자료 전송</a></li>
 				<li><a href="/usr/article/leave">휴가/보고</a></li>
 				<li><a href="/usr/article/bus">통근 버스</a></li>
 			</ul>

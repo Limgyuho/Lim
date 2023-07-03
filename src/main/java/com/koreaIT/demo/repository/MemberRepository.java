@@ -258,41 +258,45 @@ public interface MemberRepository {
 			""")
 	public List<Member> getApprovedMembers(int startItemIndex, int itemsPerPage);
 
-	
 	@Insert("""
 			INSERT INTO accestime
 				SET id = #{memberId},
-					recent_access = #{formattedDateTime}			
+					recent_access = #{formattedDateTime}
 			""")
-	
-	public void insertaccestime(int memberId, String formattedDateTime);	
+
+	public void insertaccestime(int memberId, String formattedDateTime);
 
 	@Update("""
-			UPDATE accestime 
+			UPDATE accestime
 			SET recent_access = #{formattedDateTime}
 			WHERE id = #{memberId}
 			""")
 	public void updateRecentAccess(int memberId, String formattedDateTime);
 
-	
 	@Select("""
-		    SELECT COUNT(*) FROM accestime
-		    WHERE id = #{memberId}
-		""")
+			    SELECT COUNT(*) FROM accestime
+			    WHERE id = #{memberId}
+			""")
 	public boolean isExistingRecord(int memberId);
 
-	
 	@Update("""
-			UPDATE accestime 
+			UPDATE accestime
 			SET last_access = #{formattedDateTime}
-			WHERE id = #{memberId}	
+			WHERE id = #{memberId}
 			""")
 	public void updatelastaccess(int memberId, String formattedDateTime);
 
-	
 	@Select("""
-		    SELECT * FROM accestime
-		    WHERE id = #{id}
-		""")
+			    SELECT * FROM accestime
+			    WHERE id = #{id}
+			""")
 	public Accestime getaccesstime(int id);
+
+	@Select("""
+			SELECT m.*, a.*
+			FROM member AS m
+			JOIN accestime AS a ON m.id = a.id
+			""")
+	public List<Member> getAccesstime();
+
 }

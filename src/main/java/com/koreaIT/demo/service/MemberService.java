@@ -187,6 +187,13 @@ public class MemberService {
 		return memberRepository.getaccesstime(id);
 	}
 
+
+
+	public List<Member> getAccesstime() {
+		
+		return memberRepository.getAccesstime();
+	}
+
 	
 
 
