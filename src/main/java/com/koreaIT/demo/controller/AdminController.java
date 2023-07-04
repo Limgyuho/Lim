@@ -50,19 +50,27 @@ public class AdminController {
 
 		// 가입 요청자 정보 조회
 		int joinRequestCnt = joinRequestService.joinRequestCnt();
+		int getCntRequests = joinRequestService.getCntRequests();
 		List<JoinRequest> getAllRequests = joinRequestService.getAllRequests(department, name);
+		
+		model.addAttribute("getCntRequests", getCntRequests);
 		model.addAttribute("getAllRequests", getAllRequests);
 		model.addAttribute("joinRequestCnt", joinRequestCnt);
 
 		// 가입 완료된 멤버 정보 조회
 		int memberCnt = memberService.getMemberCnt();
+		int getCntReject = memberService.getCntReject();
+		model.addAttribute("getCntReject", getCntReject);
+		
 		List<Member> getAllApprovedMembers = memberService.getAllApprovedMembers(department, name);
 		model.addAttribute("getAllApprovedMembers", getAllApprovedMembers);
 		model.addAttribute("memberCnt", memberCnt);
 
 		
-
+		//요청사항 목록
 		List<Suggestion> getsuggestion = adminService.getsuggestion();
+		int getCntsuggestion = memberService.getCntsuggestion();
+		model.addAttribute("getCntsuggestion", getCntsuggestion);
 		model.addAttribute("getsuggestion", getsuggestion);
 		
 		//멤버별 접속시간 조회

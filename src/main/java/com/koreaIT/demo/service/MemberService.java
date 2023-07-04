@@ -194,6 +194,14 @@ public class MemberService {
 		return memberRepository.getAccesstime();
 	}
 
+	public int getCntReject() {
+		return memberRepository.getCntReject();
+	}
+
+	public int getCntsuggestion() {
+		return memberRepository.getCntsuggestion();
+	}
+
 	
 
 

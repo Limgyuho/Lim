@@ -112,4 +112,13 @@ public interface JoinRequestRepository {
 			""")
 	public List<JoinRequest> getAllRequests(String department, String name);
 
+	
+	
+	@Select("""
+				SELECT COUNT(*)
+				FROM join_requests
+				WHERE PERMISSION = 0
+			""")
+	public int getCntRequests();
+
 }

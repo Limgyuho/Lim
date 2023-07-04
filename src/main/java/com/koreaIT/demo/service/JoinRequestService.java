@@ -78,6 +78,10 @@ public class JoinRequestService {
 		return joinRequestRepository.getAllRequests(department,name);
 	}
 
+	public int getCntRequests() {
+		return joinRequestRepository.getCntRequests();
+	}
+
 
 
 

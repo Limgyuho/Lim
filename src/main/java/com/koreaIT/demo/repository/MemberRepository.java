@@ -299,4 +299,17 @@ public interface MemberRepository {
 			""")
 	public List<Member> getAccesstime();
 
+	
+	@Select("""
+			SELECT COUNT(*) FROM member
+			WHERE permission = 0
+			""")
+	public int getCntReject();
+
+	@Select("""
+			SELECT COUNT(*) FROM suggestion
+			WHERE permission = 0
+			""")
+	public int getCntsuggestion();
+
 }
