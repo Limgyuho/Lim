@@ -4,6 +4,17 @@
 <%@ include file="../home/topbar.jsp"%>
 
 
+<div class="text-center text-4xl">
+	<label for="pageSelect text-4xl">카테고리를 선택하세요:</label>
+	<select class="select select-bordered" id="pageSelect" onchange="redirectToPage()">
+
+	    <option value="http://localhost:8085/usr/article/welfare">연금 복지 제도</option>
+	    <option value="http://localhost:8085/usr/article/recruitment" >성과 보수 제도</option>
+	    <option value="http://localhost:8085/usr/article/Accident">재해 보상 제도</option>
+	</select>
+</div>
+
+
 
 
 <div class="border-red w-7/12 m-auto">
@@ -376,6 +387,14 @@
     } else {
       answer.style.display = "none";
     }
+  }
+  function redirectToPage() {
+      var selectBox = document.getElementById("pageSelect");
+      var selectedValue = selectBox.options[selectBox.selectedIndex].value;
+      
+      if (selectedValue !== "") {
+          window.location.href = selectedValue;
+      }
   }
 </script>
 

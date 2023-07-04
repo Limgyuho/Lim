@@ -28,7 +28,7 @@
   </div>
 </div>
 
-<div class="fixed-bottom">
-  <%@ include file="../common/bottom.jsp" %>
-</div>
+
+<%@ include file="../common/bottom.jsp" %>
+
 

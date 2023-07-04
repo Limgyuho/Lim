@@ -35,8 +35,7 @@
 			<div class=" m-10 ">
 				<div
 					class="bg-blue-200 hover:bg-red-300 text-3xl p-10 rounded-full flex justify-center items-center">
-					<a href="/usr/article/garden"> 옥상 <br /> 정원
-					</a>
+					<a href="/usr/article/welfare"> FA <br /> &Q</a>
 				</div>
 			</div>
 		</div>
@@ -98,13 +97,6 @@
 		</div>	
 
 	</div>
-	<div class="flex text-center text-3xl">
-		<div class="flex-1  "><a href="/usr/article/welfare"><img src="/resource/images/복지.png" alt="Image 8" class="m-auto">복지 제도 FAQ</a></div>
-		<div class="flex-1  "><a href="/usr/article/recruitment"><img src="/resource/images/채용.png" alt="Image 8" class="m-auto">채용 제도 FAQ</a></div>
-		<div class="flex-1 ">xzcv</div>	
-		<div class="flex-1 ">xcvb</div>
-	</div>
-	
 	
 	<div class="flex m-16 justify-between rounded-2xl  ">
 		<div class=" m-10 ">
@@ -289,7 +281,7 @@ table {
 }
 
 th, td {
-	padding: 8px;
+	
 	text-align: left;
 	border: 1px solid #ddd;
 }

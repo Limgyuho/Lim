@@ -358,14 +358,9 @@ html>body {
 	height: 100%;
 }
 
-/* table { */
-/* 	text-align: center; */
-/* 	border-collapse: collapse; */
-/* 	width: 100%; */
+
+
+/* table th { */
+/* 	padding: 30px; */
+
 /* } */
-
-
-table th {
-	padding: 30px;
-
-}

@@ -158,6 +158,12 @@ public class ArticleController {
 
 		return "/usr/article/welfare";
 	}
+	
+	@RequestMapping("/usr/article/Accident")
+	public String showAccident() {
+
+		return "/usr/article/Accident";
+	}
 	@RequestMapping("/usr/article/recruitment")
 	public String showrecruitment() {
 
