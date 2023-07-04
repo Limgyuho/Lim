@@ -14,7 +14,10 @@
 
         // WebSocket 연결
         var id = "${id}";
-        socket = new WebSocket("ws://localhost:8085/chat/" + id);
+        var host = window.location.hostname; // 현재 호스트 이름 가져오기
+        var port = window.location.port; // 현재 포트 번호 가져오기
+        var protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:'; // 현재 프로토콜 가져오기
+        socket = new WebSocket(protocol + '//' + host + ':' + port + '/chat/' + id);
 
         // 연결이 열린 경우
         socket.onopen = function (event) {
@@ -63,24 +66,18 @@
 
         // 파일 선택
         $("#file-input").on("change", function (event) {
-        	console.log('asdasdaskdljklafjkdsfjlskdfjdskl', event);
             selectedFile = event.target.files[0];
             if (selectedFile) {
                 $("#selected-file-info").text("선택한 파일: " + selectedFile.name);
             } else {
                 $("#selected-file-info").text("");
-
             }
         });
 
         // 파일 전송
         $("#send-file-button").on("click", function () {
-        	console.log(selectedFile);
             if (selectedFile) {
-            	
-            
                 var reader = new FileReader();
-                
                 reader.onload = function (e) {
                     var fileData = e.target.result;
                     var data = {
@@ -89,15 +86,13 @@
                         roomId: id,
                         fileName: selectedFile.name // 데이터에 파일 이름 포함
                     };
-                    console.log(data);
                     socket.send(JSON.stringify(data));
-//                     selected-file-info.val("");
                 };
                 reader.readAsDataURL(selectedFile);
             }
         });
 
-     // 메시지 처리
+        // 메시지 처리
         function handleMessage(message) {
             var senderName = message.senderName;
             var content = message.content;
@@ -115,14 +110,15 @@
 
             // 파일 메시지 처리
             if (message.fileName) {
-                var downloadLink = '<a href="' + message.content + '" download="' + message.fileName + '">다운로드</a>';
-                $("#download-link").attr("href", message.content);
-                $("#download-link").attr("download", message.fileName);
-                $("#download-link").text("다운로드");
-                $("#download-link").show();
+                var fileURL = 'data:application/octet-stream;base64,' + message.content;
+                var downloadLink = '<a href="' + fileURL + '" download="' + message.fileName + '">다운로드</a>';
+                var fileMessage = '<div class="chat chat-start">\n' +
+                    '  <div class="chat-bubble chat-bubble-info">' + senderName + ': ' + downloadLink + '</div>\n' +
+                    '</div>';
+                $("#chat-window").append(fileMessage);
+                $("#chat-window").scrollTop($("#chat-window")[0].scrollHeight);
             }
         }
-
 
         // 메시지 삭제
         $("#clear-button").on("click", function () {
@@ -145,10 +141,10 @@
     <input type="file" id="file-input" style="display: none;">
     <label for="file-input" class="btn btn-outline btn-accent mr-5" style="margin-top: 10px;">파일 선택</label>
     <span id="selected-file-info"></span>
-    <a href="" id="download-link" style="display: none;">다운로드</a>
     <button class="btn btn-outline btn-accent mr-5" id="send-file-button" style="margin-top: 10px;">파일 전송</button>
 </div>
 
 <button class="btn btn-outline btn-accent mr-5" id="send-button" style="margin-top: 10px;">전송</button>
 <button class="btn btn-outline btn-secondary mr-5" id="clear-button" style="margin-top: 10px;">메시지 삭제</button>
 <button class="btn btn-outline btn-secondary mr-5" id="back-button" style="margin-top: 10px;">뒤로 가기</button>
+<div id="file-download"></div>

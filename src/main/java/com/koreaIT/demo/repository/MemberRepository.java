@@ -288,9 +288,9 @@ public interface MemberRepository {
 
 	@Select("""
 			    SELECT * FROM accestime
-			    WHERE id = #{id}
+			    WHERE id = #{memberId}	
 			""")
-	public Accestime getaccesstime(int id);
+	public Accestime getaccesstime(int memberId);
 
 	@Select("""
 			SELECT m.*, a.*

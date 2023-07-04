@@ -4,15 +4,15 @@
 <%@ include file="../common/head.jsp"%>
 
 
-<h1 class="text-3xl text-center font-bold mb-10">멤버 관리 시스템</h1>
+<h1 class="text-4xl text-center font-bold my-10 "><a href="/usr/admin/admindashboard">멤버 관리 시스템</a></h1>
     
-    <div class="m-10">
-        <button class="btn btn-link border-red-500 text-red-500 hover:text-red-700" onclick="showTab('joinRequests')">가입 요청자 목록</button>
-        <button class="btn btn-link border-red-500 text-red-500 hover:text-red-700" onclick="showTab('approvedMembers')">가입 멤버 목록</button>
-        <button class="btn btn-link border-red-500 text-red-500 hover:text-red-700" onclick="showTab('suggestion')">요청 사항 목록</button>
-        <button class="btn btn-link border-red-500 text-red-500 hover:text-red-700" onclick="showTab('accesstTime')">멤버별 접속 시간</button>
-    </div>
-<div class="border-red w-5/6">
+
+
+<div class="border-red w-5/6 m-auto">
+ 	<button class="btn btn-link border-red-500 text-red-500 hover:text-red-700" onclick="showTab('joinRequests')">가입 요청자 목록</button>
+    <button class="btn btn-link border-red-500 text-red-500 hover:text-red-700" onclick="showTab('approvedMembers')">가입 멤버 목록</button>
+    <button class="btn btn-link border-red-500 text-red-500 hover:text-red-700" onclick="showTab('suggestion')">요청 사항 목록</button>
+    <button class="btn btn-link border-red-500 text-red-500 hover:text-red-700" onclick="showTab('accesstTime')">멤버별 접속 시간</button>
 	<div id="joinRequests" class="tab-content m-10 " style="max-height: 400px; overflow-y: scroll;">
 	    <div class="flex">
 	        <h2 class="flex-grow-1 justify-content-end">총 인원: ${joinRequestCnt} 명</h2>
@@ -194,7 +194,7 @@
 	                <th>신청자 직급</th>
 	                <th>신청이름</th>
 	                <th>최근 접속 시간</th>
-	                <th>승인 마지막 접속 시간</th>
+	                <th>마지막 접속 시간</th>
 	            </tr>
 	        </thead>
 	        <tbody>

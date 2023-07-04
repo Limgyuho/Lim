@@ -40,10 +40,16 @@ public class HomeContoller {
 
 	@RequestMapping("/usr/home/access")
 	public String showaccess(Model model) {
-		int id = rq.getLoginedMember().getId();
+	
 		
+		int memberId = rq.getLoginedMember().getId();
+        LocalDateTime now = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        String formattedDateTime = now.format(formatter);
+
+        memberService.insertOrUpdateRecentAccess(memberId, formattedDateTime);
 		
-		Accestime accestime = memberService.getaccesstime(id); 
+		Accestime accestime = memberService.getaccesstime(memberId); 
 		System.out.println(accestime.getRecent_access());
 		
 		model.addAttribute("accestime",accestime);		
@@ -53,12 +59,12 @@ public class HomeContoller {
 
 	@RequestMapping("/usr/home/gomain")
     public String redirectToMain() {
-        int memberId = rq.getLoginedMember().getId();
-        LocalDateTime now = LocalDateTime.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-        String formattedDateTime = now.format(formatter);
-
-        memberService.insertOrUpdateRecentAccess(memberId, formattedDateTime);
+//        int memberId = rq.getLoginedMember().getId();
+//        LocalDateTime now = LocalDateTime.now();
+//        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+//        String formattedDateTime = now.format(formatter);
+//
+//        memberService.insertOrUpdateRecentAccess(memberId, formattedDateTime);
 
         return "redirect:/usr/home/main";
     }

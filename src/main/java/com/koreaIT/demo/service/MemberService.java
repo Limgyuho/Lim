@@ -181,10 +181,10 @@ public class MemberService {
 		
 	}
 
-	public Accestime getaccesstime(int id) {
+	public Accestime getaccesstime(int memberId) {
 	
 		
-		return memberRepository.getaccesstime(id);
+		return memberRepository.getaccesstime(memberId);
 	}
 
 

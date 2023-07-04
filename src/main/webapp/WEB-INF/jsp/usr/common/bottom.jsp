@@ -1,8 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<div class="bottom-bar con-min-width ">
-    <div class=" lfex justify-end" >
+<%@ include file="../common/head.jsp"%>
+<div class="bottom-bar con-min-width mt-20">
+    <div class="fex justify-end " >
         <div class="box-1">
             <div class="menu-box-1 w-1000">
                 <ul class="flex flex-wrap">
