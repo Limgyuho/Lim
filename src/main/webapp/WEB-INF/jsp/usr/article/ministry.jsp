@@ -3,12 +3,12 @@
 <%@ include file="../common/head.jsp"%>
 <%@ include file="../home/topbar.jsp"%>
 
+<div class="text-5xl text-center">&lt; 협력부처 &gt;</div>
 <div class="flex justify-center mt-32 mb-32">
-	<div class="border-red w-5/12">
+	<div class="p-4 rounded-2xl border border-gray-300 w-5/12">
 		<div class="tbl_st">
 			<table class="w-full">
 				<caption>
-					<b class="text-5xl">&lt; 협력부처 &gt;</b>
 				</caption>
 				<colgroup>
 					<col class="w-20">
