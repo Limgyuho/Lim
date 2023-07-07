@@ -62,10 +62,17 @@
 				<li><a href="/usr/article/program">필수 프로그램</a></li>
 				<li><a href="/usr/article/leave">휴가/보고</a></li>
 				<li><a href="/usr/article/bus">통근 버스</a></li>
+				<li><a href="/usr/article/bus">통근 버스</a></li>
 			</ul>
 		</nav>
 	</div>
 </div>
+<section class="">
+		<div class="container mx-auto px-3 h-full ">
+			<a href="/usr/message/kakao" class="btn btn-success mr-2">카카오톡으로 가입문자 보내기</a>
+			<a href="/usr/message/test" class="btn btn-success">문자로 메시지 보내기</a>
+		</div>
+	</section>
 
 
 

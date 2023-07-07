@@ -20,3 +20,10 @@ mybatis:
   mapper-locations: classpath:com/koreaIT/demo/repository/*.xml
 file:
   dir: C:/Users/Administrator/Desktop/임규호
+  
+naver-cloud-sms:
+  accessKey: LdbrdlxG3vRcQHd0IMC7
+  secretKey: UAj8spEUxbosTA5fDwlbos2ZGLQgeBPCJwJL8oKG
+  serviceId: ncp:sms:kr:301436938187:home
+  
+  senderPhone: 01073756920

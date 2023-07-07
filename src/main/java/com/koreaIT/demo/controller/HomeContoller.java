@@ -32,6 +32,13 @@ public class HomeContoller {
 		this.rq = rq;
 	}
 
+	
+	@RequestMapping("/usr/home/select")
+	public String select() {
+		
+		return "usr/home/select";
+	}
+	
 	@RequestMapping("/usr/home/home")
 	public String showMain() {
 	
