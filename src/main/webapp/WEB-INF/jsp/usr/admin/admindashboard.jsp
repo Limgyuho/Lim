@@ -34,7 +34,13 @@
 			<button class="btn btn-link border-red-500 text-red-500 hover:text-red-700"onclick="showTab('suggestion')">요청 사항 목록</button>
 		</div>
 	<button class="btn btn-link border-red-500 text-red-500 hover:text-red-700"onclick="showTab('accesstTime')">멤버별 접속 시간</button>
-	
+		<div class="indicator">
+			<section class="">
+				<div class="container mx-auto px-3 h-full ">
+					<a href="/usr/message/test" class="btn btn-success">멤버별 문자전송</a>
+				</div>
+			</section>
+		</div>
 	<div id="joinRequests" class="tab-content m-10 "style="max-height: 400px; overflow-y: scroll;">
 		<div class="flex">
 			<h2 class="flex-grow-1 justify-content-end">총 인원:${joinRequestCnt} 명</h2>
@@ -228,6 +234,7 @@
 			</tbody>
 		</table>
 	</div>
+	
 
 
 	<div class="flex m-10">
