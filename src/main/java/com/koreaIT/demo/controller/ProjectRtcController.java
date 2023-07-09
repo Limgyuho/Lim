@@ -1,11 +1,11 @@
-package com.koreaIT.project.controller;
+package com.koreaIT.demo.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.koreaIT.project.dto.WebSocketMessage;
-import com.koreaIT.project.service.RtcChatService;
+import com.koreaIT.demo.dto.WebSocketMessage;
+import com.koreaIT.demo.service.RtcChatService;
 
 import lombok.RequiredArgsConstructor;
 

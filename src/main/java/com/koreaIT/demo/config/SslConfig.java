@@ -1,4 +1,4 @@
-package com.koreaIT.project.config;
+package com.koreaIT.demo.config;
 
 import org.apache.catalina.Context;
 import org.apache.catalina.connector.Connector;
