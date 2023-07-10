@@ -21,7 +21,7 @@ public class ProjectRtcController {
      * @param webSocketMessage rtcroom.js에서 보낸 방과 유저 정보가 담긴 메시지
      * @return 나 포함 2명 이상이면 true, 아니면 false를 문자화해서
      */
-	@RequestMapping("/project/webrtc/usercount")
+	@RequestMapping("/usr/webrtc/usercount")
 	@ResponseBody
     public String webRTC(WebSocketMessage webSocketMessage) {
 

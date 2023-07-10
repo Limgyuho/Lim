@@ -62,7 +62,7 @@
 				<li><a href="/usr/article/program">필수 프로그램</a></li>
 				<li><a href="/usr/article/leave">휴가/보고</a></li>
 				<li><a href="/usr/article/bus">통근 버스</a></li>
-				<li><a href="/usr/article/bus">통근 버스</a></li>
+				<li><a href="/usr/chat/roomlist">온나라 </a></li>
 			</ul>
 		</nav>
 	</div>

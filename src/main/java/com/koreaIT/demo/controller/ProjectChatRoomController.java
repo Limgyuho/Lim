@@ -38,7 +38,8 @@ public class ProjectChatRoomController {
      * @param model
      * @return 전체 채팅룸 리스트를 담아서 return
      */
-    @GetMapping("/project/chat/roomlist")
+
+    @GetMapping("/usr/chat/roomlist")
     public String goChatRoom(Model model){
 
     	// 원래 파라미터로 @AuthenticationPrincipal PrincipalDetails principalDetails 
@@ -46,7 +47,7 @@ public class ProjectChatRoomController {
     	
         model.addAttribute("list", chatServiceMain.findAllRoom());
 
-        return "project/chat/roomlist";
+        return "usr/chat/roomlist";
     }
     
     
@@ -58,7 +59,7 @@ public class ProjectChatRoomController {
      * @param rttr
      * @return 채팅방 생성 후 다시 /project/chat/roomlist 로 return
      */
-    @PostMapping("/project/chat/createroom")
+    @PostMapping("/usr/chat/createroom")
     public String createRoom(@RequestParam("roomName") String name,
                              @RequestParam(value = "maxUserCnt", defaultValue = "2") String maxUserCnt,
                              @RequestParam("chatType") String chatType,
@@ -73,7 +74,7 @@ public class ProjectChatRoomController {
         // post방식. 일회성으로 데이터를 전달하게 해서 새로고침하면 값이 사라진다.
         rttr.addFlashAttribute("roomName", room);
         
-        return "redirect:/project/chat/roomlist";
+        return "redirect:/usr/chat/roomlist";
     }
 
     /**
@@ -82,7 +83,7 @@ public class ProjectChatRoomController {
      * @param roomId 파라미터로 넘어오는 roomId 를 확인후 해당 roomId 를 기준으로
      * @return 채팅방을 찾아서 클라이언트를 chatroom 또는 rtcroom으로 보낸다.
      */
-    @GetMapping("/project/chat/enterRoom")
+    @GetMapping("/usr/chat/enterRoom")
     public String roomDetail(Model model, String roomId){
 
     	// 해당 id를 가진 room만 가져온다.
@@ -96,11 +97,11 @@ public class ProjectChatRoomController {
         
 
         if (ChatRoomDto.ChatType.MSG.equals(room.getChatType())) {
-            return "project/chat/chatroom";
+            return "usr/chat/chatroom";
         }else{
             model.addAttribute("uuid", rq.getLoginedMember().getName());
 
-            return "project/chat/rtcroom";
+            return "usr/chat/rtcroom";
         }
     }
 
@@ -110,13 +111,13 @@ public class ProjectChatRoomController {
      * @param roomId 방 번호
      * @return 삭제 후 채팅방 리스트 페이지로 돌려주기
      */
-    @GetMapping("/project/chat/delRoom")
+    @GetMapping("/usr/chat/delRoom")
     public String delChatRoom(String roomId){
 
         // roomId 기준으로 chatRoomMap 에서 그 room 삭제
         chatServiceMain.delChatRoom(roomId);
 
-        return "redirect:/project/chat/roomlist";
+        return "redirect:/usr/chat/roomlist";
     }
 
     /**
@@ -124,7 +125,7 @@ public class ProjectChatRoomController {
      * @param roomId roomlist.jsp에서 방 입장 눌렀을때 그 방 번호
      * @return 방 유저 명수 확인하고 입장 가능 여부를 true/false로 리턴
      */
-    @GetMapping("/project/chat/chkUserCnt")
+    @GetMapping("/usr/chat/chkUserCnt")
     @ResponseBody
     public boolean chUserCnt(String roomId){
 

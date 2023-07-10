@@ -77,7 +77,7 @@
                     	</c:choose>
                     </td>
                     <td>
-                        <a class="btn btn-primary btn-sm" href="/project/chat/delRoom?roomId=${room.roomId }" 
+                        <a class="btn btn-primary btn-sm" href="/usr/chat/delRoom?roomId=${room.roomId }" 
                         onclick="if(confirm('정말 삭제하시겠습니까?')==false) return false;">채팅방 삭제</a>
                     </td>
                 </tr>
@@ -96,7 +96,7 @@
 		                <h1 class="modal-title text-2xl mt-5">채팅방 생성</h1>
 		                <button type="button" class="btn-close"></button>
 		            </div>
-		            <form method="post" action="/project/chat/createroom" onsubmit="return createRoom()">
+		            <form method="post" action="/usr/chat/createroom" onsubmit="return createRoom()">
 		                <div class="modal-body">
 		                    <div class="mb-5">
 		                        <div class="col-form-label mb-2">방 이름</div>
