@@ -96,7 +96,7 @@
                         </div>
                     </div>
 
-                    <a href="/">
+                    <a href="/usr/chat/roomlist">
                         <button type="button" class="btn btn-outline-danger" id="exit" name="exit">
                             Exit Room
                         </button>

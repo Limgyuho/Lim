@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+	pageEncoding="UTF-8"%>
+<%@ include file="../common/head.jsp"%>
+<%@ include file="../home/topbar.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,7 +27,7 @@
 <body>
 
 
-<section class="mt-8 mx-auto text-xl">
+<section class="mt-8 mx-auto text-xl text-center">
 	<div class="container mx-auto px-3">
 	
         <c:if test="${rq.getLoginedMemberId() != 0 }">
@@ -115,7 +116,7 @@
 		                            <input class="form-check-input radio radio-primary" type="radio" name="chatType" id="rtcType" value="rtcChat">
 		                            &nbsp;&nbsp;
 		                            <label class="form-check-label" for="rtcType">
-		                                화상 채팅(1:1 Only)
+		                                화상 채팅(최대 30명)
 		                            </label>
 		                        </div>
 		                    </div>

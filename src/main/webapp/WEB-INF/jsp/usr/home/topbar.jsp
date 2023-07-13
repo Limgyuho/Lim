@@ -67,14 +67,6 @@
 		</nav>
 	</div>
 </div>
-<section class="">
-		<div class="container mx-auto px-3 h-full ">
-			<a href="/usr/message/kakao" class="btn btn-success mr-2">카카오톡으로 가입문자 보내기</a>
-			<a href="/usr/message/test" class="btn btn-success">문자로 메시지 보내기</a>
-		</div>
-	</section>
-
-
 
 <div class="flex">
 	<div class="flex">
@@ -89,7 +81,6 @@
 				</li>
 				<li class="mb-2"><span class="text-sm">이름:</span> <span
 					class="ml-2 text-base font-bold">${rq.loginedMember.name }</span></li>	
-				<li class="mb-4 Messenger text-blue-500 hover:underline">메신저</li>
 				<li><a href="/usr/member/doLogout"class="text-red-500 hover:underline">로그아웃</a></li>				
 			</ul>
 		</div>

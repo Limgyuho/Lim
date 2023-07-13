@@ -1,19 +1,16 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ include file="../common/head.jsp"%>
 <%@ include file="../home/topbar.jsp"%>
-<link rel="stylesheet"
-	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<%@ include file="../common/head.jsp"%>
 <div class="text-6xl text-center mb-14">휴가 보고</div>
 
 <div class="flex justify-center">
     <div class="p-4 rounded-2xl border border-gray-300 w-80 h-100 rounded-3xl p-8 m-3">
         <form action="/usr/article/leaveRequest" method="post">
             <label for="date" class="text-lg font-bold">날짜:</label>
-            <input type="text" id="date" name="date" autocomplete="off" class="p-2 border border-gray-300 rounded mb-4"><br>
+            <input type="date" id="date" name="date" autocomplete="off" class="p-2 border border-gray-300 rounded mb-4">
+
+            <br>
 
             <label for="vacationType1" class="text-lg font-bold">법정 휴가:</label>
             <select id="vacationType1" name="vacationType1" class="p-2 border border-gray-300 rounded mb-4">
@@ -44,7 +41,7 @@
                     성과와 공로가 인정되는 경우에는 10일 이내의 포상휴가를 줄 수 있습니다.</li>
             </ul>
 
-            <input type="submit" value="제출" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            <input type="submit" value="제출" class="border-blue hover:bg-blue-700 text-black font-bold py-2 px-4 rounded">
         </form>
     </div>
 
@@ -111,8 +108,8 @@
                                 </c:if>
                             </td>
                             <td class="border px-4 py-2">
-                                <a href="leaveAp?id=${vacation.id}&status=1" class="button bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">허가</a>
-                                <a href="leaveAp?id=${vacation.id}&status=-1" class="button bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">거부</a>
+                                <a href="leaveAp?id=${vacation.id}&status=1" class="button bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" data-id="${vacation.id}" data-status="1">허가</a>
+                                <a href="leaveAp?id=${vacation.id}&status=-1" class="button bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" data-id="${vacation.id}" data-status="-1">거부</a>
                             </td>
                         </tr>
                     </c:forEach>
@@ -145,6 +142,26 @@
         // Datepicker 설정
         $("#date").datepicker({
             dateFormat: "yy-mm-dd" // 날짜 형식 설정
+        });
+        // 허가/거부 버튼 클릭 이벤트 핸들러
+        $(".button").on("click", function(e) {
+            e.preventDefault(); // 링크 클릭 시 기본 동작 방지
+
+            var status = $(this).attr("data-status"); // 허가/거부 상태 가져오기
+            var row = $(this).closest("tr"); // 현재 행(row) 선택
+
+            // AJAX 요청을 통해 서버에 상태 업데이트 전송
+            $.ajax({
+                url: "leaveAp?id=" + $(this).attr("data-id") + "&status=" + status,
+                type: "GET",
+                success: function() {
+                    // 서버 요청이 성공적으로 완료되면 해당 행(row) 제거
+                    row.remove();
+                },
+                error: function() {
+                    alert("오류가 발생했습니다. 다시 시도해주세요.");
+                }
+            });
         });
     });
 </script>

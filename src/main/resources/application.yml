@@ -27,7 +27,7 @@ mybatis:
   type-aliases-package: com.koreaIT.demo.vo
   mapper-locations: classpath:com/koreaIT/demo/repository/*.xml
 file:
-  dir: C:/Users/Administrator/Desktop/임규호
+  dir: C:/Users/USER/Desktop/파일경로
   
 naver-cloud-sms:
   accessKey: LdbrdlxG3vRcQHd0IMC7

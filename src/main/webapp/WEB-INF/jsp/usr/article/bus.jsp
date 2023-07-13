@@ -12,7 +12,7 @@
 </div>
 
 <script type="text/javascript"
-	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1fe1923de2e82c0ac685df4ed7ab5021"></script>
+	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c548c50ed13da787785d46f51887ed0d"></script>
 <script>
         function openKakaoMap(latitude, longitude) {
             var modal = document.getElementById('myModal'); // 모달 창
@@ -459,18 +459,6 @@
 	</div>
 </div>
 
-<!-- <style> -->
-<!-- /* body { */ -->
-<!-- /* 	margin: 0; */ -->
-<!-- /* 	padding: 0; */ -->
-<!-- /* 	font-family: 'NotoSans', '돋움', 'Dotum', '굴림', 'Gulim', AppleGothic, */ -->
-<!-- /* 		UnDotum, Arial, Tahoma, Verdana, sans-serif; */ -->
-<!-- /* 	font-weight: 400; */ -->
-<!-- /* 	font-size: 0.75rem; */ -->
-<!-- /* 	color: #666; */ -->
-<!-- /* 	letter-spacing: -0.5px; */ -->
-<!-- /* } */ -->
-<!-- </style> -->
 <style>
 .mapdiv {
 	display: none;

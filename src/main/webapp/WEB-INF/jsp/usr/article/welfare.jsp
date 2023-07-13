@@ -17,7 +17,7 @@
 
 
 
-<div class="border-red w-7/12 m-auto">
+<div class="rounded-lg border border-gray-300 w-7/12 m-auto">
 	<dl class="qna-wrap">
 		<dt class="">
 			<a href="#none" onclick="javascript:opendata(21)"><i>[질문]</i>외국에

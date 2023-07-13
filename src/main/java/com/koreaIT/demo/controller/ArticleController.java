@@ -204,11 +204,7 @@ public class ArticleController {
 		return "usr/article/organization";
 	}
 
-	@RequestMapping("/usr/article/api")
-	public String showapi() {
 
-		return "usr/article/api";
-	}
 
 	@RequestMapping("/usr/article/transferList")
 	public String showTransfer(@RequestParam(defaultValue = "1") int page, Model model) {

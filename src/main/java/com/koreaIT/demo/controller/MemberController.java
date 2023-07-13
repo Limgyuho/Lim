@@ -55,8 +55,9 @@ public class MemberController {
 
 		Member member = memberService.getMemberByLoginId(loginId);
 
+		
 		if (member == null) {
-			return Util.jsHistoryBack(Util.f("%s은(는) 존재하지 않는 아이디입니다", loginId));
+			return Util.jsHistoryBack(Util.f("%s은(는) 가입 승인 대기중이거나 존재하지 않습니다", loginId));
 		}
 
 		if (member.getLoginPw().equals(loginPw) == false) {
